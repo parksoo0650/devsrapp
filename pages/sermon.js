@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Header } from "semantic-ui-react";
 import styles from '../styles/Home.module.css';
 import Link from "next/link";
 import axios from "axios";
@@ -12,27 +13,26 @@ export default function Sermon() {
         setDatas(api_data.data.items);
     };
 
-    console.log(datas);
-
     useEffect(() => {
         getData();
     }, []);
 
     return (
         <div className={styles.container}>
-            <div>
+            <Header as="h3" style={{ paddingTop: 40 }}>
                 <Link href="/">Home</Link>
-            </div>
-            <div>주일설교</div>
+            </Header>
             {datas.map((data, i) => (
-                <div key={i}>
-                    <a href={`https://www.youtube.com/watch?v=${data.snippet.resourceId.videoId}`}>
-                        <p>
-                            <img width={data.snippet.thumbnails.medium.width} height={data.snippet.thumbnails.medium.height} src={data.snippet.thumbnails.medium.url} alt="" />
-                        </p>
-                        <h3>{data.snippet.title}</h3>
-                    </a>
-                </div>
+                <>
+                    <div key={i}>
+                        <a href={`https://www.youtube.com/watch?v=${data.snippet.resourceId.videoId}`}>
+                            <p>
+                                <img width={data.snippet.thumbnails.medium.width} height={data.snippet.thumbnails.medium.height} src={data.snippet.thumbnails.medium.url} alt="" />
+                            </p>
+                            <h3>{data.snippet.title}</h3>
+                        </a>
+                    </div>
+                </>
             ))}
         </div>
     );

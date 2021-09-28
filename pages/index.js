@@ -1,17 +1,14 @@
+import { Header } from "semantic-ui-react";
 import styles from '../styles/Home.module.css';
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Header as="h3" style={{ paddingTop: 40 }}>
+      to do list
+      </Header>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="/">SRAPP</a>
-        </h1>
-        <p className={styles.description}>
-          to do list
-        </p>
-
         <div className={styles.grid}>
           <Link href="/sermon">
             <a className={styles.card}>
