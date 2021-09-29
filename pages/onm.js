@@ -3,11 +3,11 @@ import styles from '../styles/Home.module.css';
 import Link from "next/link";
 import axios from "axios";
 
-export default function Sermon() {
+export default function Onm() {
     const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
     // const CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID;
-    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_21_SERVICE;
+    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ONMORMING;
     const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
     const [datas, setDatas] = useState([]);
 

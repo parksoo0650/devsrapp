@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
 import Link from "next/link";
 
-export default function Weekly() {
+export default function Notice() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
@@ -11,7 +11,7 @@ export default function Weekly() {
             </header>
             <main className={styles.main}>
                 <div className={styles.grid}>
-                    <p>주보</p>
+                    <p>공지사항</p>
                 </div>
             </main>
             <footer className={styles.footer}>
