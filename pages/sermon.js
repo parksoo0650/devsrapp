@@ -23,8 +23,8 @@ export default function Sermon() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Link href="/">
-                    <h3>Home</h3>
+                <Link href="/sermonmain">
+                    <h3>대예배</h3>
                 </Link>
             </header>
             <main className={styles.main}>

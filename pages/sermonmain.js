@@ -1,17 +1,22 @@
 import styles from '../styles/Home.module.css';
 import Link from "next/link";
 
-export default function Notice() {
+export default function Sermonmain() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
                 <Link href="/">
-                    <h3>Home</h3>
+                    <h3>말씀메인</h3>
                 </Link>
             </header>
             <main className={styles.main}>
                 <div className={styles.grid}>
-                    <p>공지사항</p>
+                    <Link href="/sermon">
+                        <p>Youtube api 대예배</p>
+                    </Link>
+                    <Link href="/berea">
+                        <p>Youtube api 환언특강</p>
+                    </Link>
                 </div>
             </main>
             <footer className={styles.footer}>

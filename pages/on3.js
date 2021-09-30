@@ -23,8 +23,8 @@ export default function On3() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Link href="/">
-                    <h3>Home</h3>
+                <Link href="/onmain">
+                    <h3>온삼분</h3>
                 </Link>
             </header>
             <main className={styles.main}>

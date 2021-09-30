@@ -1,17 +1,17 @@
 import styles from '../styles/Home.module.css';
 import Link from "next/link";
 
-export default function Weekly() {
+export default function Praisedetail() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Link href="/">
-                    <h3>Home</h3>
+                <Link href="/praiselist">
+                    <h3>찬송상세</h3>
                 </Link>
             </header>
             <main className={styles.main}>
                 <div className={styles.grid}>
-                    <p>주보</p>
+                    <p>내용</p>
                 </div>
             </main>
             <footer className={styles.footer}>

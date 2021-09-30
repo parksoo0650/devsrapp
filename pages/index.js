@@ -8,26 +8,23 @@ export default function Home() {
         <h3>main page</h3>
       </header>
       <main className={styles.main}>
-        <Link href="/sermon">
-          <p>Youtube api 주일설교</p>
+        <Link href="/sermonmain">
+          <p>말씀</p>
         </Link>
-        <Link href="/onm">
-          <p>Youtube api 온특새</p>
+        <Link href="/onmain">
+          <p>온콘텐츠</p>
         </Link>
-        <Link href="/on3">
-          <p>Youtube api 온삼분</p>
+        <Link href="/biblemain">
+          <p>성경/찬송가</p>
         </Link>
-        <Link href="/onb">
-          <p>Youtube api 온성경</p>
+        <Link href="/praisemain">
+          <p>찬양</p>
         </Link>
-        <Link href="/bible">
-          <p>성경 api</p>
-        </Link>
-        <Link href="/weekly">
+        <Link href="/weeklymain">
           <p>주보</p>
         </Link>
-        <Link href="/notice">
-          <p>공지사항</p>
+        <Link href="/csmain">
+          <p>더보기</p>
         </Link>
       </main>
       <footer className={styles.footer}>

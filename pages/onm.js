@@ -23,8 +23,8 @@ export default function Onm() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Link href="/">
-                    <h3>Home</h3>
+                <Link href="/onmain">
+                    <h3>온특새</h3>
                 </Link>
             </header>
             <main className={styles.main}>
