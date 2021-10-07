@@ -13,6 +13,7 @@ export default function Sermon() {
 
     const getData = async () => {
         const api_data = await axios.get(API_URL);
+        console.log(api_data.data.items);
         setDatas(api_data.data.items);
     };
 
@@ -33,7 +34,11 @@ export default function Sermon() {
                         <div className={styles.card} key={i}>
                             <a href={`https://www.youtube.com/watch?v=${data.snippet.resourceId.videoId}`}>
                                 <p>
+                                    {
+                                    (data.snippet.thumbnails.medium) ?
                                     <img width={data.snippet.thumbnails.medium.width} height={data.snippet.thumbnails.medium.height} src={data.snippet.thumbnails.medium.url} alt="" />
+                                    : ""
+                                    }
                                 </p>
                                 <h3>{data.snippet.title}</h3>
                             </a>

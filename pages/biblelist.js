@@ -12,7 +12,7 @@ export default function Biblelist() {
             <main className={styles.main}>
                 <div className={styles.grid}>
                     <Link href="/bibledetail">
-                        <p>리스트1</p>
+                        <p>창세기</p>
                     </Link>
                 </div>
             </main>

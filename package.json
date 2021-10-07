@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.21.4",
     "firebase": "^9.1.0",
+    "firestore-export-import": "^0.17.0",
     "global": "^4.4.0",
     "localforage": "^1.10.0",
     "next": "latest",
