@@ -1,24 +1,19 @@
-import styles from '../styles/Home.module.css';
+import { useRouter } from "next/router";
 import Link from "next/link";
+import styles from '../styles/Home.module.css';
 
 export default function Praiselist() {
+    const router = useRouter();
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link href="/biblemain">
-                    <h3>찬송목차</h3>
-                </Link>
-            </header>
+            <div onClick={() => { router.push("/biblemain"); }}>찬송</div>
             <main className={styles.main}>
                 <div className={styles.grid}>
                     <Link href="/praisedetail">
-                        <p>리스트1</p>
+                        <p>리스트</p>
                     </Link>
                 </div>
             </main>
-            <footer className={styles.footer}>
-                <h3>footer</h3>
-            </footer>
         </div>
     );
 }

@@ -1,27 +1,17 @@
+import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css';
-import Link from "next/link";
 
 export default function Csnotice() {
+    const router = useRouter();
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link href="/csmain">
-                    <h3>공지사항</h3>
-                </Link>
-            </header>
+            <div onClick={() => { router.push("/csmain"); }}>공지사항</div>
             <main className={styles.main}>
                 <div className={styles.grid}>
-                    <Link href="/boardview">
-                        <p>리스트</p>
-                    </Link>
-                    <Link href="/boardwrite">
-                        <p>글쓰기</p>
-                    </Link>
+                    <div onClick={() => { router.push("/boardview"); }}>리스트</div>
+                    <div onClick={() => { router.push("/boardwrite"); }}>글쓰기</div>
                 </div>
             </main>
-            <footer className={styles.footer}>
-                <h3>footer</h3>
-            </footer>
         </div>
     );
 }

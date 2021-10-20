@@ -1,13 +1,24 @@
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import styles from '../styles/Home.module.css';
-import Link from "next/link";
 import axios from "axios";
+import styles from '../styles/Home.module.css';
 
-export default function Onb() {
+export default function Onm() {
+    const router = useRouter();
     const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    // const CHANNEL_ID = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL_ID;
-    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ONBIBLE;
+    let PLAYLIST_ID = "";
+    let on_title = "";
+    if(router.query.flag==1) {
+        PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ONMORMING;
+        on_title = "온특새";
+    } else if(router.query.flag==2) {
+        PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ON3MINUTES;
+        on_title = "온삼분";
+    } else if(router.query.flag==3) {
+        PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_ONBIBLE;
+        on_title = "온성경";
+    }
     const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
     const [datas, setDatas] = useState([]);
 
@@ -22,11 +33,7 @@ export default function Onb() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link href="/onmain">
-                    <h3>온성경</h3>
-                </Link>
-            </header>
+            <div onClick={() => { router.push("/onmain"); }}>{on_title}</div>
             <main className={styles.main}>
                 <div className={styles.grid}>
                     {datas.map((data, i) => (
@@ -35,7 +42,7 @@ export default function Onb() {
                                 <p>
                                     <img width={data.snippet.thumbnails.medium.width} height={data.snippet.thumbnails.medium.height} src={data.snippet.thumbnails.medium.url} alt="" />
                                 </p>
-                                <h3>{data.snippet.title}</h3>
+                                <p>{data.snippet.title}</p>
                             </a>
                         </div>
                     ))}

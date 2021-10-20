@@ -1,30 +1,15 @@
+import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css';
-import Link from "next/link";
 
 export default function Onmain() {
+    const router = useRouter();
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Link href="/">
-                    <h3>온콘텐츠</h3>
-                </Link>
-            </header>
-            <main className={styles.main}>
-                <div className={styles.grid}>
-                    <Link href="/onm">
-                        <p>Youtube api 온특새</p>
-                    </Link>
-                    <Link href="/on3">
-                        <p>Youtube api 온삼분</p>
-                    </Link>
-                    <Link href="/onb">
-                        <p>Youtube api 온성경</p>
-                    </Link>
-                </div>
-            </main>
-            <footer className={styles.footer}>
-                <h3>footer</h3>
-            </footer>
+            <div className={styles.grid}>
+                <div onClick={() => { router.push("/onsub?flag=1"); }}>온특새</div>
+                <div onClick={() => { router.push("/onsub?flag=2"); }}>온삼분</div>
+                <div onClick={() => { router.push("/onsub?flag=3"); }}>온성경</div>
+            </div>
         </div>
     );
 }
