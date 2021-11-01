@@ -9,16 +9,28 @@ export default function Biblelist({ list }) {
     const router = useRouter();
     return (
         <div className={styles.container}>
-            <div onClick={() => { router.push("/biblemain"); }}>성경</div>
             <BookConsumer>
                 {({ book_name }) => (
-                    <main className={styles.main}>
+                    <main style={{ display: "flex", flexWrap: "wrap", padding: "10px", justifyContent: "center" }}>
                         {list.map((item, i) => (
-                            <div key={i}>
-                                <Link href="/book/[id]" as={`/book/${item.book}`}>
+                            <Link href="/book/[id]" as={`/book/${item.book}`}>
+                                <div key={i}
+                                    style={{
+                                        flexBasis: "48%",
+                                        fontSize: "12px",
+                                        color: "#333",
+                                        fontWeight: "700",
+                                        margin: "3.5px",
+                                        padding: "3px",
+                                        border: "1px solid #ccc",
+                                        borderRadius: "10px",
+                                        display: "flex",
+                                        justifyContent: "center",
+                                    }}
+                                >
                                     <p>{book_name[item.book]}</p>
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         ))}
                     </main>
                 )}

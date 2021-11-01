@@ -14,13 +14,24 @@ const Post = ({ items, bid }) => {
                     </Link>
                 )}
             </BookConsumer>
-            <main className={styles.main}>
+            <main style={{ width: "90%", display: "flex", flexWrap: "wrap", borderLeft: "1px solid #ccc", borderTop: "1px solid #ccc" }}>
                 {items.map((item, i) => (
-                    <div key={i}>
-                        <Link href="/chapter/[id]" as={`/chapter/${item.book}_${item.chapter}`}>
+                    <Link href="/chapter/[id]" as={`/chapter/${item.book}_${item.chapter}`}>
+                        <div key={i}
+                            style={{
+                                flexBasis: "20%",
+                                fontSize: "12px",
+                                color: "#333",
+                                fontWeight: "700",
+                                borderRight: "1px solid #ccc",
+                                borderBottom: "1px solid #ccc",
+                                display: "flex",
+                                justifyContent: "center",
+                            }}
+                        >
                             <p>{item.chapter}장</p>
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 ))}
             </main>
         </div>

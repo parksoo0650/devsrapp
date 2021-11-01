@@ -15,7 +15,7 @@ const Post = ({ items, bid }) => {
                     </Link>
                 )}
             </BookConsumer>
-            <main className={styles.main}>
+            <main style={{ width: "90%", display: "flex", flexDirection: "column" }}>
                 {items.map((item, i) => (
                     <div key={i}>
                         <p>{item.verse}. {item.content}</p>

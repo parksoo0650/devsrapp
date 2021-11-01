@@ -5,6 +5,7 @@ import axios from "axios";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import Sheet from 'react-modal-sheet';
+import YouTube from 'react-youtube';
 
 export default function Home() {
 
@@ -28,6 +29,15 @@ export default function Home() {
   const [sliderRef, slider] = useKeenSlider();
 
   let [isOpen, setOpen] = useState(false);
+
+  const opts = {
+    width: "320px",
+    height: "200px",
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+    },
+  };
 
   return (
     <div className={styles.container}>
@@ -71,28 +81,28 @@ export default function Home() {
       </div>
 
       <div style={{ width: "100%", display: "flex", marginTop: "10px" }}>
-        <div style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} onClick={() => { router.push("/biblelist"); }}>성경</div>
+        <div onClick={() => { router.push("/biblelist"); }} style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
+          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >성경</div>
         </div>
-        <div style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} onClick={() => { router.push("/praiselist"); }}>찬송</div>
+        <div onClick={() => { router.push("/praiselist"); }} style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
+          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >찬송</div>
         </div>
       </div>
 
       <div style={{ width: "100%", display: "flex", marginTop: "10px", marginBottom: "10px" }}>
-        <div style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} onClick={() => { router.push("/weeklymain"); }}>주보</div>
+        <div onClick={() => { router.push("/weeklymain"); }} style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
+          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >주보</div>
         </div>
-        <div style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} onClick={() => { router.push("/csmain"); }}>더보기</div>
+        <div onClick={() => { router.push("/csmain"); }} style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
+          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >더보기</div>
         </div>
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "10px" }}>
-        <iframe id="player" width="100%" type="text/html" src={`http://www.youtube.com/embed/${datas}`} frameborder="0"></iframe>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "10px" }}>
+        <YouTube videoId={datas} opts={opts} />
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", padding: "30px" }}>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", margin: "20px" }}>
         <button onClick={() => setOpen(true)}>Open popup</button>
         <Sheet
           isOpen={isOpen}
