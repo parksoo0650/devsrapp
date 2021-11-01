@@ -1,10 +1,11 @@
 .container {
-  padding: 0.5rem;
+  /* padding-bottom: 0.5rem; */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
+  flex:1;
 }
 
 .main {
@@ -85,4 +86,20 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.react-modal-sheet-backdrop {
+  /* custom styles */
+}
+.react-modal-sheet-container {
+  /* custom styles */
+}
+.react-modal-sheet-header {
+  /* custom styles */
+}
+.react-modal-sheet-drag-indicator {
+  /* custom styles */
+}
+.react-modal-sheet-content {
+  /* custom styles */
 }
