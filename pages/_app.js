@@ -16,6 +16,8 @@ export default function MyApp({ Component, pageProps }) {
         />
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
+        <meta name="theme-color" content="#317EFB" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>SRAPP</title>
 
         <link rel="manifest" href="/manifest.json" />
@@ -32,7 +34,7 @@ export default function MyApp({ Component, pageProps }) {
           sizes="32x32"
         />
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
-        <meta name="theme-color" content="#317EFB" />
+        <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash_test.jpg"></link>
       </Head>
       <BookProvider>
         <Top />

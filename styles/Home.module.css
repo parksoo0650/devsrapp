@@ -81,6 +81,10 @@
   height: 1em;
 }
 
+.active {
+  color: red;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

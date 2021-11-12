@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
+import Layout from "../src/components/WeeklyLayout";
 
-export default function Weeklywords() {
-    const router = useRouter();
+export default function weeklywords() {
     return (
-        <div className={styles.container}>
-            <div onClick={() => { router.push("/weeklymain"); }}>주중말씀</div>
-            <main className={styles.main}>
-                <div className={styles.grid}>
-                    <p>내용</p>
-                </div>
-            </main>
-        </div>
+        <Layout>
+            <img
+                src="/images/w4.png"
+                alt="주중말씀샘플이미지"
+                style={{ display: "block", width: "100%" }}
+            />
+        </Layout>
     );
 }

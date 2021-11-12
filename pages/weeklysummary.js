@@ -1,16 +1,13 @@
-import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
+import Layout from "../src/components/WeeklyLayout";
 
-export default function Weeklysummary() {
-    const router = useRouter();
+export default function weeklysummary() {
     return (
-        <div className={styles.container}>
-            <div onClick={() => { router.push("/weeklymain"); }}>설교요약</div>
-            <main className={styles.main}>
-                <div className={styles.grid}>
-                    <p>내용</p>
-                </div>
-            </main>
-        </div>
+        <Layout>
+            <img
+                src="/images/w3.png"
+                alt="설교요약샘플이미지"
+                style={{ display: "block", width: "100%" }}
+            />
+        </Layout>
     );
 }
