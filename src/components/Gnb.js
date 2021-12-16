@@ -2,11 +2,13 @@ import { useRouter } from "next/router";
 
 export default function Gnb() {
     const router = useRouter();
-
     return (
-        <div style={{ flex: 1, display: "flex", paddingLeft: 10, paddingRight: 10, justifyContent: "space-between" }}>
-            <div onClick={() => { router.push("/"); }}>home</div>
-            <div onClick={() => { router.push("/admin"); }}>admin</div>
+        <div class="inner">
+            <h1 class="logo" onClick={() => { router.push("/"); }}>
+                <img src="../images/logo.svg" alt="성락교회" />
+            </h1>
+            <span style={{float: "right", marginRight: "40px", lineHeight: "36px"}} onClick={() => { router.push("/admin"); }}>관리자</span>
+            <span class="alarm on"></span>
         </div>
     );
 }

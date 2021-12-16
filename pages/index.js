@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div ref={sliderRef} className="keen-slider" style={{}}>
-        <div className="keen-slider__slide" style={{ width: "414px", height: "200px", overflow: "hidden", backgroundImage: "url('/images/main_bn_1.png')", backgroundPosition: "center center", backgroundRepeat: "no-repeat", backgroundSize: "cover", padding: "10px 10px" }}>
+        <div className="keen-slider__slide" style={{ width: "414px", height: "200px", overflow: "hidden", backgroundImage: "url('/images/main/banner01.png')", backgroundPosition: "center center", backgroundRepeat: "no-repeat", backgroundSize: "cover", padding: "10px 10px" }}>
           {/* <div style={{ fontSize: "28px", color: "#fff", fontWeight: "500" }}>Banner Title 1</div>
           <div style={{ fontSize: "14px", color: "#fff", fontWeight: "500" }}>sub Title 1</div> */}
         </div>

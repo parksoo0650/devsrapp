@@ -1,41 +1,170 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@charset "utf-8";
+
+/**********************************************************
+	FONT
+***********************************************************/
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: normal;
+	font-weight: 300;
+	src: url("fonts/NotoSansKR-Light.woff2") format("woff2"),
+		url("fonts/NotoSansKR-Light.woff") format("woff"),
+		url("fonts/NotoSansKR-Light.otf") format("opentype");
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/NotoSansKR-Regular.woff2") format("woff2"),
+		url("fonts/NotoSansKR-Regular.woff") format("woff"),
+		url("fonts/NotoSansKR-Regular.otf") format("opentype");
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: normal;
+	font-weight: 500;
+	src: url("fonts/NotoSansKR-Medium.woff2") format("woff2"),
+		url("fonts/NotoSansKR-Medium.woff") format("woff"),
+		url("fonts/NotoSansKR-Medium.otf") format("opentype");
+}
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: normal;
+	font-weight: 600;
+	src: url("fonts/NotoSansKR-Bold.woff2") format("woff2"),
+		url("fonts/NotoSansKR-Bold.woff") format("woff"),
+		url("fonts/NotoSansKR-Bold.otf") format("opentype");
 }
 
+/**********************************************************
+	CSS RESET
+***********************************************************/
+body, input, textarea, select, button, table {
+	margin: 0;
+	font-size: 13px;
+	font-family: "Noto Sans KR";
+	font-weight: 300;
+	letter-spacing: -0.5px;
+	color: #222;
+}
+body, h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, form, fieldset, legend, button, section {
+	margin: 0;
+	padding: 0;
+	font-size: 13px;
+	font-weight: normal;
+	box-sizing: border-box;
+}
+span, div {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+img, fieldset {
+	border: 0 none;
+}
+dl, ul, ol, li {
+	list-style: none outside none;
+}
+button {
+	border: 0 none;
+	cursor: pointer;
+	display: block;
+	outline: 0;
+}
+table, th, td {
+	border-collapse: collapse;
+}
+label {
+	cursor: pointer;
+}
+
+a, img, input {
+	outline: none;
+}
+input[type="image"] {
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+li img, td img {
+	vertical-align: middle;
+}
 a {
-  color: inherit;
-  text-decoration: none;
+	text-decoration: none;
+	color: #333;
 }
-
-* {
-  box-sizing: border-box;
+a:hover, a:active, a:focus {
+	color: #333;
+	text-decoration: none;
+}
+table a:link, table a:visited {
+	color: #333;
+}
+table a:hover, table a:active {
+	color: #333;
+	text-decoration: underline;
+}
+address, caption, cite, code, dfn, em, var {
+	font-style: normal;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+strong {
+	font-weight: 500;
+}
+legend, caption {
+	display: none !important;
 }
 
 #__next{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
+
 header {
-  width: 100%;
-  height: 50px;
-  border-bottom: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background-color: #fff;
+}
+header .inner {
+	position: relative;
+	padding: 10px;
+}
+header .logo {
+	display: inline-block;
+	width: 112px;
+	height: 36px;
+}
+header .alarm {
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	width: 36px;
+	height: 36px;
+	background: url('/icons/ico_alarm.svg') no-repeat center center;
+}
+header .alarm.on:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	right: 9px;
+	top: 5px;
+	width: 4px;
+	height: 4px;
+	background-color: #ea7910;
+	border: 2px solid #fff;
+	border-radius: 50%;
 }
 
 footer {
-  width: 100%;
-  height: 50px;
-  border-top: 1px solid #eaeaea;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	width: 100%;
+	height: 50px;
+	border-top: 1px solid #eaeaea;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
