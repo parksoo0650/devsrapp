@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   return (
-    <div className={styles.container}>
+    <div class="container">
       <div ref={sliderRef} className="keen-slider" style={{}}>
         <div className="keen-slider__slide" style={{ width: "414px", height: "200px", overflow: "hidden", backgroundImage: "url('/images/main/banner01.png')", backgroundPosition: "center center", backgroundRepeat: "no-repeat", backgroundSize: "cover", padding: "10px 10px" }}>
           {/* <div style={{ fontSize: "28px", color: "#fff", fontWeight: "500" }}>Banner Title 1</div>
@@ -50,6 +50,167 @@ export default function Home() {
           {/* <div style={{ fontSize: "28px", color: "#fff", fontWeight: "500" }}>Banner Title 2</div>
           <div style={{ fontSize: "14px", color: "#fff", fontWeight: "500" }}>sub Title 2</div> */}
         </div>
+      </div>
+
+      <div class="section">
+				<div class="title">실시간 라이브</div>
+				<div class="movie_wrap">
+        	<YouTube videoId={datas} opts={opts} />
+					<div class="info">
+						<span class="btn_share"></span>
+						<div class="tit">
+							<a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+						</div>
+						<div class="date">2021. 11. 05</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="section pt0">
+				<div class="title">요일별 컨텐츠</div>
+        <div class="days_wrap">
+          <ul class="day_list">
+            <li class="on">주일</li>
+            <li>월</li>
+            <li>화</li>
+            <li>수</li>
+            <li>목</li>
+            <li>금</li>
+            <li>토</li>
+          </ul>
+          <ul class="con_list">
+            <li>
+              <div class="movie">
+                <YouTube videoId={datas} opts={opts} />
+              </div>
+              <div class="info">
+                <div class="tit">환원베뢰아 특강 <span class="tag_up">UP</span></div>
+                <div class="date">2021. 11. 20</div>
+              </div>
+            </li>
+            <li>
+              <div class="movie">
+                <YouTube videoId={datas} opts={opts} />
+              </div>
+              <div class="info">
+                <div class="tit">환원베뢰아 특강 <span class="tag_up">UP</span></div>
+                <div class="date">2021. 11. 20</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+			</div>
+
+			<div class="section quick_wrap">
+				<div class="title">빠른접근</div>
+        <ul class="quick_menu">
+          <li>
+            <div class="img"></div>
+            <div class="txt">예배</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">찬양</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">주보</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">온시리즈</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">성경</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">찬송가</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">헌금안내</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">교회소식</div>
+          </li>
+        </ul>
+			</div>
+
+      <div class="section">
+        <div class="title">은혜로운 연합 예배 찬양 <a href="#" class="more">전체보기</a></div>
+        <div class="slide_wrap">
+          <div class="movie_wrap">
+            <YouTube videoId={datas} opts={opts} />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+              </div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </div>
+          <div class="movie_wrap">
+            <YouTube videoId={datas} opts={opts} />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+              </div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section pt0">
+        <div class="title">예수로 찬양 <a href="#" class="more">전체보기</a></div>
+        <div class="slide_wrap">
+          <div class="movie_wrap">
+            <YouTube videoId={datas} opts={opts} />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+              </div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </div>
+          <div class="movie_wrap">
+            <YouTube videoId={datas} opts={opts} />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+              </div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section pt0">
+        <div class="title">성락교회 미래세대</div>
+        <ul class="future_generation">
+          <li>
+            <div class="img"></div>
+            <div class="txt">청년부</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">대학부</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">고등부</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">중등부</div>
+          </li>
+          <li>
+            <div class="img"></div>
+            <div class="txt">유치부</div>
+          </li>
+        </ul>
       </div>
 
       <div style={{ width: "100%", display: "flex", marginTop: "10px" }}>
@@ -98,7 +259,7 @@ export default function Home() {
         <YouTube videoId={datas} opts={opts} />
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", margin: "20px" }}>
+      <div style={{ width: "100%", display: "flex", justifyContent: "center", margin: "20px 0" }}>
         <button onClick={() => setOpen(true)}>Open popup</button>
         <Sheet
           isOpen={isOpen}
