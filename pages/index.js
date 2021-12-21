@@ -104,19 +104,19 @@ export default function Home() {
 			<div class="section quick_wrap">
 				<div class="title">빠른접근</div>
         <ul class="quick_menu">
-          <li>
+          <li onClick={() => { router.push("/sermon"); }}>
             <div class="img"></div>
             <div class="txt">예배</div>
           </li>
-          <li>
+          <li onClick={() => { router.push("/praisesub"); }}>
             <div class="img"></div>
             <div class="txt">찬양</div>
           </li>
-          <li>
+          <li onClick={() => { router.push("/weeklymain"); }}>
             <div class="img"></div>
             <div class="txt">주보</div>
           </li>
-          <li>
+          <li onClick={() => { router.push("/onsub"); }}>
             <div class="img"></div>
             <div class="txt">온시리즈</div>
           </li>
@@ -124,7 +124,7 @@ export default function Home() {
             <div class="img"></div>
             <div class="txt">성경</div>
           </li>
-          <li>
+          <li onClick={() => { router.push("/praiselist"); }}>
             <div class="img"></div>
             <div class="txt">찬송가</div>
           </li>
@@ -213,53 +213,17 @@ export default function Home() {
         </ul>
       </div>
 
-      <div style={{ width: "100%", display: "flex", marginTop: "10px" }}>
-        <div style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >예배</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/sermon?flag=1"); }}>대예배</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/sermon?flag=2"); }}>환언특강</div>
-        </div>
-        <div style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >찬양</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/praisesub?flag=1"); }}>주일예배찬양</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/praisesub?flag=2"); }}>연합예배찬양</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/praisesub?flag=3"); }}>성가대찬양</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/praisesub?flag=4"); }}>헌금송</div>
-        </div>
-      </div>
-
-      <div style={{ width: "100%", display: "flex", marginTop: "10px" }}>
-        <div style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >온라인 콘텐츠</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/onsub?flag=1"); }}>온특새</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/onsub?flag=2"); }}>온삼분</div>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "500", marginBottom: "2px" }} onClick={() => { router.push("/onsub?flag=3"); }}>온성경</div>
-        </div>
-      </div>
-
-      <div style={{ width: "100%", display: "flex", marginTop: "10px" }}>
-        <div onClick={() => { router.push("/biblelist"); }} style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >성경</div>
-        </div>
-        <div onClick={() => { router.push("/praiselist"); }} style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >찬송</div>
-        </div>
-      </div>
-
-      <div style={{ width: "100%", display: "flex", marginTop: "10px", marginBottom: "10px" }}>
-        <div onClick={() => { router.push("/weeklymain"); }} style={{ backgroundColor: "#eee", marginLeft: "10px", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >주보</div>
-        </div>
+      <div style={{ width: "100%", display: "none", marginTop: "10px", marginBottom: "10px" }}>
         <div onClick={() => { router.push("/csmain"); }} style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
           <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >더보기</div>
         </div>
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", marginTop: "10px" }}>
+      <div style={{ width: "100%", display: "none", justifyContent: "center", marginTop: "10px" }}>
         <YouTube videoId={datas} opts={opts} />
       </div>
 
-      <div style={{ width: "100%", display: "flex", justifyContent: "center", margin: "20px 0" }}>
+      <div style={{ width: "100%", display: "none", justifyContent: "center", margin: "20px 0" }}>
         <button onClick={() => setOpen(true)}>Open popup</button>
         <Sheet
           isOpen={isOpen}

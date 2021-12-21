@@ -164,13 +164,41 @@ header .alarm.on:after {
 	border-radius: 50%;
 }
 
+
+/**********************************************************
+	FOOTER
+***********************************************************/
 footer {
-	width: 100%;
-	height: 50px;
+	position: relative;
+	padding: 30px 15px;
+	background-color: #f9f9f9;
 	border-top: 1px solid #eaeaea;
+}
+footer .f_logo {
+	width: 82px;
+}
+footer .f_logo img {
+	width: 100%;
+}
+footer address {
+	margin-top: 20px;
+	color: #999;
+	font-size: 12px;
+	line-height: 17px;
+}
+footer .address_eng {
+	margin-top: 5px;
+	color: #999;
+	font-size: 10px;
+}
+footer .sns_list {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	position: absolute;
+	right: 15px;
+	top: 30px;
+}
+footer .sns_list li + li {
+	margin-left: 8px;
 }
 
 /**********************************************************
