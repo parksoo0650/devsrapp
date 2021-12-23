@@ -44,10 +44,10 @@ export default function Bibledetail() {
     }, []);
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <h3 onClick={goBook}>{book_name[book]} {chapter}장</h3>
-            </header>
+        <div class="container">
+            <div class="top_area">
+                <div class="top_title" onClick={goBook}>{book_name[book]} {chapter}장</div>
+            </div>
             <main className={styles.main}>
                 {list.map((item, i) => (
                     <div key={i}>

@@ -2,12 +2,19 @@ import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+
+// import Swiper core and required modules
+import SwiperCore, {
+  Autoplay,Pagination,Navigation
+} from 'swiper';
+
+// install Swiper modules
+SwiperCore.use([Autoplay,Pagination,Navigation]);
+
 
 export default function Home() {
 
@@ -28,7 +35,6 @@ export default function Home() {
   }, []);
 
   const router = useRouter();
-  const [sliderRef, slider] = useKeenSlider();
 
   let [isOpen, setOpen] = useState(false);
 
@@ -43,21 +49,31 @@ export default function Home() {
 
   return (
     <div class="container">
-      <div ref={sliderRef} className="keen-slider" style={{}}>
-        <div className="keen-slider__slide" style={{ width: "414px", height: "200px", overflow: "hidden", backgroundImage: "url('/images/main/banner01.png')", backgroundPosition: "center center", backgroundRepeat: "no-repeat", backgroundSize: "cover", padding: "10px 10px" }}>
-          {/* <div style={{ fontSize: "28px", color: "#fff", fontWeight: "500" }}>Banner Title 1</div>
-          <div style={{ fontSize: "14px", color: "#fff", fontWeight: "500" }}>sub Title 1</div> */}
-        </div>
-        <div className="keen-slider__slide" style={{ width: "414px", height: "200px", overflow: "hidden", backgroundImage: "url('/images/main_bn_2.png')", backgroundPosition: "center center", backgroundRepeat: "no-repeat", backgroundSize: "100%", padding: "10px 10px" }}>
-          {/* <div style={{ fontSize: "28px", color: "#fff", fontWeight: "500" }}>Banner Title 2</div>
-          <div style={{ fontSize: "14px", color: "#fff", fontWeight: "500" }}>sub Title 2</div> */}
-        </div>
+      <div className="main_swiper">
+          <Swiper
+            className="slide_wrap"
+            spaceBetween={0}
+            slidesPerView={1}
+            resistanceRatio={0}
+            loop={true}
+            autoplay={{
+              "delay": 4000,
+              "disableOnInteraction": false
+            }}
+          >
+            <SwiperSlide>
+              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
+            </SwiperSlide>
+          </Swiper>
       </div>
 
       <div class="section">
 				<div class="title">실시간 라이브</div>
 				<div class="movie_wrap">
-        	<YouTube videoId={datas} opts={opts} />
+        	<YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
 					<div class="info">
 
             {/* 공유하기 */}
@@ -129,7 +145,7 @@ export default function Home() {
           <ul class="con_list">
             <li>
               <div class="movie">
-                <YouTube videoId={datas} opts={opts} />
+                <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               </div>
               <div class="info">
                 <div class="tit">환원베뢰아 특강 <span class="tag_up">UP</span></div>
@@ -138,7 +154,7 @@ export default function Home() {
             </li>
             <li>
               <div class="movie">
-                <YouTube videoId={datas} opts={opts} />
+                <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               </div>
               <div class="info">
                 <div class="tit">환원베뢰아 특강 <span class="tag_up">UP</span></div>
@@ -168,7 +184,7 @@ export default function Home() {
             <div class="img"></div>
             <div class="txt">온시리즈</div>
           </li>
-          <li>
+          <li onClick={() => { router.push("/biblemain"); }}>
             <div class="img"></div>
             <div class="txt">성경</div>
           </li>
@@ -197,7 +213,7 @@ export default function Home() {
             pagination={{ clickable: true }}
           >
             <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} />
+              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               <div class="info">
                 <div class="tit">
                   <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
@@ -206,7 +222,7 @@ export default function Home() {
               </div>
             </SwiperSlide>
             <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} />
+              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               <div class="info">
                 <div class="tit">
                   <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
@@ -227,7 +243,7 @@ export default function Home() {
             pagination={{ clickable: true }}
           >
             <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} />
+              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               <div class="info">
                 <div class="tit">
                   <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
@@ -236,7 +252,7 @@ export default function Home() {
               </div>
             </SwiperSlide>
             <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} />
+              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
               <div class="info">
                 <div class="tit">
                   <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>

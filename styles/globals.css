@@ -206,10 +206,14 @@ footer .sns_list li + li {
 }
 
 /**********************************************************
-	MAIN
+	COMMON
 ***********************************************************/
+/* 레이아웃 */
 .section {
 	padding: 30px 15px;
+}
+.section.bg_gray {
+	background-color: #f9f9f9;
 }
 .section .title {
 	position: relative;
@@ -217,6 +221,9 @@ footer .sns_list li + li {
 	color: #000;
 	font-size: 20px;
 	font-weight: 500;
+}
+.section .title small {
+	font-size: 16px;
 }
 .section .title .more {
 	position: absolute;
@@ -227,38 +234,68 @@ footer .sns_list li + li {
 	line-height: 29px;
 }
 
-/* 실시간 라이브 */
-.section .movie_wrap {
-	border: 1px solid #EBEBEB;
-	border-radius: 8px;
-	overflow: hidden;
-}
-.section .movie_wrap iframe {
-	width: 100%;
-	height: auto;
-}
-.section .movie_wrap .info {
+/* 유투브 */
+.iframe_wrap {
 	position: relative;
-	padding: 12px 15px 15px 15px;
-	font-size: 16px;
+	padding-bottom: 56.2%;
 }
-.section .movie_wrap .info .btn_share {
+.iframe_wrap iframe {
 	position: absolute;
-	right: 15px;
-	top: 12px;
+	left: 0;
+	top: 0;
+	width: 100% !important;
+	height: 100% !important;
+}
+
+/* 버튼 */
+.btn_share {
 	display: inline-block;
 	width: 25px;
 	height: 25px;
 	background: url('/icons/ico_share.svg') no-repeat center center;
 }
-.section .movie_wrap .info .tit {
+
+/* 구분선 */
+hr {
+	height: 10px;
+	margin: 0;
+	background-color: #F9F9F9;
+	border: 0;
+	border-top: 1px solid #EBEBEB;
+}
+
+/**********************************************************
+	MAIN
+***********************************************************/
+/* 메인 슬라이드 */
+.main_swiper .swiper-slide img {
+	width: 100%;
+}
+
+/* 실시간 라이브 */
+.movie_wrap {
+	border: 1px solid #EBEBEB;
+	border-radius: 8px;
+	overflow: hidden;
+}
+.movie_wrap .info {
+	position: relative;
+	padding: 12px 15px 15px 15px;
+	font-size: 16px;
+}
+.movie_wrap .info .btn_share {
+	position: absolute;
+	right: 15px;
+	top: 12px;
+}
+.movie_wrap .info .tit {
 	font-size: 16px;
 	font-weight: 400;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
-.section .movie_wrap .info .date {
+.movie_wrap .info .date {
 	color: #aaa;
 	font-size: 14px;
 	font-weight: 400;
@@ -302,10 +339,6 @@ footer .sns_list li + li {
 	width: 145px;
 	height: 81px;
 	overflow: hidden;
-}
-.days_wrap .con_list li .movie iframe {
-	width: 100%;
-	height: auto;
 }
 .days_wrap .con_list li .info {
 	flex: 1;
@@ -367,10 +400,6 @@ footer .sns_list li + li {
 /* 은혜로운 연합 예배 찬양 */
 .slide_wrap .movie_wrap {
 	width: 240px;
-}
-.slide_wrap .movie_wrap iframe {
-	width: 100%;
-	height: 135px;
 }
 
 /* 성락교회 미래세대 */
@@ -443,19 +472,52 @@ footer .sns_list li + li {
 /**********************************************************
 	SUB COMMON
 ***********************************************************/
-.section .top_title {
-	margin-bottom: 25px;
+.top_area .top_title {
+	margin-bottom: 5px;
 	color: #000;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
 	text-align: center;
 }
 
+.location_wrap {
+	position: relative;
+}
+.location_wrap .location {
+	padding: 10px 15px;
+	font-size: 12px;
+	border-bottom: 1px solid #ebebeb;
+}
+.location_wrap .location .cate {
+	display: inline-block;
+	margin-right: 18px;
+	color: #999;
+}
+.location_wrap .menu_list {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 39px;
+	z-index: 100;
+	width: 100%;
+	padding: 15px;
+	background-color: #fff;
+}
+.location_wrap .menu_list li {
+	line-height: 32px;
+	font-size: 16px;
+}
+.location_wrap .menu_list li.on a {
+	color: #E07511;
+}
 
 /**********************************************************
 	예배
 ***********************************************************/
 /* 예배 메인 */
+.tab_wrap {
+	padding: 20px 15px;
+}
 .tab_list {
 	display: flex;
 	overflow: auto;
@@ -475,6 +537,7 @@ footer .sns_list li + li {
 
 .sermon_list li {
 	padding: 19px 16px;
+	background-color: #fff;
 	border: 1px solid #ebebeb;
 	border-radius: 8px;
 }
@@ -491,10 +554,130 @@ footer .sns_list li + li {
 	margin-top: 10px;
 }
 
+/* 예배 리스트 */
+.movie_detail .info {
+	position: relative;
+	padding-bottom: 15px;
+}
+.movie_detail .info .btn_share {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.movie_detail .info .tag {
+	display: inline-block;
+	padding: 0 6px;
+	color: #fff;
+	line-height: 22px;
+	font-size: 12px;
+	font-weight: 400;
+	background-color: #EA7910;
+	border-radius: 4px;
+}
+.movie_detail .info .tit {
+	margin: 8px 0  2px;
+	line-height: 30px;
+	font-size: 26px;
+	font-weight: 500;
+}
+.movie_detail .info .date {
+	color: #aaa;
+	font-size: 16px;
+	font-weight: 400;
+}
+.movie_detail .iframe_wrap {
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+/* 예배 상세 */
+.movie_detail2 .info {
+	position: relative;
+	padding: 12px 15px 15px 15px;
+	font-size: 16px;
+}
+.movie_detail2 .info .btn_share {
+	position: absolute;
+	right: 15px;
+	top: 12px;
+}
+.movie_detail2 .info .tag {
+	display: inline-block;
+	padding: 0 6px;
+	color: #fff;
+	line-height: 22px;
+	font-size: 12px;
+	font-weight: 400;
+	background-color: #EA7910;
+	border-radius: 4px;
+}
+.movie_detail2 .info .tit {
+	margin: 8px 0  2px;
+	font-size: 16px;
+	font-weight: 400;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.movie_detail2 .info .date {
+	color: #aaa;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+/**********************************************************
+	성경
+***********************************************************/
+/* 책 선택 */
+.book_list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.book_list li {
+	width: 33.33%;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* 장 선택 */
+.chapter_list {
+	display: flex;
+	flex-wrap: wrap;
+}
+.chapter_list li {
+	width: 20%;
+	padding: 10px 0;
+	text-align: center;
+	font-size: 15px;
+}
+
+/* 말씀 상세 */
+.top_area .verse {
+	display: inline-block;
+	padding: 0 15px;
+	line-height: 24px;
+	font-size: 12px;
+	background-color: #f5f5f5;
+	border-radius: 24px;
+}
+.verse_list {
+	padding: 17px 15px;
+}
+.verse_list li {
+	line-height: 26px;
+	font-size: 16px;
+	font-weight: 400;
+	word-break: keep-all;
+}
+.verse_list li + li {
+	margin-top: 15px;
+}
 
 /**********************************************************
 	ETC
 ***********************************************************/
+/* padding */
 .pt0 {
 	padding-top: 0 !important;
 }
@@ -502,7 +685,10 @@ footer .sns_list li + li {
 	padding-top: 10px !important;
 }
 
-
+/* align */
+.txt_center {
+	text-align: center !important;
+}
 
 
 

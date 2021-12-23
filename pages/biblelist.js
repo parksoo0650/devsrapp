@@ -8,31 +8,18 @@ import { BookConsumer } from '../src/components/bibleProvider';
 export default function Biblelist({ list }) {
     const router = useRouter();
     return (
-        <div className={styles.container}>
+        <div class="container">
             <BookConsumer>
                 {({ book_name }) => (
-                    <main style={{ display: "flex", flexWrap: "wrap", padding: "10px", justifyContent: "center" }}>
+                    <ul class="book_list">
                         {list.map((item, i) => (
                             <Link href="/book/[id]" as={`/book/${item.book}`}>
-                                <div key={i}
-                                    style={{
-                                        flexBasis: "48%",
-                                        fontSize: "12px",
-                                        color: "#333",
-                                        fontWeight: "700",
-                                        margin: "3.5px",
-                                        padding: "3px",
-                                        border: "1px solid #ccc",
-                                        borderRadius: "10px",
-                                        display: "flex",
-                                        justifyContent: "center",
-                                    }}
-                                >
-                                    <p>{book_name[item.book]}</p>
-                                </div>
+                                <li key={i}>
+                                    {book_name[item.book]}
+                                </li>
                             </Link>
                         ))}
-                    </main>
+                    </ul>
                 )}
             </BookConsumer>
         </div>

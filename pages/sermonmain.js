@@ -40,8 +40,10 @@ export default function Praisemain() {
 
     return (
         <div class="sub_container">
-            <div class="section">
+            <div class="top_area">
                 <div class="top_title">예배</div>
+            </div>
+            <div class="tab_wrap">
                 <Swiper
                     className="tab_list"
                     spaceBetween={6}
@@ -49,19 +51,19 @@ export default function Praisemain() {
                     resistanceRatio={0}
                     pagination={{ clickable: true }}
                 >
-                    <SwiperSlide>주일 1부 예배</SwiperSlide>
-                    <SwiperSlide>주일 3부 예배</SwiperSlide>
-                    <SwiperSlide>주일 연합 예배</SwiperSlide>
-                    <SwiperSlide>수요 오전 예배</SwiperSlide>
-                    <SwiperSlide>수요 오후 예배</SwiperSlide>
-                    <SwiperSlide>금요 환언 특강</SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">주일 1부 예배</a></SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">주일 3부 예배</a></SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">주일 연합 예배</a></SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">수요 오전 예배</a></SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">수요 오후 예배</a></SwiperSlide>
+                    <SwiperSlide><a href="/sermonlist">금요 환언 특강</a></SwiperSlide>
                 </Swiper>
             </div>
 
             <div class="section pt10">
                 <div class="title">실시간 라이브</div>
                 <div class="movie_wrap">
-                    <YouTube videoId={datas} opts={opts} />
+                    <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
                     <div class="info">
 
                         {/* 공유하기 */}
@@ -118,8 +120,8 @@ export default function Praisemain() {
                 </div>
             </div>
 
-            <div class="section">
-                <div class="title">지난주 예배 <a href="#" class="more">전체보기</a></div>
+            <div class="section pt0">
+                <div class="title">지난주 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <Swiper
                 className="slide_wrap"
                 spaceBetween={10}
@@ -128,7 +130,7 @@ export default function Praisemain() {
                 pagination={{ clickable: true }}
                 >
                 <SwiperSlide className="movie_wrap">
-                    <YouTube videoId={datas} opts={opts} />
+                    <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
                     <div class="info">
                     <div class="tit">
                         <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
@@ -137,7 +139,7 @@ export default function Praisemain() {
                     </div>
                 </SwiperSlide>
                 <SwiperSlide className="movie_wrap">
-                    <YouTube videoId={datas} opts={opts} />
+                    <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
                     <div class="info">
                     <div class="tit">
                         <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
@@ -148,8 +150,8 @@ export default function Praisemain() {
                 </Swiper>
             </div>
             
-            <div class="section">
-                <div class="title">주일 3부 예배 <a href="#" class="more">전체보기</a></div>
+            <div class="section pt0">
+                <div class="title">주일 3부 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
@@ -167,7 +169,7 @@ export default function Praisemain() {
             </div>
             
             <div class="section pt0">
-                <div class="title">주일 1부 예배 <a href="#" class="more">전체보기</a></div>
+                <div class="title">주일 1부 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
@@ -185,7 +187,7 @@ export default function Praisemain() {
             </div>
             
             <div class="section pt0">
-                <div class="title">주일 연합 예배 <a href="#" class="more">전체보기</a></div>
+                <div class="title">주일 연합 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
@@ -203,7 +205,7 @@ export default function Praisemain() {
             </div>
             
             <div class="section pt0">
-                <div class="title">수요 오전 예배 <a href="#" class="more">전체보기</a></div>
+                <div class="title">수요 오전 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
@@ -221,7 +223,7 @@ export default function Praisemain() {
             </div>
             
             <div class="section pt0">
-                <div class="title">수요 오후 예배 <a href="#" class="more">전체보기</a></div>
+                <div class="title">수요 오후 예배 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
@@ -239,7 +241,7 @@ export default function Praisemain() {
             </div>
             
             <div class="section pt0">
-                <div class="title">금요 환언 특강 <a href="#" class="more">전체보기</a></div>
+                <div class="title">금요 환언 특강 <a href="/sermonlist" class="more">전체보기</a></div>
                 <ul class="sermon_list">
                     <li>
                         <div class="tit">우리의 소망은 부활이다</div>
