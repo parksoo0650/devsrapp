@@ -6,6 +6,8 @@ import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 export default function Home() {
 
@@ -57,7 +59,53 @@ export default function Home() {
 				<div class="movie_wrap">
         	<YouTube videoId={datas} opts={opts} />
 					<div class="info">
-						<span class="btn_share"></span>
+
+            {/* 공유하기 */}
+						<span class="btn_share" onClick={() => setOpen(true)}></span>
+            <Sheet
+              isOpen={isOpen}
+              onClose={() => setOpen(false)}
+              snapPoints={[0.4]}
+            >
+              <Sheet.Container>
+                <Sheet.Header />
+                <Sheet.Content>
+                  <div class="pop_toast">
+                    <button class="btn_close" onClick={() => setOpen(false)}></button>
+                    <div class="title">공유하기</div>
+                    <ul class="sns_list">
+                      <li>
+                          <a href="#" target="_blank">
+                            <img src="../icons/ico_youtube.svg" alt="youtube" />
+                            <div class="tit">카카오톡</div>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#" target="_blank">
+                            <img src="../icons/ico_blog.svg" alt="blog" />
+                            <div class="tit">SNS</div>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#" target="_blank">
+                            <img src="../icons/ico_instar.svg" alt="instar" />
+                            <div class="tit">URL</div>
+                          </a>
+                      </li>
+                      <li>
+                          <a href="#" target="_blank">
+                            <img src="../icons/ico_blog.svg" alt="blog" />
+                            <div class="tit">블로그</div>
+                          </a>
+                      </li>
+                    </ul>
+                  </div>
+                </Sheet.Content>
+              </Sheet.Container>
+              <Sheet.Backdrop />
+            </Sheet>
+            {/* 공유하기 */}
+
 						<div class="tit">
 							<a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
 						</div>
@@ -104,11 +152,11 @@ export default function Home() {
 			<div class="section quick_wrap">
 				<div class="title">빠른접근</div>
         <ul class="quick_menu">
-          <li onClick={() => { router.push("/sermon"); }}>
+          <li onClick={() => { router.push("/sermonmain"); }}>
             <div class="img"></div>
             <div class="txt">예배</div>
           </li>
-          <li onClick={() => { router.push("/praisesub"); }}>
+          <li onClick={() => { router.push("/praisemain"); }}>
             <div class="img"></div>
             <div class="txt">찬양</div>
           </li>
@@ -141,76 +189,94 @@ export default function Home() {
 
       <div class="section">
         <div class="title">은혜로운 연합 예배 찬양 <a href="#" class="more">전체보기</a></div>
-        <div class="slide_wrap">
-          <div class="movie_wrap">
-            <YouTube videoId={datas} opts={opts} />
-            <div class="info">
-              <div class="tit">
-                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+          <Swiper
+            className="slide_wrap"
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            resistanceRatio={0}
+            pagination={{ clickable: true }}
+          >
+            <SwiperSlide className="movie_wrap">
+              <YouTube videoId={datas} opts={opts} />
+              <div class="info">
+                <div class="tit">
+                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+                </div>
+                <div class="date">2021. 11. 05</div>
               </div>
-              <div class="date">2021. 11. 05</div>
-            </div>
-          </div>
-          <div class="movie_wrap">
-            <YouTube videoId={datas} opts={opts} />
-            <div class="info">
-              <div class="tit">
-                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+            </SwiperSlide>
+            <SwiperSlide className="movie_wrap">
+              <YouTube videoId={datas} opts={opts} />
+              <div class="info">
+                <div class="tit">
+                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+                </div>
+                <div class="date">2021. 11. 05</div>
               </div>
-              <div class="date">2021. 11. 05</div>
-            </div>
-          </div>
-        </div>
+            </SwiperSlide>
+          </Swiper>
       </div>
 
       <div class="section pt0">
         <div class="title">예수로 찬양 <a href="#" class="more">전체보기</a></div>
-        <div class="slide_wrap">
-          <div class="movie_wrap">
-            <YouTube videoId={datas} opts={opts} />
-            <div class="info">
-              <div class="tit">
-                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+          <Swiper
+            className="slide_wrap"
+            spaceBetween={10}
+            slidesPerView={"auto"}
+            resistanceRatio={0}
+            pagination={{ clickable: true }}
+          >
+            <SwiperSlide className="movie_wrap">
+              <YouTube videoId={datas} opts={opts} />
+              <div class="info">
+                <div class="tit">
+                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+                </div>
+                <div class="date">2021. 11. 05</div>
               </div>
-              <div class="date">2021. 11. 05</div>
-            </div>
-          </div>
-          <div class="movie_wrap">
-            <YouTube videoId={datas} opts={opts} />
-            <div class="info">
-              <div class="tit">
-                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+            </SwiperSlide>
+            <SwiperSlide className="movie_wrap">
+              <YouTube videoId={datas} opts={opts} />
+              <div class="info">
+                <div class="tit">
+                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+                </div>
+                <div class="date">2021. 11. 05</div>
               </div>
-              <div class="date">2021. 11. 05</div>
-            </div>
-          </div>
-        </div>
+            </SwiperSlide>
+          </Swiper>
       </div>
 
       <div class="section pt0">
-        <div class="title">성락교회 미래세대</div>
-        <ul class="future_generation">
-          <li>
-            <div class="img"></div>
-            <div class="txt">청년부</div>
-          </li>
-          <li>
-            <div class="img"></div>
-            <div class="txt">대학부</div>
-          </li>
-          <li>
-            <div class="img"></div>
-            <div class="txt">고등부</div>
-          </li>
-          <li>
-            <div class="img"></div>
-            <div class="txt">중등부</div>
-          </li>
-          <li>
-            <div class="img"></div>
-            <div class="txt">유치부</div>
-          </li>
-        </ul>
+        <div class="title">성락교회 미래세대 <a href="#" class="more">전체보기</a></div>
+          <Swiper
+              className="future_generation"
+              spaceBetween={7}
+              slidesPerView={"auto"}
+              resistanceRatio={0}
+              pagination={{ clickable: true }}
+          >
+              <SwiperSlide>
+                <div class="img"></div>
+                <div class="txt">청년부</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div class="img"></div>
+                <div class="txt">대학부</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div class="img"></div>
+                <div class="txt">고등부</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div class="img"></div>
+                <div class="txt">중등부</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div class="img"></div>
+                <div class="txt">유치부</div>
+              </SwiperSlide>
+          </Swiper>
       </div>
 
       <div style={{ width: "100%", display: "none", marginTop: "10px", marginBottom: "10px" }}>
@@ -221,23 +287,6 @@ export default function Home() {
 
       <div style={{ width: "100%", display: "none", justifyContent: "center", marginTop: "10px" }}>
         <YouTube videoId={datas} opts={opts} />
-      </div>
-
-      <div style={{ width: "100%", display: "none", justifyContent: "center", margin: "20px 0" }}>
-        <button onClick={() => setOpen(true)}>Open popup</button>
-        <Sheet
-          isOpen={isOpen}
-          onClose={() => setOpen(false)}
-          snapPoints={[0.4]}
-        >
-          <Sheet.Container>
-            <Sheet.Header />
-            <Sheet.Content>
-              popup
-            </Sheet.Content>
-          </Sheet.Container>
-          <Sheet.Backdrop />
-        </Sheet>
       </div>
     </div>
   )
