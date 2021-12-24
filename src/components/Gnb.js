@@ -8,7 +8,7 @@ export default function Gnb() {
                 <img src="../images/logo.svg" alt="성락교회" />
             </h1>
             <span style={{float: "right", marginRight: "40px", lineHeight: "36px"}} onClick={() => { router.push("/admin"); }}>관리자</span>
-            <span class="alarm on"></span>
+            <a href="/settings" class="alarm on"></a>
         </div>
     );
 }
