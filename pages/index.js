@@ -9,21 +9,22 @@ import 'swiper/css';
 
 // import Swiper core and required modules
 import SwiperCore, {
-  Autoplay,Pagination,Navigation
+  Autoplay, Pagination, Navigation
 } from 'swiper';
 
 // install Swiper modules
-SwiperCore.use([Autoplay,Pagination,Navigation]);
+SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 
 export default function Home() {
-
+  const router = useRouter();
   const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
   const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_21_SERVICE;
   const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
-
   const [datas, setDatas] = useState([]);
+  const [weeks, setWeeks] = useState("");
+  let [isOpen, setOpen] = useState(false);
 
   const getData = async () => {
     const api_data = await axios.get(API_URL);
@@ -31,12 +32,11 @@ export default function Home() {
   };
 
   useEffect(() => {
+    let date = new Date();
+    let week = ['일', '월', '화', '수', '목', '금', '토'];
+    setWeeks(week[date.getDay()]);
     getData();
   }, []);
-
-  const router = useRouter();
-
-  let [isOpen, setOpen] = useState(false);
 
   const opts = {
     width: "320px",
@@ -48,7 +48,7 @@ export default function Home() {
   };
 
   // 홈바에 전체메뉴 클릭시 전체메뉴에 class추가
-  function btnAllMenu(){
+  function btnAllMenu() {
     let allMenu = document.getElementById('all_menu');
     allMenu.className = 'on';
   }
@@ -56,34 +56,34 @@ export default function Home() {
   return (
     <div class="container">
       <div className="main_swiper">
-          <Swiper
-            className="slide_wrap"
-            spaceBetween={0}
-            slidesPerView={1}
-            resistanceRatio={0}
-            loop={true}
-            autoplay={{
-              "delay": 4000,
-              "disableOnInteraction": false
-            }}
-          >
-            <SwiperSlide>
-              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
-            </SwiperSlide>
-          </Swiper>
+        <Swiper
+          className="slide_wrap"
+          spaceBetween={0}
+          slidesPerView={1}
+          resistanceRatio={0}
+          loop={true}
+          autoplay={{
+            "delay": 4000,
+            "disableOnInteraction": false
+          }}
+        >
+          <SwiperSlide>
+            <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <div class="section">
-				<div class="title">실시간 라이브</div>
-				<div class="movie_wrap">
-        	<YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-					<div class="info">
+        <div class="title">실시간 라이브</div>
+        <div class="movie_wrap">
+          <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+          <div class="info">
 
             {/* 공유하기 */}
-						<span class="btn_share" onClick={() => setOpen(true)}></span>
+            <span class="btn_share" onClick={() => setOpen(true)}></span>
             <Sheet
               isOpen={isOpen}
               onClose={() => setOpen(false)}
@@ -97,28 +97,28 @@ export default function Home() {
                     <div class="title">공유하기</div>
                     <ul class="sns_list">
                       <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_youtube.svg" alt="youtube" />
-                            <div class="tit">카카오톡</div>
-                          </a>
+                        <a href="#" target="_blank">
+                          <img src="../icons/ico_youtube.svg" alt="youtube" />
+                          <div class="tit">카카오톡</div>
+                        </a>
                       </li>
                       <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_blog.svg" alt="blog" />
-                            <div class="tit">SNS</div>
-                          </a>
+                        <a href="#" target="_blank">
+                          <img src="../icons/ico_blog.svg" alt="blog" />
+                          <div class="tit">SNS</div>
+                        </a>
                       </li>
                       <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_instar.svg" alt="instar" />
-                            <div class="tit">URL</div>
-                          </a>
+                        <a href="#" target="_blank">
+                          <img src="../icons/ico_instar.svg" alt="instar" />
+                          <div class="tit">URL</div>
+                        </a>
                       </li>
                       <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_blog.svg" alt="blog" />
-                            <div class="tit">블로그</div>
-                          </a>
+                        <a href="#" target="_blank">
+                          <img src="../icons/ico_blog.svg" alt="blog" />
+                          <div class="tit">블로그</div>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -128,25 +128,25 @@ export default function Home() {
             </Sheet>
             {/* 공유하기 */}
 
-						<div class="tit">
-							<a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-						</div>
-						<div class="date">2021. 11. 05</div>
-					</div>
-				</div>
-			</div>
+            <div class="tit">
+              <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+            </div>
+            <div class="date">2021. 11. 05</div>
+          </div>
+        </div>
+      </div>
 
-			<div class="section pt0">
-				<div class="title">요일별 컨텐츠</div>
+      <div class="section pt0">
+        <div class="title">요일별 컨텐츠</div>
         <div class="days_wrap">
           <ul class="day_list">
-            <li class="on">주일</li>
-            <li>월</li>
-            <li>화</li>
-            <li>수</li>
-            <li>목</li>
-            <li>금</li>
-            <li>토</li>
+            <li onClick={() => { setWeeks("일"); }} class={(weeks == "일") ? "on" : ""}>주일</li>
+            <li onClick={() => { setWeeks("월"); }} class={(weeks == "월") ? "on" : ""}>월</li>
+            <li onClick={() => { setWeeks("화"); }} class={(weeks == "화") ? "on" : ""}>화</li>
+            <li onClick={() => { setWeeks("수"); }} class={(weeks == "수") ? "on" : ""}>수</li>
+            <li onClick={() => { setWeeks("목"); }} class={(weeks == "목") ? "on" : ""}>목</li>
+            <li onClick={() => { setWeeks("금"); }} class={(weeks == "금") ? "on" : ""}>금</li>
+            <li onClick={() => { setWeeks("토"); }} class={(weeks == "토") ? "on" : ""}>토</li>
           </ul>
           <ul class="con_list">
             <li>
@@ -169,10 +169,10 @@ export default function Home() {
             </li>
           </ul>
         </div>
-			</div>
+      </div>
 
-			<div class="section quick_wrap">
-				<div class="title">빠른접근</div>
+      <div class="section quick_wrap">
+        <div class="title">빠른접근</div>
         <ul class="quick_menu">
           <li onClick={() => { router.push("/sermonmain"); }}>
             <div class="img"></div>
@@ -207,98 +207,98 @@ export default function Home() {
             <div class="txt">교회소식</div>
           </li>
         </ul>
-			</div>
+      </div>
 
       <div class="section">
         <div class="title">은혜로운 연합 예배 찬양 <a href="#" class="more">전체보기</a></div>
-          <Swiper
-            className="slide_wrap"
-            spaceBetween={10}
-            slidesPerView={"auto"}
-            resistanceRatio={0}
-            pagination={{ clickable: true }}
-          >
-            <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-              <div class="info">
-                <div class="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div class="date">2021. 11. 05</div>
+        <Swiper
+          className="slide_wrap"
+          spaceBetween={10}
+          slidesPerView={"auto"}
+          resistanceRatio={0}
+          pagination={{ clickable: true }}
+        >
+          <SwiperSlide className="movie_wrap">
+            <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-            </SwiperSlide>
-            <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-              <div class="info">
-                <div class="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div class="date">2021. 11. 05</div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="movie_wrap">
+            <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-            </SwiperSlide>
-          </Swiper>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <div class="section pt0">
         <div class="title">예수로 찬양 <a href="#" class="more">전체보기</a></div>
-          <Swiper
-            className="slide_wrap"
-            spaceBetween={10}
-            slidesPerView={"auto"}
-            resistanceRatio={0}
-            pagination={{ clickable: true }}
-          >
-            <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-              <div class="info">
-                <div class="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div class="date">2021. 11. 05</div>
+        <Swiper
+          className="slide_wrap"
+          spaceBetween={10}
+          slidesPerView={"auto"}
+          resistanceRatio={0}
+          pagination={{ clickable: true }}
+        >
+          <SwiperSlide className="movie_wrap">
+            <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-            </SwiperSlide>
-            <SwiperSlide className="movie_wrap">
-              <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-              <div class="info">
-                <div class="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div class="date">2021. 11. 05</div>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide className="movie_wrap">
+            <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+            <div class="info">
+              <div class="tit">
+                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-            </SwiperSlide>
-          </Swiper>
+              <div class="date">2021. 11. 05</div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <div class="section pt0">
         <div class="title">성락교회 미래세대 <a href="#" class="more">전체보기</a></div>
-          <Swiper
-              className="future_generation"
-              spaceBetween={7}
-              slidesPerView={"auto"}
-              resistanceRatio={0}
-              pagination={{ clickable: true }}
-          >
-              <SwiperSlide>
-                <div class="img"></div>
-                <div class="txt">청년부</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div class="img"></div>
-                <div class="txt">대학부</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div class="img"></div>
-                <div class="txt">고등부</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div class="img"></div>
-                <div class="txt">중등부</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div class="img"></div>
-                <div class="txt">유치부</div>
-              </SwiperSlide>
-          </Swiper>
+        <Swiper
+          className="future_generation"
+          spaceBetween={7}
+          slidesPerView={"auto"}
+          resistanceRatio={0}
+          pagination={{ clickable: true }}
+        >
+          <SwiperSlide>
+            <div class="img"></div>
+            <div class="txt">청년부</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div class="img"></div>
+            <div class="txt">대학부</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div class="img"></div>
+            <div class="txt">고등부</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div class="img"></div>
+            <div class="txt">중등부</div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div class="img"></div>
+            <div class="txt">유치부</div>
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <div style={{ width: "100%", display: "none", marginTop: "10px", marginBottom: "10px" }}>
