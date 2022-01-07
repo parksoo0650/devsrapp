@@ -1,20 +1,17 @@
-import styles from '../styles/Home.module.css';
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { db } from '../fbase';
 import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { BookConsumer } from '../src/components/bibleProvider';
 
 export default function Biblelist({ list }) {
-    const router = useRouter();
     return (
-        <div class="container">
+        <div className="container">
             <BookConsumer>
                 {({ book_name }) => (
-                    <ul class="book_list">
+                    <ul className="book_list">
                         {list.map((item, i) => (
-                            <Link href="/book/[id]" as={`/book/${item.book}`}>
-                                <li key={i}>
+                            <Link href="/book/[id]" as={`/book/${item.book}`} key={i}>
+                                <li >
                                     {book_name[item.book]}
                                 </li>
                             </Link>
