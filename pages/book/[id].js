@@ -14,7 +14,7 @@ const Post = ({ items, bid }) => {
                     </Link>
                 )}
             </BookConsumer>
-            <ul class="chapter_list">
+            <ul className="chapter_list">
                 {items.map((item, i) => (
                     <Link href="/chapter/[id]" as={`/chapter/${item.book}_${item.chapter}`}>
                         <li key={i}>

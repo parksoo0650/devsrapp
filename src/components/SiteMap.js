@@ -1,47 +1,47 @@
 export default function SiteMap() {
     return (
         <div id="all_menu">
-            <div class="search_area">
-                <input type="text" class="text" placeholder="검색어를 입력하세요" />
+            <div className="search_area">
+                <input type="text" className="text" placeholder="검색어를 입력하세요" />
                 <div onClick={() => {
                     let allMenu = document.getElementById('all_menu');
                     allMenu.className = '';
                 }}>닫기</div>
             </div>
 
-            <ul class="quick_list">
+            <ul className="quick_list">
                 <li>
                     <a href="#">
-                        <i class="ico_live"></i>
-                        <div class="menu">라이브</div>
+                        <i className="ico_live"></i>
+                        <div className="menu">라이브</div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="ico_bible"></i>
-                        <div class="menu">성경</div>
+                        <i className="ico_bible"></i>
+                        <div className="menu">성경</div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="ico_praise"></i>
-                        <div class="menu">찬송가</div>
+                        <i className="ico_praise"></i>
+                        <div className="menu">찬송가</div>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="ico_onseries"></i>
-                        <div class="menu">온시리즈</div>
+                        <i className="ico_onseries"></i>
+                        <div className="menu">온시리즈</div>
                     </a>
                 </li>
             </ul>
 
-            <div class="menu_wrap">
-                <ul class="menu_list">
-                    <li class="title">
-                        <i class="ico_menu"></i>
+            <div className="menu_wrap">
+                <ul className="menu_list">
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <span>예배</span>
-                        <ul class="sub_menu">
+                        <ul className="sub_menu">
                             <li>
                                 <a href="#">전체</a>
                             </li>
@@ -66,10 +66,10 @@ export default function SiteMap() {
                         </ul>
                     </li>
 
-                    <li class="title">
-                        <i class="ico_menu"></i>
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <span>찬양</span>
-                        <ul class="sub_menu">
+                        <ul className="sub_menu">
                             <li>
                                 <a href="#">전체</a>
                             </li>
@@ -97,20 +97,20 @@ export default function SiteMap() {
                         </ul>
                     </li>
 
-                    <li class="title">
-                        <i class="ico_menu"></i>
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <a href="#">성경</a>
                     </li>
 
-                    <li class="title">
-                        <i class="ico_menu"></i>
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <a href="#">찬송가</a>
                     </li>
 
-                    <li class="title">
-                        <i class="ico_menu"></i>
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <a href="#">온시리즈</a>
-                        <ul class="sub_menu">
+                        <ul className="sub_menu">
                             <li>
                                 <a href="#">전체</a>
                             </li>
@@ -129,10 +129,10 @@ export default function SiteMap() {
                         </ul>
                     </li>
 
-                    <li class="title">
-                        <i class="ico_menu"></i>
+                    <li className="title">
+                        <i className="ico_menu"></i>
                         <a href="#">주보 / 성락가이드</a>
-                        <ul class="sub_menu">
+                        <ul className="sub_menu">
                             <li>
                                 <a href="#">전체</a>
                             </li>
@@ -146,16 +146,16 @@ export default function SiteMap() {
                     </li>
                 </ul>
 
-                <ul class="foot_menu">
+                <ul className="foot_menu">
                     <li>
                         <a href="#">
-                            <i class="ico_menu"></i>
+                            <i className="ico_menu"></i>
                             교회 소식
                         </a>
                     </li>
                     <li>
                         <a href="#">
-                            <i class="ico_menu"></i>
+                            <i className="ico_menu"></i>
                             공지사항
                         </a>
                     </li>

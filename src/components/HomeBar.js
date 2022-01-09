@@ -4,36 +4,36 @@ import SiteMap from "./SiteMap";
 export default function HomeBar() {
     return (
         <>
-            <ul id="home_bar" class="on">
+            <ul id="home_bar" className="on">
                 <li>
                     <Link href="/">
                         <a>
-                            <i class="ico_home"></i>
-                            <div class="menu">홈</div>
+                            <i className="ico_home"></i>
+                            <div className="menu">홈</div>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/sermonmain">
                         <a>
-                            <i class="ico_sermon"></i>
-                            <div class="menu">예배</div>
+                            <i className="ico_sermon"></i>
+                            <div className="menu">예배</div>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/biblelist">
                         <a>
-                            <i class="ico_bible"></i>
-                            <div class="menu">성경</div>
+                            <i className="ico_bible"></i>
+                            <div className="menu">성경</div>
                         </a>
                     </Link>
                 </li>
                 <li>
                     <Link href="/onsub?flag=1">
                         <a>
-                            <i class="ico_onseries"></i>
-                            <div class="menu">온시리즈</div>
+                            <i className="ico_onseries"></i>
+                            <div className="menu">온시리즈</div>
                         </a>
                     </Link>
                 </li>
@@ -41,8 +41,8 @@ export default function HomeBar() {
                     let allMenu = document.getElementById('all_menu');
                     allMenu.className = 'on';
                 }}>
-                    <i class="ico_menu"></i>
-                    <div class="menu">전체보기</div>
+                    <i className="ico_menu"></i>
+                    <div className="menu">전체보기</div>
                 </li>
             </ul>
             <SiteMap />

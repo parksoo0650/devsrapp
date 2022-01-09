@@ -7,17 +7,17 @@ import { BookConsumer } from '../../src/components/bibleProvider';
 const Post = ({ items, bid }) => {
     const strArr = bid.split('_');
     return (
-        <div class="container">
+        <div className="container">
             <BookConsumer>
                 {({ book_name }) => (
                     <Link href="/book/[id]" as={`/book/${strArr[0]}`}>
-                    <div class="top_area txt_center">
-                        <div class="verse">{book_name[strArr[0]]} {strArr[1]}장</div>
+                    <div className="top_area txt_center">
+                        <div className="verse">{book_name[strArr[0]]} {strArr[1]}장</div>
                     </div>
                     </Link>
                 )}
             </BookConsumer>
-            <ul class="verse_list">
+            <ul className="verse_list">
                 {items.map((item, i) => (
                     <li key={i}>
                         <strong>{item.verse}</strong> &nbsp; {item.content}

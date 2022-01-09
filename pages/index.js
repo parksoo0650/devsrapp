@@ -50,9 +50,12 @@ export default function Home() {
 
   const getData = async () => {
     const api_data = await axios.get(API_URL);
+    const splitTitle = api_data.data.items[0].snippet.title.split('-');
+    const videoTitle = splitTitle[1].split('|');
+
     setDatas({
       videoId:api_data.data.items[0].snippet.resourceId.videoId,
-      title:api_data.data.items[0].snippet.title,
+      title:videoTitle[0],
       thumbnails:api_data.data.items[0].snippet.thumbnails.default.url,
       publishedAt:api_data.data.items[0].snippet.publishedAt
     });
@@ -87,8 +90,6 @@ export default function Home() {
       controls: 0,
     },
   };
-
-  console.log(praiseDatas);
 
   return (
     <div className="container">
@@ -340,16 +341,6 @@ export default function Home() {
             <div className="txt">유치부</div>
           </SwiperSlide>
         </Swiper>
-      </div>
-
-      <div style={{ width: "100%", display: "none", marginTop: "10px", marginBottom: "10px" }}>
-        <div onClick={() => { router.push("/csmain"); }} style={{ backgroundColor: "#eee", marginRight: "10px", flex: "1", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignItems: "flex-start", padding: "10px" }}>
-          <div style={{ fontSize: "14px", color: "#333", fontWeight: "700", marginBottom: "5px" }} >더보기</div>
-        </div>
-      </div>
-
-      <div style={{ width: "100%", display: "none", justifyContent: "center", marginTop: "10px" }}>
-        {/* <YouTube videoId={datas} opts={opts} /> */}
       </div>
     </div>
   )
