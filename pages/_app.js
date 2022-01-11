@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Top from '../src/components/top';
 import Footer from '../src/components/Footer';
 import BookProvider from '../src/components/bibleProvider';
+import HomeBar from '../src/components/HomeBar';
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -40,6 +41,7 @@ export default function MyApp({ Component, pageProps }) {
         <Top />
           <Component {...pageProps} />
         <Footer />
+        <HomeBar />
       </BookProvider>
     </>
   )

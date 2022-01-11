@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import styles from '../styles/Home.module.css';
 
-export default function Csmain() {
+export default function Boardlist() {
     const router = useRouter();
     return (
         <div className={styles.container}>
