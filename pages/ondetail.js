@@ -5,7 +5,7 @@ import axios from "axios";
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 
-export default function Praisedetail() {
+export default function Onmain() {
 
     const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
@@ -37,10 +37,10 @@ export default function Praisedetail() {
     };
 
     return (
-        <div className="sub_container praise_detail">
+        <div className="sub_container onseries_detail">
             <div className="top_area">
                 <span className="btn_prev"></span>
-                <div className="top_title">1부 성가대</div>
+                <div className="top_title">온성경</div>
             </div>
 
             <div className="movie_wrap">
@@ -94,7 +94,7 @@ export default function Praisedetail() {
                     {/* 공유하기 */}
 
                     <div className="tit">
-                        <a href="#">주가 나를 사랑하시어<br />뉴헤븐 성가대</a>
+                        <a href="#">깨어 있으라<br />마가복음 13:24~37</a>
                     </div>
                     <div className="date">2021년 11월 05일</div>
                 </div>
@@ -102,32 +102,28 @@ export default function Praisedetail() {
 
             <div className="section">
                 <ul className="tab_area">
-                    <li>재생목록</li>
-                    <li className="on">찬양목록</li>
+                    <li className="on">순서</li>
+                    <li>성경</li>
                 </ul>
                 <div className="tab_con">
+                    {/* 순서 */}
+                    <ul className="order_wrap">
+                        <li>주신기도</li>
+                        <li>성경읽기</li>
+                        <li>주신기도</li>
+                        <li>다음 시간 안내</li>
+                    </ul>
 
-                    {/* 재생목록&찬양목록 디자인 같음 */}
-                    <div className="praise_wrap">
-                        <ul className="sermon_list">
-                            <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
-                                <div className="date">2021년 11월 05일</div>
-                            </li>
-                            <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
-                                <div className="date">2021년 11월 05일</div>
-                            </li>
-                            <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
-                                <div className="date">2021년 11월 05일</div>
-                            </li>
-                        </ul>
+                    {/* 성경 */}
+                    <div className="bible_wrap" style={{display : "none"}}>
+                        <div className="bible_wrap">데살로니가전서 1장</div>
+                        <ol className="list">
+                            <li>바울과 실루아노와 디모데는 하나님 아버지와 주 예수 그리스도 안에 있는 데살로니가인의 교회에 편지하노니 은혜와 평강이 너희에게 있을지어다</li>
+                            <li>바울과 실루아노와 디모데는 하나님 아버지와 주 예수 그리스도 안에 있는 데살로니가인의 교회에 편지하노니 은혜와 평강이 너희에게 있을지어다</li>
+                        </ol>
                     </div>
-
                 </div>
             </div>
-
         </div>
     );
 }

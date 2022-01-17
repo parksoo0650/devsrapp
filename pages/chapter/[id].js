@@ -11,8 +11,19 @@ const Post = ({ items, bid }) => {
             <BookConsumer>
                 {({ book_name }) => (
                     <Link href="/book/[id]" as={`/book/${strArr[0]}`}>
-                    <div className="top_area txt_center">
-                        <div className="verse">{book_name[strArr[0]]} {strArr[1]}장</div>
+                    <div className="top_area">
+                        <div className="top_title txt_left">{book_name[strArr[0]]} {strArr[1]}장</div>
+                        <ul class="tool_list">
+                            <li>
+                                <img src="../icons/ico_hymn.svg" alt="찬송가" />
+                            </li>
+                            <li>
+                                <img src="../icons/ico_setting.svg" alt="설정" />
+                            </li>
+                            <li>
+                                <img src="../icons/ico_search.svg" alt="검색" />
+                            </li>
+                        </ul>
                     </div>
                     </Link>
                 )}
@@ -20,7 +31,7 @@ const Post = ({ items, bid }) => {
             <ul className="verse_list">
                 {items.map((item, i) => (
                     <li key={i}>
-                        <strong>{item.verse}</strong> &nbsp; {item.content}
+                        <strong>{item.verse}.</strong> {item.content}
                     </li>
                 ))}
             </ul>

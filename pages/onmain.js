@@ -5,7 +5,7 @@ import axios from "axios";
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 
-export default function Praisemain() {
+export default function Onmain() {
 
     const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
@@ -37,34 +37,20 @@ export default function Praisemain() {
     };
 
     return (
-        <div className="sub_container">
+        <div className="sub_container onseries_wrap">
             <div className="top_area">
                 <span className="btn_prev"></span>
-                <div className="top_title">찬양</div>
-
-                {/* active 클래스를 tab_wrap에 추가하여 메뉴 드롭다운 활성화 // 동시에 shadow 엘리먼트도 display:block 설정하여야 함 */}
+                <div className="top_title">온시리즈</div>
                 <div className="tab_wrap">
-                    <div className="tab_bar">
-                        전체보기
-                        <span className="btn_close"></span>
-                    </div>
                     <ul className="tab_area">
-                        <li className="on">1부 성가대</li>
-                        <li>1부 헌금송</li>
-                        <li>3부 성가대</li>
-                        <li>3부 헌금송</li>
-                        <li>연합 성가대</li>
-                        <li>연합 헌금송</li>
-                        <li>예수로 찬양</li>
-                        <li>주일 예배 찬양</li>
-                        <li>주일 연합 예배 찬양</li>
+                        <li className="on">온특새</li>
+                        <li>온3분</li>
+                        <li>온성경</li>
+                        <li>온목장</li>
                     </ul>
-                    <span className="btn_more"></span>
                 </div>
             </div>
-            {/* 드롭다운 메뉴가 활성화 되면 display:block */}
-            <div className="shadow" style={{display: "none"}}></div>
-
+            <div className="guide">온라인 성경읽기는<br />매주 월, 화, 목, 금 (오전 10:30)에 시작됩니다.</div>
             <div className="section">
                 <div className="title">최신 컨텐츠</div>
                 <div className="movie_wrap">
@@ -118,7 +104,7 @@ export default function Praisemain() {
                         {/* 공유하기 */}
 
                         <div className="tit">
-                            <a href="/praisedetail">주가 나를 사랑하시어<br />뉴헤븐 성가대</a>
+                            <a href="/ondetail">온성경<br />갈라디아서 5장~데살로니가전거 4장</a>
                         </div>
                         <div className="date">2021년 11월 05일</div>
                     </div>
@@ -126,23 +112,22 @@ export default function Praisemain() {
             </div>
 
             <div className="section pt0">
-                <div className="title">지난 찬양 다시보기 <span className="filter">필터</span></div>
+                <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
                 <ul className="sermon_list">
                     <li>
-                        <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
                         <div className="date">2021년 11월 05일</div>
                     </li>
                     <li>
-                        <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
                         <div className="date">2021년 11월 05일</div>
                     </li>
                     <li>
-                        <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
                         <div className="date">2021년 11월 05일</div>
                     </li>
                 </ul>
             </div>
-
         </div>
     );
 }

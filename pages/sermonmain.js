@@ -4,10 +4,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
 
-export default function Praisemain() {
+export default function Sermonmain() {
 
     const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
@@ -41,27 +39,30 @@ export default function Praisemain() {
     return (
         <div className="sub_container">
             <div className="top_area">
+                <span className="btn_prev"></span>
                 <div className="top_title">예배</div>
-            </div>
-            <div className="tab_wrap">
-                <Swiper
-                    className="tab_list"
-                    spaceBetween={6}
-                    slidesPerView={"auto"}
-                    resistanceRatio={0}
-                    pagination={{ clickable: true }}
-                >
-                    <SwiperSlide><a href="/sermonlist">주일 1부 예배</a></SwiperSlide>
-                    <SwiperSlide><a href="/sermonlist">주일 3부 예배</a></SwiperSlide>
-                    <SwiperSlide><a href="/sermonlist">주일 연합 예배</a></SwiperSlide>
-                    <SwiperSlide><a href="/sermonlist">수요 오전 예배</a></SwiperSlide>
-                    <SwiperSlide><a href="/sermonlist">수요 오후 예배</a></SwiperSlide>
-                    <SwiperSlide><a href="/sermonlist">금요 환언 특강</a></SwiperSlide>
-                </Swiper>
-            </div>
 
-            <div className="section pt10">
-                <div className="title">실시간 라이브</div>
+                {/* active 클래스로 메뉴 드롭다운 조절 */}
+                <div className="tab_wrap active">
+                    <div className="tab_bar">
+                        전체보기
+                        <span className="btn_close"></span>
+                    </div>
+                    <ul className="tab_area">
+                        <li className="on">주일 1부 예배</li>
+                        <li>주일 3부 예배</li>
+                        <li>수요 오전 예배</li>
+                        <li>수요 오후 예배</li>
+                        <li>금요 환언 특강</li>
+                    </ul>
+                    <span className="btn_more"></span>
+                </div>
+            </div>
+            {/* 드롭다운 메뉴가 활성화 되면 display:block */}
+            <div className="shadow"></div>
+
+            <div className="section">
+                <div className="title">최신 컨텐츠</div>
                 <div className="movie_wrap">
                     <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
                     <div className="info">
@@ -113,147 +114,31 @@ export default function Praisemain() {
                         {/* 공유하기 */}
 
                         <div className="tit">
-                            <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
+                            <a href="/sermondetail">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
                         </div>
-                        <div className="date">2021. 11. 05</div>
+                        <div className="date">2021년 11월 05일</div>
+                        <div className="preacher">설교: 김성현 감독</div>
                     </div>
                 </div>
             </div>
 
             <div className="section pt0">
-                <div className="title">지난주 예배 <a href="/sermonlist" className="more">전체보기</a></div>
-                <Swiper
-                    className="slide_wrap"
-                    spaceBetween={10}
-                    slidesPerView={"auto"}
-                    resistanceRatio={0}
-                    pagination={{ clickable: true }}
-                >
-                    <SwiperSlide className="movie_wrap">
-                        <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                        <div className="info">
-                            <div className="tit">
-                                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                            </div>
-                            <div className="date">2021. 11. 05</div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="movie_wrap">
-                        <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                        <div className="info">
-                            <div className="tit">
-                                <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                            </div>
-                            <div className="date">2021. 11. 05</div>
-                        </div>
-                    </SwiperSlide>
-                </Swiper>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">주일 3부 예배 <a href="/sermonlist" className="more">전체보기</a></div>
+                <div className="title">지난 예배 다시보기 <span className="filter">필터</span></div>
                 <ul className="sermon_list">
                     <li>
                         <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
+                        <div className="date">2021년 11월 05일</div>
+                        <div className="preacher">설교: 김성현 감독</div>
                     </li>
                     <li>
                         <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
+                        <div className="date">2021년 11월 05일</div>
+                        <div className="preacher">설교: 김성현 감독</div>
                     </li>
                     <li>
                         <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">주일 1부 예배 <a href="/sermonlist" className="more">전체보기</a></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">주일 연합 예배 <a href="/sermonlist" className="more">전체보기</a></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">수요 오전 예배 <a href="/sermonlist" className="more">전체보기</a></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">수요 오후 예배 <a href="/sermonlist" className="more">전체보기</a></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                </ul>
-            </div>
-
-            <div className="section pt0">
-                <div className="title">금요 환언 특강 <a href="/sermonlist" className="more">전체보기</a></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
-                    </li>
-                    <li>
-                        <div className="tit">우리의 소망은 부활이다</div>
-                        <div className="date">2021. 11. 05</div>
+                        <div className="date">2021년 11월 05일</div>
+                        <div className="preacher">설교: 김성현 감독</div>
                     </li>
                 </ul>
             </div>

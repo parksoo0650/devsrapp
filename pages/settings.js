@@ -18,17 +18,17 @@ export default function Settings() {
                         <li className="new">
                             <i className="ico"></i>
                             <strong>안내</strong> 예배 시작 10분 전 알려드립니다.
-                            <div className="date">2021. 11. 05</div>
+                            <div className="date">2021년 11월 05일</div>
                         </li>
                         <li className="new">
                             <i className="ico"></i>
                             <strong>안내</strong> 예배 시작 10분 전 알려드립니다.
-                            <div className="date">2021. 11. 05</div>
+                            <div className="date">2021년 11월 05일</div>
                         </li>
                         <li>
                             <i className="ico"></i>
                             <strong>안내</strong> 예배 시작 10분 전 알려드립니다.
-                            <div className="date">2021. 11. 05</div>
+                            <div className="date">2021년 11월 05일</div>
                         </li>
                     </ul>
                 </div>

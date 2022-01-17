@@ -40,15 +40,14 @@ body, input, textarea, select, button, table {
 	margin: 0;
 	font-size: 13px;
 	font-family: "NanumBarunGothic";
-	font-weight: 300;
-	letter-spacing: -0.5px;
+	font-weight: 500;
 	color: #000;
 }
 body, h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, form, fieldset, legend, button, section {
 	margin: 0;
 	padding: 0;
 	font-size: 13px;
-	font-weight: normal;
+	font-weight: 400;
 	box-sizing: border-box;
 }
 span, div {
@@ -204,7 +203,7 @@ header .alarm.on:after {
 	background-color: #aaa;
 }
 #home_bar li .menu {
-	margin-top: 6px;
+	margin-top: 8px;
 	font-size: 12px;
 }
 #home_bar.on {
@@ -340,8 +339,7 @@ header .alarm.on:after {
 footer {
 	position: relative;
 	padding: 30px 15px;
-	background-color: #f9f9f9;
-	border-top: 1px solid #eaeaea;
+	background-color: #ebebeb;
 }
 footer .f_logo {
 	width: 82px;
@@ -351,14 +349,16 @@ footer .f_logo img {
 }
 footer address {
 	margin-top: 20px;
-	color: #999;
+	color: #777;
 	font-size: 12px;
-	line-height: 17px;
+	font-weight: 500;
+	line-height: 20px;
 }
 footer .address_eng {
 	margin-top: 5px;
-	color: #999;
-	font-size: 10px;
+	color: #777;
+	font-size: 12px;
+	font-weight: 300;
 }
 footer .sns_list {
 	display: flex;
@@ -375,10 +375,13 @@ footer .sns_list li + li {
 ***********************************************************/
 /* 레이아웃 */
 .section {
-	padding: 30px 15px;
+	padding: 40px 15px;
 }
 .section.bg_gray {
 	background-color: #f9f9f9;
+}
+.section .swiper {
+	overflow: visible;
 }
 .section .title {
 	position: relative;
@@ -397,6 +400,18 @@ footer .sns_list li + li {
 	color: #999;
 	font-size: 12px;
 	line-height: 29px;
+	font-weight: 500;
+}
+.section .title .filter {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-right: 23px;
+	color: #999;
+	font-size: 14px;
+	line-height: 29px;
+	font-weight: 500;
+	background: url('/icons/ico_filter.svg') no-repeat right center;
 }
 
 /* 유투브 */
@@ -455,28 +470,45 @@ hr {
 }
 .movie_wrap .info .tit {
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
+	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
 .movie_wrap .info .date {
-	color: #aaa;
-	font-size: 14px;
-	font-weight: 400;
+	display: inline-block;
+	margin-top: 8px;
+	color: #000;
+	font-size: 12px;
+	font-weight: 500;
+}
+.movie_wrap .info .preacher {
+	display: inline-block;
+	margin-left: 7px;
+	padding-left: 7px;
+	line-height: 10px;
+	color: #000;
+	font-size: 12px;
+	font-weight: 500;
+	border-left: 1px solid #999;
 }
 
 /* 요일별 컨텐츠 */
 .days_wrap .day_list {
-	padding-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	padding: 3px 5px;
+	margin-bottom: 20px;
+	background-color: #f9f9f9;
+	border-radius: 40px;
 }
 .days_wrap .day_list li {
-	display: inline-block;
 	padding: 0 11px;
 	font-size: 16px;
-	font-weight: 400;
-	line-height: 36px;
-	border: 1px solid #ebebeb;
+	color: #999;
+	font-weight: 500;
+	line-height: 34px;
 	border-radius: 19px;
 }
 .days_wrap .day_list li:first-child {
@@ -486,9 +518,8 @@ hr {
 	margin-left: 5px;
 }
 .days_wrap .day_list li.on {
-	color: #e07511;
-	font-weight: 600;
-	border: 2px solid #e07511;
+	color: #fff;
+	background-color: #444;
 }
 
 .days_wrap .con_list li {
@@ -511,7 +542,8 @@ hr {
 }
 .days_wrap .con_list li .info .tit {
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
+	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -529,9 +561,10 @@ hr {
 	vertical-align: middle;
 }
 .days_wrap .con_list li .info .date {
-	color: #aaa;
+	margin-top: 8px;
+	color: #000;
 	font-size: 12px;
-	font-weight: 400;
+	font-weight: 500;
 }
 
 /* 빠른접근 */
@@ -544,7 +577,6 @@ hr {
 	flex-wrap: wrap;
 }
 .quick_menu li {
-	min-width: 24%;
 	margin-bottom: 15px;
 	text-align: center;
 }
@@ -558,7 +590,7 @@ hr {
 }
 .quick_menu li .txt {
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 500;
 	text-align: center;
 }
 
@@ -584,10 +616,11 @@ hr {
 	background-color: #f5f5f5;
 	border: 1px solid #eaeaea;
 	border-radius: 10px;
+	overflow: hidden;
 }
 .future_generation .swiper-slide .txt {
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 500;
 	text-align: center;
 }
 
@@ -611,7 +644,7 @@ hr {
 	padding: 16px 0;
 	color: #000;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
 	text-align: center;
 }
 .pop_toast .sns_list {
@@ -637,13 +670,111 @@ hr {
 /**********************************************************
 	SUB COMMON
 ***********************************************************/
+.top_area {
+	position: relative;
+	z-index: 100;
+	line-height: 50px;
+	background-color: #fff;
+}
+.top_area .btn_prev {
+	display: inline-block;
+	position: absolute;
+	left: 15px;
+	top: 13px;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_back.svg') no-repeat center center;
+}
 .top_area .top_title {
-	margin-bottom: 5px;
+	padding: 0 15px;
 	color: #000;
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 500;
 	text-align: center;
 }
+
+.top_area .tab_wrap {
+	position: relative;
+	padding-right: 50px;
+	border-bottom: 1px solid #ebebeb;
+}
+.top_area .tab_wrap .tab_bar {
+	display: none;
+}
+.top_area .tab_wrap .btn_more {
+	position: absolute;
+	right: 9px;
+	top: -8px;
+	height: 50px;
+	width: 33px;
+	background: url('/icons/ico_back.svg') no-repeat center center;
+	transform: rotate(-90deg) scale(0.9);
+}
+.top_area .tab_area {
+	display: flex;
+	overflow: auto;
+	padding: 0 0 12px 15px;
+}
+.top_area .tab_area li {
+	display: inline-block;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #000;
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 33px;
+}
+.top_area .tab_area li.on {
+	color: #fff;
+	background-color: #444 !important;
+}
+
+.top_area .tab_wrap.active {
+	padding: 0;
+}
+.shadow {
+	content: '';
+	display: block;
+	position: fixed;
+	left: 0;
+	top : 0;
+	bottom: 0;
+	z-index: 80;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.25);
+}
+.top_area .tab_wrap.active .btn_more {
+	display: none;
+}
+.top_area .tab_wrap.active .tab_bar {
+	display: block;
+	padding: 0 20px 12px 20px;
+	font-size: 14px;
+	line-height: 33px;
+}
+.top_area .tab_wrap.active .btn_close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 50px;
+	height: 33px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+}
+.top_area .tab_wrap.active .tab_area {
+	position: absolute;
+	left: 0;
+	top: 45px;
+	z-index: 90;
+	flex-wrap: wrap;
+	padding: 0 7px 2px 15px;
+	background-color: #fff;
+}
+.top_area .tab_wrap.active .tab_area li {
+	margin: 0 8px 10px 0;
+	background-color: #f9f9f9;
+}
+
 
 .location_wrap {
 	position: relative;
@@ -680,115 +811,237 @@ hr {
 	예배
 ***********************************************************/
 /* 예배 메인 */
-.tab_wrap {
-	padding: 20px 15px;
-}
-.tab_list {
-	display: flex;
-	overflow: auto;
-}
-.tab_list .swiper-slide {
-	/* width: auto; */
-	width: 80px;
-	padding: 0 6px;
-	line-height: 20px;
-	font-size: 12px;
-	font-weight: 400;
-	background-color: #f9f9f9;
-	border: 1px solid #eaeaea;
-	border-radius: 4px;
-	white-space: nowrap;
-}
-
 .sermon_list li {
+	position: relative;
 	padding: 19px 16px;
 	background-color: #fff;
 	border: 1px solid #ebebeb;
 	border-radius: 8px;
 }
-.sermon_list li .tit {
-	font-size: 16px;
-	font-weight: 400;
+.sermon_list li:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: calc(50% - 16px);
+	width: 32px;
+	height: 32px;
+	background: url('/icons/ico_play.svg') no-repeat center center;
 }
-.sermon_list li .date {
-	color: #808080;
-	font-size: 14px;
-	font-weight: 400;
+.sermon_list .tit {
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 23px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.sermon_list .date {
+	display: inline-block;
+	margin-top: 8px;
+	color: #000;
+	font-size: 12px;
+	font-weight: 500;
+}
+.sermon_list .preacher {
+	display: inline-block;
+	margin-left: 7px;
+	padding-left: 7px;
+	line-height: 10px;
+	color: #000;
+	font-size: 12px;
+	font-weight: 500;
+	border-left: 1px solid #999;
 }
 .sermon_list li + li {
 	margin-top: 10px;
 }
 
-/* 예배 리스트 */
-.movie_detail .info {
-	position: relative;
-	padding-bottom: 15px;
+/* 예배 상세 */
+.sermon_detail .movie_wrap {
+	border: 0;
+	border-radius: 0;
 }
-.movie_detail .info .btn_share {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
-.movie_detail .info .tag {
-	display: inline-block;
-	padding: 0 6px;
-	color: #fff;
-	line-height: 22px;
-	font-size: 12px;
-	font-weight: 400;
-	background-color: #EA7910;
-	border-radius: 4px;
-}
-.movie_detail .info .tit {
-	margin: 8px 0  2px;
-	line-height: 30px;
-	font-size: 26px;
-	font-weight: 600;
-}
-.movie_detail .info .date {
-	color: #aaa;
-	font-size: 16px;
-	font-weight: 400;
-}
-.movie_detail .iframe_wrap {
-	border-radius: 8px;
-	overflow: hidden;
+.sermon_detail .movie_wrap .info {
+	padding: 12px 15px 30px 15px;
 }
 
-/* 예배 상세 */
-.movie_detail2 .info {
-	position: relative;
-	padding: 12px 15px 15px 15px;
-	font-size: 16px;
+.sermon_detail .section {
+	padding: 0;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ebebeb;
 }
-.movie_detail2 .info .btn_share {
-	position: absolute;
-	right: 15px;
-	top: 12px;
+
+.sermon_detail .tab_area {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ebebeb;
 }
-.movie_detail2 .info .tag {
+.sermon_detail .tab_area li {
 	display: inline-block;
-	padding: 0 6px;
-	color: #fff;
-	line-height: 22px;
-	font-size: 12px;
-	font-weight: 400;
-	background-color: #EA7910;
-	border-radius: 4px;
-}
-.movie_detail2 .info .tit {
-	margin: 8px 0  2px;
-	font-size: 16px;
-	font-weight: 400;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-.movie_detail2 .info .date {
-	color: #aaa;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #000;
 	font-size: 14px;
-	font-weight: 400;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 33px;
 }
+.sermon_detail .tab_area li.on {
+	color: #fff;
+	background-color: #444;
+}
+
+/* 예배순서 */
+.sermon_detail .order_wrap {
+	padding: 10px 20px 40px 20px;
+}
+.sermon_detail .order_wrap li {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding: 13px 0;
+	line-height: 24px;
+	font-size: 16px;
+	border-bottom: 1px solid #ebebeb;
+}
+.sermon_detail .order_wrap li span {
+	width: 90px;
+	word-break: keep-all;
+}
+.sermon_detail .order_wrap li span:nth-child(2) {
+	flex: 1;
+	text-align: center;
+}
+.sermon_detail .order_wrap li span:nth-child(3) {
+	color: #999;
+	text-align: right;
+}
+
+/* 설교요지 */
+.sermon_detail .gist_wrap {
+	padding: 20px 20px 40px 20px;
+}
+.sermon_detail .gist_wrap .gist_title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 23px;
+}
+.sermon_detail .gist_wrap .main_bible {
+	padding: 8px 0 15px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	line-height: 18px;
+	border-bottom: 2px solid #000;
+}
+.sermon_detail .gist_wrap .gist {
+	font-size: 16px;
+	line-height: 26px;
+	word-break: keep-all;
+}
+.sermon_detail .gist_wrap .gist .bible {
+	color: #999;
+	white-space: nowrap;
+	text-decoration: underline;
+}
+.sermon_detail .gist_wrap .gist .important {
+	margin: 15px 0;
+}
+.sermon_detail .gist_wrap .gist .important li {
+	padding-left: 20px;
+	font-size: 16px;
+	line-height: 24px;
+	text-indent: -20px;
+}
+
+/* 설교요지 성경 클릭 시 나오는 레이어 팝업 */
+.layer_bible {
+	position: absolute;
+	left: 15px;
+	z-index: 90;
+	padding: 18px;
+	background-color: #fff;
+	border: 1px solid #000;
+	border-radius: 8px;
+}
+
+
+/* 교회소식 */
+.notice_wrap {
+	padding: 20px 20px 40px 20px;
+}
+.notice_wrap .notice_title {
+	padding: 8px 0 15px;
+	margin-bottom: 15px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 23px;
+	border-bottom: 2px solid #000;
+}
+
+/* 숫자가 있는 리스트 */
+.notice_wrap ol.list {
+    counter-reset: notice_list; 
+}
+.notice_wrap ol.list li {
+	margin-bottom: 15px;
+    color: #444;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+.notice_wrap ol.list li .tit {
+	font-size: 16px;
+    font-weight: 500;
+}
+.notice_wrap ol.list li .tit:before {
+    counter-increment: notice_list;
+    content: counter(notice_list) ". ";
+}
+
+
+/**********************************************************
+	찬양
+***********************************************************/
+/* 찬양 상세 */
+.praise_detail .movie_wrap {
+	border: 0;
+	border-radius: 0;
+}
+.praise_detail .movie_wrap .info {
+	padding: 12px 15px 30px 15px;
+}
+
+.praise_detail .section {
+	padding: 0;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ebebeb;
+}
+
+.praise_detail .tab_area {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ebebeb;
+}
+.praise_detail .tab_area li {
+	display: inline-block;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #000;
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 33px;
+}
+.praise_detail .tab_area li.on {
+	color: #fff;
+	background-color: #444;
+}
+
+/* 찬양목록 */
+.praise_wrap {
+	padding: 20px 15px 40px 15px;
+}
+
+
 
 /**********************************************************
 	성경
@@ -818,26 +1071,128 @@ hr {
 }
 
 /* 말씀 상세 */
-.top_area .verse {
-	display: inline-block;
-	padding: 0 15px;
-	line-height: 24px;
-	font-size: 12px;
-	background-color: #f5f5f5;
-	border-radius: 24px;
+.top_area .tool_list {
+	position: absolute;
+	right: 5px;
+	top: 0;
+	display: flex;
 }
+.top_area .tool_list li + li {
+	margin-left: 15px;
+}
+
 .verse_list {
 	padding: 17px 15px;
+	border-top: 1px solid #ebebeb;
 }
 .verse_list li {
 	line-height: 26px;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
 	word-break: keep-all;
 }
 .verse_list li + li {
-	margin-top: 15px;
+	margin-top: 9px;
 }
+
+
+/**********************************************************
+	ON SERIES
+***********************************************************/
+.onseries_wrap .top_area .tab_wrap {
+	padding-right: 15px;
+}
+.onseries_wrap .guide {
+	padding: 15px;
+	font-size: 14px;
+	line-height: 21px;
+	background-color: #f9f9f9;
+}
+
+/* 온성경 상세 */
+.onseries_detail .section {
+	padding: 0;
+	background-color: #f9f9f9;
+	border-top: 1px solid #ebebeb;
+}
+
+.onseries_detail .tab_area {
+	padding: 10px 15px;
+	border-bottom: 1px solid #ebebeb;
+}
+.onseries_detail .tab_area li {
+	display: inline-block;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #000;
+	font-size: 14px;
+	font-weight: 500;
+	white-space: nowrap;
+	border-radius: 33px;
+}
+.onseries_detail .tab_area li.on {
+	color: #fff;
+	background-color: #444;
+}
+
+.onseries_detail .movie_wrap {
+	border: 0;
+	border-radius: 0;
+}
+.onseries_detail .movie_wrap .info {
+	padding: 12px 15px 30px 15px;
+}
+
+/* 온성경 순서 */
+.onseries_detail .order_wrap {
+	position: relative;
+	padding: 30px 20px;
+}
+.onseries_detail .order_wrap::before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 25px;
+	top: 38px;
+	bottom: 38px;
+	border-left: 1px solid #ddd;
+}
+.onseries_detail .order_wrap li {
+	position: relative;
+	padding-left: 26px;
+	font-size: 20px;
+	font-weight: 600;
+}
+.onseries_detail .order_wrap li:before {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	left: 0;
+	top: 5px;
+	width: 11px;
+	height: 11px;
+	background-color: #ddd;
+	border-radius: 11px;
+}
+.onseries_detail .order_wrap li + li {
+	margin-top: 30px;
+}
+/* 온성경 말씀 */
+.onseries_detail .bible_wrap ol.list {
+    counter-reset: bible; 
+}
+.onseries_detail .bible_wrap ol.list li {
+	margin-bottom: 15px;
+    color: #444;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+.onseries_detail .bible_wrap ol.list li:before {
+    counter-increment: bible;
+    content: counter(bible) ". ";
+}
+
 
 /**********************************************************
 	SETTING
@@ -971,6 +1326,9 @@ hr {
 /* align */
 .txt_center {
 	text-align: center !important;
+}
+.txt_left {
+	text-align: left !important;
 }
 
 

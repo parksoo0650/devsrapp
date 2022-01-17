@@ -115,7 +115,7 @@ export default function Home() {
       </div>
 
       <div className="section">
-        <div className="title">실시간 라이브</div>
+        <div className="title">성락 라이브 [주일 3부 예배]</div>
         <div className="movie_wrap">
           <YouTube videoId={datas.videoId} opts={opts} containerClassName="iframe_wrap" />
           <div className="info">
@@ -170,6 +170,7 @@ export default function Home() {
               <a href="#">{datas.title}</a>
             </div>
             <div className="date">{datas.publishedAt}</div>
+            <div className="preacher">설교: 김성현 감독</div>
           </div>
         </div>
       </div>
@@ -193,7 +194,7 @@ export default function Home() {
               </div>
               <div className="info">
                 <div className="tit">환원베뢰아 특강 <span className="tag_up">UP</span></div>
-                <div className="date">2021. 11. 20</div>
+                <div className="date">2021년 11월 05일</div>
               </div>
             </li>
             <li>
@@ -202,7 +203,7 @@ export default function Home() {
               </div>
               <div className="info">
                 <div className="tit">환원베뢰아 특강 <span className="tag_up">UP</span></div>
-                <div className="date">2021. 11. 20</div>
+                <div className="date">2021년 11월 05일</div>
               </div>
             </li>
           </ul>
@@ -263,7 +264,7 @@ export default function Home() {
               <div className="tit">
                 <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-              <div className="date">2021. 11. 05</div>
+              <div className="date">2021년 11월 05일</div>
             </div>
           </SwiperSlide>
           <SwiperSlide className="movie_wrap">
@@ -273,7 +274,7 @@ export default function Home() {
               <div className="tit">
                 <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-              <div className="date">2021. 11. 05</div>
+              <div className="date">2021년 11월 05일</div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -295,7 +296,7 @@ export default function Home() {
               <div className="tit">
                 <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-              <div className="date">2021. 11. 05</div>
+              <div className="date">2021년 11월 05일</div>
             </div>
           </SwiperSlide>
           <SwiperSlide className="movie_wrap">
@@ -305,7 +306,7 @@ export default function Home() {
               <div className="tit">
                 <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
               </div>
-              <div className="date">2021. 11. 05</div>
+              <div className="date">2021년 11월 05일</div>
             </div>
           </SwiperSlide>
         </Swiper>
@@ -321,23 +322,23 @@ export default function Home() {
           pagination={{ clickable: true }}
         >
           <SwiperSlide>
-            <div className="img"></div>
+            <div className="img"><img src="../icons/thumb_bwm.svg" alt="청년부" /></div>
             <div className="txt">청년부</div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="img"></div>
+            <div className="img"><img src="../icons/thumb_cba.svg" alt="대학부" /></div>
             <div className="txt">대학부</div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="img"></div>
+            <div className="img"><img src="../icons/thumb_high.svg" alt="고등부" /></div>
             <div className="txt">고등부</div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="img"></div>
+            <div className="img"><img src="../icons/thumb_secondary.svg" alt="중등부" /></div>
             <div className="txt">중등부</div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="img"></div>
+            <div className="img"><img src="../icons/thumb_elementary.svg" alt="유치부" /></div>
             <div className="txt">유치부</div>
           </SwiperSlide>
         </Swiper>
