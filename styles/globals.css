@@ -4,36 +4,32 @@
 	FONT
 ***********************************************************/
 @font-face {
-	font-family: "Noto Sans KR";
+	font-family: "NanumBarunGothic";
 	font-style: normal;
 	font-weight: 300;
-	src: url("fonts/NotoSansKR-Light.woff2") format("woff2"),
-		url("fonts/NotoSansKR-Light.woff") format("woff"),
-		url("fonts/NotoSansKR-Light.otf") format("opentype");
+	src: url("fonts/NanumBarunGothicWebUltraLight.woff") format("woff"),
+		url("fonts/NanumBarunGothicWebUltraLight.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Noto Sans KR";
+	font-family: "NanumBarunGothic";
 	font-style: normal;
 	font-weight: 400;
-	src: url("fonts/NotoSansKR-Regular.woff2") format("woff2"),
-		url("fonts/NotoSansKR-Regular.woff") format("woff"),
-		url("fonts/NotoSansKR-Regular.otf") format("opentype");
+	src: url("fonts/NanumBarunGothicWebLight.woff") format("woff"),
+		url("fonts/NanumBarunGothicWebLight.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Noto Sans KR";
+	font-family: "NanumBarunGothic";
 	font-style: normal;
 	font-weight: 500;
-	src: url("fonts/NotoSansKR-Medium.woff2") format("woff2"),
-		url("fonts/NotoSansKR-Medium.woff") format("woff"),
-		url("fonts/NotoSansKR-Medium.otf") format("opentype");
+	src: url("fonts/NanumBarunGothicWeb.woff") format("woff"),
+		url("fonts/NanumBarunGothicWeb.ttf") format("truetype");
 }
 @font-face {
-	font-family: "Noto Sans KR";
+	font-family: "NanumBarunGothic";
 	font-style: normal;
 	font-weight: 600;
-	src: url("fonts/NotoSansKR-Bold.woff2") format("woff2"),
-		url("fonts/NotoSansKR-Bold.woff") format("woff"),
-		url("fonts/NotoSansKR-Bold.otf") format("opentype");
+	src: url("fonts/NanumBarunGothicWebBold.woff") format("woff"),
+		url("fonts/NanumBarunGothicWebBold.ttf") format("truetype");
 }
 
 
@@ -43,7 +39,7 @@
 body, input, textarea, select, button, table {
 	margin: 0;
 	font-size: 13px;
-	font-family: "Noto Sans KR";
+	font-family: "NanumBarunGothic";
 	font-weight: 300;
 	letter-spacing: -0.5px;
 	color: #000;
@@ -113,7 +109,7 @@ table {
 	border-spacing: 0;
 }
 strong {
-	font-weight: 500;
+	font-weight: 600;
 }
 legend, caption {
 	display: none !important;
@@ -287,7 +283,7 @@ header .alarm.on:after {
 	position: relative;
 	padding: 25px 0;
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: 600;
 }
 .menu_wrap .menu_list li.title + li {
 	border-top: 1px solid #ebebeb;
@@ -389,7 +385,7 @@ footer .sns_list li + li {
 	margin-bottom: 13px;
 	color: #000;
 	font-size: 20px;
-	font-weight: 500;
+	font-weight: 600;
 }
 .section .title small {
 	font-size: 16px;
@@ -491,7 +487,7 @@ hr {
 }
 .days_wrap .day_list li.on {
 	color: #e07511;
-	font-weight: 500;
+	font-weight: 600;
 	border: 2px solid #e07511;
 }
 
@@ -645,7 +641,7 @@ hr {
 	margin-bottom: 5px;
 	color: #000;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 600;
 	text-align: center;
 }
 
@@ -747,7 +743,7 @@ hr {
 	margin: 8px 0  2px;
 	line-height: 30px;
 	font-size: 26px;
-	font-weight: 500;
+	font-weight: 600;
 }
 .movie_detail .info .date {
 	color: #aaa;
