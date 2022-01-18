@@ -25,7 +25,8 @@ export default function Sermonmain() {
 
     const router = useRouter();
 
-    let [isOpen, setOpen] = useState(false);
+    let [isOpen, setIsOpen] = useState(false);
+    let [isDrop, setIsDrop] = useState(false);
 
     const opts = {
         width: "320px",
@@ -38,15 +39,16 @@ export default function Sermonmain() {
 
     return (
         <div className="sub_container">
+
             <div className="top_area">
                 <span className="btn_prev"></span>
                 <div className="top_title">예배</div>
 
                 {/* active 클래스로 메뉴 드롭다운 조절 */}
-                <div className="tab_wrap active">
+                <div className={isDrop ? "tab_wrap active" : "tab_wrap"}>
                     <div className="tab_bar">
                         전체보기
-                        <span className="btn_close"></span>
+                        <span className="btn_close" onClick={() => setIsDrop(false)}></span>
                     </div>
                     <ul className="tab_area">
                         <li className="on">주일 1부 예배</li>
@@ -55,11 +57,18 @@ export default function Sermonmain() {
                         <li>수요 오후 예배</li>
                         <li>금요 환언 특강</li>
                     </ul>
-                    <span className="btn_more"></span>
+                    <span className="btn_more" onClick={() => setIsDrop(true)}></span>
                 </div>
             </div>
             {/* 드롭다운 메뉴가 활성화 되면 display:block */}
             <div className="shadow"></div>
+            <style jsx>
+            {`
+            .shadow {
+                display: ${isDrop ? "block" : "none"};
+            }
+            `}
+            </style>
 
             <div className="section">
                 <div className="title">최신 컨텐츠</div>
@@ -68,17 +77,17 @@ export default function Sermonmain() {
                     <div className="info">
 
                         {/* 공유하기 */}
-                        <span className="btn_share" onClick={() => setOpen(true)}></span>
+                        <span className="btn_share" onClick={() => setIsOpen(true)}></span>
                         <Sheet
                             isOpen={isOpen}
-                            onClose={() => setOpen(false)}
+                            onClose={() => setIsOpen(false)}
                             snapPoints={[0.4]}
                         >
                             <Sheet.Container>
                                 <Sheet.Header />
                                 <Sheet.Content>
                                     <div className="pop_toast">
-                                        <button className="btn_close" onClick={() => setOpen(false)}></button>
+                                        <button className="btn_close" onClick={() => setIsOpen(false)}></button>
                                         <div className="title">공유하기</div>
                                         <ul className="sns_list">
                                             <li>
