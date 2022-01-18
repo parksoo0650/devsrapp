@@ -151,8 +151,11 @@ header .inner {
 }
 header .logo {
 	display: inline-block;
-	width: 112px;
-	height: 36px;
+	width: 108px;
+	height: 31px;
+}
+header .logo img {
+	width: 100%;
 }
 header .alarm {
 	display: inline-block;
