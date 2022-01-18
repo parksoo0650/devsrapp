@@ -121,11 +121,15 @@ legend, caption {
 	justify-content: space-between;
 }
 
+.hide {
+	display: none !important;
+}
+
 .container {
 	margin-top: 60px;
 }
 .sub_container {
-	margin-top: 60px;
+	margin-top: 58px;
 	flex: 1;
 }
 
@@ -141,9 +145,10 @@ header {
 	z-index: 500;
 	width: 100%;
 	background-color: #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 header.on {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 header .inner {
 	position: relative;
@@ -157,6 +162,14 @@ header .logo {
 header .logo img {
 	width: 100%;
 }
+/* 검색 */
+header .btn_search {
+	display: inline-block;
+	position: absolute;
+	right: 12px;
+	top: 17px;
+}
+/* 알림 */
 header .alarm {
 	display: inline-block;
 	position: absolute;
@@ -190,20 +203,20 @@ header .alarm.on:after {
 	bottom: -90px;
 	width: 100%;
 	z-index: 500;
-	padding: 9px 26px 26px 26px;
+	padding: 9px 0 26px 0;
 	background-color: #fff;
 	border-top: 1px solid #ebebeb;
 	transition: 0.5s;
 	opacity: 0;
 }
 #home_bar li {
+	width: 20%;
 	text-align: center;
 }
-#home_bar li i {
+#home_bar li .ico {
 	display: inline-block;
 	width: 24px;
 	height: 24px;
-	background-color: #aaa;
 }
 #home_bar li .menu {
 	margin-top: 8px;
@@ -400,7 +413,7 @@ footer .sns_list li + li {
 	position: absolute;
 	right: 0;
 	top: 0;
-	color: #999;
+	color: #444;
 	font-size: 12px;
 	line-height: 29px;
 	font-weight: 500;
@@ -473,7 +486,7 @@ hr {
 }
 .movie_wrap .info .tit {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -484,7 +497,7 @@ hr {
 	margin-top: 8px;
 	color: #000;
 	font-size: 12px;
-	font-weight: 500;
+	font-weight: 400;
 }
 .movie_wrap .info .preacher {
 	display: inline-block;
@@ -507,7 +520,7 @@ hr {
 	border-radius: 40px;
 }
 .days_wrap .day_list li {
-	padding: 0 11px;
+	padding: 0 10px;
 	font-size: 16px;
 	color: #999;
 	font-weight: 500;
@@ -545,7 +558,7 @@ hr {
 }
 .days_wrap .con_list li .info .tit {
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -715,7 +728,7 @@ hr {
 }
 .top_area .tab_area {
 	display: flex;
-	overflow: auto;
+	overflow-x: auto;
 	padding: 0 0 12px 15px;
 }
 .top_area .tab_area li {
@@ -772,6 +785,7 @@ hr {
 	flex-wrap: wrap;
 	padding: 0 7px 2px 15px;
 	background-color: #fff;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
 .top_area .tab_wrap.active .tab_area li {
 	margin: 0 8px 10px 0;
@@ -811,7 +825,7 @@ hr {
 }
 
 /**********************************************************
-	예배
+	SERMON(예배)
 ***********************************************************/
 /* 예배 메인 */
 .sermon_list li {
@@ -925,9 +939,20 @@ hr {
 	padding: 20px 20px 40px 20px;
 }
 .sermon_detail .gist_wrap .gist_title {
+	position: relative;
+	padding-right: 30px;
 	font-size: 20px;
 	font-weight: 600;
 	line-height: 23px;
+}
+.sermon_detail .gist_wrap .gist_title .translation {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_trans.svg') no-repeat center center;
 }
 .sermon_detail .gist_wrap .main_bible {
 	padding: 8px 0 15px;
@@ -942,6 +967,7 @@ hr {
 	word-break: keep-all;
 }
 .sermon_detail .gist_wrap .gist .bible {
+	position: relative;
 	color: #999;
 	white-space: nowrap;
 	text-decoration: underline;
@@ -957,14 +983,42 @@ hr {
 }
 
 /* 설교요지 성경 클릭 시 나오는 레이어 팝업 */
+.layer_bible.on {
+	display: block;
+}
 .layer_bible {
+	display: none;
 	position: absolute;
 	left: 15px;
 	z-index: 90;
-	padding: 18px;
+	width: 280px;
+	padding: 17px 7px 17px 17px;
 	background-color: #fff;
-	border: 1px solid #000;
+	border: 1px solid #999;
 	border-radius: 8px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+.layer_bible .btn_close {
+	display: inline-block;
+	position: absolute;
+	right: 17px;
+	top: 17px;
+	width: 20px;
+	height: 20px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+	background-size: 15px 15px;
+}
+.layer_bible .verse_list {
+	max-height: 240px;
+	padding: 0 10px 0 0;
+	margin-top: 20px;
+	border: 0;
+	overflow-y: auto;
+}
+.layer_bible .verse_list li {
+	color: #000;
+	white-space: normal;
+	word-break: break-all;
 }
 
 
@@ -973,7 +1027,7 @@ hr {
 	padding: 20px 20px 40px 20px;
 }
 .notice_wrap .notice_title {
-	padding: 8px 0 15px;
+	padding-bottom: 15px;
 	margin-bottom: 15px;
 	font-size: 20px;
 	font-weight: 600;
@@ -1003,7 +1057,7 @@ hr {
 
 
 /**********************************************************
-	찬양
+	PRAISE(찬양)
 ***********************************************************/
 /* 찬양 상세 */
 .praise_detail .movie_wrap {
@@ -1047,8 +1101,83 @@ hr {
 
 
 /**********************************************************
-	성경
+	BIBLE(성경)
 ***********************************************************/
+/* 말씀 상세 */
+.top_area .top_title .arrow {
+	display: inline-block;
+	height: 25px;
+	width: 25px;
+	margin-top: -2px;
+	background: url('/icons/ico_back.svg') no-repeat center center;
+	transform: rotate(-90deg) scale(0.75);
+	vertical-align: middle;
+}
+.top_area .tool_list {
+	position: absolute;
+	right: 15px;
+	top: 0;
+	display: flex;
+}
+.top_area .tool_list li + li {
+	margin-left: 15px;
+}
+
+.bible_con {
+	position: relative;
+	padding: 17px 15px 80px 15px;
+	border-top: 1px solid #ebebeb;
+}
+.bible_con .btn_left {
+	position: fixed;
+	left: 8px;
+	bottom: 100px;
+	z-index: 100;
+	width: 55px;
+	height: 55px;
+	background: url('/icons/ico_swiper_left.svg') no-repeat center center;
+}
+.bible_con .btn_right {
+	position: fixed;
+	right: 8px;
+	bottom: 100px;
+	z-index: 100;
+	width: 55px;
+	height: 55px;
+	background: url('/icons/ico_swiper_right.svg') no-repeat center center;
+}
+.verse_list li {
+	line-height: 26px;
+	font-size: 16px;
+	font-weight: 400;
+	word-break: keep-all;
+}
+.verse_list li + li {
+	margin-top: 9px;
+}
+
+/* 토스트 팝업 */
+.toast_bible .tab_area {
+	display: flex;
+}
+.toast_bible .tab_area li {
+	width: 33.33%;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 39px;
+	border-bottom: 2px solid #fff;
+}
+.toast_bible .tab_area li.on {
+	border-bottom: 2px solid #ff984f;
+}
+
+.toast_bible .tab_con {
+	padding-top: 10px;
+	max-height: 385px;
+	overflow-y: auto;
+}
+
 /* 책 선택 */
 .book_list {
 	display: flex;
@@ -1073,31 +1202,64 @@ hr {
 	font-size: 15px;
 }
 
-/* 말씀 상세 */
-.top_area .tool_list {
-	position: absolute;
-	right: 5px;
-	top: 0;
-	display: flex;
-}
-.top_area .tool_list li + li {
-	margin-left: 15px;
-}
-
-.verse_list {
+/**********************************************************
+	HYMN(찬송가)
+***********************************************************/
+.hymn_con {
 	padding: 17px 15px;
 	border-top: 1px solid #ebebeb;
 }
-.verse_list li {
+.hymn_con .list li {
 	line-height: 26px;
 	font-size: 16px;
 	font-weight: 500;
 	word-break: keep-all;
 }
-.verse_list li + li {
+.hymn_con .list li + li {
 	margin-top: 9px;
 }
 
+/* 토스트 팝업 */
+.toast_hymn {
+	padding: 0 15px;
+}
+.toast_hymn .search_area {
+	position: relative;
+	padding-bottom: 6px;
+}
+.toast_hymn .search_area select {
+	height: 34px;
+	padding: 0 5px;
+	font-size: 14px;
+}
+.toast_hymn .search_area input {
+	width: calc(100% - 100px);
+	height: 31px;
+	margin-left: 7px;
+	font-size: 14px;
+	border: 0;
+	border-bottom: 1px solid #000;
+}
+.toast_hymn .search_area .btn_search {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 5px;
+	width: 25px;
+	height: 25px;
+	background: url('/icons/ico_search.svg') no-repeat center center;
+}
+.toast_hymn .tab_con {
+	padding-top: 10px;
+	max-height: 385px;
+	overflow-y: auto;
+}
+.toast_hymn .hymn_list li {
+	padding: 0 5px;
+	font-size: 14px;
+	line-height: 40px;
+	border-bottom: 1px solid #ddd;
+}
 
 /**********************************************************
 	ON SERIES
@@ -1112,7 +1274,111 @@ hr {
 	background-color: #f9f9f9;
 }
 
-/* 온성경 상세 */
+/* 온특새 - 상세 */
+.onseries_detail .prayer_wrap {
+	padding: 30px 20px;
+}
+.onseries_detail .prayer_list {
+    counter-reset: prayer_list; 
+}
+.onseries_detail .prayer_list li {
+	color: #444;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: 400;
+}
+.onseries_detail .prayer_list li:before {
+    counter-increment: prayer_list;
+    content: counter(prayer_list) ". ";
+}
+
+/* 온3분 메인 - 슬라이드 */
+.onseries_wrap .three_swiper {
+	padding: 0 26px;
+}
+.onseries_wrap .three_swiper .swiper-slide {
+	border-radius: 8px;
+	overflow: hidden;
+}
+.onseries_wrap .three_swiper .swiper-slide img {
+	display: block;
+	width: 100%;
+}
+
+/* 온3분 - 상세 - 설교요지 */
+.onseries_detail .gist_wrap {
+	padding: 20px 20px 40px 20px;
+}
+.onseries_detail .gist_wrap .gist_title {
+	position: relative;
+	padding-right: 30px;
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 23px;
+}
+.onseries_detail .gist_wrap .gist_title .translation {
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_trans.svg') no-repeat center center;
+}
+.onseries_detail .gist_wrap .main_bible {
+	padding: 8px 0 15px;
+	margin-bottom: 15px;
+	font-size: 16px;
+	line-height: 18px;
+	border-bottom: 2px solid #000;
+}
+.onseries_detail .gist_wrap .gist {
+	font-size: 16px;
+	line-height: 26px;
+	word-break: keep-all;
+}
+/* 선교센터 블로그 바로가기 */
+.onseries_detail .gist_wrap .btn_mission {
+	height: 57px;
+	margin-top: 40px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 57px;
+	text-align: center;
+	background-color: #5AB94D;
+	border-radius: 8px;
+}
+.onseries_detail .gist_wrap .btn_mission:before {
+	content: 'N';
+	display: inline-block;
+	margin: 2px 5px 0 0;
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+	vertical-align: middle;
+}
+/* 선교센터 PR */
+.onseries_detail .gist_wrap .txt_mission {
+	margin-top: 15px;
+	color: #999;
+	font-size: 14px;
+	line-height: 22px;
+	text-align: center;
+}
+
+.onseries_detail .three_swiper {
+	padding: 15px 0 25px;
+}
+.onseries_detail .three_swiper .swiper-slide {
+	border-radius: 8px;
+	overflow: hidden;
+}
+.onseries_detail .three_swiper .swiper-slide img {
+	display: block;
+	width: 100%;
+}
+
+/* 온성경 - 상세 */
 .onseries_detail .section {
 	padding: 0;
 	background-color: #f9f9f9;
@@ -1181,21 +1447,46 @@ hr {
 	margin-top: 30px;
 }
 /* 온성경 말씀 */
-.onseries_detail .bible_wrap ol.list {
-    counter-reset: bible; 
+.onseries_detail .bible_wrap .top_area {
+	background-color: #f9f9f9;
 }
-.onseries_detail .bible_wrap ol.list li {
-	margin-bottom: 15px;
-    color: #444;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-}
-.onseries_detail .bible_wrap ol.list li:before {
-    counter-increment: bible;
-    content: counter(bible) ". ";
+.onseries_detail .bible_wrap .bible_con {
+	border: 0;
 }
 
+/**********************************************************
+	JUBO(주보)
+***********************************************************/
+.jubo_wrap .visual {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 180px;
+	padding: 20px;
+	text-align: center;
+	background: url('/images/bg_jubo.png') no-repeat center top;
+	background-size: cover;
+}
+.jubo_wrap .visual .title {
+	color: #000;
+	font-size: 22px;
+	font-weight: 600;
+}
+.jubo_wrap .visual .eng {
+	margin: 5px 0 15px;
+	color: #999;
+	font-size: 16px;
+	font-weight: 300;
+}
+.jubo_wrap .visual .bible {
+	color: #000;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.jubo_wrap.sermon_detail .tab_con {
+	background-color: #fff;
+}
 
 /**********************************************************
 	SETTING
@@ -1332,6 +1623,9 @@ hr {
 }
 .txt_left {
 	text-align: left !important;
+}
+.txt_right {
+	text-align: right !important;
 }
 
 

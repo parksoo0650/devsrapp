@@ -193,7 +193,7 @@ export default function Home() {
                 {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
               </div>
               <div className="info">
-                <div className="tit">환원베뢰아 특강 <span className="tag_up">UP</span></div>
+                <div className="tit">환언베뢰아 특강 <span className="tag_up">UP</span></div>
                 <div className="date">2021년 11월 05일</div>
               </div>
             </li>
@@ -202,7 +202,7 @@ export default function Home() {
                 {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
               </div>
               <div className="info">
-                <div className="tit">환원베뢰아 특강 <span className="tag_up">UP</span></div>
+                <div className="tit">환언베뢰아 특강 <span className="tag_up">UP</span></div>
                 <div className="date">2021년 11월 05일</div>
               </div>
             </li>
@@ -233,7 +233,7 @@ export default function Home() {
             <div className="img"></div>
             <div className="txt">성경</div>
           </li>
-          <li onClick={() => { router.push("/praiselist"); }}>
+          <li onClick={() => { router.push("/hymnmain"); }}>
             <div className="img"></div>
             <div className="txt">찬송가</div>
           </li>

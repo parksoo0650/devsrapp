@@ -21,10 +21,14 @@ export default function Praisemain() {
 
     useEffect(() => {
         getData();
+        let praise = ['1부 성가대', '1부 헌금송', '3부 성가대', '3부 헌금송', '연합 성가대', '연합 헌금송', '예수로 찬양', '주일 예배 찬양', '주일 연합 예배 찬양'];
     }, []);
 
     const router = useRouter();
 
+    const [praise, setPraise] = useState("1부 성가대");
+
+    let [isDrop, setIsDrop] = useState(false);
     let [isOpen, setOpen] = useState(false);
 
     const opts = {
@@ -43,27 +47,33 @@ export default function Praisemain() {
                 <div className="top_title">찬양</div>
 
                 {/* active 클래스를 tab_wrap에 추가하여 메뉴 드롭다운 활성화 // 동시에 shadow 엘리먼트도 display:block 설정하여야 함 */}
-                <div className="tab_wrap">
+                <div className={isDrop ? "tab_wrap active" : "tab_wrap"}>
                     <div className="tab_bar">
                         전체보기
-                        <span className="btn_close"></span>
+                        <span className="btn_close" onClick={() => setIsDrop(false)}></span>
                     </div>
                     <ul className="tab_area">
-                        <li className="on">1부 성가대</li>
-                        <li>1부 헌금송</li>
-                        <li>3부 성가대</li>
-                        <li>3부 헌금송</li>
-                        <li>연합 성가대</li>
-                        <li>연합 헌금송</li>
-                        <li>예수로 찬양</li>
-                        <li>주일 예배 찬양</li>
-                        <li>주일 연합 예배 찬양</li>
+                        <li onClick={() => { setPraise("1부 성가대"); }} className={(praise == "1부 성가대") ? "on" : ""}>1부 성가대</li>
+                        <li onClick={() => { setPraise("1부 헌금송"); }} className={(praise == "1부 헌금송") ? "on" : ""}>1부 헌금송</li>
+                        <li onClick={() => { setPraise("3부 성가대"); }} className={(praise == "3부 성가대") ? "on" : ""}>3부 성가대</li>
+                        <li onClick={() => { setPraise("3부 헌금송"); }} className={(praise == "3부 헌금송") ? "on" : ""}>3부 헌금송</li>
+                        <li onClick={() => { setPraise("연합 성가대"); }} className={(praise == "연합 성가대") ? "on" : ""}>연합 성가대</li>
+                        <li onClick={() => { setPraise("연합 헌금송"); }} className={(praise == "연합 헌금송") ? "on" : ""}>연합 헌금송</li>
+                        <li onClick={() => { setPraise("예수로 찬양"); }} className={(praise == "예수로 찬양") ? "on" : ""}>예수로 찬양</li>
+                        <li onClick={() => { setPraise("주일 예배 찬양"); }} className={(praise == "주일 예배 찬양") ? "on" : ""}>주일 예배 찬양</li>
+                        <li onClick={() => { setPraise("주일 연합 예배 찬양"); }} className={(praise == "주일 연합 예배 찬양") ? "on" : ""}>주일 연합 예배 찬양</li>
                     </ul>
-                    <span className="btn_more"></span>
+                    <span className="btn_more" onClick={() => setIsDrop(true)}></span>
                 </div>
             </div>
             {/* 드롭다운 메뉴가 활성화 되면 display:block */}
-            <div className="shadow" style={{display: "none"}}></div>
+            <style jsx>
+            {`
+            .shadow {
+                display: ${isDrop ? "block" : "none"};
+            }
+            `}
+            </style>
 
             <div className="section">
                 <div className="title">최신 컨텐츠</div>

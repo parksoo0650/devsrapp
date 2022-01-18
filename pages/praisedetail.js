@@ -21,9 +21,12 @@ export default function Praisedetail() {
 
     useEffect(() => {
         getData();
+        let praise = ['재생목록', '찬양목록'];
     }, []);
 
     const router = useRouter();
+
+    const [praiseD, setPraiseD] = useState("재생목록");
 
     let [isOpen, setOpen] = useState(false);
 
@@ -102,13 +105,13 @@ export default function Praisedetail() {
 
             <div className="section">
                 <ul className="tab_area">
-                    <li>재생목록</li>
-                    <li className="on">찬양목록</li>
+                    <li onClick={() => { setPraiseD("재생목록"); }} className={(praiseD == "재생목록") ? "on" : ""}>재생목록</li>
+                    <li onClick={() => { setPraiseD("찬양목록"); }} className={(praiseD == "찬양목록") ? "on" : ""}>찬양목록</li>
                 </ul>
                 <div className="tab_con">
 
-                    {/* 재생목록&찬양목록 디자인 같음 */}
-                    <div className="praise_wrap">
+                    {/* 재생목록 */}
+                    <div className={(praiseD == "재생목록") ? "praise_wrap" : "praise_wrap hide"}>
                         <ul className="sermon_list">
                             <li>
                                 <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
@@ -121,6 +124,24 @@ export default function Praisedetail() {
                             <li>
                                 <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
                                 <div className="date">2021년 11월 05일</div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* 찬양목록 */}
+                    <div className={(praiseD == "찬양목록") ? "praise_wrap" : "praise_wrap hide"}>
+                        <ul className="sermon_list">
+                            <li>
+                                <div className="tit">복의 근원 강림하사<br />뉴헤븐 성가대</div>
+                                <div className="date">2022년 01월 15일</div>
+                            </li>
+                            <li>
+                                <div className="tit">복의 근원 강림하사<br />뉴헤븐 성가대</div>
+                                <div className="date">2022년 01월 15일</div>
+                            </li>
+                            <li>
+                                <div className="tit">복의 근원 강림하사<br />뉴헤븐 성가대</div>
+                                <div className="date">2022년 01월 15일</div>
                             </li>
                         </ul>
                     </div>

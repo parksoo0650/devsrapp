@@ -8,7 +8,7 @@ export default function HomeBar() {
                 <li>
                     <Link href="/">
                         <a>
-                            <img src="/icons/ico_home.svg" alt="" />
+                            <div className="ico"><img src="/icons/ico_home.svg" alt="홈" /></div>
                             <div className="menu">홈</div>
                         </a>
                     </Link>
@@ -16,23 +16,23 @@ export default function HomeBar() {
                 <li>
                     <Link href="/sermonmain">
                         <a>
-                            <img src="/icons/ico_sermon.svg" alt="" />
+                            <div className="ico"><img src="/icons/ico_sermon.svg" alt="예배" /></div>
                             <div className="menu">예배</div>
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/biblelist">
+                    <Link href="/chapter/1_1">
                         <a>
-                            <img src="/icons/ico_bible.svg" alt="" />
+                            <div className="ico"><img src="/icons/ico_bible.svg" alt="성경" /></div>
                             <div className="menu">성경</div>
                         </a>
                     </Link>
                 </li>
                 <li>
-                    <Link href="/onsub?flag=1">
+                    <Link href="/onmain">
                         <a>
-                            <img src="/icons/ico_onseries.svg" alt="" />
+                            <div className="ico"><img src="/icons/ico_onseries.svg" alt="온시리즈" /></div>
                             <div className="menu">온시리즈</div>
                         </a>
                     </Link>
@@ -41,7 +41,7 @@ export default function HomeBar() {
                     let allMenu = document.getElementById('all_menu');
                     allMenu.className = 'on';
                 }}>
-                    <img src="/icons/ico_menu.svg" alt="" />
+                    <div className="ico"><img src="/icons/ico_menu.svg" alt="전체보기" /></div>
                     <div className="menu">전체보기</div>
                 </li>
             </ul>

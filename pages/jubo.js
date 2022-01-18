@@ -21,7 +21,7 @@ export default function Sermonmain() {
 
     useEffect(() => {
         getData();
-        let sermon = ['예배순서', '설교요지', '교회소식'];
+        let sermon = ['예배순서', '설교요지', '주중설교', '교회소식'];
     }, []);
 
     const router = useRouter();
@@ -40,73 +40,23 @@ export default function Sermonmain() {
     };
 
     return (
-        <div className="sub_container sermon_detail">
+        <div className="sub_container jubo_wrap sermon_detail">
             <div className="top_area">
                 <span className="btn_prev"></span>
-                <div className="top_title">주일 3부 예배</div>
+                <div className="top_title">주보</div>
             </div>
 
-            <div className="movie_wrap">
-                <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                <div className="info">
-
-                    {/* 공유하기 */}
-                    <span className="btn_share" onClick={() => setOpen(true)}></span>
-                    <Sheet
-                        isOpen={isOpen}
-                        onClose={() => setOpen(false)}
-                        snapPoints={[0.4]}
-                    >
-                        <Sheet.Container>
-                            <Sheet.Header />
-                            <Sheet.Content>
-                                <div className="pop_toast">
-                                    <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                    <div className="title">공유하기</div>
-                                    <ul className="sns_list">
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                <div className="tit">카카오톡</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">SNS</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_instar.svg" alt="instar" />
-                                                <div className="tit">URL</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">블로그</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </Sheet.Content>
-                        </Sheet.Container>
-                        <Sheet.Backdrop />
-                    </Sheet>
-                    {/* 공유하기 */}
-
-                    <div className="tit">
-                        <a href="#">깨어 있으라<br />마가복음 13:24~37</a>
-                    </div>
-                    <div className="date">2021년 11월 05일</div>
-                </div>
+            <div className="visual">
+                <div className="title">이름으로도 기억되는 자</div>
+                <div className="eng">Those who are Konwn by Name</div>
+                <div className="bible">[마가복음 13:24~37]</div>
             </div>
 
             <div className="section">
                 <ul className="tab_area">
                     <li onClick={() => { setSermonD("예배순서"); }} className={(sermonD == "예배순서") ? "on" : ""}>예배순서</li>
                     <li onClick={() => { setSermonD("설교요지"); }} className={(sermonD == "설교요지") ? "on" : ""}>설교요지</li>
+                    <li onClick={() => { setSermonD("주중설교"); }} className={(sermonD == "주중설교") ? "on" : ""}>주중설교</li>
                     <li onClick={() => { setSermonD("교회소식"); }} className={(sermonD == "교회소식") ? "on" : ""}>교회소식</li>
                 </ul>
                 <div className="tab_con">
@@ -263,6 +213,29 @@ export default function Sermonmain() {
                                     하나님이 증거하셨으니 그가 침례 받을실 때이다 (시무언)
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                    
+                    {/* 주중설교 */}
+                    <div className={(sermonD == "주중설교") ? "gist_wrap" : "gist_wrap hide"}>
+                        <div className="gist_title">
+                            사랑
+                            <span className="translation"></span>
+                        </div>
+                        <div className="main_bible">마가복음 1:35~37</div>
+                        <div className="gist">
+                            인간이 하나님을 사랑하는 일에 자꾸 실패하는 것은 자신을 사랑하는 본능에 굴복하기 때문입니다. 구약시대의 역사가 이를 여실히 드러냅니다. 우리가 같은 실패를 반복하지 않으려면 구약 성경을 통해 드러난 인간의 자기중심성을 발견하고 이를 극복하기 위해 노력해야 합니다.
+                            <br />
+                            모세를 부인치 않은 예수<br />
+                            모든 계명 중에 첫째가 무엇인지를 묻는 서기관들의 질문에 예수는 말씀하셨습니다. “네 마음을 다하고 목숨을 다하고 뜻을 다하고 힘을 다하여 주 너의 하나님을 사랑하라! 그리고 네 이웃을 네 몸과 같이 사랑하라!: 이 대답에 서기관들은 깜짝 놀랐습니다. 예수는 모세를 부정하는 고리 체계를 가지고 있을 것이라고 예상 했던 그들이 틀렸음을 발견했기 때문입니다.
+                            <br />
+                            2. 율법이 가리켜 왔던 사랑 <br />
+                            모세의 율법이 순종을 강조한 것은 하나님에 대한 사랑을 나타내라는 의미였습니다, 하나님은 세상을 지으신 분이요, 자기 목숨을 던져 죄인을 구원하신 분이요, 우리에게 복 주시는 분입니다.  그런 하나님은 우리의 지성과 감정, 의지와 행동을 모두 불태우는 사랑을 받기에 합당하신 분입니다. 하나님은 또한 우리에게 형제자매를 사랑하기를 원하십니다. 이를 통해 하나님을 향한 그 사랑을 표현하고 증거하기를 바라십니다.
+                            <br />
+                            3. 사랑을 가능케 하신 예수<br />
+                            서로 사랑하라는 계명을 주님은 우리에게 주셨습니다. 이는 새것을 갑자기 내놓으신 것이 아니고 예전부터 있었던 것을 강조하신 것입니다. 그러나 아무리 서로 사랑하려 해도 우리의 능력으로는 한계가 있음을 아시는 주님은 우리가 형제자매를 사랑하려고 노력할 때, 그 열심 자체를 우리가 주님을 사랑하는 증거로 간주하겠다고 하셨습니다. 하나님의 사랑을 받은 우리, 그 사랑으로 하나님을 사랑합시다. 형제자매를 사랑함으로써 그 사랑의 진실을 나타냅시다.
+                            <br /><br />
+                            <div class="txt_right">김성현 감독</div>
                         </div>
                     </div>
                     

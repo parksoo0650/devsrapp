@@ -21,9 +21,12 @@ export default function Sermonmain() {
 
     useEffect(() => {
         getData();
+        let sermon = ['주일 1부 예배', '주일 3부 예배', '수요 오전 예배', '수요 오후 예배', '금요 환언 특강'];
     }, []);
 
     const router = useRouter();
+
+    const [sermon, setSermon] = useState("주일 1부 예배");
 
     let [isOpen, setIsOpen] = useState(false);
     let [isDrop, setIsDrop] = useState(false);
@@ -51,11 +54,11 @@ export default function Sermonmain() {
                         <span className="btn_close" onClick={() => setIsDrop(false)}></span>
                     </div>
                     <ul className="tab_area">
-                        <li className="on">주일 1부 예배</li>
-                        <li>주일 3부 예배</li>
-                        <li>수요 오전 예배</li>
-                        <li>수요 오후 예배</li>
-                        <li>금요 환언 특강</li>
+                        <li onClick={() => { setSermon("주일 1부 예배"); }} className={(sermon == "주일 1부 예배") ? "on" : ""}>주일 1부 예배</li>
+                        <li onClick={() => { setSermon("주일 3부 예배"); }} className={(sermon == "주일 3부 예배") ? "on" : ""}>주일 3부 예배</li>
+                        <li onClick={() => { setSermon("수요 오전 예배"); }} className={(sermon == "수요 오전 예배") ? "on" : ""}>수요 오전 예배</li>
+                        <li onClick={() => { setSermon("수요 오후 예배"); }} className={(sermon == "수요 오후 예배") ? "on" : ""}>수요 오후 예배</li>
+                        <li onClick={() => { setSermon("금요 환언 특강"); }} className={(sermon == "금요 환언 특강") ? "on" : ""}>금요 환언 특강</li>
                     </ul>
                     <span className="btn_more" onClick={() => setIsDrop(true)}></span>
                 </div>
