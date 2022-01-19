@@ -5,38 +5,45 @@ export default function Layout(props) {
     const router = useRouter();
     return (
         <>
-            <header>
-                <div>
-                    <Link href="/weeklymain" replace={false}>
-                        <a className={router.pathname === "/weeklymain" ? "active" : ""}>메인</a>
-                    </Link>
-                    &nbsp;|&nbsp;
-                    <Link href="/weeklyorder" replace={false}>
-                        <a className={router.pathname === "/weeklyorder" ? "active" : ""}>예배순서</a>
-                    </Link>
-                    &nbsp;|&nbsp;
-                    <Link href="/weeklysummary">
-                        <a className={router.pathname === "/weeklysummary" ? "active" : ""}>설교요약</a>
-                    </Link>
-                    &nbsp;|&nbsp;
-                    <Link href="/weeklywords">
-                        <a className={router.pathname === "/weeklywords" ? "active" : ""}>주중말씀</a>
-                    </Link>
-                    &nbsp;|&nbsp;
-                    <Link href="/weeklynews">
-                        <a className={router.pathname === "/weeklynews" ? "active" : ""}>교회소식</a>
-                    </Link>
+            <div className="sub_container jubo_wrap sermon_detail">
+                <div className="top_area">
+                    <span className="btn_prev"></span>
+                    <div className="top_title">주보</div>
                 </div>
-                {props.children}
-            </header>
-            <style jsx>{`
-            header {
-                margin-top:60px;
-            }
-            .active {
-                color: red;
-            }
-            `}</style>
+                <div className="visual">
+                    <div className="title">이름으로도 기억되는 자</div>
+                    <div className="eng">Those who are Konwn by Name</div>
+                    <div className="bible">[마가복음 13:24~37]</div>
+                </div>
+
+                <div className="section">
+                    <ul className="tab_area">
+                        <Link href="/weeklyorder" replace={false}>
+                            <li className={router.pathname === "/weeklyorder" ? "on" : ""}>
+                                <a>예배순서</a>
+                            </li>
+                        </Link>
+                        <Link href="/weeklysummary">
+                            <li className={router.pathname === "/weeklysummary" ? "on" : ""}>
+                                <a>설교요지</a>
+                            </li>
+                        </Link>
+                        <Link href="/weeklywords">
+                            <li className={router.pathname === "/weeklywords" ? "on" : ""}>
+                                <a>주중말씀</a>
+                            </li>
+                        </Link>
+                        <Link href="/weeklynews">
+                            <li className={router.pathname === "/weeklynews" ? "on" : ""}>
+                                <a>교회소식</a>
+                            </li>
+                        </Link>
+                    </ul>
+                    <div className="tab_con">
+                        {props.children}
+                    </div>
+                </div>
+            </div>
         </>
     )
 };

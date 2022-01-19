@@ -5,6 +5,7 @@ import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import "swiper/css/pagination"
 import SwiperCore, {
   Autoplay, Pagination, Navigation
 } from 'swiper';
@@ -101,9 +102,10 @@ export default function Home() {
           resistanceRatio={0}
           loop={true}
           autoplay={{
-            "delay": 4000,
+            "delay": 3000,
             "disableOnInteraction": false
           }}
+          pagination={true}
         >
           <SwiperSlide>
             <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
@@ -214,35 +216,35 @@ export default function Home() {
         <div className="title">빠른접근</div>
         <ul className="quick_menu">
           <li onClick={() => { router.push("/sermonmain"); }}>
-            <div className="img"></div>
+            <div className="img"><img src="/icons/ico_quick_sermon.svg" alt="예배" /></div>
             <div className="txt">예배</div>
           </li>
           <li onClick={() => { router.push("/praisemain"); }}>
-            <div className="img"></div>
+            <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
             <div className="txt">찬양</div>
           </li>
-          <li onClick={() => { router.push("/weeklymain"); }}>
-            <div className="img"></div>
+          <li onClick={() => { router.push("/weeklyorder"); }}>
+            <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
             <div className="txt">주보</div>
           </li>
-          <li onClick={() => { router.push("/onsub"); }}>
-            <div className="img"></div>
+          <li onClick={() => { router.push("/onmain"); }}>
+            <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
             <div className="txt">온시리즈</div>
           </li>
-          <li onClick={() => { router.push("/biblemain"); }}>
-            <div className="img"></div>
+          <li onClick={() => { router.push("/chapter/1_1"); }}>
+            <div className="img"><img src="/icons/ico_quick_bible.svg" alt="성경" /></div>
             <div className="txt">성경</div>
           </li>
           <li onClick={() => { router.push("/hymnmain"); }}>
-            <div className="img"></div>
+            <div className="img"><img src="/icons/ico_quick_hymn.svg" alt="찬송가" /></div>
             <div className="txt">찬송가</div>
           </li>
-          <li>
-            <div className="img"></div>
+          <li onClick={() => { router.push("/offering"); }}>
+            <div className="img"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></div>
             <div className="txt">헌금안내</div>
           </li>
-          <li>
-            <div className="img"></div>
+          <li onClick={() => { router.push("/weeklynews"); }}>
+            <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
             <div className="txt">교회소식</div>
           </li>
         </ul>

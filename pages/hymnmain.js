@@ -15,7 +15,7 @@ export default function Praiselist() {
             <div className="top_area">
                 <div className="top_title txt_left">찬송 555장 <span className="arrow" onClick={() => setIsOpen(true)}></span></div>
                 <ul className="tool_list">
-                    <li>
+                    <li onClick={() => { router.push("/chapter/1_1"); }}>
                         <img src="../icons/ico_book.svg" alt="성경" />
                     </li>
                     <li>

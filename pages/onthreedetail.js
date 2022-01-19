@@ -49,7 +49,7 @@ export default function Onmain() {
         <div className="sub_container onseries_detail">
             <div className="top_area">
                 <span className="btn_prev"></span>
-                <div className="top_title">온3qns</div>
+                <div className="top_title">온3분</div>
             </div>
 
             <div className="movie_wrap">
@@ -156,8 +156,8 @@ export default function Onmain() {
                         제작 : 성락교회 성락선교센터
                         </div>
 
-                        <div class="btn_mission">선교센터 블로그 바로가기</div>
-                        <div class="txt_mission">주일설교 전체녹취록, 설교요지, 송죽암을<br />모두 보시려면 성락선교센터 블로그로 오시면 됩니다.</div>
+                        <div className="btn_mission">선교센터 블로그 바로가기</div>
+                        <div className="txt_mission">주일설교 전체녹취록, 설교요지, 송죽암을<br />모두 보시려면 성락선교센터 블로그로 오시면 됩니다.</div>
                     </div>
 
                     {/* 본문말씀 */}

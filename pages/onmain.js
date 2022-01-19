@@ -7,9 +7,11 @@ import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore, {
-  Autoplay, Pagination, Navigation
+    Pagination
 } from 'swiper';
-
+  
+  // install Swiper modules
+  SwiperCore.use([Pagination]);
 
 export default function Onmain() {
 
@@ -114,9 +116,7 @@ export default function Onmain() {
                             </Sheet>
                             {/* 공유하기 */}
 
-                            <div className="tit">
-                                <a href="/onprayerdetail">온특새<br />새벽기도</a>
-                            </div>
+                            <div className="tit" onClick={() => { router.push("/onprayerdetail"); }}>온특새<br />새벽기도</div>
                             <div className="date">2021년 11월 05일</div>
                         </div>
                     </div>
@@ -196,9 +196,7 @@ export default function Onmain() {
                             </Sheet>
                             {/* 공유하기 */}
 
-                            <div className="tit">
-                                <a href="/onthreedetail">깨어 있으라<br />마가복음 13:24-37</a>
-                            </div>
+                            <div className="tit" onClick={() => { router.push("/onthreedetail"); }}>깨어 있으라<br />마가복음 13:24-37</div>
                             <div className="date">2021년 11월 05일</div>
                         </div>
                     </div>
@@ -211,6 +209,13 @@ export default function Onmain() {
                     slidesPerView={1}
                     resistanceRatio={0}
                     loop={true}
+                    pagination={{
+                        type: "fraction",
+                        renderFraction: function (currentClass, totalClass) {
+                          return '<span class="' + currentClass + '"></span> / ' +
+                                 '<span class="' + totalClass + '"></span>';
+                        }
+                    }}
                     >
                         <SwiperSlide>
                             <img src="/images/onthree/img_three01.png" alt="온3분 배너 01" />
@@ -298,9 +303,7 @@ export default function Onmain() {
                             </Sheet>
                             {/* 공유하기 */}
 
-                            <div className="tit">
-                                <a href="/onbibledetail">온성경<br />갈라디아서 5장~데살로니가전거 4장</a>
-                            </div>
+                            <div className="tit" onClick={() => { router.push("/onbibledetail"); }}>온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
                             <div className="date">2021년 11월 05일</div>
                         </div>
                     </div>

@@ -23,7 +23,7 @@ const Post = ({ items, bid }) => {
                     <div className="top_area">
                         <div className="top_title txt_left">{book_name[strArr[0]]} {strArr[1]}장 <span className="arrow" onClick={() => setIsOpen(true)}></span></div>
                         <ul className="tool_list">
-                            <li>
+                            <li onClick={() => { router.push("/hymnmain"); }}>
                                 <img src="../icons/ico_hymn.svg" alt="찬송가" />
                             </li>
                             <li>

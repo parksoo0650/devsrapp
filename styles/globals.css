@@ -233,7 +233,7 @@ header .alarm.on:after {
 #all_menu {
 	position: fixed;
 	right: -100%;
-	top: 60px;
+	top: 0;
 	bottom: 0;
 	width: 100%;
 	z-index: 600;
@@ -248,31 +248,24 @@ header .alarm.on:after {
 	opacity: 1;
 }
 
-/* 검색영역 */
-#all_menu .search_area {
-	padding: 15px 0;
-}
-#all_menu .search_area:before {
-	content: '';
+#all_menu .btn_close {
 	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin: -2px 5px 0 0;
-	background-color: #f5f5f5;
-	vertical-align: middle;
+	position: absolute;
+	right: 18px;
+	top: 18px;
+	width: 16px;
+	height: 16px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
 }
-#all_menu .search_area input {
-	font-size: 16px;
-	border: 0;
-}
-#all_menu .search_area input::placeholder {
-	color: #999;
+
+#all_menu .tip {
+	margin: 66px 0 15px 0;
+	font-size: 14px;
 }
 
 /* 빠른메뉴영역 */
 #all_menu .quick_list {
 	display: flex;
-	padding: 15px 0 0 0;
 }
 #all_menu .quick_list li {
 	text-align: center;
@@ -287,48 +280,46 @@ header .alarm.on:after {
 	background-color: #f5f5f5;
 	border: 1px solid #ebebeb;
 	border-radius: 10px;
+	box-sizing: border-box;
 }
 #all_menu .quick_list li .menu {
-	margin-top: 1px;
+	margin-top: 4px;
 	font-size: 12px;
 }
 
 /* 메뉴 리스트 */
-.menu_wrap .menu_list li.title {
-	position: relative;
-	padding: 25px 0;
-	font-size: 20px;
-	font-weight: 600;
+.menu_wrap .menu_list {
+	margin-top: 30px;
+	border-bottom: 1px solid #ebebeb;
 }
-.menu_wrap .menu_list li.title + li {
+.menu_wrap .menu_list > li {
+	position: relative;
+	padding: 15px 0;
+	font-size: 20px;
 	border-top: 1px solid #ebebeb;
 }
-.menu_wrap .menu_list li.title span:after {
+.menu_wrap .menu_list > li + li {
+	border-top: 1px solid #ebebeb;
+}
+.menu_wrap .menu_list > li span:after {
 	content: '';
 	display: inline-block;
 	position: absolute;
 	right: 0;
-	top: 30px;
+	top: 15px;
 	width: 24px;
 	height: 24px;
-	background-color: #c4c4c4;
+	background: url('/icons/ico_drop.svg') no-repeat center	center;
 }
-.menu_wrap .menu_list li.title .ico_menu {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin: -3px 13px 0 0;
-	background-color: #c4c4c4;
-	vertical-align: middle;
-}
+
 .menu_wrap .sub_menu {
-	padding: 6px 40px 4px 40px;
+	padding: 32px 40px 2px 40px;
 }
 .menu_wrap .sub_menu li {
 	font-size: 16px;
 }
 .menu_wrap .sub_menu li + li {
-	margin-top: 9px;
+	margin-top: 22px;
 }
 
 .menu_wrap .foot_menu {
@@ -600,13 +591,13 @@ hr {
 	width: 77px;
 	height: 77px;
 	margin: 0 auto 8px;
+	line-height: 77px;
 	background-color: #f5f5f5;
 	border: 1px solid #ebebeb;
 	border-radius: 10px;
 }
 .quick_menu li .txt {
 	font-size: 14px;
-	font-weight: 500;
 	text-align: center;
 }
 
@@ -744,6 +735,9 @@ hr {
 .top_area .tab_area li.on {
 	color: #fff;
 	background-color: #444 !important;
+}
+.top_area .tab_area li.on a {
+	color: #fff;
 }
 
 .top_area .tab_wrap.active {
@@ -906,6 +900,9 @@ hr {
 .sermon_detail .tab_area li.on {
 	color: #fff;
 	background-color: #444;
+}
+.sermon_detail .tab_area li.on a {
+	color: #fff;
 }
 
 /* 예배순서 */
@@ -1296,6 +1293,18 @@ hr {
 .onseries_wrap .three_swiper {
 	padding: 0 26px;
 }
+.onseries_wrap .three_swiper .swiper-pagination {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	z-index: 100;
+	padding: 0 5px;
+	color: #fff;
+	font-size: 11px;
+	line-height: 19px;
+	background-color: #000;
+	border-radius: 4px;
+}
 .onseries_wrap .three_swiper .swiper-slide {
 	border-radius: 8px;
 	overflow: hidden;
@@ -1487,6 +1496,89 @@ hr {
 .jubo_wrap.sermon_detail .tab_con {
 	background-color: #fff;
 }
+
+
+/**********************************************************
+	OFFERING(헌금)
+***********************************************************/
+.offering_wrap .section {
+	padding: 5px 15px 40px 15px;
+}
+
+.offering_wrap .tab_area {
+	display: flex;
+	padding: 3px 5px;
+	margin-bottom: 21px;
+	background-color: #f9f9f9;
+	border-radius: 40px;
+}
+.offering_wrap .tab_area li {
+	width: 50%;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #999;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+	border-radius: 33px;
+}
+.offering_wrap .tab_area li.on {
+	color: #fff;
+	background-color: #444;
+}
+
+/* 국내 */
+.offering_wrap .bank_list li {
+	font-size: 14px;
+}
+.offering_wrap .bank_list li + li {
+	margin-top: 24px;
+}
+.offering_wrap .bank_list li div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 5px;
+}
+.offering_wrap .bank_list li .bank {
+	color: #4AB853;
+	font-weight: 600;
+}
+
+.offering_wrap .bank_list li .account {
+	width: 140px;
+	font-weight: 600;
+}
+.offering_wrap .bank_list li .name {
+	width: 118px;
+}
+.offering_wrap .bank_list li .btn_copy {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_copy.svg') no-repeat center center;
+}
+
+.offering_wrap .bank_guide {
+	margin: 30px 0 20px 0;
+	padding: 15px;
+	font-size: 14px;
+	line-height: 24px;
+	background-color: #f3f3f3;
+}
+.offering_wrap .offering_guide li {
+	color: #444;
+	font-size: 14px;
+	line-height: 22px;
+}
+
+/* 해외 */
+.offering_wrap .overseas_wrap .bank_list .info {
+	display: block;
+	margin: 0;
+	line-height: 22px;
+}
+
 
 /**********************************************************
 	SETTING
