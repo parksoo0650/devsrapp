@@ -127,9 +127,7 @@ export default function Praisemain() {
                         </Sheet>
                         {/* 공유하기 */}
 
-                        <div className="tit">
-                            <a href="/praisedetail">주가 나를 사랑하시어<br />뉴헤븐 성가대</a>
-                        </div>
+                        <div className="tit" onClick={() => { router.push("/praisedetail"); }}>주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
                         <div className="date">2021년 11월 05일</div>
                     </div>
                 </div>

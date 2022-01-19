@@ -257,7 +257,7 @@ export default function Home() {
           spaceBetween={10}
           slidesPerView={"auto"}
           resistanceRatio={0}
-          pagination={{ clickable: true }}
+          pagination={false}
         >
           <SwiperSlide className="movie_wrap">
             {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
@@ -289,7 +289,7 @@ export default function Home() {
           spaceBetween={10}
           slidesPerView={"auto"}
           resistanceRatio={0}
-          pagination={{ clickable: true }}
+          pagination={false}
         >
           <SwiperSlide className="movie_wrap">
             {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
@@ -321,7 +321,7 @@ export default function Home() {
           spaceBetween={7}
           slidesPerView={"auto"}
           resistanceRatio={0}
-          pagination={{ clickable: true }}
+          pagination={false}
         >
           <SwiperSlide>
             <div className="img"><img src="../icons/thumb_bwm.svg" alt="청년부" /></div>

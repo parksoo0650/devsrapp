@@ -125,9 +125,7 @@ export default function Sermonmain() {
                         </Sheet>
                         {/* 공유하기 */}
 
-                        <div className="tit">
-                            <a href="/sermondetail">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                        </div>
+                        <div className="tit" onClick={() => { router.push("/sermondetail"); }}>주일 3부 예배 (건축자들이 버린 머릿돌)</div>
                         <div className="date">2021년 11월 05일</div>
                         <div className="preacher">설교: 김성현 감독</div>
                     </div>

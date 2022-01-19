@@ -26,88 +26,88 @@ export default function Sermonmain() {
                             <li>
                                 <span className="bank">우리은행</span>
                                 <div>
-                                    <span class="account">054-085786-01-023</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">054-085786-01-023</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">KB국민은행</span>
                                 <div>
-                                    <span class="account">765201-04-038219</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">765201-04-038219</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">NH농협</span>
                                 <div>
-                                    <span class="account">054-01-092341</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">054-01-092341</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">신한은행</span>
                                 <div>
-                                    <span class="account">304-05-040250</span> 
-                                    <span class="name">성락침례교회 김성현</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">304-05-040250</span> 
+                                    <span className="name">성락침례교회 김성현</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">스탠다드차타드 (SC)</span>
                                 <div>
-                                    <span class="account">350-20-267614</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">350-20-267614</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">우체국</span>
                                 <div>
-                                    <span class="account">010108-01-011171</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">010108-01-011171</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">IBK기업은행</span>
                                 <div>
-                                    <span class="account">077-117515-01-015</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">077-117515-01-015</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">씨티은행</span>
                                 <div>
-                                    <span class="account">130-53216-251</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">130-53216-251</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">KEB하나은행</span>
                                 <div>
-                                    <span class="account">116-075931-00104</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">116-075931-00104</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">수협중앙회</span>
                                 <div>
-                                    <span class="account">041-01-040932</span> 
-                                    <span class="name">성락침례교회</span>
-                                    <span class="btn_copy"></span>
+                                    <span className="account">041-01-040932</span> 
+                                    <span className="name">성락침례교회</span>
+                                    <span className="btn_copy"></span>
                                 </div>
                             </li>
                         </ul>
-                        <div class="bank_guide">
+                        <div className="bank_guide">
                             온라인 송금시 성도님의 정보나 헌금의 종류가 정확하지 않을 경우 등록처리가 지연될 수 있습니다. 아래 내용을 참고하시어 처리하시면 원활한 등록을 하실 수 있습니다. (추후 내방하시거나 유선상 확인을 통해서도 등록 가능합니다.)
                         </div>
-                        <ul class="offering_guide">
+                        <ul className="offering_guide">
                             <li>* 온라인 송금(텔레뱅킹, 인터넷 뱅킹, 무통장 입금) 후 이체확인증 또는 헌금입금증을 해당 헌금 봉투에 넣어 헌금 시간에 헌금해주세요. 이체확인증 출력이 어려우신 경우에는 교회내 헌금함 주변에 비치된 헌금입금증에 적어 주시거나 일반 종이에 적으셔도 됩니다.</li>
                             <li>* 입금시 적요란에 본인 이름 및 배우자의 이름, 소속 예배당, 그 외 생년월일이나 성도 코드를 기입해주시면 더 정확한 처리가 가능합니다.</li>
                             <li>* 본인 확인이 제대로 이루어지지 않는 경우, 헌금 처리가 누락될 수 있습니다. 하지만 기록이 남아있으므로 언제든지 확인 및 등록이 가능합니다.</li>
@@ -120,29 +120,29 @@ export default function Sermonmain() {
                             <li>
                                 <span className="bank">우리은행</span>
                                 <div>
-                                    <span class="account">054-085786-01-023</span> 
-                                    <span class="btn_copy"></span>
+                                    <span className="account">054-085786-01-023</span> 
+                                    <span className="btn_copy"></span>
                                 </div>
-                                <div class="info">
-                                    <span class="name">은행/지점명 : WOORI BANK SHIN-GILSO BR</span><br /> 
-                                    <span class="name">SWIFT코드 : HVBKKRSEXXX</span>
+                                <div className="info">
+                                    <span className="name">은행/지점명 : WOORI BANK SHIN-GILSO BR</span><br /> 
+                                    <span className="name">SWIFT코드 : HVBKKRSEXXX</span>
                                 </div>
                             </li>
                             <li>
                                 <span className="bank">KB국민은행</span>
                                 <div>
-                                    <span class="account">765201-04-038219</span> 
-                                    <span class="btn_copy"></span>
+                                    <span className="account">765201-04-038219</span> 
+                                    <span className="btn_copy"></span>
                                 </div>
-                                <div class="info">
-                                    <span class="name">SWIFT코드 : CZBKRSE</span>
+                                <div className="info">
+                                    <span className="name">SWIFT코드 : CZBKRSE</span>
                                 </div>
                             </li>
                         </ul>
-                        <div class="bank_guide">
+                        <div className="bank_guide">
                             온라인 송금시 성도님의 정보나 헌금의 종류가 정확하지 않을 경우 등록처리가 지연될 수 있습니다. 아래 내용을 참고하시어 처리하시면 원활한 등록을 하실 수 있습니다. (추후 내방하시거나 유선상 확인을 통해서도 등록 가능합니다.)
                         </div>
-                        <ul class="offering_guide">
+                        <ul className="offering_guide">
                             <li>* 온라인 송금(텔레뱅킹, 인터넷 뱅킹, 무통장 입금) 후 이체확인증 또는 헌금입금증을 해당 헌금 봉투에 넣어 헌금 시간에 헌금해주세요. 이체확인증 출력이 어려우신 경우에는 교회내 헌금함 주변에 비치된 헌금입금증에 적어 주시거나 일반 종이에 적으셔도 됩니다.</li>
                             <li>* 입금시 적요란에 본인 이름 및 배우자의 이름, 소속 예배당, 그 외 생년월일이나 성도 코드를 기입해주시면 더 정확한 처리가 가능합니다.</li>
                             <li>* 본인 확인이 제대로 이루어지지 않는 경우, 헌금 처리가 누락될 수 있습니다. 하지만 기록이 남아있으므로 언제든지 확인 및 등록이 가능합니다.</li>

@@ -383,6 +383,7 @@ footer .sns_list li + li {
 /* 레이아웃 */
 .section {
 	padding: 40px 15px;
+	overflow: hidden;
 }
 .section.bg_gray {
 	background-color: #f9f9f9;

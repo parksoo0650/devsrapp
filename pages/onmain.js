@@ -212,8 +212,8 @@ export default function Onmain() {
                     pagination={{
                         type: "fraction",
                         renderFraction: function (currentClass, totalClass) {
-                          return '<span class="' + currentClass + '"></span> / ' +
-                                 '<span class="' + totalClass + '"></span>';
+                          return '<span className="' + currentClass + '"></span> / ' +
+                                 '<span className="' + totalClass + '"></span>';
                         }
                     }}
                     >
