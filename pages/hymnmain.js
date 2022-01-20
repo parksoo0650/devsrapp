@@ -1,19 +1,25 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
-import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from "react";
 import Sheet from 'react-modal-sheet';
 
 export default function Praiselist() {
+
+    useEffect(() => {
+        let hymn = ['가사보기', '악보보기'];
+    }, []);
     
     let [isOpen, setIsOpen] = useState(false);
 
+    const [hymn, setHymn] = useState("가사보기");
 
     const router = useRouter();
     return (
-        <div className="container">
+        <div className="container hymn_wrap">
             <div className="top_area">
-                <div className="top_title txt_left">찬송 555장 <span className="arrow" onClick={() => setIsOpen(true)}></span></div>
+                <div className="top_title txt_left">
+                    찬송 555장 <span className="arrow" onClick={() => setIsOpen(true)}></span>  
+                    <span className="btn_change" onClick={() => {(hymn == "악보보기") ? setHymn("가사보기") : setHymn("악보보기")}}>{(hymn == "악보보기") ? "가사보기" : "악보보기"}</span>
+                </div>
                 <ul className="tool_list">
                     <li onClick={() => { router.push("/chapter/1_1"); }}>
                         <img src="../icons/ico_book.svg" alt="성경" />
@@ -27,7 +33,7 @@ export default function Praiselist() {
                 </ul>
             </div>
 
-            <div className="section hymn_con">
+            <div className={(hymn == "가사보기") ? "section hymn_con" : "section hymn_con hide"}>
                 <div className="title">옳은 길 따르라 의의길을</div>
                 <ul className="list">
                     <li>옳은 길 따르라 의의 길을 세계 만민의 참된 길 이 실따라서 살기를 온세계에 전하세 만 백성이 나갈 길</li>
@@ -35,6 +41,9 @@ export default function Praiselist() {
                     <li>옳은 길 따르라 의의 길을 세계 만민의 참된 길 이 실따라서 살기를 온세계에 전하세 만 백성이 나갈 길</li>
                     <li>옳은 길 따르라 의의 길을 세계 만민의 참된 길 이 실따라서 살기를 온세계에 전하세 만 백성이 나갈 길</li>
                 </ul>
+            </div>
+            <div className={(hymn == "악보보기") ? "section hymn_con" : "section hymn_con hide"}>
+                <img src="../images/img_hymn.svg" alt="악보" />
             </div>
             
             

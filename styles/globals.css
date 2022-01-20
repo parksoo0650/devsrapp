@@ -192,6 +192,68 @@ header .alarm.on:after {
 	border-radius: 50%;
 }
 
+header .search_area {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+}
+header .search_area.on {
+	display: block;
+}
+header .search_area .top {
+	padding: 15px 15px 9px 15px;
+	border-bottom: 1px solid #ebebeb;
+}
+header .search_area .btn_prev {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	margin-right: 6px;
+	background: url('/icons/ico_back.svg') no-repeat center center;
+	vertical-align: middle;
+}
+header .search_area input {
+	width: calc(100% - 67px);
+	padding: 0 18px;
+	line-height: 35px;
+	color: #8D8D8D;
+	font-size: 14px;
+	background-color: #ebebeb;
+	border: 0;
+	border-radius: 8px;
+}
+header .search_area .recent {
+	padding: 25px 15px 15px 15px;
+}
+header .search_area .recent .title {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+	font-size: 14px;
+}
+header .search_area .recent .title .btn_delete {
+	color: #444;
+}
+header .search_area .recent .list li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	line-height: 36px;
+}
+header .search_area .recent .list li .btn_delete {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	color: #ebebeb;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+	opacity: 0.5;
+}
+
 /**********************************************************
 	HOME BAR
 ***********************************************************/
@@ -1121,6 +1183,43 @@ hr {
 	margin-left: 15px;
 }
 
+/* 텍스트 사이즈 수정 */
+.top_area .txt_control {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	left: 0;
+	top: 50px;
+	width: 100%;
+	padding: 20px 15px;
+	line-height: 34px;
+	background-color: #fff;
+	border-top: 1px solid #ebebeb;
+}
+.top_area .txt_control .tit strong {
+	font-size: 16px;
+}
+.top_area .txt_control .tit span {
+	display: inline-block;
+	margin-left: 25px;
+	font-size: 15px;
+}
+.top_area .txt_control .size {
+	line-height: 32px;
+	background: #F9F9F9;
+	border: 1px solid #EBEBEB;
+	border-radius: 4px;
+}
+.top_area .txt_control .size li {
+	display: inline-block;
+	width: 73px;
+	text-align: center;
+}
+.top_area .txt_control .size li + li {
+	border-left: 1px solid #EBEBEB;
+}
+
 .bible_con {
 	position: relative;
 	padding: 17px 15px 80px 15px;
@@ -1154,38 +1253,61 @@ hr {
 	margin-top: 9px;
 }
 
-/* 토스트 팝업 */
-.toast_bible .tab_area {
-	display: flex;
+/* 성경 말씀 찾기 팝업 */
+.layer_bible_read {
+	position: relative;
 }
-.toast_bible .tab_area li {
-	width: 33.33%;
+.layer_bible_read .title {
+	font-size: 16px;
 	text-align: center;
-	font-size: 14px;
-	font-weight: 400;
-	line-height: 39px;
-	border-bottom: 2px solid #fff;
-}
-.toast_bible .tab_area li.on {
-	border-bottom: 2px solid #ff984f;
+	line-height: 24px;
 }
 
-.toast_bible .tab_con {
-	padding-top: 10px;
-	max-height: 385px;
+.layer_bible_read .btn_close {
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+}
+.layer_bible_read .tab_area {
+	display: flex;
+	margin: 25px 15px;
+}
+.layer_bible_read .tab_area li {
+	display: inline-block;
+	width: 33.33%;
+	padding: 0 15px;
+	line-height: 33px;
+	color: #000;
+	font-size: 14px;
+	text-align: center;
+	border-radius: 33px;
+}
+.layer_bible_read .tab_area li.on {
+	color: #fff;
+	background-color: #444;
+}
+
+.layer_bible_read .tab_con {
+	padding: 0 15px;
+	max-height: calc(100% - 106px);
 	overflow-y: auto;
 }
 
 /* 책 선택 */
-.book_list {
-	display: flex;
-	flex-wrap: wrap;
+.book_list li {
+	line-height: 33px;
 }
 .book_list li {
-	width: 33.33%;
-	padding: 10px 0;
-	text-align: center;
-	font-size: 15px;
+	padding: 7px 15px;
+	font-size: 16px;
+	word-break: keep-all;
+}
+.book_list li.on {
+	background-color: #f5f5f5;
 }
 
 /* 장 선택 */
@@ -1195,14 +1317,34 @@ hr {
 }
 .chapter_list li {
 	width: 20%;
-	padding: 10px 0;
+	margin-bottom: 20px;
 	text-align: center;
-	font-size: 15px;
+}
+.chapter_list li span {
+	display: inline-block;
+	padding: 0 11.5px;
+	line-height: 32px;
+	font-size: 16px;
+	border-radius: 32px;
+}
+.chapter_list li.on span {
+	color: #fff;
+	background-color: #000;
 }
 
 /**********************************************************
 	HYMN(찬송가)
 ***********************************************************/
+.hymn_wrap .top_area .btn_change {
+	display: inline-block;
+	padding: 0 9px;
+	margin-left: 8px;
+	color: #fff;
+	font-size: 14px;
+	line-height: 24px;
+	background-color: #444;
+	border-radius: 24px;
+}
 .hymn_con {
 	padding: 17px 15px;
 	border-top: 1px solid #ebebeb;

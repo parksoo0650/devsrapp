@@ -1,5 +1,4 @@
-import styles from '../../styles/Home.module.css';
-import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Sheet from 'react-modal-sheet';
 import { db } from '../../fbase';
@@ -15,6 +14,14 @@ const Post = ({ items, bid }) => {
 
     const strArr = bid.split('_');
 
+    const router = useRouter();
+
+    const [isActive, setActive] = useState("false");
+    
+    const handleToggle = () => {
+        setActive(!isActive);
+    };
+
 
     return (
         <div className="container">
@@ -26,26 +33,45 @@ const Post = ({ items, bid }) => {
                             <li onClick={() => { router.push("/hymnmain"); }}>
                                 <img src="../icons/ico_hymn.svg" alt="찬송가" />
                             </li>
-                            <li>
+                            <li onClick={handleToggle}>
                                 <img src="../icons/ico_setting.svg" alt="설정" />
                             </li>
                             <li>
                                 <img src="../icons/ico_search.svg" alt="검색" />
                             </li>
                         </ul>
+                        <div className={isActive ? "txt_control" : "txt_control hide"}>
+                            <div className="tit">
+                                <strong>텍스트 크기</strong>
+                                <span>16pt</span>
+                            </div>
+                            <ul className="size">
+                                <li>가</li>
+                                <li><strong>가</strong></li>
+                            </ul>
+                        </div>
                     </div>
                 )}
             </BookConsumer>
+            <div className="shadow"></div>
+            <style jsx>
+            {`
+            .shadow {
+                display: ${isActive ? "block" : "none"};
+            }
+            `}
+            </style>
             
             <Sheet
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
-                snapPoints={[0.7]}
+                snapPoints={[1]}
             >
                 <Sheet.Container>
                     <Sheet.Header />
                     <Sheet.Content>
-                        <div className="toast_bible">
+                        <div className="layer_bible_read">
+                            <div class="title">성경</div>
                             <button className="btn_close" onClick={() => setIsOpen(false)}></button>
                             <ul className="tab_area">
                                 <li onClick={() => { setBibleBook("구약"); }} className={(bibleBook == "구약") ? "on" : ""}>구약</li>
@@ -56,109 +82,109 @@ const Post = ({ items, bid }) => {
                             
                                 {/* 구약 */}
                                 <ul className={(bibleBook == "구약") ? "book_list" : "book_list hide"}>
-                                    <li>창세기</li>
-                                    <li>출애굽기</li>
-                                    <li>레위기</li>
-                                    <li>민수기</li>
-                                    <li>신명기</li>
-                                    <li>여호수아</li>
-                                    <li>사사기</li>
-                                    <li>룻기</li>
-                                    <li>사무엘상</li>
-                                    <li>사무엘하</li>
-                                    <li>열왕기상</li>
-                                    <li>열왕기하</li>
-                                    <li>역대상</li>
-                                    <li>역대하</li>
-                                    <li>에스라</li>
-                                    <li>느헤미야</li>
-                                    <li>에스더</li>
-                                    <li>욥기</li>
-                                    <li>시편</li>
-                                    <li>잠언</li>
-                                    <li>전도사</li>
-                                    <li>아가</li>
-                                    <li>이사야</li>
-                                    <li>예레미야</li>
-                                    <li>예레미야 애가</li>
-                                    <li>에스겔</li>
-                                    <li>다니엘</li>
-                                    <li>호세아</li>
-                                    <li>요엘</li>
-                                    <li>아모스</li>
-                                    <li>오바댜</li>
-                                    <li>요나</li>
-                                    <li>미가</li>
-                                    <li>나훔</li>
-                                    <li>하박국</li>
-                                    <li>스바냐</li>
-                                    <li>학개</li>
-                                    <li>스가랴</li>
-                                    <li>말라기</li>
+                                    <li className="on"><span>창세기</span></li>
+                                    <li><span>출애굽기</span></li>
+                                    <li><span>레위기</span></li>
+                                    <li><span>민수기</span></li>
+                                    <li><span>신명기</span></li>
+                                    <li><span>여호수아</span></li>
+                                    <li><span>사사기</span></li>
+                                    <li><span>룻기</span></li>
+                                    <li><span>사무엘상</span></li>
+                                    <li><span>사무엘하</span></li>
+                                    <li><span>열왕기상</span></li>
+                                    <li><span>열왕기하</span></li>
+                                    <li><span>역대상</span></li>
+                                    <li><span>역대하</span></li>
+                                    <li><span>에스라</span></li>
+                                    <li><span>느헤미야</span></li>
+                                    <li><span>에스더</span></li>
+                                    <li><span>욥기</span></li>
+                                    <li><span>시편</span></li>
+                                    <li><span>잠언</span></li>
+                                    <li><span>전도사</span></li>
+                                    <li><span>아가</span></li>
+                                    <li><span>이사야</span></li>
+                                    <li><span>예레미야</span></li>
+                                    <li><span>예레미야 애가</span></li>
+                                    <li><span>에스겔</span></li>
+                                    <li><span>다니엘</span></li>
+                                    <li><span>호세아</span></li>
+                                    <li><span>요엘</span></li>
+                                    <li><span>아모스</span></li>
+                                    <li><span>오바댜</span></li>
+                                    <li><span>요나</span></li>
+                                    <li><span>미가</span></li>
+                                    <li><span>나훔</span></li>
+                                    <li><span>하박국</span></li>
+                                    <li><span>스바냐</span></li>
+                                    <li><span>학개</span></li>
+                                    <li><span>스가랴</span></li>
+                                    <li><span>말라기</span></li>
                                 </ul>
                             
                                 {/* 신약 */}
                                 <ul className={(bibleBook == "신약") ? "book_list" : "book_list hide"}>
-                                    <li>마태복음</li>
-                                    <li>마가복음</li>
-                                    <li>누가복음</li>
-                                    <li>요한복음</li>
-                                    <li>사도행전</li>
-                                    <li>로마서</li>
-                                    <li>고린도전서</li>
-                                    <li>고린도후서</li>
-                                    <li>갈라디아서</li>
-                                    <li>에베소서</li>
-                                    <li>빌립보서</li>
-                                    <li>골로새서</li>
-                                    <li>데살로니가전서</li>
-                                    <li>데살로니가후서</li>
-                                    <li>디모데전서</li>
-                                    <li>디모데후서</li>
-                                    <li>디도서</li>
-                                    <li>빌레몬서</li>
-                                    <li>히브리서</li>
-                                    <li>야고보서</li>
-                                    <li>베드로전서</li>
-                                    <li>베드로후서</li>
-                                    <li>요한1서</li>
-                                    <li>요한2서</li>
-                                    <li>요한3서</li>
-                                    <li>유다서</li>
-                                    <li>요한계시록</li>
+                                    <li><span>마태복음</span></li>
+                                    <li><span>마가복음</span></li>
+                                    <li><span>누가복음</span></li>
+                                    <li><span>요한복음</span></li>
+                                    <li><span>사도행전</span></li>
+                                    <li><span>로마서</span></li>
+                                    <li><span>고린도전서</span></li>
+                                    <li><span>고린도후서</span></li>
+                                    <li><span>갈라디아서</span></li>
+                                    <li><span>에베소서</span></li>
+                                    <li><span>빌립보서</span></li>
+                                    <li><span>골로새서</span></li>
+                                    <li className='on'><span>데살로니가 전서</span></li>
+                                    <li><span>데살로니가 후서</span></li>
+                                    <li><span>디모데 전서</span></li>
+                                    <li><span>디모데 후서</span></li>
+                                    <li><span>디도서</span></li>
+                                    <li><span>빌레몬서</span></li>
+                                    <li><span>히브리서</span></li>
+                                    <li><span>야고보서</span></li>
+                                    <li><span>베드로 전서</span></li>
+                                    <li><span>베드로 후서</span></li>
+                                    <li><span>요한1서</span></li>
+                                    <li><span>요한2서</span></li>
+                                    <li><span>요한3서</span></li>
+                                    <li><span>유다서</span></li>
+                                    <li><span>요한계시록</span></li>
                                 </ul>
                             
                                 {/* 장 */}
                                 <ul className={(bibleBook == "장") ? "chapter_list" : "chapter_list hide"}>
-                                    <li>1</li>
-                                    <li>2</li>
-                                    <li>3</li>
-                                    <li>4</li>
-                                    <li>5</li>
-                                    <li>6</li>
-                                    <li>7</li>
-                                    <li>8</li>
-                                    <li>9</li>
-                                    <li>10</li>
-                                    <li>11</li>
-                                    <li>12</li>
-                                    <li>13</li>
-                                    <li>14</li>
-                                    <li>15</li>
-                                    <li>16</li>
-                                    <li>17</li>
-                                    <li>18</li>
-                                    <li>19</li>
-                                    <li>20</li>
-                                    <li>21</li>
-                                    <li>22</li>
-                                    <li>23</li>
-                                    <li>24</li>
-                                    <li>25</li>
-                                    <li>26</li>
-                                    <li>27</li>
-                                    <li>28</li>
-                                    <li>29</li>
+                                    <li className='on'><span>1</span></li>
+                                    <li><span>2</span></li>
+                                    <li><span>3</span></li>
+                                    <li><span>4</span></li>
+                                    <li><span>5</span></li>
+                                    <li><span>6</span></li>
+                                    <li><span>7</span></li>
+                                    <li><span>8</span></li>
+                                    <li><span>9</span></li>
+                                    <li><span>110</span></li>
+                                    <li><span>111</span></li>
+                                    <li><span>112</span></li>
+                                    <li><span>113</span></li>
+                                    <li><span>114</span></li>
+                                    <li><span>115</span></li>
+                                    <li><span>116</span></li>
+                                    <li><span>117</span></li>
+                                    <li><span>118</span></li>
+                                    <li><span>119</span></li>
+                                    <li><span>120</span></li>
+                                    <li><span>121</span></li>
+                                    <li><span>122</span></li>
+                                    <li><span>123</span></li>
+                                    <li><span>124</span></li>
+                                    <li><span>125</span></li>
+                                    <li><span>126</span></li>
+                                    <li><span>127</span></li>
+                                    <li><span>128</span></li>
+                                    <li><span>129</span></li>
                                 </ul>
 
                             </div>
