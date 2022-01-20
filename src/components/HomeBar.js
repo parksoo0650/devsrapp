@@ -4,7 +4,7 @@ import SiteMap from "./SiteMap";
 export default function HomeBar() {
     return (
         <>
-            <ul id="home_bar" className="on">
+            <ul id="home_bar">
                 <li>
                     <Link href="/">
                         <a>

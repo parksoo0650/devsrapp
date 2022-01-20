@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Sheet from 'react-modal-sheet';

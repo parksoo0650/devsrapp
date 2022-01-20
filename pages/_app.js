@@ -1,11 +1,23 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import Top from '../src/components/top';
-import Footer from '../src/components/Footer';
 import BookProvider from '../src/components/bibleProvider';
 import HomeBar from '../src/components/HomeBar';
 
 export default function MyApp({ Component, pageProps }) {
+
+  const touchStart = () => {
+    let homeBar = document.getElementById('home_bar');
+    homeBar.className = 'on';
+  }
+
+  const touchEnd = () => {
+    setTimeout(() => {
+      let homeBar = document.getElementById('home_bar');
+      homeBar.className = '';
+    }, 4000);
+  }
+
   return (
     <>
       <Head>
@@ -39,8 +51,12 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <BookProvider>
         <Top />
+        <div
+          onTouchStart={touchStart}
+          onTouchEnd={touchEnd}
+        >
           <Component {...pageProps} />
-        <Footer />
+        </div>
         <HomeBar />
       </BookProvider>
     </>
