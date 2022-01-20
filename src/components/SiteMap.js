@@ -140,7 +140,7 @@ export default function SiteMap() {
                     </li>
 
                     <li>
-                        <Link href="/praisemain">
+                        <Link href="/hymnmain">
                             <a>찬송가</a>
                         </Link>
                     </li>
