@@ -71,7 +71,7 @@ const Post = ({ items, bid }) => {
                     <Sheet.Header />
                     <Sheet.Content>
                         <div className="layer_bible_read">
-                            <div class="title">성경</div>
+                            <div className="title">성경</div>
                             <button className="btn_close" onClick={() => setIsOpen(false)}></button>
                             <ul className="tab_area">
                                 <li onClick={() => { setBibleBook("구약"); }} className={(bibleBook == "구약") ? "on" : ""}>구약</li>
