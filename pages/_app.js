@@ -11,6 +11,11 @@ export default function MyApp({ Component, pageProps }) {
     homeBar.className = 'on';
   }
 
+  const touchMove = () => {
+    let homeBar = document.getElementById('home_bar');
+    homeBar.className = 'on';
+  }
+
   const touchEnd = () => {
     setTimeout(() => {
       let homeBar = document.getElementById('home_bar');
@@ -54,6 +59,7 @@ export default function MyApp({ Component, pageProps }) {
         <div
           onTouchStart={touchStart}
           onTouchEnd={touchEnd}
+          onTouchMove={touchMove}
         >
           <Component {...pageProps} />
         </div>
