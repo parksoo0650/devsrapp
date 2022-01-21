@@ -170,7 +170,7 @@ export default function Home() {
               </Sheet>
               {/* 공유하기 */}
 
-              <div className="tit">
+              <div className="tit pr25">
                 <a href="#">{datas.title}</a>
               </div>
               <div className="date">{datas.publishedAt}</div>

@@ -9,6 +9,10 @@ export default function Layout(props) {
                 <div className="top_area">
                     <span className="btn_prev"></span>
                     <div className="top_title">주보</div>
+                    <div className="info">
+                        <span className="date">2021. 12. 5</span>
+                        <span className="issue">제 51권 50호</span>
+                    </div>
                 </div>
                 <div className="visual">
                     <div className="title">이름으로도 기억되는 자</div>
