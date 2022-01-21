@@ -21,7 +21,7 @@ export default function SiteMap() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/praisemain">
+                    <Link href="/hymnmain">
                         <a>
                             <i className="ico_"></i>
                             <div className="menu">찬송가</div>
