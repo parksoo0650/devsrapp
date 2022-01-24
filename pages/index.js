@@ -5,7 +5,7 @@ import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "swiper/css/pagination"
+import "swiper/css/pagination";
 import SwiperCore, {
   Autoplay, Pagination, Navigation
 } from 'swiper';
@@ -15,16 +15,21 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 export default function Home() {
   const router = useRouter();
-  const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_22_SERVICE;
-  const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=1&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
+
+  // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM〕PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6
+  const API_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
+
+  // 환언특강 〔화 07:30 PM〕 PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj
+  const FRI_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
+
+  // 환언베뢰아기도회 〔월,목 07:30 PM〕
+  // 수요낮예배 〔10:00 AM〕
+  // 수요저녁예배 및 기도회 〔07:30 PM〕
+  // 금요기도회 〔08:00 PM〕
+  const WEN_URL = "/youtube/search/&part=snippet&maxResults=10&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=수요";
 
   const PLAYLIST_ID_15_PRAISE = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_15_PRAISE;
-  const API_URL_15_PRAISE = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=5&playlistId=" + PLAYLIST_ID_15_PRAISE + "&key=" + API_KEY;
-
-  const PLAYLIST_ID_JESUSROAD = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_JESUSROAD;
-  const API_URL_JESUSROAD = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=5&playlistId=" + PLAYLIST_ID_JESUSROAD + "&key=" + API_KEY;
+  const API_URL_15_PRAISE = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=" + PLAYLIST_ID_15_PRAISE;
 
   const [datas, setDatas] = useState({
     videoId: "",
@@ -40,15 +45,8 @@ export default function Home() {
     publishedAt: ""
   });
 
-  const [jesusroadDatas, setJesusroadDatas] = useState({
-    videoId: "",
-    title: "",
-    thumbnails: "",
-    publishedAt: ""
-  });
-
   const [weeks, setWeeks] = useState("");
-  let [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState(false);
 
   const getData = async () => {
     const api_data = await axios.get(API_URL);
@@ -68,18 +66,12 @@ export default function Home() {
       thumbnails: praise_api_data.data.items[0].snippet.thumbnails.default.url,
       publishedAt: praise_api_data.data.items[0].snippet.publishedAt
     });
-    const jesusroad_api_data = await axios.get(API_URL_JESUSROAD);
-    setJesusroadDatas({
-      videoId: jesusroad_api_data.data.items[0].snippet.resourceId.videoId,
-      title: jesusroad_api_data.data.items[0].snippet.title,
-      thumbnails: jesusroad_api_data.data.items[0].snippet.thumbnails.default.url,
-      publishedAt: jesusroad_api_data.data.items[0].snippet.publishedAt
-    });
   };
 
   useEffect(() => {
     let date = new Date();
     let week = ['일', '월', '화', '수', '목', '금', '토'];
+    console.log(date.getDay());
     setWeeks(week[date.getDay()]);
     getData();
   }, []);
@@ -274,38 +266,6 @@ export default function Home() {
             <SwiperSlide className="movie_wrap">
               {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
               <img style={{ width: "100%" }} src={praiseDatas.thumbnails} />
-              <div className="info">
-                <div className="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div className="date">2021년 11월 05일</div>
-              </div>
-            </SwiperSlide>
-          </Swiper>
-        </div>
-
-        <div className="section pt0">
-          <div className="title">예수로 찬양 <a href="#" className="more">전체보기</a></div>
-          <Swiper
-            className="slide_wrap"
-            spaceBetween={10}
-            slidesPerView={"auto"}
-            resistanceRatio={0}
-            pagination={false}
-          >
-            <SwiperSlide className="movie_wrap">
-              {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
-              <img style={{ width: "100%" }} src={jesusroadDatas.thumbnails} />
-              <div className="info">
-                <div className="tit">
-                  <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
-                </div>
-                <div className="date">2021년 11월 05일</div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="movie_wrap">
-              {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
-              <img style={{ width: "100%" }} src={jesusroadDatas.thumbnails} />
               <div className="info">
                 <div className="tit">
                   <a href="#">주일 3부 예배 (건축자들이 버린 머릿돌)</a>
