@@ -71,7 +71,6 @@ export default function Home() {
   useEffect(() => {
     let date = new Date();
     let week = ['일', '월', '화', '수', '목', '금', '토'];
-    console.log(date.getDay());
     setWeeks(week[date.getDay()]);
     getData();
   }, []);

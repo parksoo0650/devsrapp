@@ -1,12 +1,9 @@
 import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function Gnb() {
 
-    const [datas, setDatas] = useState([]);
-
     let [isSearch, setIsSearch] = useState(false);
-
     const router = useRouter();
 
     return (

@@ -10,7 +10,7 @@ export default function SiteMap() {
                 allMenu.className = '';
             }}></span>
 
-            <div class="tip">이 메뉴도 이용해보세요!</div>
+            <div className="tip">이 메뉴도 이용해보세요!</div>
             <ul className="quick_list">
                 <li>
                     <Link href="/chapter/1_1">

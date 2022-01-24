@@ -1,6 +1,6 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import Top from '../src/components/top';
+import Top from '../src/components/Top';
 import BookProvider from '../src/components/bibleProvider';
 import HomeBar from '../src/components/HomeBar';
 
