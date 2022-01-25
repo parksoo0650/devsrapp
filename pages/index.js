@@ -46,6 +46,7 @@ export default function Home() {
   const [praiseDatas, setPraiseDatas] = useState({
     videoId: "",
     title: "",
+    subTitle: "",
     thumbnails: "",
     publishedAt: ""
   });
@@ -59,9 +60,11 @@ export default function Home() {
     const videoTitle = splitTitle[1].split('|');
     const splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
     const videoDate = splitDate[0].split('-');
+
     setDatas({
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
+      subTitle: splitTitle[0],
       thumbnails: api_data.data.items[0].snippet.thumbnails.default.url,
       publishedAt: videoDate[0]+"년 "+videoDate[1]+"월 "+videoDate[2]+"일"
     });
@@ -117,7 +120,7 @@ export default function Home() {
         </div>
 
         <div className="section">
-          <div className="title">성락 라이브 [주일 3부 예배]</div>
+          <div className="title">성락 라이브 [주일 {datas.subTitle}]</div>
           <div className="movie_wrap">
             <YouTube videoId={datas.videoId} opts={opts} containerClassName="iframe_wrap" />
             <div className="info">
