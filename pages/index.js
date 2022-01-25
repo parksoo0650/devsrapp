@@ -57,11 +57,13 @@ export default function Home() {
     const api_data = await axios.get(API_URL);
     const splitTitle = api_data.data.items[0].snippet.title.split('-');
     const videoTitle = splitTitle[1].split('|');
+    const splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
+    const videoDate = splitDate[0].split('-');
     setDatas({
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       thumbnails: api_data.data.items[0].snippet.thumbnails.default.url,
-      publishedAt: api_data.data.items[0].snippet.publishedAt
+      publishedAt: videoDate[0]+"년 "+videoDate[1]+"월 "+videoDate[2]+"일"
     });
 
     // const praise_api_data = await axios.get(API_URL_15_PRAISE);
