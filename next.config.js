@@ -12,8 +12,7 @@ module.exports = withPWA({
     formats: ['image/avif', 'image/webp']
   },
   async rewrites() {
-    return {
-      fallback: [
+    return [
         {
           source: '/youtube/playlistItems/:path*',
           destination: `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}:path*`,
@@ -26,7 +25,6 @@ module.exports = withPWA({
           source: '/youtube/search/:path*',
           destination: `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}:path*`,
         },
-      ],
-    }
+    ]
   },
 })
