@@ -15,16 +15,16 @@ module.exports = withPWA({
     return {
       fallback: [
         {
-          "source": "/youtube/playlistItems/:path*",
-          "destination": `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}:path*`,
+          source: '/youtube/playlistItems/:path*',
+          destination: `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}:path*`,
         },
         {
-          "source": "/youtube/channels/:path*",
-          "destination": `https://www.googleapis.com/youtube/v3/channels/?key=${API_KEY}:path*`,
+          source: '/youtube/channels/:path*',
+          destination: `https://www.googleapis.com/youtube/v3/channels/?key=${API_KEY}:path*`,
         },
         {
-          "source": "/youtube/search/:path*",
-          "destination": `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}:path*`,
+          source: '/youtube/search/:path*',
+          destination: `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}:path*`,
         },
       ],
     }
