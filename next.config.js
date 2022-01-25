@@ -15,15 +15,15 @@ module.exports = withPWA({
     return [
         {
           source: '/youtube/playlistItems/:path*',
-          destination: `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}:path*`,
+          destination: `https://www.googleapis.com/youtube/v3/playlistItems/?key=AIzaSyClCYwOsb31blVPNyuGm6LoWYH_9DPOg_Y:path*`,
         },
         {
           source: '/youtube/channels/:path*',
-          destination: `https://www.googleapis.com/youtube/v3/channels/?key=${API_KEY}:path*`,
+          destination: `https://www.googleapis.com/youtube/v3/channels/?key=AIzaSyClCYwOsb31blVPNyuGm6LoWYH_9DPOg_Y:path*`,
         },
         {
           source: '/youtube/search/:path*',
-          destination: `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}:path*`,
+          destination: `https://www.googleapis.com/youtube/v3/search/?key=AIzaSyClCYwOsb31blVPNyuGm6LoWYH_9DPOg_Y:path*`,
         },
     ]
   },
