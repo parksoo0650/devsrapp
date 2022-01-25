@@ -16,13 +16,13 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 export default function Home() {
   const router = useRouter();
 
-  // const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-  // const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  // const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_22_SERVICE;
-  // const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=1&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
+  const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
+  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_22_SERVICE;
+  const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=1&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
 
   // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM〕PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6
-  const API_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
+  // const API_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
 
   // 환언특강 〔화 07:30 PM〕 PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj
   // const FRI_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
