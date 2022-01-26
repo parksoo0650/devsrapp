@@ -21,24 +21,29 @@ export default function Home() {
   // const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_22_SERVICE;
   // const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=1&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
 
-  // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM〕PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6
-  const API_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
-
-  // 환언특강 〔화 07:30 PM〕 PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj
-  // const FRI_URL = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
+  // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
+  const API_URL_SUN = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
+  // 환언특강 〔화 07:30 PM〕
+  const API_URL_TUE = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
+  // 온특새
+  const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
+  // 온성경
+  const API_URL_ONB = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr";
 
   // 환언베뢰아기도회 〔월,목 07:30 PM〕
+  // const WEN_URL = "/youtube/search/&part=snippet&maxResults=10&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=환언베뢰아기도회";
+
   // 수요낮예배 〔10:00 AM〕
   // 수요저녁예배 및 기도회 〔07:30 PM〕
   // 금요기도회 〔08:00 PM〕
-  // const WEN_URL = "/youtube/search/&part=snippet&maxResults=10&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=수요";
 
   // const PLAYLIST_ID_15_PRAISE = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_15_PRAISE;
   // const API_URL_15_PRAISE = YOUTUBE_URL + "/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=" + PLAYLIST_ID_15_PRAISE + "&key=" + API_KEY;
 
-  const [datas, setDatas] = useState({
+  const [liveDatas, setLiveDatas] = useState({
     videoId: "",
     title: "",
+    subTitle: "",
     thumbnails: "",
     publishedAt: ""
   });
@@ -51,39 +56,44 @@ export default function Home() {
     publishedAt: ""
   });
 
-  const [weeks, setWeeks] = useState("");
   const [isOpen, setOpen] = useState(false);
+  const [weeks, setWeeks] = useState("");
+  const [weekData, setWeekData] = useState([]);
+  const [weekSelectData, setWeekSelectData] = useState({});
+  const date = new Date();
+  const week = ['일', '월', '화', '수', '목', '금', '토'];
 
   const getData = async () => {
-    const api_data = await axios.get(API_URL);
-    const splitTitle = api_data.data.items[0].snippet.title.split('-');
-    const videoTitle = splitTitle[1].split('|');
-    const splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
-    const videoDate = splitDate[0].split('-');
 
-    setDatas({
-      videoId: api_data.data.items[0].snippet.resourceId.videoId,
-      title: videoTitle[0],
-      subTitle: splitTitle[0],
-      thumbnails: api_data.data.items[0].snippet.thumbnails.default.url,
-      publishedAt: videoDate[0]+"년 "+videoDate[1]+"월 "+videoDate[2]+"일"
-    });
+    setWeeks(week[date.getDay()]);
 
-    // const praise_api_data = await axios.get(API_URL_15_PRAISE);
-    // setPraiseDatas({
-    //   videoId: praise_api_data.data.items[0].snippet.resourceId.videoId,
-    //   title: praise_api_data.data.items[0].snippet.title,
-    //   thumbnails: praise_api_data.data.items[0].snippet.thumbnails.default.url,
-    //   publishedAt: praise_api_data.data.items[0].snippet.publishedAt
-    // });
+    if (week[date.getDay()] === "일") {
+      const api_data = await axios.get(API_URL_SUN);
+      const splitTitle = api_data.data.items[0].snippet.title.split('-');
+      const videoTitle = splitTitle[1].split('|');
+      const splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
+      const videoDate = splitDate[0].split('-');
+
+      setLiveDatas({
+        videoId: api_data.data.items[0].snippet.resourceId.videoId,
+        title: videoTitle[0],
+        subTitle: splitTitle[0],
+        thumbnails: api_data.data.items[0].snippet.thumbnails.default.url,
+        publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+      });
+    }
+
+    const datam = await axios.get(API_URL_ONM);
+    setWeekData(datam.data.items);
   };
 
   useEffect(() => {
-    let date = new Date();
-    let week = ['일', '월', '화', '수', '목', '금', '토'];
-    setWeeks(week[date.getDay()]);
     getData();
   }, []);
+
+  useEffect(() => {
+    getWeekData(week[date.getDay()]);
+}, [weekData]);
 
   const opts = {
     width: "320px",
@@ -93,6 +103,21 @@ export default function Home() {
       controls: 0,
     },
   };
+
+  const getWeekData = (day) => {
+    weekData.forEach((doc) => {
+      const splitDate = doc.contentDetails.videoPublishedAt.split('T');
+      if (getDate(splitDate[0]) === day) {
+        setWeekSelectData(doc.snippet);
+        return false;
+      }
+    });
+  }
+
+  function getDate(day) {
+    let dayOfWeek = week[new Date(day).getDay()+1];
+    return dayOfWeek;
+  }
 
   return (
     <>
@@ -119,78 +144,80 @@ export default function Home() {
           </Swiper>
         </div>
 
-        <div className="section">
-          <div className="title">성락 라이브 [주일 {datas.subTitle}]</div>
-          <div className="movie_wrap">
-            <YouTube videoId={datas.videoId} opts={opts} containerClassName="iframe_wrap" />
-            <div className="info">
+        {(liveDatas.videoId) ? (
+          <div className="section">
+            <div className="title">성락 라이브 [주일 {liveDatas.subTitle}]</div>
+            <div className="movie_wrap">
+              <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
+              <div className="info">
 
-              {/* 공유하기 */}
-              <span className="btn_share" onClick={() => setOpen(true)}></span>
-              <Sheet
-                isOpen={isOpen}
-                onClose={() => setOpen(false)}
-                snapPoints={[0.4]}
-              >
-                <Sheet.Container>
-                  <Sheet.Header />
-                  <Sheet.Content>
-                    <div className="pop_toast">
-                      <button className="btn_close" onClick={() => setOpen(false)}></button>
-                      <div className="title">공유하기</div>
-                      <ul className="sns_list">
-                        <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_youtube.svg" alt="youtube" />
-                            <div className="tit">카카오톡</div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_blog.svg" alt="blog" />
-                            <div className="tit">SNS</div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_instar.svg" alt="instar" />
-                            <div className="tit">URL</div>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" target="_blank">
-                            <img src="../icons/ico_blog.svg" alt="blog" />
-                            <div className="tit">블로그</div>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </Sheet.Content>
-                </Sheet.Container>
-                <Sheet.Backdrop />
-              </Sheet>
-              {/* 공유하기 */}
+                {/* 공유하기 */}
+                <span className="btn_share" onClick={() => setOpen(true)}></span>
+                <Sheet
+                  isOpen={isOpen}
+                  onClose={() => setOpen(false)}
+                  snapPoints={[0.4]}
+                >
+                  <Sheet.Container>
+                    <Sheet.Header />
+                    <Sheet.Content>
+                      <div className="pop_toast">
+                        <button className="btn_close" onClick={() => setOpen(false)}></button>
+                        <div className="title">공유하기</div>
+                        <ul className="sns_list">
+                          <li>
+                            <a href="#" target="_blank">
+                              <img src="../icons/ico_youtube.svg" alt="youtube" />
+                              <div className="tit">카카오톡</div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <img src="../icons/ico_blog.svg" alt="blog" />
+                              <div className="tit">SNS</div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <img src="../icons/ico_instar.svg" alt="instar" />
+                              <div className="tit">URL</div>
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#" target="_blank">
+                              <img src="../icons/ico_blog.svg" alt="blog" />
+                              <div className="tit">블로그</div>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </Sheet.Content>
+                  </Sheet.Container>
+                  <Sheet.Backdrop />
+                </Sheet>
+                {/* 공유하기 */}
 
-              <div className="tit pr25">
-                <a href="#">{datas.title}</a>
+                <div className="tit pr25">
+                  <a href="#">{liveDatas.title}</a>
+                </div>
+                <div className="date">{liveDatas.publishedAt}</div>
+                <div className="preacher">설교: 김성현 감독</div>
               </div>
-              <div className="date">{datas.publishedAt}</div>
-              <div className="preacher">설교: 김성현 감독</div>
             </div>
           </div>
-        </div>
+        ) : (null)}
 
-        <div className="section pt0">
+        <div className={(liveDatas.videoId) ? "section pt0" : "section pt25"}>
           <div className="title">요일별 컨텐츠</div>
           <div className="days_wrap">
             <ul className="day_list">
-              <li onClick={() => { setWeeks("일"); }} className={(weeks == "일") ? "on" : ""}>주일</li>
-              <li onClick={() => { setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월</li>
-              <li onClick={() => { setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화</li>
-              <li onClick={() => { setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수</li>
-              <li onClick={() => { setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목</li>
-              <li onClick={() => { setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금</li>
-              <li onClick={() => { setWeeks("토"); }} className={(weeks == "토") ? "on" : ""}>토</li>
+              <li onClick={() => { setWeekSelectData({}); setWeeks("일"); }} className={(weeks == "일") ? "on" : ""}>주일</li>
+              <li onClick={() => { getWeekData("월"); setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월</li>
+              <li onClick={() => { getWeekData("화"); setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화</li>
+              <li onClick={() => { getWeekData("수"); setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수</li>
+              <li onClick={() => { getWeekData("목"); setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목</li>
+              <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금</li>
+              <li onClick={() => { setWeekSelectData({}); setWeeks("토"); }} className={(weeks == "토") ? "on" : ""}>토</li>
             </ul>
             <ul className="con_list">
               <li>
@@ -198,7 +225,7 @@ export default function Home() {
                   {/* <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" /> */}
                 </div>
                 <div className="info">
-                  <div className="tit">환언베뢰아 특강 <span className="tag_up">UP</span></div>
+                  <div className="tit">{weekSelectData.title}<span className="tag_up">UP</span></div>
                   <div className="date">2021년 11월 05일</div>
                 </div>
               </li>
