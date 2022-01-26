@@ -29,13 +29,13 @@ const Post = ({ items, bid }) => {
 
 export default Post;
 
-export async function getStaticPaths() {
-    // const paths = ['/book/1', '/book/2', '/book/3', '/book/4', '/book/5', '/book/6', '/book/7', '/book/8', '/book/9', '/book/10', '/book/11', '/book/12', '/book/13', '/book/14', '/book/15', '/book/16', '/book/17', '/book/18', '/book/19', '/book/20', '/book/21', '/book/22', '/book/23', '/book/24', '/book/25', '/book/26', '/book/27', '/book/28', '/book/29', '/book/30', '/book/31', '/book/32', '/book/33', '/book/34', '/book/35', '/book/36', '/book/37', '/book/38', '/book/39', '/book/40', '/book/41', '/book/42', '/book/43', '/book/44', '/book/45', '/book/46', '/book/47', '/book/48', '/book/49', '/book/50', '/book/51', '/book/52', '/book/53', '/book/54', '/book/55', '/book/56', '/book/57', '/book/58', '/book/59', '/book/60', '/book/61', '/book/62', '/book/63', '/book/64', '/book/65', '/book/66'];
-    const paths = [];
-    return { paths, fallback: false }
-}
+// export async function getStaticPaths() {
+//     const paths = ['/book/1', '/book/2', '/book/3', '/book/4', '/book/5', '/book/6', '/book/7', '/book/8', '/book/9', '/book/10', '/book/11', '/book/12', '/book/13', '/book/14', '/book/15', '/book/16', '/book/17', '/book/18', '/book/19', '/book/20', '/book/21', '/book/22', '/book/23', '/book/24', '/book/25', '/book/26', '/book/27', '/book/28', '/book/29', '/book/30', '/book/31', '/book/32', '/book/33', '/book/34', '/book/35', '/book/36', '/book/37', '/book/38', '/book/39', '/book/40', '/book/41', '/book/42', '/book/43', '/book/44', '/book/45', '/book/46', '/book/47', '/book/48', '/book/49', '/book/50', '/book/51', '/book/52', '/book/53', '/book/54', '/book/55', '/book/56', '/book/57', '/book/58', '/book/59', '/book/60', '/book/61', '/book/62', '/book/63', '/book/64', '/book/65', '/book/66'];
+//     const paths = [];
+//     return { paths, fallback: false }
+// }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const id = context.params.id;
     const book_data = [];
     const q = query(collection(db, "bible"), where("book", "==", parseInt(id)), where("verse", "==", 1), orderBy("chapter", "asc"));
