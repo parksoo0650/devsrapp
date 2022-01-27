@@ -6,23 +6,6 @@ import HomeBar from '../src/components/HomeBar';
 
 export default function MyApp({ Component, pageProps }) {
 
-  const touchStart = () => {
-    let homeBar = document.getElementById('home_bar');
-    homeBar.className = 'on';
-  }
-
-  const touchMove = () => {
-    let homeBar = document.getElementById('home_bar');
-    homeBar.className = 'on';
-  }
-
-  const touchEnd = () => {
-    setTimeout(() => {
-      let homeBar = document.getElementById('home_bar');
-      homeBar.className = '';
-    }, 4000);
-  }
-
   return (
     <>
       <Head>
@@ -56,13 +39,7 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <BookProvider>
         <Top />
-        <div
-          onTouchStart={touchStart}
-          onTouchEnd={touchEnd}
-          onTouchMove={touchMove}
-        >
           <Component {...pageProps} />
-        </div>
         <HomeBar />
       </BookProvider>
     </>

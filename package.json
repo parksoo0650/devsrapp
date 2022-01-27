@@ -1,14 +1,22 @@
 {
+  "name": "srapp",
+  "main": "function.js",
+  "version": "1.0.0",
+  "description": "",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "deploy": "yarn build && cross-env NODE_ENV=production firebase deploy --only functions,hosting"
   },
   "dependencies": {
     "axios": "^0.21.4",
+    "cross-env": "^7.0.3",
     "firebase": "^9.1.0",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.16.0",
     "firestore-export-import": "^0.17.0",
     "framer-motion": "^5.2.1",
     "global": "^4.4.0",
