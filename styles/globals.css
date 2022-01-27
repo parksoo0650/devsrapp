@@ -457,7 +457,7 @@ footer .sns_list li + li {
 }
 .section .title {
 	position: relative;
-	margin-bottom: 13px;
+	margin-bottom: 15px;
 	color: #000;
 	font-size: 20px;
 	font-weight: 600;
@@ -532,7 +532,7 @@ hr {
 }
 .movie_wrap .info {
 	position: relative;
-	padding: 15px;
+	padding: 15px 15px 20px 15px;
 	font-size: 16px;
 }
 .movie_wrap .info .btn_share {
@@ -615,6 +615,17 @@ hr {
 .days_wrap .con_list li .info {
 	flex: 1;
 	padding: 20px 15px;
+}
+.days_wrap .con_list li .sat {
+	color: #A2A0A4;
+	font-size: 16px;
+	font-weight: 500;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.days_wrap .con_list li .sat img {
+	padding-right: 15px;
 }
 .days_wrap .con_list li .info .tit {
     display: -webkit-box;
