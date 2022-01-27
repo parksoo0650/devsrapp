@@ -130,6 +130,7 @@ legend, caption {
 }
 .sub_container {
 	margin-top: 58px;
+	margin-bottom: 82px;
 	flex: 1;
 }
 
@@ -262,14 +263,14 @@ header .search_area .recent .list li .btn_delete {
 	justify-content: space-between;
 	position: fixed;
 	left: 0;
-	bottom: -90px;
 	width: 100%;
 	z-index: 500;
 	padding: 9px 0 26px 0;
 	background-color: #fff;
 	border-top: 1px solid #ebebeb;
 	transition: 0.5s;
-	opacity: 0;
+	bottom: 0;
+	opacity: 1;
 }
 #home_bar li {
 	width: 20%;
@@ -409,6 +410,7 @@ footer {
 	position: relative;
 	padding: 30px 15px;
 	background-color: #ebebeb;
+	margin-bottom: 82px;
 }
 footer .f_logo {
 	width: 82px;
