@@ -600,11 +600,12 @@ hr {
 	border: 1px solid #ebebeb;
 	border-radius: 8px;
 	overflow: hidden;
+	height: 81px;
 }
 .days_wrap .con_list li + li {
 	margin-top: 10px;
 }
-.days_wrap .con_list li .movie {
+.days_wrap .con_list li .movie img {
 	width: 145px;
 	height: 81px;
 	overflow: hidden;
@@ -618,7 +619,7 @@ hr {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -640,7 +641,7 @@ hr {
 	margin-top: 8px;
 	color: #000;
 	font-size: 12px;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 /* 빠른접근 */
