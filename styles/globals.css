@@ -130,6 +130,7 @@ legend, caption {
 }
 .sub_container {
 	margin-top: 58px;
+	margin-bottom: 82px;
 	flex: 1;
 }
 
@@ -145,7 +146,7 @@ header {
 	z-index: 500;
 	width: 100%;
 	background-color: #fff;
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
 }
 header.on {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -262,14 +263,14 @@ header .search_area .recent .list li .btn_delete {
 	justify-content: space-between;
 	position: fixed;
 	left: 0;
-	bottom: -90px;
 	width: 100%;
 	z-index: 500;
 	padding: 9px 0 26px 0;
 	background-color: #fff;
 	border-top: 1px solid #ebebeb;
 	transition: 0.5s;
-	opacity: 0;
+	bottom: 0;
+	opacity: 1;
 }
 #home_bar li {
 	width: 20%;
@@ -409,6 +410,7 @@ footer {
 	position: relative;
 	padding: 30px 15px;
 	background-color: #ebebeb;
+	margin-bottom: 82px;
 }
 footer .f_logo {
 	width: 82px;
@@ -444,7 +446,7 @@ footer .sns_list li + li {
 ***********************************************************/
 /* 레이아웃 */
 .section {
-	padding: 40px 15px;
+	padding: 30px 15px;
 	overflow: hidden;
 }
 .section.bg_gray {
@@ -530,7 +532,7 @@ hr {
 }
 .movie_wrap .info {
 	position: relative;
-	padding: 12px 15px 15px 15px;
+	padding: 15px;
 	font-size: 16px;
 }
 .movie_wrap .info .btn_share {
@@ -600,11 +602,12 @@ hr {
 	border: 1px solid #ebebeb;
 	border-radius: 8px;
 	overflow: hidden;
+	height: 81px;
 }
 .days_wrap .con_list li + li {
 	margin-top: 10px;
 }
-.days_wrap .con_list li .movie {
+.days_wrap .con_list li .movie img {
 	width: 145px;
 	height: 81px;
 	overflow: hidden;
@@ -618,7 +621,7 @@ hr {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 	font-size: 16px;
-	font-weight: 400;
+	font-weight: 500;
 	line-height: 23px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -640,7 +643,7 @@ hr {
 	margin-top: 8px;
 	color: #000;
 	font-size: 12px;
-	font-weight: 500;
+	font-weight: 400;
 }
 
 /* 빠른접근 */
