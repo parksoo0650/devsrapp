@@ -126,10 +126,10 @@ legend, caption {
 }
 
 .container {
-	margin-top: 60px;
+	/* margin-top: 60px; */
 }
 .sub_container {
-	margin-top: 58px;
+	/* margin-top: 58px; */
 	margin-bottom: 82px;
 	flex: 1;
 }
@@ -140,13 +140,11 @@ legend, caption {
 	HEADER
 ***********************************************************/
 header {
-	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 500;
 	width: 100%;
 	background-color: #fff;
-	/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
 }
 header.on {
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
