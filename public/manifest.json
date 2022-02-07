@@ -2,7 +2,7 @@
   "name": "성락교회",
   "short_name": "성락교회",
   "theme_color": "#ffffff",
-  "background_color": "#004740",
+  "background_color": "#000000",
   "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",

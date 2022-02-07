@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/pagination";
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
+import Top from '../src/components/Top';
 import Footer from "../src/components/Footer";
 import Link from "next/link";
 
@@ -200,6 +201,7 @@ export default function Home() {
 
   return (
     <>
+      <Top />
       <div className="container">
         <div className="main_swiper">
           <Swiper
