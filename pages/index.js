@@ -40,6 +40,7 @@ export default function Home() {
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const opts = { width: "320px", height: "200px", playerVars: { autoplay: 0, controls: 0 } };
   const [isOpen, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [weeks, setWeeks] = useState("");
   const [weekDataOnm, setWeekDataOnm] = useState([]);
   const [weekDataOnb, setWeekDataOnb] = useState([]);
@@ -84,6 +85,8 @@ export default function Home() {
       thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
       publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
     });
+
+    setIsLoading(false);
   };
 
   const getOnData = async () => {
@@ -225,7 +228,7 @@ export default function Home() {
           </Swiper>
         </div>
 
-        {(liveDatas.videoId) ? (
+        {(isLoading===false) ? (
           <div className="section">
             <div className="title">{liveDatas.subTitle}</div>
             <div className="movie_wrap">
@@ -286,7 +289,15 @@ export default function Home() {
               </div>
             </div>
           </div>
-        ) : (null)}
+        ) : (
+          <div className="section">
+            <div className="title">성락교회</div>
+            <div className="movie_wrap">
+              <img src="/images/default_img.jpg" style={{ width: "100%" }} />
+              <div className="info"></div>
+            </div>
+          </div>
+        )}
 
         <div className={(liveDatas.videoId) ? "section pt0" : "section pt25"}>
           <div className="title">요일별 컨텐츠</div>
@@ -498,7 +509,7 @@ export default function Home() {
               <Link href="youtube://channel/UCVZgyTaNK1q-CKM481MO35A">
                 <a>
                   <div className="img"><img src="../icons/thumb_elementary.svg" alt="유치부" /></div>
-                  <div className="txt">유치부</div>
+                  <div className="txt">어린이부</div>
                 </a>
               </Link>
             </SwiperSlide>
