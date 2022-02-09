@@ -29,7 +29,7 @@ export default function HomeBar() {
                     </Link>
                 </li>
                 <li onClick={() => { setMenus("bible"); }}>
-                    <Link href="/chapter/1_1">
+                    <Link href="/chapter/1/1">
                         <a>
                             <div className="ico">
                                 <img src={(menus == "bible") ? "/icons/ico_bible.svg" : "/icons/ico_bible_off.svg"} alt="성경" />
