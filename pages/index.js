@@ -10,6 +10,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import Top from '../src/components/Top';
 import Footer from "../src/components/Footer";
 import Link from "next/link";
+import Loading from "../src/components/Loading";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -82,7 +83,7 @@ export default function Home() {
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       subTitle: mainTitle,
-      thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: api_data.data.items[0].snippet.thumbnails.high.url,
       publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
     });
 
@@ -108,7 +109,7 @@ export default function Home() {
       title: splitTitlePrc[0],
       date: splitTitlePrc[1],
       videoId: dataPrc.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPrc.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: dataPrc.data.items[0].snippet.thumbnails.high.url,
     });
 
     const dataPro = await axios.get(API_URL_PRO);
@@ -117,7 +118,7 @@ export default function Home() {
       title: splitTitlePro[0],
       date: splitTitlePro[1],
       videoId: dataPro.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPro.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: dataPro.data.items[0].snippet.thumbnails.high.url,
     });
   };
 
@@ -228,7 +229,7 @@ export default function Home() {
           </Swiper>
         </div>
 
-        {(isLoading===false) ? (
+        {(isLoading === false) ? (
           <div className="section">
             <div className="title">{liveDatas.subTitle}</div>
             <div className="movie_wrap">
@@ -290,12 +291,8 @@ export default function Home() {
             </div>
           </div>
         ) : (
-          <div className="section">
-            <div className="title">성락교회</div>
-            <div className="movie_wrap">
-              <img src="/images/default_img.jpg" style={{ width: "100%" }} />
-              <div className="info"></div>
-            </div>
+          <div className="loading_box">
+            <Loading />
           </div>
         )}
 
@@ -328,7 +325,7 @@ export default function Home() {
                       <li key={doc.id}>
                         <div className="movie">
                           {(doc.snippet.thumbnails) ? (
-                            <img src={doc.snippet.thumbnails.maxres.url} />
+                            <img src={doc.snippet.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -344,7 +341,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnm.thumbnails) ? (
-                            <img src={weekSelectDataOnm.thumbnails.maxres.url} />
+                            <img src={weekSelectDataOnm.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -358,7 +355,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnb.thumbnails) ? (
-                            <img src={weekSelectDataOnb.thumbnails.maxres.url} />
+                            <img src={weekSelectDataOnb.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -373,7 +370,7 @@ export default function Home() {
                         <li>
                           <div className="movie">
                             {(weekSelectDataOns.thumbnails) ? (
-                              <img src={weekSelectDataOns.thumbnails.maxres.url} />
+                              <img src={weekSelectDataOns.thumbnails.high.url} />
                             ) : (null)}
                           </div>
                           <div className="info">

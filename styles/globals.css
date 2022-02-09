@@ -1891,7 +1891,12 @@ hr {
 	text-align: right !important;
 }
 
-
+.loading_box {
+	min-height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 
 
