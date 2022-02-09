@@ -23,6 +23,7 @@ const Post = ({ items, bid, cid }) => {
         );
     }
 
+
     return (
         <>
             {items && (
@@ -78,78 +79,26 @@ const Post = ({ items, bid, cid }) => {
                                         <div className="tab_con">
 
                                             {/* 구약 */}
-                                            <ul className={(bibleBook == "구약") ? "book_list" : "book_list hide"}>
-                                                <li className="on"><span>창세기</span></li>
-                                                <li><span>출애굽기</span></li>
-                                                <li><span>레위기</span></li>
-                                                <li><span>민수기</span></li>
-                                                <li><span>신명기</span></li>
-                                                <li><span>여호수아</span></li>
-                                                <li><span>사사기</span></li>
-                                                <li><span>룻기</span></li>
-                                                <li><span>사무엘상</span></li>
-                                                <li><span>사무엘하</span></li>
-                                                <li><span>열왕기상</span></li>
-                                                <li><span>열왕기하</span></li>
-                                                <li><span>역대상</span></li>
-                                                <li><span>역대하</span></li>
-                                                <li><span>에스라</span></li>
-                                                <li><span>느헤미야</span></li>
-                                                <li><span>에스더</span></li>
-                                                <li><span>욥기</span></li>
-                                                <li><span>시편</span></li>
-                                                <li><span>잠언</span></li>
-                                                <li><span>전도사</span></li>
-                                                <li><span>아가</span></li>
-                                                <li><span>이사야</span></li>
-                                                <li><span>예레미야</span></li>
-                                                <li><span>예레미야 애가</span></li>
-                                                <li><span>에스겔</span></li>
-                                                <li><span>다니엘</span></li>
-                                                <li><span>호세아</span></li>
-                                                <li><span>요엘</span></li>
-                                                <li><span>아모스</span></li>
-                                                <li><span>오바댜</span></li>
-                                                <li><span>요나</span></li>
-                                                <li><span>미가</span></li>
-                                                <li><span>나훔</span></li>
-                                                <li><span>하박국</span></li>
-                                                <li><span>스바냐</span></li>
-                                                <li><span>학개</span></li>
-                                                <li><span>스가랴</span></li>
-                                                <li><span>말라기</span></li>
-                                            </ul>
+                                            <BookConsumer>
+                                                {({ old_book }) => (
+                                                    <ul className={(bibleBook == "구약") ? "book_list" : "book_list hide"}>
+                                                        {old_book.map((book, i) => (
+                                                            <li key={i}><span>{book}</span></li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </BookConsumer>
 
                                             {/* 신약 */}
-                                            <ul className={(bibleBook == "신약") ? "book_list" : "book_list hide"}>
-                                                <li><span>마태복음</span></li>
-                                                <li><span>마가복음</span></li>
-                                                <li><span>누가복음</span></li>
-                                                <li><span>요한복음</span></li>
-                                                <li><span>사도행전</span></li>
-                                                <li><span>로마서</span></li>
-                                                <li><span>고린도전서</span></li>
-                                                <li><span>고린도후서</span></li>
-                                                <li><span>갈라디아서</span></li>
-                                                <li><span>에베소서</span></li>
-                                                <li><span>빌립보서</span></li>
-                                                <li><span>골로새서</span></li>
-                                                <li className='on'><span>데살로니가 전서</span></li>
-                                                <li><span>데살로니가 후서</span></li>
-                                                <li><span>디모데 전서</span></li>
-                                                <li><span>디모데 후서</span></li>
-                                                <li><span>디도서</span></li>
-                                                <li><span>빌레몬서</span></li>
-                                                <li><span>히브리서</span></li>
-                                                <li><span>야고보서</span></li>
-                                                <li><span>베드로 전서</span></li>
-                                                <li><span>베드로 후서</span></li>
-                                                <li><span>요한1서</span></li>
-                                                <li><span>요한2서</span></li>
-                                                <li><span>요한3서</span></li>
-                                                <li><span>유다서</span></li>
-                                                <li><span>요한계시록</span></li>
-                                            </ul>
+                                            <BookConsumer>
+                                                {({ new_book }) => (
+                                                    <ul className={(bibleBook == "신약") ? "book_list" : "book_list hide"}>
+                                                        {new_book.map((book, i) => (
+                                                            <li key={i}><span>{book}</span></li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </BookConsumer>
 
                                             {/* 장 */}
                                             <ul className={(bibleBook == "장") ? "chapter_list" : "chapter_list hide"}>
@@ -231,6 +180,7 @@ export async function getStaticProps(context) {
     const book_data = [];
     const q = query(collection(db, "bible"), where("book", "==", parseInt(id)), where("chapter", "==", parseInt(cid)), orderBy("verse", "asc"));
     const querySnapshot = await getDocs(q);
+
     querySnapshot.forEach((doc) => {
         book_data.push(doc.data());
     });
