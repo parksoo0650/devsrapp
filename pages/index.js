@@ -10,6 +10,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import Top from '../src/components/Top';
 import Footer from "../src/components/Footer";
 import Link from "next/link";
+import Loading from "../src/components/Loading";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -40,6 +41,7 @@ export default function Home() {
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const opts = { width: "320px", height: "200px", playerVars: { autoplay: 0, controls: 0 } };
   const [isOpen, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [weeks, setWeeks] = useState("");
   const [weekDataOnm, setWeekDataOnm] = useState([]);
   const [weekDataOnb, setWeekDataOnb] = useState([]);
@@ -81,9 +83,11 @@ export default function Home() {
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       subTitle: mainTitle,
-      thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: api_data.data.items[0].snippet.thumbnails.high.url,
       publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
     });
+
+    setIsLoading(false);
   };
 
   const getOnData = async () => {
@@ -105,7 +109,7 @@ export default function Home() {
       title: splitTitlePrc[0],
       date: splitTitlePrc[1],
       videoId: dataPrc.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPrc.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: dataPrc.data.items[0].snippet.thumbnails.high.url,
     });
 
     const dataPro = await axios.get(API_URL_PRO);
@@ -114,7 +118,7 @@ export default function Home() {
       title: splitTitlePro[0],
       date: splitTitlePro[1],
       videoId: dataPro.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPro.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: dataPro.data.items[0].snippet.thumbnails.high.url,
     });
   };
 
@@ -225,7 +229,7 @@ export default function Home() {
           </Swiper>
         </div>
 
-        {(liveDatas.videoId) ? (
+        {(isLoading === false) ? (
           <div className="section">
             <div className="title">{liveDatas.subTitle}</div>
             <div className="movie_wrap">
@@ -286,7 +290,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-        ) : (null)}
+        ) : (
+          <div className="loading_box">
+            <Loading />
+          </div>
+        )}
 
         <div className={(liveDatas.videoId) ? "section pt0" : "section pt25"}>
           <div className="title">요일별 컨텐츠</div>
@@ -317,7 +325,7 @@ export default function Home() {
                       <li key={doc.id}>
                         <div className="movie">
                           {(doc.snippet.thumbnails) ? (
-                            <img src={doc.snippet.thumbnails.maxres.url} />
+                            <img src={doc.snippet.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -333,7 +341,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnm.thumbnails) ? (
-                            <img src={weekSelectDataOnm.thumbnails.maxres.url} />
+                            <img src={weekSelectDataOnm.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -347,7 +355,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnb.thumbnails) ? (
-                            <img src={weekSelectDataOnb.thumbnails.maxres.url} />
+                            <img src={weekSelectDataOnb.thumbnails.high.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -362,7 +370,7 @@ export default function Home() {
                         <li>
                           <div className="movie">
                             {(weekSelectDataOns.thumbnails) ? (
-                              <img src={weekSelectDataOns.thumbnails.maxres.url} />
+                              <img src={weekSelectDataOns.thumbnails.high.url} />
                             ) : (null)}
                           </div>
                           <div className="info">
@@ -392,29 +400,25 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => { router.push("/weeklyorder"); }}>
-              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
-              <div className="txt">주보</div>
+            <li onClick={() => { router.push("/chapter/1/1"); }}>
+              <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
+              <div className="txt">성경</div>
             </li>
             <li onClick={() => { router.push("/onmain"); }}>
               <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
               <div className="txt">온시리즈</div>
             </li>
-            <li onClick={() => { router.push("/chapter/1_1"); }}>
-              <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
-              <div className="txt">성경</div>
-            </li>
-            <li onClick={() => { router.push("/hymnmain"); }}>
-              <div className="img"><img src="/icons/ico_quick_hymn.svg" alt="찬송가" /></div>
-              <div className="txt">찬송가</div>
-            </li>
-            <li onClick={() => { router.push("/offering"); }}>
-              <div className="img"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></div>
-              <div className="txt">헌금안내</div>
+            <li onClick={() => { router.push("/weeklyorder"); }}>
+              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
+              <div className="txt">주보</div>
             </li>
             <li onClick={() => { router.push("/weeklynews"); }}>
               <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
               <div className="txt">교회소식</div>
+            </li>
+            <li onClick={() => { router.push("/offering"); }}>
+              <div className="img"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></div>
+              <div className="txt">헌금안내</div>
             </li>
           </ul>
         </div>
@@ -498,7 +502,7 @@ export default function Home() {
               <Link href="youtube://channel/UCVZgyTaNK1q-CKM481MO35A">
                 <a>
                   <div className="img"><img src="../icons/thumb_elementary.svg" alt="유치부" /></div>
-                  <div className="txt">유치부</div>
+                  <div className="txt">어린이부</div>
                 </a>
               </Link>
             </SwiperSlide>

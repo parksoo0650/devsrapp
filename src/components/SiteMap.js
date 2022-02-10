@@ -13,18 +13,10 @@ export default function SiteMap() {
             <div className="tip">이 메뉴도 이용해보세요!</div>
             <ul className="quick_list">
                 <li>
-                    <Link href="/chapter/1_1">
+                    <Link href="/chapter/1/1">
                         <a>
                             <i className="ico_"></i>
                             <div className="menu">성경</div>
-                        </a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/hymnmain">
-                        <a>
-                            <i className="ico_"></i>
-                            <div className="menu">찬송가</div>
                         </a>
                     </Link>
                 </li>
@@ -71,11 +63,6 @@ export default function SiteMap() {
                             </li>
                             <li>
                                 <Link href="/sermonmain">
-                                    <a>주일 연합 예배</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/sermonmain">
                                     <a>수요 오전 예배</a>
                                 </Link>
                             </li>
@@ -91,60 +78,26 @@ export default function SiteMap() {
                             </li>
                         </ul>
                     </li>
-
                     <li>
                         <span>찬양</span>
                         <ul className="sub_menu">
                             <li>
                                 <Link href="/praisemain">
-                                    <a>1부 성가대(할렐루야)</a>
+                                    <a>성락교회 성가대</a>
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/praisemain">
-                                    <a>1부 헌금송</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/praisemain">
-                                    <a>3부 성가대(시무언)</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/praisemain">
-                                    <a>3부 헌금송</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/praisemain">
-                                    <a>연합 성가대(뉴헤븐)</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/praisemain">
-                                    <a>연합 헌금송</a>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/praisemain">
-                                    <a>예수로 찬양</a>
+                                    <a>성략교회 헌금송</a>
                                 </Link>
                             </li>
                         </ul>
                     </li>
-
                     <li>
                         <Link href="/chapter/1_1">
                             <a>성경</a>
                         </Link>
                     </li>
-
-                    <li>
-                        <Link href="/hymnmain">
-                            <a>찬송가</a>
-                        </Link>
-                    </li>
-
                     <li>
                         <span>온시리즈</span>
                         <ul className="sub_menu">
@@ -163,20 +116,13 @@ export default function SiteMap() {
                                     <a>온3분</a>
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="#">
-                                    <a>온목장</a>
-                                </Link>
-                            </li>
                         </ul>
                     </li>
-
                     <li>
                         <Link href="/weeklyorder">
                             <a>주보</a>
                         </Link>
                     </li>
-
                     <li>
                         <Link href="/offering">
                             <a>헌금안내</a>
