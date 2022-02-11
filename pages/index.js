@@ -230,7 +230,7 @@ export default function Home() {
         </div>
 
         {(isLoading === false) ? (
-          <div className="section">
+          <div className="section pt30">
             <div className="title">{liveDatas.subTitle}</div>
             <div className="movie_wrap">
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />

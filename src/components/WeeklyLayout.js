@@ -32,11 +32,11 @@ export default function Layout(props) {
                                 <a>설교요지</a>
                             </li>
                         </Link>
-                        <Link href="/weeklywords">
+                        {/* <Link href="/weeklywords">
                             <li className={router.pathname === "/weeklywords" ? "on" : ""}>
                                 <a>주중말씀</a>
                             </li>
-                        </Link>
+                        </Link> */}
                         <Link href="/weeklynews">
                             <li className={router.pathname === "/weeklynews" ? "on" : ""}>
                                 <a>교회소식</a>

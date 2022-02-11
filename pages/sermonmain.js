@@ -72,7 +72,7 @@ export default function Sermonmain() {
             `}
             </style>
 
-            <div className="section">
+            <div className="section pt30">
                 <div className="title">최신 컨텐츠</div>
                 <div className="movie_wrap">
                     <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />

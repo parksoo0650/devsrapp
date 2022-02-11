@@ -64,7 +64,7 @@ export default function Onmain() {
 
             {/* 온특새 */}
             <div className={(series == "온특새") ? "onPrayer" : "onPrayer hide"}>
-                <div className="section">
+                <div className="section pt30">
                     <div className="title">최신 컨텐츠</div>
                     <div className="movie_wrap">
                         <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
@@ -144,7 +144,7 @@ export default function Onmain() {
             {/* 온3분 */}
             <div className={(series == "온3분") ? "onthree" : "onthree hide"}>
                 <div className="guide">온3분은 매주 금 (오전 10:30)에 시작됩니다.</div>
-                <div className="section">
+                <div className="section pt30 pb30">
                     <div className="title">최신 컨텐츠</div>
                     <div className="movie_wrap">
                         <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
@@ -251,7 +251,7 @@ export default function Onmain() {
             {/* 온성경 */}
             <div className={(series == "온성경") ? "onBible" : "onBible hide"}>
                 <div className="guide">온라인 성경읽기는<br />매주 월, 화, 목, 금 (오전 10:30)에 시작됩니다.</div>
-                <div className="section">
+                <div className="section pt30">
                     <div className="title">최신 컨텐츠</div>
                     <div className="movie_wrap">
                         <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />

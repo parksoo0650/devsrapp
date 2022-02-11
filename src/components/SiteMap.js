@@ -15,7 +15,7 @@ export default function SiteMap() {
                 <li>
                     <Link href="/chapter/1/1">
                         <a>
-                            <i className="ico_"></i>
+                            <i className="ico"><img src="/icons/ico_quick_bible1.svg" /></i>
                             <div className="menu">성경</div>
                         </a>
                     </Link>
@@ -23,7 +23,7 @@ export default function SiteMap() {
                 <li>
                     <Link href="/onmain">
                         <a>
-                            <i className="ico_"></i>
+                            <i className="ico"><img src="/icons/ico_quick_onseries.svg" /></i>
                             <div className="menu">온시리즈</div>
                         </a>
                     </Link>
@@ -31,7 +31,7 @@ export default function SiteMap() {
                 <li>
                     <Link href="/weeklyorder">
                         <a>
-                            <i className="ico_"></i>
+                            <i className="ico"><img src="/icons/ico_quick_weekly.svg" /></i>
                             <div className="menu">주보</div>
                         </a>
                     </Link>
@@ -39,7 +39,7 @@ export default function SiteMap() {
                 <li>
                     <Link href="/offering">
                         <a>
-                            <i className="ico_"></i>
+                            <i className="ico"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></i>
                             <div className="menu">헌금안내</div>
                         </a>
                     </Link>
