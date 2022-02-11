@@ -32,7 +32,7 @@ const Post = ({ items, bid, cid }) => {
                         <BookConsumer>
                             {({ book_name }) => (
                                 <div className="top_area">
-                                    <div className="top_title txt_left">{book_name[bid]} {cid}장 <span className="arrow" onClick={() => setIsOpen(true)}></span></div>
+                                    <div className="top_title txt_left" onClick={() => setIsOpen(true)}>{book_name[bid]} {cid}장 <span className="arrow"></span></div>
                                     <ul className="tool_list">
                                         <li onClick={handleToggle}>
                                             <img src="/icons/ico_setting.svg" alt="설정" />
