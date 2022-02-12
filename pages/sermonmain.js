@@ -29,6 +29,7 @@ export default function Sermonmain() {
 
     let [isOpen, setIsOpen] = useState(false);
     let [isDrop, setIsDrop] = useState(false);
+    let [isFilter, setIsFilter] = useState(false);
 
     const opts = {
         width: "320px",
@@ -132,7 +133,23 @@ export default function Sermonmain() {
             </div>
 
             <div className="section pt0">
-                <div className="title">지난 예배 다시보기 <span className="filter">필터</span></div>
+                <div className="title">지난 예배 다시보기 
+                    
+                    <span className="filter" onClick={() => setIsFilter(true)}>필터</span>
+                
+                    {/* 필터 */}
+                    <div className={isFilter ? "layer_filter on" : "layer_filter"}>
+                        <button className="btn_close" onClick={() => setIsFilter(false)}></button>
+                        <div className="title">필터 선택</div>
+                        <ul className="filter_list">
+                            <li>콘텐츠 전체보기</li>
+                            <li>3부예배</li>
+                            <li>3부예배</li>
+                            <li>3부예배</li>
+                        </ul>
+                    </div>
+                    {/* 필터 */}
+                </div>
                 <ul className="sermon_list">
                     <li>
                         <div className="tit">우리의 소망은 부활이다</div>

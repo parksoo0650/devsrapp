@@ -299,7 +299,7 @@ header .search_area .recent .list li .btn_delete {
 	width: 100%;
 	z-index: 600;
 	padding: 0 15px 15px 15px;
-	background-color: #fff;
+	background-color: #f9f9f9;
 	transition: 0.4s;
 	opacity: 0;
 	overflow: auto;
@@ -350,6 +350,11 @@ header .search_area .recent .list li .btn_delete {
 }
 
 /* 메뉴 리스트 */
+.menu_wrap {
+	padding: 0 15px;
+	margin: 0 -15px;
+	background-color: #fff;
+}
 .menu_wrap .menu_list {
 	margin-top: 30px;
 	border-bottom: 1px solid #ebebeb;
@@ -358,10 +363,7 @@ header .search_area .recent .list li .btn_delete {
 	position: relative;
 	padding: 15px 0;
 	font-size: 20px;
-	border-top: 1px solid #ebebeb;
-}
-.menu_wrap .menu_list > li + li {
-	border-top: 1px solid #ebebeb;
+	border-bottom: 1px solid #ebebeb;
 }
 .menu_wrap .menu_list > li span:after {
 	content: '';
@@ -685,6 +687,7 @@ hr {
 	font-size: 16px;
 	font-weight: 500;
 	display: flex;
+	flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -1021,6 +1024,46 @@ hr {
 	margin-top: 10px;
 }
 
+/* 필터 */
+.layer_filter {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	background-color: #f9f9f9;
+}
+.layer_filter.on {
+	display: block;
+}
+.layer_filter .title {
+	padding: 18px 0;
+	margin: 0;
+	font-size: 16px;
+	text-align: center;
+	line-height: 24px;
+}
+.layer_filter .btn_close {
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	z-index: 10;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+}
+.layer_filter .filter_list {
+	border-top: 1px solid #f9f9f9;
+}
+.layer_filter .filter_list li {
+	padding: 13px 20px;
+	font-size: 16px;
+	border-bottom: 1px solid #f9f9f9;
+}
+
 /* 예배 상세 */
 .sermon_detail .movie_wrap {
 	border: 0;
@@ -1350,8 +1393,10 @@ hr {
 /* 성경 말씀 찾기 팝업 */
 .layer_bible_read {
 	position: relative;
+	background-color: #f9f9f9;
 }
 .layer_bible_read .title {
+	padding: 15px 0 8px;
 	font-size: 16px;
 	text-align: center;
 	line-height: 24px;
@@ -1361,14 +1406,17 @@ hr {
 	display: inline-block;
 	position: absolute;
 	right: 15px;
-	top: 0;
+	top: 15px;
 	width: 24px;
 	height: 24px;
 	background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .layer_bible_read .tab_area {
 	display: flex;
-	margin: 25px 15px;
+	margin: 10px 15px;
+	padding: 3px 4px;
+	background-color: #fff;
+	border-radius: 40px;
 }
 .layer_bible_read .tab_area li {
 	display: inline-block;
@@ -1386,9 +1434,10 @@ hr {
 }
 
 .layer_bible_read .tab_con {
-	padding: 0 15px;
+	padding: 5px 15px;
 	max-height: calc(100% - 106px);
 	overflow-y: auto;
+	background-color: #fff;
 }
 
 /* 책 선택 */
@@ -1412,6 +1461,7 @@ hr {
 .chapter_list {
 	display: flex;
 	flex-wrap: wrap;
+	margin-top: 15px;
 }
 .chapter_list li {
 	width: 20%;

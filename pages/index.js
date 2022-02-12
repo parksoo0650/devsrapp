@@ -313,7 +313,7 @@ export default function Home() {
                 <li>
                   <div className="info sat">
                     <img src="/icons/ico_sat.svg" />
-                    주일을 준비해 주세요!
+                    <strong>주일</strong>을 준비해 주세요!
                   </div>
                 </li>
               ) : (
@@ -400,6 +400,10 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
+            <li onClick={() => { router.push("/weeklyorder"); }}>
+              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
+              <div className="txt">주보</div>
+            </li>
             <li onClick={() => { router.push("/chapter/1/1"); }}>
               <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
               <div className="txt">성경</div>
@@ -408,9 +412,9 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
               <div className="txt">온시리즈</div>
             </li>
-            <li onClick={() => { router.push("/weeklyorder"); }}>
-              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
-              <div className="txt">주보</div>
+            <li onClick={() => { router.push("/"); }}>
+              <div className="img"><img src="/icons/ico_quick_mission.png" alt="전도" /></div>
+              <div className="txt">전도</div>
             </li>
             <li onClick={() => { router.push("/weeklynews"); }}>
               <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
