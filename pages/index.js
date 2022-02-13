@@ -252,19 +252,19 @@ export default function Home() {
                         <ul className="sns_list">
                           <li>
                             <a href="#" target="_blank">
-                              <img src="../icons/ico_youtube.svg" alt="youtube" />
+                              <img src="../icons/ico_kakao.svg" alt="kakao" />
                               <div className="tit">카카오톡</div>
                             </a>
                           </li>
                           <li>
                             <a href="#" target="_blank">
-                              <img src="../icons/ico_blog.svg" alt="blog" />
-                              <div className="tit">SNS</div>
+                              <img src="../icons/ico_message.svg" alt="message" />
+                              <div className="tit">메세지</div>
                             </a>
                           </li>
                           <li>
                             <a href="#" target="_blank">
-                              <img src="../icons/ico_instar.svg" alt="instar" />
+                              <img src="../icons/ico_url.svg" alt="instar" />
                               <div className="tit">URL</div>
                             </a>
                           </li>
