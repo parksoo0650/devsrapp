@@ -9,6 +9,7 @@ export default function Search() {
             <div className="search_area">
                 <div className="top">
                     <span className="btn_prev"></span>
+                    <span className="btn_delete2"></span>
                     <input type="text" placeholder="검색어를 입력하세요." />
                 </div>
                 <div className="recent">

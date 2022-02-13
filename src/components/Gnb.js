@@ -12,8 +12,8 @@ export default function Gnb() {
                 <img src="../images/logo.svg" alt="성락교회" />
             </h1>
             {/* <a href="/settings" className="alarm on"></a> */}
-            <span className="btn_search" onClick={() => setIsSearch(true)}><img src="../icons/ico_search.svg" alt="검색" /></span>
-            <div className={isSearch ? "search_area on" : "search_area"}>
+            <span className="btn_search" onClick={() => { router.push("/search"); }}><img src="../icons/ico_search.svg" alt="검색" /></span>
+            {/* <div className={isSearch ? "search_area on" : "search_area"}>
                 <div className="top">
                     <span className="btn_prev" onClick={() => setIsSearch(false)}></span>
                     <input type="text" placeholder="검색어를 입력하세요." />
@@ -38,7 +38,7 @@ export default function Gnb() {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

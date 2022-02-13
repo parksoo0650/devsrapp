@@ -142,7 +142,7 @@ export default function Sermonmain() {
                         <button className="btn_close" onClick={() => setIsFilter(false)}></button>
                         <div className="title">필터 선택</div>
                         <ul className="filter_list">
-                            <li>콘텐츠 전체보기</li>
+                            <li className="on">콘텐츠 전체보기</li>
                             <li>3부예배</li>
                             <li>3부예배</li>
                             <li>3부예배</li>

@@ -205,6 +205,7 @@ header .search_area.on {
 	display: block;
 }
 header .search_area .top {
+	position: relative;
 	padding: 15px 15px 9px 15px;
 	border-bottom: 1px solid #ebebeb;
 }
@@ -461,6 +462,17 @@ footer .sns_list li + li {
 	height: 24px;
 	margin-right: 6px;
 	background: url('/icons/ico_back.svg') no-repeat center center;
+	vertical-align: middle;
+}
+.search_wrap .search_area .btn_delete2 {
+	display: inline-block;
+	position: absolute;
+	right: 30px;
+	top: 24px;
+	z-index: 10;
+	width: 17px;
+	height: 17px;
+	background: url('/icons/ico_delete.svg') no-repeat center center;
 	vertical-align: middle;
 }
 .search_wrap .search_area input {
@@ -1033,7 +1045,7 @@ hr {
 	bottom: 0;
 	width: 100%;
 	z-index: 100;
-	background-color: #f9f9f9;
+	background-color: #fff;
 }
 .layer_filter.on {
 	display: block;
@@ -1044,6 +1056,7 @@ hr {
 	font-size: 16px;
 	text-align: center;
 	line-height: 24px;
+	background-color: #f9f9f9;
 }
 .layer_filter .btn_close {
 	display: inline-block;
@@ -1059,9 +1072,23 @@ hr {
 	border-top: 1px solid #f9f9f9;
 }
 .layer_filter .filter_list li {
+	position: relative;
 	padding: 13px 20px;
 	font-size: 16px;
 	border-bottom: 1px solid #f9f9f9;
+}
+.layer_filter .filter_list li:after {
+	content: '';
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 11px;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_check_off.svg') no-repeat center center;
+}
+.layer_filter .filter_list li.on:after {
+	background: url('/icons/ico_check.svg') no-repeat center center;
 }
 
 /* 예배 상세 */
@@ -1760,8 +1787,12 @@ hr {
 .jubo_wrap .top_area .info {
 	display: flex;
 	justify-content: space-between;
-	padding: 0 20px;
+	padding: 0 15px;
 	font-size: 14px;
+}
+.jubo_wrap .top_area .info .issue {
+	padding-right: 25px;
+	background: url('/icons/ico_list.svg') no-repeat right 15px;
 }
 .jubo_wrap .visual {
 	display: flex;
@@ -1794,6 +1825,56 @@ hr {
 	background-color: #fff;
 }
 
+
+/* 주보 리스트 */
+.layer_jubo {
+	display: none;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+	background-color: #fff;
+}
+.layer_jubo.on {
+	display: block;
+}
+.layer_jubo .title {
+	padding: 18px 0;
+	margin: 0;
+	font-size: 16px;
+	text-align: center;
+	line-height: 24px;
+	background-color: #f9f9f9;
+}
+.layer_jubo .btn_close {
+	display: inline-block;
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	z-index: 10;
+	width: 24px;
+	height: 24px;
+	background: url('/icons/ico_close.svg') no-repeat center center;
+}
+.layer_jubo .jubo_list li {
+	position: relative;
+	padding: 20px 15px;
+	font-size: 16px;
+	line-height: initial;
+	border-bottom: 1px solid #EBEBEB;
+}
+.layer_jubo .jubo_list li .info2 {
+	margin-bottom: 8px;
+	font-size: 12px;
+}
+.layer_jubo .jubo_list li .info2 span {
+	display: inline-block;
+	margin: 0 3px;
+	font-size: 10px;
+	color: #999;
+}
 
 /**********************************************************
 	OFFERING(헌금)
