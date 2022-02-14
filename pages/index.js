@@ -83,7 +83,7 @@ export default function Home() {
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       subTitle: mainTitle,
-      thumbnails: api_data.data.items[0].snippet.thumbnails.high.url,
+      thumbnails: api_data.data.items[0].snippet.thumbnails.medium.url,
       publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
     });
 
@@ -103,13 +103,15 @@ export default function Home() {
     const dataSun = await axios.get(API_URL_SUN);
     setWeekDataSun(dataSun.data.items);
 
+    console.log(dataOnm.data.items);
+
     const dataPrc = await axios.get(API_URL_PRC);
     let splitTitlePrc = dataPrc.data.items[0].snippet.title.split('|');
     setPraiseChoirDatas({
       title: splitTitlePrc[0],
       date: splitTitlePrc[1],
       videoId: dataPrc.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPrc.data.items[0].snippet.thumbnails.high.url,
+      thumbnails: dataPrc.data.items[0].snippet.thumbnails.medium.url,
     });
 
     const dataPro = await axios.get(API_URL_PRO);
@@ -118,7 +120,7 @@ export default function Home() {
       title: splitTitlePro[0],
       date: splitTitlePro[1],
       videoId: dataPro.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPro.data.items[0].snippet.thumbnails.high.url,
+      thumbnails: dataPro.data.items[0].snippet.thumbnails.medium.url,
     });
   };
 
@@ -325,7 +327,7 @@ export default function Home() {
                       <li key={doc.id}>
                         <div className="movie">
                           {(doc.snippet.thumbnails) ? (
-                            <img src={doc.snippet.thumbnails.high.url} />
+                            <img src={doc.snippet.thumbnails.medium.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -341,7 +343,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnm.thumbnails) ? (
-                            <img src={weekSelectDataOnm.thumbnails.high.url} />
+                            <img src={weekSelectDataOnm.thumbnails.medium.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -355,7 +357,7 @@ export default function Home() {
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnb.thumbnails) ? (
-                            <img src={weekSelectDataOnb.thumbnails.high.url} />
+                            <img src={weekSelectDataOnb.thumbnails.medium.url} />
                           ) : (null)}
                         </div>
                         <div className="info">
@@ -370,7 +372,7 @@ export default function Home() {
                         <li>
                           <div className="movie">
                             {(weekSelectDataOns.thumbnails) ? (
-                              <img src={weekSelectDataOns.thumbnails.high.url} />
+                              <img src={weekSelectDataOns.thumbnails.medium.url} />
                             ) : (null)}
                           </div>
                           <div className="info">
