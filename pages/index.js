@@ -413,8 +413,8 @@ export default function Home() {
               <div className="txt">온시리즈</div>
             </li>
             <li onClick={() => { router.push("/"); }}>
-              <div className="img"><img src="/icons/ico_quick_mission.png" alt="전도" /></div>
-              <div className="txt">전도</div>
+              <div className="img"><img src="/icons/ico_quick_mission.svg" alt="1분 은혜" /></div>
+              <div className="txt">1분 은혜</div>
             </li>
             <li onClick={() => { router.push("/weeklynews"); }}>
               <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
