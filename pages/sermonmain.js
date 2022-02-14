@@ -147,6 +147,10 @@ export default function Sermonmain() {
                             <li>3부예배</li>
                             <li>3부예배</li>
                         </ul>
+                        <div className="btn_area">
+                            <span className="btn_reset">초기화</span>
+                            <span className="btn_select">선택</span>
+                        </div>
                     </div>
                     {/* 필터 */}
                 </div>

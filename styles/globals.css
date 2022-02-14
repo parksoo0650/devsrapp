@@ -442,6 +442,9 @@ footer .sns_list {
 footer .sns_list li + li {
 	margin-left: 8px;
 }
+footer .sns_list li img {
+	width: 24px;
+}
 
 
 /**********************************************************
@@ -1044,7 +1047,7 @@ hr {
 	top: 0;
 	bottom: 0;
 	width: 100%;
-	z-index: 100;
+	z-index: 600;
 	background-color: #fff;
 }
 .layer_filter.on {
@@ -1089,6 +1092,28 @@ hr {
 }
 .layer_filter .filter_list li.on:after {
 	background: url('/icons/ico_check.svg') no-repeat center center;
+}
+.layer_filter .btn_area {
+	display: flex;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+.layer_filter .btn_area span {
+	height: 72px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 72px;
+	text-align: center;
+}
+.layer_filter .btn_area .btn_reset {
+	width: 110px;
+	background-color: #444;
+}
+.layer_filter .btn_area .btn_select {
+	width: calc(100% - 110px);
+	background-color: #000;
 }
 
 /* 예배 상세 */

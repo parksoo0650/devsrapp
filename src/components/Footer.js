@@ -10,7 +10,7 @@ export default function Footer() {
                         <a href="#" target="_blank"><img src="../icons/ico_youtube.svg" alt="youtube" /></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank"><img src="../icons/ico_blog.svg" alt="blog" /></a>
+                        <a href="#" target="_blank"><img src="../icons/ico_blog2.svg" alt="blog" /></a>
                     </li>
                     <li>
                         <a href="#" target="_blank"><img src="../icons/ico_instar.svg" alt="instar" /></a>
