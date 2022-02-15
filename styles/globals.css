@@ -377,8 +377,14 @@ header .search_area .recent .list li .btn_delete {
 	background: url('/icons/ico_drop.svg') no-repeat center	center;
 }
 
+@keyframes sub_menu_toggle {
+    0%   { opacity: 0.5; margin-top:20px;}
+    100% { opacity: 1; margin-top:0;}
+}
+
 .menu_wrap .sub_menu {
 	padding: 32px 40px 2px 40px;
+    animation: sub_menu_toggle 0.5s ease;
 }
 .menu_wrap .sub_menu li {
 	font-size: 16px;
