@@ -103,7 +103,7 @@ export default function SiteMap() {
                         ) : (null)}
                     </li>
                     <li>
-                        <Link href="/chapter/1_1">
+                        <Link href="/chapter/1/1">
                             <a onClick={menuClose}>성경</a>
                         </Link>
                     </li>

@@ -21,7 +21,7 @@ export default function Praiselist() {
                     <span className="btn_change" onClick={() => {(hymn == "악보보기") ? setHymn("가사보기") : setHymn("악보보기")}}>{(hymn == "악보보기") ? "가사보기" : "악보보기"}</span>
                 </div>
                 <ul className="tool_list">
-                    <li onClick={() => { router.push("/chapter/1_1"); }}>
+                    <li onClick={() => { router.push("/chapter/1/1"); }}>
                         <img src="../icons/ico_book.svg" alt="성경" />
                     </li>
                     <li>

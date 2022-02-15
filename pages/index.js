@@ -103,8 +103,6 @@ export default function Home() {
     const dataSun = await axios.get(API_URL_SUN);
     setWeekDataSun(dataSun.data.items);
 
-    console.log(dataOnm.data.items);
-
     const dataPrc = await axios.get(API_URL_PRC);
     let splitTitlePrc = dataPrc.data.items[0].snippet.title.split('|');
     setPraiseChoirDatas({
