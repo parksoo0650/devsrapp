@@ -320,7 +320,6 @@ export default function Home() {
                 (weeks === "일") ?
                   weekDataSun.map((doc) => {
                     let splitTitleSun1 = doc.snippet.title.split('-');
-                    let splitTitleSun2 = splitTitleSun1[1].split('|');
                     return (
                       <li key={doc.id}>
                         <div className="movie">
@@ -332,7 +331,7 @@ export default function Home() {
                           <div className="tit">
                             {splitTitleSun1[0]}
                           </div>
-                          <div className="date">{splitTitleSun2[1]}</div>
+                          <div className="date">{splitTitleSun1[1]}...</div>
                         </div>
                       </li>
                     )
@@ -352,6 +351,7 @@ export default function Home() {
                           <div className="date">{weekSelectDataOnm.date}</div>
                         </div>
                       </li>
+                      {(weeks != "수") ? (
                       <li>
                         <div className="movie">
                           {(weekSelectDataOnb.thumbnails) ? (
@@ -366,6 +366,7 @@ export default function Home() {
                           <div className="date">{weekSelectDataOnb.date}</div>
                         </div>
                       </li>
+                      ) : (null)}
                       {(weekSelectDataOns.title) ? (
                         <li>
                           <div className="movie">

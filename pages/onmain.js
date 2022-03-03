@@ -1,42 +1,58 @@
 import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import SwiperCore, {
     Pagination
 } from 'swiper';
-  
-  // install Swiper modules
-  SwiperCore.use([Pagination]);
+import Share from "../src/components/Share";
+import Loading from "../src/components/Loading";
+
+// install Swiper modules
+SwiperCore.use([Pagination]);
 
 export default function Onmain() {
+    const router = useRouter();
+    // 온특새
+    const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
+    // 온삼분
+    const API_URL_ONT = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA";
+    // 온성경
+    const API_URL_ONB = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr";
 
-    const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_21_SERVICE;
-    const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
+    const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
+    const [listData, setListData] = useState([]);
+    const [series, setSeries] = useState("onm");
+    const [isLoading, setIsLoading] = useState(true);
 
-    const [datas, setDatas] = useState([]);
-
-    const getData = async () => {
-        const api_data = await axios.get(API_URL);
-        setDatas(api_data.data.items[0].snippet.resourceId.videoId);
+    const getData = async (series) => {
+        let apiData = "";
+        if (series === "onm") {
+            apiData = await axios.get(API_URL_ONM);
+        } else if (series === "ont") {
+            apiData = await axios.get(API_URL_ONT);
+        } else if (series === "onb") {
+            apiData = await axios.get(API_URL_ONB);
+        }
+        const splitTitle = apiData.data.items[0].snippet.title.split('|');
+        const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+        const videoTitle = splitTitle[0];
+        const videoDate = splitDate[0].split('-');
+        setMainData({
+            videoId: apiData.data.items[0].snippet.resourceId.videoId,
+            title: videoTitle,
+            thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+            publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+        });
+        setListData(apiData.data.items);
+        setIsLoading(false);
     };
 
     useEffect(() => {
-        getData();
-        let series = ['온특새', '온3분', '온성경', '온목장'];
-    }, []);
-
-    const router = useRouter();
-
-    const [series, setSeries] = useState("온특새");
-
-    let [isOpen, setOpen] = useState(false);
+        getData(series);
+    }, [series]);
 
     const opts = {
         width: "320px",
@@ -54,279 +70,155 @@ export default function Onmain() {
                 <div className="top_title">온시리즈</div>
                 <div className="tab_wrap">
                     <ul className="tab_area">
-                        <li onClick={() => { setSeries("온특새"); }} className={(series == "온특새") ? "on" : ""}>온특새</li>
-                        <li onClick={() => { setSeries("온3분"); }} className={(series == "온3분") ? "on" : ""}>온3분</li>
-                        <li onClick={() => { setSeries("온성경"); }} className={(series == "온성경") ? "on" : ""}>온성경</li>
-                        <li onClick={() => { setSeries("온목장"); }} className={(series == "온목장") ? "on" : ""}>온목장</li>
+                        <li onClick={() => { setSeries("onm"); setIsLoading(true); }} className={(series == "onm") ? "on" : ""}>온특새</li>
+                        <li onClick={() => { setSeries("ont"); setIsLoading(true); }} className={(series == "ont") ? "on" : ""}>온3분</li>
+                        <li onClick={() => { setSeries("onb"); setIsLoading(true); }} className={(series == "onb") ? "on" : ""}>온성경</li>
                     </ul>
                 </div>
             </div>
 
             {/* 온특새 */}
-            <div className={(series == "온특새") ? "onPrayer" : "onPrayer hide"}>
-                <div className="section pt30">
-                    <div className="title">최신 컨텐츠</div>
-                    <div className="movie_wrap">
-                        <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                        <div className="info">
+            {(isLoading === true) ? (
+                <div className="loading_box">
+                    <Loading />
+                </div>
+            ) : (
+                <>
+                    <div className={(series == "onm") ? "onPrayer" : "onPrayer hide"}>
+                        <div className="section pt30">
+                            <div className="title">최신 컨텐츠</div>
+                            <div className="movie_wrap">
+                                <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                <div className="info">
+                                    <Share />
+                                    <div className="tit" onClick={() => { router.push("/onprayerdetail"); }}>{mainData.title}</div>
+                                    <div className="date">{mainData.publishedAt}</div>
+                                </div>
+                            </div>
+                        </div>
 
-                            {/* 공유하기 */}
-                            <span className="btn_share" onClick={() => setOpen(true)}></span>
-                            <Sheet
-                                isOpen={isOpen}
-                                onClose={() => setOpen(false)}
-                                snapPoints={[0.4]}
-                            >
-                                <Sheet.Container>
-                                    <Sheet.Header />
-                                    <Sheet.Content>
-                                        <div className="pop_toast">
-                                            <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                            <div className="title">공유하기</div>
-                                            <ul className="sns_list">
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                        <div className="tit">카카오톡</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">SNS</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_instar.svg" alt="instar" />
-                                                        <div className="tit">URL</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">블로그</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </Sheet.Content>
-                                </Sheet.Container>
-                                <Sheet.Backdrop />
-                            </Sheet>
-                            {/* 공유하기 */}
-
-                            <div className="tit" onClick={() => { router.push("/onprayerdetail"); }}>온특새<br />새벽기도</div>
-                            <div className="date">2021년 11월 05일</div>
+                        <div className="section pt0">
+                            <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
+                            <ul className="sermon_list">
+                                {
+                                    listData.map((doc, i) => {
+                                        let splitListTitle = doc.snippet.title.split('|');
+                                        let ListTitle = splitListTitle[0];
+                                        let splitListDate = doc.snippet.publishedAt.split('T');
+                                        let ListDate = splitListDate[0].split('-');
+                                        return (
+                                            <li key={doc.id}>
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
+                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                <div className="section pt0">
-                <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">온특새<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온특새<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온특새<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                </ul>
-                </div>
-            </div>
 
-            {/* 온3분 */}
-            <div className={(series == "온3분") ? "onthree" : "onthree hide"}>
-                <div className="guide">온3분은 매주 금 (오전 10:30)에 시작됩니다.</div>
-                <div className="section pt30 pb30">
-                    <div className="title">최신 컨텐츠</div>
-                    <div className="movie_wrap">
-                        <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                        <div className="info">
+                    {/* 온3분 */}
+                    <div className={(series == "ont") ? "onthree" : "onthree hide"}>
+                        <div className="guide">온3분은 매주 금 (오전 10:30)에 시작됩니다.</div>
+                        <div className="section pt30 pb30">
+                            <div className="title">최신 컨텐츠</div>
+                            <div className="movie_wrap">
+                                <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                <div className="info">
+                                    <Share />
+                                    <div className="tit" onClick={() => { router.push("/onthreedetail"); }}>{mainData.title}</div>
+                                    <div className="date">{mainData.publishedAt}</div>
+                                </div>
+                            </div>
+                        </div>
 
-                            {/* 공유하기 */}
-                            <span className="btn_share" onClick={() => setOpen(true)}></span>
-                            <Sheet
-                                isOpen={isOpen}
-                                onClose={() => setOpen(false)}
-                                snapPoints={[0.4]}
+                        <div className="section three_swiper">
+                            <Swiper
+                                className="slide_wrap"
+                                spaceBetween={10}
+                                slidesPerView={1}
+                                resistanceRatio={0}
+                                loop={true}
+                                pagination={{
+                                    type: "fraction",
+                                    renderFraction: function (currentClass, totalClass) {
+                                        return '<span className="' + currentClass + '"></span> / ' +
+                                            '<span className="' + totalClass + '"></span>';
+                                    }
+                                }}
                             >
-                                <Sheet.Container>
-                                    <Sheet.Header />
-                                    <Sheet.Content>
-                                        <div className="pop_toast">
-                                            <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                            <div className="title">공유하기</div>
-                                            <ul className="sns_list">
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                        <div className="tit">카카오톡</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">SNS</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_instar.svg" alt="instar" />
-                                                        <div className="tit">URL</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">블로그</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </Sheet.Content>
-                                </Sheet.Container>
-                                <Sheet.Backdrop />
-                            </Sheet>
-                            {/* 공유하기 */}
+                                <SwiperSlide>
+                                    <img src="/images/onthree/img_three01.png" alt="온3분 배너 01" />
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src="/images/onthree/img_three01.png" alt="온3분 배너 01" />
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <img src="/images/onthree/img_three02.png" alt="온3분 배너 02" />
+                                </SwiperSlide>
+                            </Swiper>
+                        </div>
 
-                            <div className="tit" onClick={() => { router.push("/onthreedetail"); }}>깨어 있으라<br />마가복음 13:24-37</div>
-                            <div className="date">2021년 11월 05일</div>
+                        <div className="section">
+                            <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
+                            <ul className="sermon_list">
+                                {
+                                    listData.map((doc, i) => {
+                                        let splitListTitle = doc.snippet.title.split('|');
+                                        let ListTitle = splitListTitle[0];
+                                        let splitListDate = doc.snippet.publishedAt.split('T');
+                                        let ListDate = splitListDate[0].split('-');
+                                        return (
+                                            <li key={doc.id}>
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
+                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                <div className="section three_swiper">
-                    <Swiper
-                    className="slide_wrap"
-                    spaceBetween={10}
-                    slidesPerView={1}
-                    resistanceRatio={0}
-                    loop={true}
-                    pagination={{
-                        type: "fraction",
-                        renderFraction: function (currentClass, totalClass) {
-                          return '<span className="' + currentClass + '"></span> / ' +
-                                 '<span className="' + totalClass + '"></span>';
-                        }
-                    }}
-                    >
-                        <SwiperSlide>
-                            <img src="/images/onthree/img_three01.png" alt="온3분 배너 01" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="/images/onthree/img_three01.png" alt="온3분 배너 01" />
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <img src="/images/onthree/img_three02.png" alt="온3분 배너 02" />
-                        </SwiperSlide>
-                    </Swiper>
-                </div>
+                    {/* 온성경 */}
+                    <div className={(series == "onb") ? "onBible" : "onBible hide"}>
+                        <div className="guide">온라인 성경읽기는<br />매주 월, 화, 목, 금 (오전 10:30)에 시작됩니다.</div>
+                        <div className="section pt30">
+                            <div className="title">최신 컨텐츠</div>
+                            <div className="movie_wrap">
+                                <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                <div className="info">
+                                    <Share />
+                                    <div className="tit" onClick={() => { router.push("/onbibledetail"); }}>{mainData.title}</div>
+                                    <div className="date">{mainData.publishedAt}</div>
+                                </div>
+                            </div>
+                        </div>
 
-                <div className="section">
-                <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                </ul>
-                </div>
-            </div>
-
-            {/* 온성경 */}
-            <div className={(series == "온성경") ? "onBible" : "onBible hide"}>
-                <div className="guide">온라인 성경읽기는<br />매주 월, 화, 목, 금 (오전 10:30)에 시작됩니다.</div>
-                <div className="section pt30">
-                    <div className="title">최신 컨텐츠</div>
-                    <div className="movie_wrap">
-                        <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
-                        <div className="info">
-
-                            {/* 공유하기 */}
-                            <span className="btn_share" onClick={() => setOpen(true)}></span>
-                            <Sheet
-                                isOpen={isOpen}
-                                onClose={() => setOpen(false)}
-                                snapPoints={[0.4]}
-                            >
-                                <Sheet.Container>
-                                    <Sheet.Header />
-                                    <Sheet.Content>
-                                        <div className="pop_toast">
-                                            <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                            <div className="title">공유하기</div>
-                                            <ul className="sns_list">
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                        <div className="tit">카카오톡</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">SNS</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_instar.svg" alt="instar" />
-                                                        <div className="tit">URL</div>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" target="_blank">
-                                                        <img src="../icons/ico_blog.svg" alt="blog" />
-                                                        <div className="tit">블로그</div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </Sheet.Content>
-                                </Sheet.Container>
-                                <Sheet.Backdrop />
-                            </Sheet>
-                            {/* 공유하기 */}
-
-                            <div className="tit" onClick={() => { router.push("/onbibledetail"); }}>온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                            <div className="date">2021년 11월 05일</div>
+                        <div className="section pt0">
+                            <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
+                            <ul className="sermon_list">
+                                {
+                                    listData.map((doc, i) => {
+                                        let splitListTitle = doc.snippet.title.split('|');
+                                        let ListTitle = splitListTitle[0];
+                                        let splitListDate = doc.snippet.publishedAt.split('T');
+                                        let ListDate = splitListDate[0].split('-');
+                                        return (
+                                            <li key={doc.id}>
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
+                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
                         </div>
                     </div>
-                </div>
-
-                <div className="section pt0">
-                <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
-                <ul className="sermon_list">
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                    <li>
-                        <div className="tit">온성경<br />갈라디아서 5장~데살로니가전거 4장</div>
-                        <div className="date">2021년 11월 05일</div>
-                    </li>
-                </ul>
-                </div>
-            </div>
+                </>
+            )}
         </div>
     );
 }
