@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -11,6 +10,7 @@ import Top from '../src/components/Top';
 import Footer from "../src/components/Footer";
 import Link from "next/link";
 import Loading from "../src/components/Loading";
+import Share from "../src/components/Share";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -21,8 +21,6 @@ export default function Home() {
   const API_URL_DEF = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE";
   // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
   const API_URL_SUN = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=2&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
-  // 환언특강 〔화 07:30 PM〕
-  const API_URL_TUE = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
   // 온특새
   const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
   // 온성경
@@ -40,7 +38,6 @@ export default function Home() {
   const date = new Date();
   const week = ['일', '월', '화', '수', '목', '금', '토'];
   const opts = { width: "320px", height: "200px", playerVars: { autoplay: 0, controls: 0 } };
-  const [isOpen, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [weeks, setWeeks] = useState("");
   const [weekDataOnm, setWeekDataOnm] = useState([]);
@@ -235,53 +232,7 @@ export default function Home() {
             <div className="movie_wrap">
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
               <div className="info">
-
-                {/* 공유하기 */}
-                <span className="btn_share" onClick={() => setOpen(true)}></span>
-                <Sheet
-                  isOpen={isOpen}
-                  onClose={() => setOpen(false)}
-                  snapPoints={[0.4]}
-                >
-                  <Sheet.Container>
-                    <Sheet.Header />
-                    <Sheet.Content>
-                      <div className="pop_toast">
-                        <button className="btn_close" onClick={() => setOpen(false)}></button>
-                        <div className="title">공유하기</div>
-                        <ul className="sns_list">
-                          <li>
-                            <a href="#" target="_blank">
-                              <img src="../icons/ico_kakao.svg" alt="kakao" />
-                              <div className="tit">카카오톡</div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" target="_blank">
-                              <img src="../icons/ico_message.svg" alt="message" />
-                              <div className="tit">메세지</div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" target="_blank">
-                              <img src="../icons/ico_url.svg" alt="instar" />
-                              <div className="tit">URL</div>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#" target="_blank">
-                              <img src="../icons/ico_blog.svg" alt="blog" />
-                              <div className="tit">블로그</div>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </Sheet.Content>
-                  </Sheet.Container>
-                  <Sheet.Backdrop />
-                </Sheet>
-                {/* 공유하기 */}
-
+                <Share />
                 <div className="tit pr25">
                   <a href="#">{liveDatas.title}</a>
                 </div>

@@ -1,36 +1,14 @@
 import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Sheet from 'react-modal-sheet';
 import YouTube from 'react-youtube';
+import Share from "../src/components/Share";
 
 export default function Onmain() {
-
-    const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_21_SERVICE;
-    const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
-
-    const [datas, setDatas] = useState([]);
-
-    const getData = async () => {
-        const api_data = await axios.get(API_URL);
-        setDatas(api_data.data.items[0].snippet.resourceId.videoId);
-    };
-
-    useEffect(() => {
-        getData();
-    }, []);
-
     const router = useRouter();
-
     let [isOpen, setIsOpen] = useState(false);
-
     const [bibleBook, setBibleBook] = useState("구약");
-
     const [onbible, setOnbible] = useState("순서");
-
     const opts = {
         width: "320px",
         height: "200px",
@@ -43,64 +21,18 @@ export default function Onmain() {
     return (
         <div className="sub_container onseries_detail">
             <div className="top_area">
-                <span className="btn_prev"></span>
+                <span className="btn_prev" onClick={() => router.push('/onmain?kind=onb')}></span>
                 <div className="top_title">온성경</div>
             </div>
 
             <div className="movie_wrap">
-                <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+                <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-
-                    {/* 공유하기 */}
-                    <span className="btn_share" onClick={() => setOpen(true)}></span>
-                    <Sheet
-                        isOpen={isOpen}
-                        onClose={() => setOpen(false)}
-                        snapPoints={[0.4]}
-                    >
-                        <Sheet.Container>
-                            <Sheet.Header />
-                            <Sheet.Content>
-                                <div className="pop_toast">
-                                    <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                    <div className="title">공유하기</div>
-                                    <ul className="sns_list">
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                <div className="tit">카카오톡</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">SNS</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_instar.svg" alt="instar" />
-                                                <div className="tit">URL</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">블로그</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </Sheet.Content>
-                        </Sheet.Container>
-                        <Sheet.Backdrop />
-                    </Sheet>
-                    {/* 공유하기 */}
-
+                    <Share />
                     <div className="tit">
-                        <a href="#">깨어 있으라<br />마가복음 13:24~37</a>
+                        <a href="#">{router.query.vtit}</a>
                     </div>
-                    <div className="date">2021년 11월 05일</div>
+                    <div className="date">{router.query.vdate}</div>
                 </div>
             </div>
 

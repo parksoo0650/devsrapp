@@ -13,6 +13,10 @@ export default function Sermonmain() {
     const API_URL_SUN = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
     // 환언특강 〔화 07:30 PM〕
     const API_URL_TUE = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
+    // 수요예배
+    const API_URL_WED = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRwb9UsDgmMOJ3ex2VchNy";
+    // 금요기도회
+    const API_URL_FRI = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpbJIiNzZwu52Q_WgMi3uh51";
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
@@ -22,8 +26,9 @@ export default function Sermonmain() {
     const [isLoading, setIsLoading] = useState(true);
 
     const getData = async (sermon) => {
+        let apiData = "";
         if (sermon === "sun") {
-            const apiData = await axios.get(API_URL_SUN);
+            apiData = await axios.get(API_URL_SUN);
             const splitTitle = apiData.data.items[0].snippet.title.split('-');
             const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
             const videoTitle = splitTitle[1].split('|');
@@ -35,10 +40,8 @@ export default function Sermonmain() {
                 thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
                 publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
             });
-
-            setListData(apiData.data.items);
         } else if (sermon === "tue") {
-            const apiData = await axios.get(API_URL_TUE);
+            apiData = await axios.get(API_URL_TUE);
             const splitTitle = apiData.data.items[0].snippet.title.split('|');
             const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
             const videoTitle = splitTitle[0];
@@ -50,10 +53,34 @@ export default function Sermonmain() {
                 thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
                 publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
             });
+        } else if (sermon === "wed") {
+            apiData = await axios.get(API_URL_WED);
+            const splitTitle = apiData.data.items[0].snippet.title.split('|');
+            const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+            const videoTitle = splitTitle[0];
+            const videoDate = splitDate[0].split('-');
 
-            setListData(apiData.data.items);
+            setMainData({
+                videoId: apiData.data.items[0].snippet.resourceId.videoId,
+                title: videoTitle,
+                thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+                publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+            });
+        } else if (sermon === "fri") {
+            apiData = await axios.get(API_URL_FRI);
+            const splitTitle = apiData.data.items[0].snippet.title.split('|');
+            const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+            const videoTitle = splitTitle[0];
+            const videoDate = splitDate[0].split('-');
+
+            setMainData({
+                videoId: apiData.data.items[0].snippet.resourceId.videoId,
+                title: videoTitle,
+                thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+                publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+            });
         } else if (sermon === "def") {
-            const apiData = await axios.get(API_URL_DEF);
+            apiData = await axios.get(API_URL_DEF);
             const splitTitle = apiData.data.items[0].snippet.title.split('-');
             const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
             const videoTitle = splitTitle[1].split('|');
@@ -65,9 +92,8 @@ export default function Sermonmain() {
                 thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
                 publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
             });
-
-            setListData(apiData.data.items);
         }
+        setListData(apiData.data.items);
         setIsLoading(false);
     };
 
@@ -87,7 +113,7 @@ export default function Sermonmain() {
     return (
         <div className="sub_container">
             <div className="top_area">
-                <span className="btn_prev"></span>
+                <span className="btn_prev" onClick={() => router.push("/")}></span>
                 <div className="top_title">예배</div>
                 <div className={isDrop ? "tab_wrap active" : "tab_wrap"}>
                     <div className="tab_bar">
@@ -98,6 +124,8 @@ export default function Sermonmain() {
                         <li onClick={() => { setSermon("def"); setIsLoading(true); }} className={(sermon == "def") ? "on" : ""}>주일설교</li>
                         <li onClick={() => { setSermon("sun"); setIsLoading(true); }} className={(sermon == "sun") ? "on" : ""}>1,3부 예배</li>
                         <li onClick={() => { setSermon("tue"); setIsLoading(true); }} className={(sermon == "tue") ? "on" : ""}>환언특강</li>
+                        <li onClick={() => { setSermon("wed"); setIsLoading(true); }} className={(sermon == "wed") ? "on" : ""}>수요예배</li>
+                        <li onClick={() => { setSermon("fri"); setIsLoading(true); }} className={(sermon == "fri") ? "on" : ""}>금요기도회</li>
                     </ul>
                     <span className="btn_more" onClick={() => setIsDrop(true)}></span>
                 </div>
@@ -126,16 +154,18 @@ export default function Sermonmain() {
                                 <Share />
                                 <div className="tit" onClick={() => { router.push("/sermondetail"); }}>{mainData.title}</div>
                                 <div className="date">{mainData.publishedAt}</div>
-                                <div className="preacher">설교 : {(sermon === "tue") ? "김기동 원로감독" : "김성현 감독"}</div>
+                                {(sermon == "wed" || sermon == "fri") ? (null) : (
+                                    <div className="preacher">설교 : {(sermon === "tue") ? "김기동 원로감독" : "김성현 감독"}</div>
+                                )}
                             </div>
                         </div>
                     </div>
 
                     <div className="section pt0">
-                        <div className="title">지난 주일설교 다시보기
-                            <span className="filter" onClick={() => setIsFilter(true)}>필터</span>
+                        <div className="title">지난 예배 다시보기
+                            {/* <span className="filter" onClick={() => setIsFilter(true)}>필터</span> */}
                             {/* 필터 */}
-                            <div className={isFilter ? "layer_filter on" : "layer_filter"}>
+                            {/* <div className={isFilter ? "layer_filter on" : "layer_filter"}>
                                 <button className="btn_close" onClick={() => setIsFilter(false)}></button>
                                 <div className="title">필터 선택</div>
                                 <ul className="filter_list">
@@ -148,7 +178,7 @@ export default function Sermonmain() {
                                     <span className="btn_reset">초기화</span>
                                     <span className="btn_select">선택</span>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* 필터 */}
                         </div>
                         <ul className="sermon_list">
@@ -164,7 +194,11 @@ export default function Sermonmain() {
                                         <li key={doc.id}>
                                             <div className="tit">{ListTitle.substring(0, 24)}...</div>
                                             <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
-                                            <div className="preacher">설교 : {(sermon === "tue") ? "김기동 원로감독" : "김성현 감독"}</div>
+                                            {
+                                                (sermon == "wed" || sermon == "fri") ? (null) : (
+                                                    <div className="preacher">설교 : {(sermon === "tue") ? "김기동 원로감독" : "김성현 감독"}</div>
+                                                )
+                                            }
                                         </li>
                                     )
                                 })

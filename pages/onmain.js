@@ -15,6 +15,9 @@ SwiperCore.use([Pagination]);
 
 export default function Onmain() {
     const router = useRouter();
+    let con_kind = "";
+    (router.query.kind) ? con_kind = router.query.kind : con_kind = "onm";
+
     // 온특새
     const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
     // 온삼분
@@ -24,7 +27,7 @@ export default function Onmain() {
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
-    const [series, setSeries] = useState("onm");
+    const [series, setSeries] = useState(con_kind);
     const [isLoading, setIsLoading] = useState(true);
 
     const getData = async (series) => {
@@ -66,7 +69,7 @@ export default function Onmain() {
     return (
         <div className="sub_container onseries_wrap">
             <div className="top_area">
-                <span className="btn_prev"></span>
+                <span className="btn_prev" onClick={() => router.push("/")}></span>
                 <div className="top_title">온시리즈</div>
                 <div className="tab_wrap">
                     <ul className="tab_area">
@@ -91,14 +94,18 @@ export default function Onmain() {
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
                                     <Share />
-                                    <div className="tit" onClick={() => { router.push("/onprayerdetail"); }}>{mainData.title}</div>
+                                    <div className="tit" onClick={() => {
+                                        router.push(`/onprayerdetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onprayerdetail");
+                                    }}>{mainData.title}</div>
                                     <div className="date">{mainData.publishedAt}</div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="section pt0">
-                            <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
+                            <div className="title">지난 컨텐츠 다시보기
+                                {/* <span className="filter">필터</span> */}
+                            </div>
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
@@ -106,10 +113,15 @@ export default function Onmain() {
                                         let ListTitle = splitListTitle[0];
                                         let splitListDate = doc.snippet.publishedAt.split('T');
                                         let ListDate = splitListDate[0].split('-');
+                                        let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                                         return (
-                                            <li key={doc.id}>
-                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
-                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            <li key={doc.id}
+                                                onClick={() => {
+                                                    router.push(`/onprayerdetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}`, "/onprayerdetail");
+                                                }}
+                                            >
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
+                                                <div className="date">{lDate}</div>
                                             </li>
                                         )
                                     })
@@ -122,19 +134,21 @@ export default function Onmain() {
                     {/* 온3분 */}
                     <div className={(series == "ont") ? "onthree" : "onthree hide"}>
                         <div className="guide">온3분은 매주 금 (오전 10:30)에 시작됩니다.</div>
-                        <div className="section pt30 pb30">
+                        <div className="section pt30">
                             <div className="title">최신 컨텐츠</div>
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
                                     <Share />
-                                    <div className="tit" onClick={() => { router.push("/onthreedetail"); }}>{mainData.title}</div>
+                                    <div className="tit" onClick={() => {
+                                        router.push(`/onthreedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onthreedetail");
+                                    }}>{mainData.title}</div>
                                     <div className="date">{mainData.publishedAt}</div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="section three_swiper">
+                        {/* <div className="section three_swiper">
                             <Swiper
                                 className="slide_wrap"
                                 spaceBetween={10}
@@ -159,10 +173,12 @@ export default function Onmain() {
                                     <img src="/images/onthree/img_three02.png" alt="온3분 배너 02" />
                                 </SwiperSlide>
                             </Swiper>
-                        </div>
+                        </div> */}
 
-                        <div className="section">
-                            <div className="title">지난 컨텐츠 다시보기 <span className="filter">필터</span></div>
+                        <div className="section pt0">
+                            <div className="title">지난 컨텐츠 다시보기 
+                                {/* <span className="filter">필터</span> */}
+                            </div>
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
@@ -170,10 +186,13 @@ export default function Onmain() {
                                         let ListTitle = splitListTitle[0];
                                         let splitListDate = doc.snippet.publishedAt.split('T');
                                         let ListDate = splitListDate[0].split('-');
+                                        let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                                         return (
-                                            <li key={doc.id}>
-                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
-                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            <li key={doc.id} onClick={() => {
+                                                router.push(`/onthreedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}`, "/onthreedetail");
+                                            }}>
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
+                                                <div className="date">{lDate}</div>
                                             </li>
                                         )
                                     })
@@ -191,7 +210,9 @@ export default function Onmain() {
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
                                     <Share />
-                                    <div className="tit" onClick={() => { router.push("/onbibledetail"); }}>{mainData.title}</div>
+                                    <div className="tit" onClick={() => {
+                                        router.push(`/onbibledetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onbibledetail");
+                                    }}>{mainData.title}</div>
                                     <div className="date">{mainData.publishedAt}</div>
                                 </div>
                             </div>
@@ -206,10 +227,13 @@ export default function Onmain() {
                                         let ListTitle = splitListTitle[0];
                                         let splitListDate = doc.snippet.publishedAt.split('T');
                                         let ListDate = splitListDate[0].split('-');
+                                        let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                                         return (
-                                            <li key={doc.id}>
-                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length>24) ? "...":""}</div>
-                                                <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            <li key={doc.id} onClick={() => {
+                                                router.push(`/onbibledetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}`, "/onbibledetail");
+                                            }}>
+                                                <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
+                                                <div className="date">{lDate}</div>
                                             </li>
                                         )
                                     })
