@@ -233,7 +233,12 @@ export default function Home() {
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
               <div className="info">
                 <Share />
-                <div className="tit pr25">
+                <div
+                  className="tit pr25"
+                  onClick={() => {
+                    router.push(`/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`, "/sermondetail");
+                  }}
+                >
                   <a href="#">{liveDatas.title}</a>
                 </div>
                 <div className="date">{liveDatas.publishedAt}</div>
@@ -271,8 +276,16 @@ export default function Home() {
                 (weeks === "일") ?
                   weekDataSun.map((doc) => {
                     let splitTitleSun1 = doc.snippet.title.split('-');
+                    let splitListDate = doc.snippet.publishedAt.split('T');
+                    let ListDate = splitListDate[0].split('-');
+                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                     return (
-                      <li key={doc.id}>
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(`/sermondetail?vid=${doc.snippet.resourceId.videoId}&vtit=${doc.snippet.title}&vdate=${lDate}&kind=sun`, "/sermondetail");
+                        }}
+                      >
                         <div className="movie">
                           {(doc.snippet.thumbnails) ? (
                             <img src={doc.snippet.thumbnails.medium.url} />
@@ -288,7 +301,11 @@ export default function Home() {
                     )
                   }) : (
                     <>
-                      <li>
+                      <li
+                        onClick={() => {
+                          router.push(`/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`, "/onprayerdetail");
+                        }}
+                      >
                         <div className="movie">
                           {(weekSelectDataOnm.thumbnails) ? (
                             <img src={weekSelectDataOnm.thumbnails.medium.url} />
@@ -303,23 +320,31 @@ export default function Home() {
                         </div>
                       </li>
                       {(weeks != "수") ? (
-                      <li>
-                        <div className="movie">
-                          {(weekSelectDataOnb.thumbnails) ? (
-                            <img src={weekSelectDataOnb.thumbnails.medium.url} />
-                          ) : (null)}
-                        </div>
-                        <div className="info">
-                          <div className="tit">
-                            {weekSelectDataOnb.title}
-                            {/* <span className="tag_up">UP</span> */}
+                        <li
+                          onClick={() => {
+                            router.push(`/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`, "/onbibledetail");
+                          }}
+                        >
+                          <div className="movie">
+                            {(weekSelectDataOnb.thumbnails) ? (
+                              <img src={weekSelectDataOnb.thumbnails.medium.url} />
+                            ) : (null)}
                           </div>
-                          <div className="date">{weekSelectDataOnb.date}</div>
-                        </div>
-                      </li>
+                          <div className="info">
+                            <div className="tit">
+                              {weekSelectDataOnb.title}
+                              {/* <span className="tag_up">UP</span> */}
+                            </div>
+                            <div className="date">{weekSelectDataOnb.date}</div>
+                          </div>
+                        </li>
                       ) : (null)}
                       {(weekSelectDataOns.title) ? (
-                        <li>
+                        <li
+                          onClick={() => {
+                            router.push(`/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`, "/onthreedetail");
+                          }}
+                        >
                           <div className="movie">
                             {(weekSelectDataOns.thumbnails) ? (
                               <img src={weekSelectDataOns.thumbnails.medium.url} />
@@ -330,7 +355,7 @@ export default function Home() {
                               {weekSelectDataOns.title}
                               {/* <span className="tag_up">UP</span> */}
                             </div>
-                            <div className="date">{weekSelectDataOnb.date}</div>
+                            <div className="date">{weekSelectDataOns.date}</div>
                           </div>
                         </li>
                       ) : (null)}
@@ -352,7 +377,10 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => { router.push("/weeklyorder"); }}>
+            <li onClick={() => { 
+              alert("준비중입니다.");
+              //router.push("/weeklyorder"); 
+            }}>
               <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
               <div className="txt">주보</div>
             </li>
@@ -364,11 +392,16 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
               <div className="txt">온시리즈</div>
             </li>
-            <li onClick={() => { router.push("/"); }}>
+            <li onClick={() => { 
+              alert("준비중입니다.");
+            }}>
               <div className="img"><img src="/icons/ico_quick_mission.svg" alt="1분 은혜" /></div>
               <div className="txt">1분 은혜</div>
             </li>
-            <li onClick={() => { router.push("/weeklynews"); }}>
+            <li onClick={() => {
+              alert("준비중입니다.");
+              // router.push("/weeklynews");
+            }}>
               <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
               <div className="txt">교회소식</div>
             </li>
@@ -394,7 +427,12 @@ export default function Home() {
           >
             <SwiperSlide className="movie_wrap">
               <img style={{ width: "100%" }} src={praiseChoirDatas.thumbnails} />
-              <div className="info">
+              <div
+                className="info"
+                onClick={() => {
+                  router.push(`/praisedetail?vid=${praiseChoirDatas.videoId}&vtit=${praiseChoirDatas.title}&vdate=${praiseChoirDatas.date}&kind=prc`, "/praisedetail");
+                }}
+              >
                 <div className="tit">
                   <a href="#">{praiseChoirDatas.title}</a>
                 </div>
@@ -403,7 +441,12 @@ export default function Home() {
             </SwiperSlide>
             <SwiperSlide className="movie_wrap">
               <img style={{ width: "100%" }} src={praiseOfferingDatas.thumbnails} />
-              <div className="info">
+              <div
+                className="info"
+                onClick={() => {
+                  router.push(`/praisedetail?vid=${praiseOfferingDatas.videoId}&vtit=${praiseOfferingDatas.title}&vdate=${praiseOfferingDatas.date}&kind=pro`, "/praisedetail");
+                }}
+              >
                 <div className="tit">
                   <a href="#">{praiseOfferingDatas.title}</a>
                 </div>

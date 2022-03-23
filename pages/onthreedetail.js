@@ -41,7 +41,7 @@ export default function Onmain() {
                 </div>
             </div>
 
-            <div className="section">
+            <div className="section" style={{display:"none"}}>
                 <ul className="tab_area">
                     <li onClick={() => { setOnthree("설교요지"); }} className={(onthree == "설교요지") ? "on" : ""}>설교요지</li>
                     <li onClick={() => { setOnthree("본문말씀"); }} className={(onthree == "본문말씀") ? "on" : ""}>본문말씀</li>

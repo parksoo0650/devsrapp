@@ -1,35 +1,14 @@
 import { useRouter } from "next/router";
-import styles from '../styles/Home.module.css';
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Sheet from 'react-modal-sheet';
+import React, { useState } from "react";
 import YouTube from 'react-youtube';
+import Share from "../src/components/Share";
 
 export default function Sermonmain() {
-
-    const YOUTUBE_URL = "https://www.googleapis.com/youtube/v3";
-    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const PLAYLIST_ID = process.env.NEXT_PUBLIC_YOUTUBE_PLAYLIST_21_SERVICE;
-    const API_URL = YOUTUBE_URL + "/playlistItems?part=snippet,contentDetails&maxResults=10&playlistId=" + PLAYLIST_ID + "&key=" + API_KEY;
-
-    const [datas, setDatas] = useState([]);
-
-    const getData = async () => {
-        const api_data = await axios.get(API_URL);
-        setDatas(api_data.data.items[0].snippet.resourceId.videoId);
-    };
-
-    useEffect(() => {
-        getData();
-        let sermon = ['예배순서', '설교요지', '교회소식'];
-    }, []);
-
     const router = useRouter();
-
+    let kind = "";
+    (router.query.kind) ? kind = router.query.kind : kind = "def";
+    const ser_kind = {"def":"주일설교","sun":"1,3부 예배","tue":"환언특강","wed":"수요예배","fri":"금요기도회"}
     const [sermonD, setSermonD] = useState("예배순서");
-
-    let [isOpen, setOpen] = useState(false);
-
     const opts = {
         width: "320px",
         height: "200px",
@@ -42,68 +21,22 @@ export default function Sermonmain() {
     return (
         <div className="sub_container sermon_detail">
             <div className="top_area">
-                <span className="btn_prev"></span>
-                <div className="top_title">주일 3부 예배</div>
+                <span className="btn_prev" onClick={() => router.push(`/sermonmain?kind=${kind}`)}></span>
+                <div className="top_title">{ser_kind[kind]}</div>
             </div>
 
             <div className="movie_wrap">
-                <YouTube videoId={datas} opts={opts} containerClassName="iframe_wrap" />
+                <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-
-                    {/* 공유하기 */}
-                    <span className="btn_share" onClick={() => setOpen(true)}></span>
-                    <Sheet
-                        isOpen={isOpen}
-                        onClose={() => setOpen(false)}
-                        snapPoints={[0.4]}
-                    >
-                        <Sheet.Container>
-                            <Sheet.Header />
-                            <Sheet.Content>
-                                <div className="pop_toast">
-                                    <button className="btn_close" onClick={() => setOpen(false)}></button>
-                                    <div className="title">공유하기</div>
-                                    <ul className="sns_list">
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_youtube.svg" alt="youtube" />
-                                                <div className="tit">카카오톡</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">SNS</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_instar.svg" alt="instar" />
-                                                <div className="tit">URL</div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank">
-                                                <img src="../icons/ico_blog.svg" alt="blog" />
-                                                <div className="tit">블로그</div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </Sheet.Content>
-                        </Sheet.Container>
-                        <Sheet.Backdrop />
-                    </Sheet>
-                    {/* 공유하기 */}
-
+                    <Share />
                     <div className="tit">
-                        <a href="#">깨어 있으라<br />마가복음 13:24~37</a>
+                        <a href="#">{router.query.vtit}</a>
                     </div>
-                    <div className="date">2021년 11월 05일</div>
+                    <div className="date">{router.query.vdate}</div>
                 </div>
             </div>
 
-            <div className="section">
+            <div className="section" style={{display:"none"}}>
                 <ul className="tab_area">
                     <li onClick={() => { setSermonD("예배순서"); }} className={(sermonD == "예배순서") ? "on" : ""}>예배순서</li>
                     <li onClick={() => { setSermonD("설교요지"); }} className={(sermonD == "설교요지") ? "on" : ""}>설교요지</li>
@@ -198,7 +131,7 @@ export default function Sermonmain() {
                             <span>목사</span>
                         </li>
                     </ul>
-                    
+
                     {/* 설교요지 */}
                     <div className={(sermonD == "설교요지") ? "gist_wrap" : "gist_wrap hide"}>
                         <div className="gist_title">
@@ -265,7 +198,7 @@ export default function Sermonmain() {
                             </ul>
                         </div>
                     </div>
-                    
+
                     {/* 교회소식 */}
                     <div className={(sermonD == "교회소식") ? "notice_wrap" : "notice_wrap hide"}>
                         <div className="notice_title">1월은 성경 일독의 달입니다</div>
@@ -301,7 +234,6 @@ export default function Sermonmain() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

@@ -17,6 +17,7 @@ export default function MyApp({ Component, pageProps }) {
         <meta name="description" content="Description" />
         <meta name="keywords" content="Keywords" />
         <meta name="theme-color" content="#000000" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>SRAPP</title>
         <link rel="manifest" href="/manifest.json" />

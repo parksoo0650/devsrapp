@@ -7,6 +7,8 @@ import Loading from "../src/components/Loading";
 
 export default function Praisemain() {
     const router = useRouter();
+    let kind = "";
+    (router.query.kind) ? kind = router.query.kind : kind = "prc";
 
     // 성가대
     const API_URL_PRC = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7";
@@ -15,7 +17,7 @@ export default function Praisemain() {
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
-    const [praise, setPraise] = useState("prc");
+    const [praise, setPraise] = useState(kind);
     const [isLoading, setIsLoading] = useState(true);
 
     const getData = async (praise) => {
@@ -81,7 +83,14 @@ export default function Praisemain() {
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
                                 <Share />
-                                <div className="tit" onClick={() => { router.push("/praisedetail"); }}>{mainData.title}</div>
+                                <div 
+                                    className="tit" 
+                                    onClick={() => {
+                                        router.push(`/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/praisedetail");
+                                    }}
+                                >
+                                    {mainData.title}
+                                </div>
                                 <div className="date">{mainData.publishedAt}</div>
                             </div>
                         </div>
@@ -97,8 +106,14 @@ export default function Praisemain() {
                                     let ListTitle = splitListTitle[0];
                                     let splitListDate = doc.snippet.publishedAt.split('T');
                                     let ListDate = splitListDate[0].split('-');
+                                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                                     return (
-                                        <li key={doc.id}>
+                                        <li 
+                                            key={doc.id}
+                                            onClick={() => {
+                                                router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${praise}`, "/praisedetail");
+                                            }}
+                                        >
                                             <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
                                             <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
                                         </li>

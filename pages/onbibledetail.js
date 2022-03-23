@@ -36,7 +36,7 @@ export default function Onmain() {
                 </div>
             </div>
 
-            <div className="section">
+            <div className="section" style={{display:"none"}}>
                 <ul className="tab_area">
                     <li onClick={() => { setOnbible("순서"); }} className={(onbible == "순서") ? "on" : ""}>순서</li>
                     <li onClick={() => { setOnbible("성경"); }} className={(onbible == "성경") ? "on" : ""}>성경</li>

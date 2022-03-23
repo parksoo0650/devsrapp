@@ -7,37 +7,16 @@ import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { BookConsumer } from "../../../src/components/bibleProvider";
 import Loading from "../../../src/components/Loading";
 
-const Post = ({ items, bid, cid, idata }) => {
+const Post = ({ items, bid, cid }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
   const [isChapter, setIsChapter] = useState(cid);
   const [isBible, setIsBible] = useState(bid);
-  const [chapterData, setChapterData] = useState([]);
   const [bibleBook, setBibleBook] = useState("구약");
   const handleToggle = () => {
     setActive(!isActive);
   };
-
-  const getData = async (bid) => {
-    const book_data = [];
-    const q = query(
-      collection(db, "bible"),
-      where("book", "==", parseInt(bid)),
-      where("verse", "==", 1),
-      orderBy("chapter", "asc")
-    );
-    const querySnapshot = await getDocs(q);
-    // querySnapshot.forEach((doc) => {
-    //   book_data.push(doc.data());
-    // });
-    setChapterData(querySnapshot.docs);
-    console.log("querySnapshot:", querySnapshot.docs);
-  };
-
-  useEffect(() => {
-    getData(isBible);
-  }, [isBible]);
 
   if (router.isFallback) {
     return <Loading />;
@@ -145,7 +124,6 @@ const Post = ({ items, bid, cid, idata }) => {
                                 className={isBible == i + 1 ? "on" : ""}
                                 onClick={() => {
                                   setIsBible(i + 1);
-                                  getData(i + 1);
                                   setBibleBook("장");
                                 }}
                               >
@@ -172,7 +150,6 @@ const Post = ({ items, bid, cid, idata }) => {
                                 className={isBible == i + 40 ? "on" : ""}
                                 onClick={() => {
                                   setIsBible(i + 40);
-                                  getData(i + 40);
                                   setBibleBook("장");
                                 }}
                               >
@@ -184,30 +161,38 @@ const Post = ({ items, bid, cid, idata }) => {
                       </BookConsumer>
 
                       {/* 장 */}
-                      <ul
-                        className={
-                          bibleBook == "장"
-                            ? "chapter_list"
-                            : "chapter_list hide"
-                        }
-                      >
-                        {chapterData.map((data, i) => (
-                          <li
-                            key={i}
-                            className={isChapter == data.chapter ? "on" : ""}
-                            onClick={() => {
-                              setIsChapter(data.chapter);
-                              setIsOpen(false);
-                            }}
+                      <BookConsumer>
+                        {({ book_cnt }) => (
+                          <ul
+                            className={
+                              bibleBook == "장"
+                                ? "chapter_list"
+                                : "chapter_list hide"
+                            }
                           >
-                            <Link href={`/chapter/${isBible}/${data.chapter}`}>
-                              <a>
-                                <span>{data.chapter}</span>
-                              </a>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                            {[...Array(book_cnt[isBible])].map((n, i) =>
+                            (
+                              <li
+                                key={i}
+                                className={isChapter == (i + 1) ? "on" : ""}
+                                onClick={() => {
+                                  setIsChapter(i + 1);
+                                  localStorage.setItem('bible', isBible);
+                                  localStorage.setItem('chapter', i + 1);
+                                  setIsOpen(false);
+                                }}
+                              >
+                                <Link href={`/chapter/${isBible}/${i + 1}`}>
+                                  <a>
+                                    <span>{i + 1}</span>
+                                  </a>
+                                </Link>
+                              </li>
+                            )
+                            )}
+                          </ul>
+                        )}
+                      </BookConsumer>
                     </div>
                   </div>
                 </Sheet.Content>
@@ -243,7 +228,74 @@ const Post = ({ items, bid, cid, idata }) => {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { id: "1", cid: "1" } }],
+    paths: [
+      { params: { id: "1", cid: "1" } },
+      { params: { id: "2", cid: "1" } },
+      { params: { id: "3", cid: "1" } },
+      { params: { id: "4", cid: "1" } },
+      { params: { id: "5", cid: "1" } },
+      { params: { id: "6", cid: "1" } },
+      { params: { id: "7", cid: "1" } },
+      { params: { id: "8", cid: "1" } },
+      { params: { id: "9", cid: "1" } },
+      { params: { id: "10", cid: "1" } },
+      { params: { id: "11", cid: "1" } },
+      { params: { id: "12", cid: "1" } },
+      { params: { id: "13", cid: "1" } },
+      { params: { id: "14", cid: "1" } },
+      { params: { id: "15", cid: "1" } },
+      { params: { id: "16", cid: "1" } },
+      { params: { id: "17", cid: "1" } },
+      { params: { id: "18", cid: "1" } },
+      { params: { id: "19", cid: "1" } },
+      { params: { id: "20", cid: "1" } },
+      { params: { id: "21", cid: "1" } },
+      { params: { id: "22", cid: "1" } },
+      { params: { id: "23", cid: "1" } },
+      { params: { id: "24", cid: "1" } },
+      { params: { id: "25", cid: "1" } },
+      { params: { id: "26", cid: "1" } },
+      { params: { id: "27", cid: "1" } },
+      { params: { id: "28", cid: "1" } },
+      { params: { id: "29", cid: "1" } },
+      { params: { id: "30", cid: "1" } },
+      { params: { id: "31", cid: "1" } },
+      { params: { id: "32", cid: "1" } },
+      { params: { id: "33", cid: "1" } },
+      { params: { id: "34", cid: "1" } },
+      { params: { id: "35", cid: "1" } },
+      { params: { id: "36", cid: "1" } },
+      { params: { id: "37", cid: "1" } },
+      { params: { id: "38", cid: "1" } },
+      { params: { id: "39", cid: "1" } },
+      { params: { id: "40", cid: "1" } },
+      { params: { id: "41", cid: "1" } },
+      { params: { id: "42", cid: "1" } },
+      { params: { id: "43", cid: "1" } },
+      { params: { id: "44", cid: "1" } },
+      { params: { id: "45", cid: "1" } },
+      { params: { id: "46", cid: "1" } },
+      { params: { id: "47", cid: "1" } },
+      { params: { id: "48", cid: "1" } },
+      { params: { id: "49", cid: "1" } },
+      { params: { id: "50", cid: "1" } },
+      { params: { id: "51", cid: "1" } },
+      { params: { id: "52", cid: "1" } },
+      { params: { id: "53", cid: "1" } },
+      { params: { id: "54", cid: "1" } },
+      { params: { id: "55", cid: "1" } },
+      { params: { id: "56", cid: "1" } },
+      { params: { id: "57", cid: "1" } },
+      { params: { id: "58", cid: "1" } },
+      { params: { id: "59", cid: "1" } },
+      { params: { id: "60", cid: "1" } },
+      { params: { id: "61", cid: "1" } },
+      { params: { id: "62", cid: "1" } },
+      { params: { id: "63", cid: "1" } },
+      { params: { id: "64", cid: "1" } },
+      { params: { id: "65", cid: "1" } },
+      { params: { id: "66", cid: "1" } },
+    ],
     fallback: true,
   };
 }
@@ -264,24 +316,11 @@ export async function getStaticProps(context) {
     book_data.push(doc.data());
   });
 
-  const init_data = [];
-  const init_q = query(
-    collection(db, "bible"),
-    where("book", "==", parseInt(id)),
-    where("verse", "==", 1),
-    orderBy("chapter", "asc")
-  );
-  const initQuerySnapshot = await getDocs(init_q);
-  initQuerySnapshot.forEach((doc) => {
-    init_data.push(doc.data());
-  });
-
   return {
     props: {
       items: book_data,
       bid: id,
-      cid: cid,
-      idata: init_data,
+      cid: cid
     },
   };
 }

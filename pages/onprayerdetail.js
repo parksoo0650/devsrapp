@@ -33,7 +33,7 @@ export default function Onmain() {
                 </div>
             </div>
 
-            <div className="section">
+            <div className="section" style={{display:"none"}}>
                 <ul className="tab_area">
                     <li onClick={() => { setOnprayer("순서"); }} className={(onprayer == "순서") ? "on" : ""}>순서</li>
                     <li onClick={() => { setOnprayer("기도제목"); }} className={(onprayer == "기도제목") ? "on" : ""}>기도제목</li>

@@ -7,6 +7,8 @@ import Loading from "../src/components/Loading";
 
 export default function Sermonmain() {
     const router = useRouter();
+    let kind = "";
+    (router.query.kind) ? kind = router.query.kind : kind = "def";
     // 주일설교
     const API_URL_DEF = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE";
     // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
@@ -20,7 +22,7 @@ export default function Sermonmain() {
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
-    const [sermon, setSermon] = useState("def");
+    const [sermon, setSermon] = useState(kind);
     const [isDrop, setIsDrop] = useState(false);
     const [isFilter, setIsFilter] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -152,7 +154,14 @@ export default function Sermonmain() {
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
                                 <Share />
-                                <div className="tit" onClick={() => { router.push("/sermondetail"); }}>{mainData.title}</div>
+                                <div 
+                                    className="tit" 
+                                    onClick={() => {
+                                        router.push(`/sermondetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/sermondetail");
+                                    }}
+                                >
+                                    {mainData.title}
+                                </div>
                                 <div className="date">{mainData.publishedAt}</div>
                                 {(sermon == "wed" || sermon == "fri") ? (null) : (
                                     <div className="preacher">설교 : {(sermon === "tue") ? "김기동 원로감독" : "김성현 감독"}</div>
@@ -187,11 +196,17 @@ export default function Sermonmain() {
                                     let splitListDate = doc.snippet.publishedAt.split('T');
                                     let ListDate = splitListDate[0].split('-');
                                     let ListTitle = doc.snippet.title;
+                                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
                                     if (i == 0 && sermon != "sun") {
                                         return false;
                                     }
                                     return (
-                                        <li key={doc.id}>
+                                        <li 
+                                            key={doc.id}
+                                            onClick={() => {
+                                                router.push(`/sermondetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${sermon}`, "/sermondetail");
+                                            }}
+                                        >
                                             <div className="tit">{ListTitle.substring(0, 24)}...</div>
                                             <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
                                             {
