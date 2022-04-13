@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.web.srapp_10db2.twa",
+                     "sha256_cert_fingerprints": ["43:B7:B1:6E:51:87:80:36:5F:3A:14:33:B2:F3:49:F2:97:AF:D0:9A:5B:DD:BB:B6:1E:53:CF:07:7B:85:63:B3"] }
+      }
+]
