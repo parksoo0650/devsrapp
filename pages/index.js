@@ -191,6 +191,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    setTimeout(scrollTo,0,0,1);
     setWeeks(week[date.getDay()]);
     getLiveData();
     getOnData();
