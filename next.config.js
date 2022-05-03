@@ -3,6 +3,9 @@ const runtimeCaching = require('next-pwa/cache');
 const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
 module.exports = withPWA({
+  env: {
+    API_KEY: process.env.NEXT_PUBLIC_YOUTUBE_API_KEY,
+  },
   swcMinify: true,
   pwa: {
     dest: 'public',
