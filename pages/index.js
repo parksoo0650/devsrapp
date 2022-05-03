@@ -17,20 +17,23 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 export default function Home() {
   const router = useRouter();
 
+  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  
+
   // 주일설교
-  const API_URL_DEF = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE";
+  const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
   // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
-  const API_URL_SUN = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=2&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
+  const API_URL_SUN = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=2&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6`;
   // 온특새
-  const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
+  const API_URL_ONM = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG`;
   // 온성경
-  const API_URL_ONB = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr";
+  const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr`;
   // 온3분
-  const API_URL_ONS = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA";
+  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
-  const API_URL_PRC = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7";
+  const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
   // 헌금송
-  const API_URL_PRO = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl";
+  const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
   // 수요낮예배 〔10:00 AM〕
   // 수요저녁예배 및 기도회 〔07:30 PM〕
   // 금요기도회 〔08:00 PM〕
