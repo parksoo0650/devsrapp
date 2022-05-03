@@ -38,11 +38,11 @@ export default Post;
 export async function getServerSideProps(context) {
     const id = context.params.id;
     const book_data = [];
-    const q = query(collection(db, "bible"), where("book", "==", parseInt(id)), where("verse", "==", 1), orderBy("chapter", "asc"));
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        book_data.push(doc.data());
-    });
+    // const q = query(collection(db, "bible"), where("book", "==", parseInt(id)), where("verse", "==", 1), orderBy("chapter", "asc"));
+    // const querySnapshot = await getDocs(q);
+    // querySnapshot.forEach((doc) => {
+    //     book_data.push(doc.data());
+    // });
 
     return {
         props: {
