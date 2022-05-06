@@ -35,5 +35,8 @@
     "semantic-ui-react": "^2.0.4",
     "swiper": "^7.3.4",
     "yarn": "^1.22.17"
+  },
+  "devDependencies": {
+    "prisma": "^3.13.0"
   }
 }
