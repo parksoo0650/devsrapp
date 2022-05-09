@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@moxy/react-wait-for-react": "^2.0.1",
+    "@prisma/client": "^3.13.0",
     "axios": "^0.21.4",
     "cross-env": "^7.0.3",
     "firebase": "^9.1.0",

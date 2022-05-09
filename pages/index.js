@@ -18,7 +18,6 @@ export default function Home() {
   const router = useRouter();
 
   const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  
 
   // 주일설교
   const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
