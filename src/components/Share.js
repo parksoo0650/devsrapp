@@ -11,11 +11,20 @@ export default function Share({ title, thum, vid }) {
                 description: title,
                 imageUrl: thum,
                 link: {
-                    mobileWebUrl: "https://youtu.be/"+vid,
-                    webUrl: "https://youtu.be/"+vid,
+                    mobileWebUrl: "https://youtu.be/" + vid,
+                    webUrl: "https://youtu.be/" + vid,
                     androidExecParams: "SRAPP",
                 },
             }
+            , buttons: [
+                {
+                    itle: '바로가기',
+                    link: {
+                        mobileWebUrl: 'https://naever.com',
+                        webUrl: 'https://naever.com',
+                    },
+                },
+            ]
         });
     }
 
