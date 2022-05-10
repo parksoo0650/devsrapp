@@ -12,6 +12,7 @@ export default function Share({ title, thum, vid }) {
                 imageUrl: thum,
                 link: {
                     mobileWebUrl: "https://youtu.be/"+vid,
+                    webUrl: "https://youtu.be/"+vid,
                     androidExecParams: "SRAPP",
                 },
             }
