@@ -45,7 +45,6 @@ export default function Home() {
   const [weekDataOnm, setWeekDataOnm] = useState([]);
   const [weekDataOnb, setWeekDataOnb] = useState([]);
   const [weekDataOns, setWeekDataOns] = useState([]);
-  const [weekDataSun, setWeekDataSun] = useState([]);
   const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOns, setWeekSelectDataOns] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
@@ -98,9 +97,6 @@ export default function Home() {
 
     const dataOns = await axios.get(API_URL_ONS);
     setWeekDataOns(dataOns.data.items);
-
-    const dataSun = await axios.get(API_URL_SUN);
-    setWeekDataSun(dataSun.data.items);
 
     const dataPrc = await axios.get(API_URL_PRC);
     let splitTitlePrc = dataPrc.data.items[0].snippet.title.split('|');
@@ -193,7 +189,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setTimeout(scrollTo,0,0,1);
+    setTimeout(scrollTo, 0, 0, 1);
     setWeeks(week[date.getDay()]);
     getLiveData();
     getOnData();
@@ -207,28 +203,6 @@ export default function Home() {
     <>
       <Top />
       <div className="container">
-        <div className="main_swiper">
-          <Swiper
-            className="slide_wrap"
-            spaceBetween={0}
-            slidesPerView={1}
-            resistanceRatio={0}
-            loop={true}
-            autoplay={{
-              "delay": 3000,
-              "disableOnInteraction": false
-            }}
-            pagination={true}
-          >
-            <SwiperSlide>
-              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src="/images/main/banner01.png" alt="메인 슬라이드 01" />
-            </SwiperSlide>
-          </Swiper>
-        </div>
-
         {(isLoading === false) ? (
           <div className="section pt30">
             <div className="title">{liveDatas.subTitle}</div>
@@ -259,112 +233,71 @@ export default function Home() {
           <div className="title">요일별 컨텐츠</div>
           <div className="days_wrap">
             <ul className="day_list">
-              <li onClick={() => { onInint(); setWeeks("일"); }} className={(weeks == "일") ? "on" : ""}>주일</li>
               <li onClick={() => { getWeekData("월"); setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월</li>
               <li onClick={() => { getWeekData("화"); setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화</li>
               <li onClick={() => { getWeekData("수"); setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수</li>
               <li onClick={() => { getWeekData("목"); setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목</li>
               <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금</li>
-              <li onClick={() => { onInint(); setWeeks("토"); }} className={(weeks == "토") ? "on" : ""}>토</li>
             </ul>
             <ul className="con_list">
-              {(weeks === "토") ? (
-                <li>
-                  <div className="info sat">
-                    <img src="/icons/ico_sat.svg" />
-                    <strong>주일</strong>을 준비해 주세요!
+              <li
+                onClick={() => {
+                  router.push(`/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`, "/onprayerdetail");
+                }}
+              >
+                <div className="movie">
+                  {(weekSelectDataOnm.thumbnails) ? (
+                    <img src={weekSelectDataOnm.thumbnails.medium.url} />
+                  ) : (null)}
+                </div>
+                <div className="info">
+                  <div className="tit">
+                    {weekSelectDataOnm.title}
+                    {/* <span className="tag_up">UP</span> */}
+                  </div>
+                  <div className="date">{weekSelectDataOnm.date}</div>
+                </div>
+              </li>
+              {(weeks != "수") ? (
+                <li
+                  onClick={() => {
+                    router.push(`/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`, "/onbibledetail");
+                  }}
+                >
+                  <div className="movie">
+                    {(weekSelectDataOnb.thumbnails) ? (
+                      <img src={weekSelectDataOnb.thumbnails.medium.url} />
+                    ) : (null)}
+                  </div>
+                  <div className="info">
+                    <div className="tit">
+                      {weekSelectDataOnb.title}
+                      {/* <span className="tag_up">UP</span> */}
+                    </div>
+                    <div className="date">{weekSelectDataOnb.date}</div>
                   </div>
                 </li>
-              ) : (
-                (weeks === "일") ?
-                  weekDataSun.map((doc) => {
-                    let splitTitleSun1 = doc.snippet.title.split('-');
-                    let splitListDate = doc.snippet.publishedAt.split('T');
-                    let ListDate = splitListDate[0].split('-');
-                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
-                    return (
-                      <li
-                        key={doc.id}
-                        onClick={() => {
-                          router.push(`/sermondetail?vid=${doc.snippet.resourceId.videoId}&vtit=${doc.snippet.title}&vdate=${lDate}&kind=sun`, "/sermondetail");
-                        }}
-                      >
-                        <div className="movie">
-                          {(doc.snippet.thumbnails) ? (
-                            <img src={doc.snippet.thumbnails.medium.url} />
-                          ) : (null)}
-                        </div>
-                        <div className="info">
-                          <div className="tit">
-                            {splitTitleSun1[0]}
-                          </div>
-                          <div className="date">{splitTitleSun1[1]}...</div>
-                        </div>
-                      </li>
-                    )
-                  }) : (
-                    <>
-                      <li
-                        onClick={() => {
-                          router.push(`/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`, "/onprayerdetail");
-                        }}
-                      >
-                        <div className="movie">
-                          {(weekSelectDataOnm.thumbnails) ? (
-                            <img src={weekSelectDataOnm.thumbnails.medium.url} />
-                          ) : (null)}
-                        </div>
-                        <div className="info">
-                          <div className="tit">
-                            {weekSelectDataOnm.title}
-                            {/* <span className="tag_up">UP</span> */}
-                          </div>
-                          <div className="date">{weekSelectDataOnm.date}</div>
-                        </div>
-                      </li>
-                      {(weeks != "수") ? (
-                        <li
-                          onClick={() => {
-                            router.push(`/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`, "/onbibledetail");
-                          }}
-                        >
-                          <div className="movie">
-                            {(weekSelectDataOnb.thumbnails) ? (
-                              <img src={weekSelectDataOnb.thumbnails.medium.url} />
-                            ) : (null)}
-                          </div>
-                          <div className="info">
-                            <div className="tit">
-                              {weekSelectDataOnb.title}
-                              {/* <span className="tag_up">UP</span> */}
-                            </div>
-                            <div className="date">{weekSelectDataOnb.date}</div>
-                          </div>
-                        </li>
-                      ) : (null)}
-                      {(weekSelectDataOns.title) ? (
-                        <li
-                          onClick={() => {
-                            router.push(`/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`, "/onthreedetail");
-                          }}
-                        >
-                          <div className="movie">
-                            {(weekSelectDataOns.thumbnails) ? (
-                              <img src={weekSelectDataOns.thumbnails.medium.url} />
-                            ) : (null)}
-                          </div>
-                          <div className="info">
-                            <div className="tit">
-                              {weekSelectDataOns.title}
-                              {/* <span className="tag_up">UP</span> */}
-                            </div>
-                            <div className="date">{weekSelectDataOns.date}</div>
-                          </div>
-                        </li>
-                      ) : (null)}
-                    </>
-                  )
-              )}
+              ) : (null)}
+              {(weekSelectDataOns.title) ? (
+                <li
+                  onClick={() => {
+                    router.push(`/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`, "/onthreedetail");
+                  }}
+                >
+                  <div className="movie">
+                    {(weekSelectDataOns.thumbnails) ? (
+                      <img src={weekSelectDataOns.thumbnails.medium.url} />
+                    ) : (null)}
+                  </div>
+                  <div className="info">
+                    <div className="tit">
+                      {weekSelectDataOns.title}
+                      {/* <span className="tag_up">UP</span> */}
+                    </div>
+                    <div className="date">{weekSelectDataOns.date}</div>
+                  </div>
+                </li>
+              ) : (null)}
             </ul>
           </div>
         </div>
@@ -380,7 +313,7 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => { 
+            <li onClick={() => {
               alert("준비중입니다.");
               //router.push("/weeklyorder"); 
             }}>
@@ -395,7 +328,7 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
               <div className="txt">온시리즈</div>
             </li>
-            <li onClick={() => { 
+            <li onClick={() => {
               alert("준비중입니다.");
             }}>
               <div className="img"><img src="/icons/ico_quick_mission.svg" alt="1분 은혜" /></div>
