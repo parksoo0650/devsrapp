@@ -1,32 +1,21 @@
 import React, { useState, useEffect } from "react";
 import Sheet from 'react-modal-sheet';
 
-export default function Share() {
+export default function Share({ title, thum, vid }) {
     const [isOpen, setOpen] = useState(false);
-    useEffect(() => {
-        Kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
-    }, [])
 
     const shareKakao = () => {
         Kakao.Link.sendDefault({
             objectType: "feed",
             content: {
-                title: "test",
-                description: "내용!",
-                imageUrl: "test",
+                title: "성락교회",
+                description: title,
+                imageUrl: thum,
                 link: {
-                    mobileWebUrl: "모바일 url!",
+                    mobileWebUrl: "https://www.youtube.com/watch?v="+vid,
                     androidExecParams: "test",
                 },
-            },
-            buttons: [
-                {
-                    title: "웹으로 이동",
-                    link: {
-                        mobileWebUrl: "공유할 url!",
-                    },
-                },
-            ],
+            }
         });
     }
 

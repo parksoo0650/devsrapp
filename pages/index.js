@@ -39,7 +39,7 @@ export default function Home() {
 
   const date = new Date();
   const week = ['일', '월', '화', '수', '목', '금', '토'];
-  const opts = { width: "320px", height: "200px", playerVars: { autoplay: 0, controls: 0 } };
+  const opts = { width: "320px", height: "200px", playerVars: { autoplay: 1, rel: 0, modestbranding: 1 } };
   const [isLoading, setIsLoading] = useState(true);
   const [weeks, setWeeks] = useState("");
   const [weekDataOnm, setWeekDataOnm] = useState([]);
@@ -209,7 +209,7 @@ export default function Home() {
             <div className="movie_wrap">
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
               <div className="info">
-                <Share />
+                <Share title={liveDatas.title} thum={liveDatas.thumbnails} vid={liveDatas.videoId} />
                 <div
                   className="tit pr25"
                   onClick={() => {

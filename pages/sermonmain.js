@@ -9,16 +9,17 @@ export default function Sermonmain() {
     const router = useRouter();
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "def";
+    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
     // 주일설교
-    const API_URL_DEF = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE";
+    const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
     // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
-    const API_URL_SUN = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6";
+    const API_URL_SUN = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6`;
     // 환언특강 〔화 07:30 PM〕
-    const API_URL_TUE = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj";
+    const API_URL_TUE = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRY6ARfjlBXKScy-QqfXnj`;
     // 수요예배
-    const API_URL_WED = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRwb9UsDgmMOJ3ex2VchNy";
+    const API_URL_WED = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpZRwb9UsDgmMOJ3ex2VchNy`;
     // 금요기도회
-    const API_URL_FRI = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpbJIiNzZwu52Q_WgMi3uh51";
+    const API_URL_FRI = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=20&playlistId=PLCNxYye_JJpbJIiNzZwu52Q_WgMi3uh51`;
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
@@ -107,8 +108,7 @@ export default function Sermonmain() {
         width: "320px",
         height: "200px",
         playerVars: {
-            autoplay: 0,
-            controls: 0,
+            autoplay: 1, rel: 0, modestbranding: 1
         },
     };
 
@@ -153,7 +153,7 @@ export default function Sermonmain() {
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
-                                <Share />
+                                <Share title={mainData.title} />
                                 <div 
                                     className="tit" 
                                     onClick={() => {

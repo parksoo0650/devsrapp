@@ -49,8 +49,7 @@ export default function Praisemain() {
         width: "320px",
         height: "200px",
         playerVars: {
-            autoplay: 0,
-            controls: 0,
+            autoplay: 1, rel: 0, modestbranding: 1
         },
     };
 

@@ -10,8 +10,7 @@ export default function Onmain() {
         width: "320px",
         height: "200px",
         playerVars: {
-            autoplay: 0,
-            controls: 1,
+            autoplay: 1, rel: 0, modestbranding: 1
         },
     };
 
