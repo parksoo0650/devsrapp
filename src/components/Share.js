@@ -3,7 +3,7 @@ import Sheet from 'react-modal-sheet';
 
 export default function Share({ title, thum, vid }) {
     const [isOpen, setOpen] = useState(false);
-
+    console.log(vid);
     const shareKakao = () => {
         Kakao.Link.sendDefault({
             objectType: "feed",
@@ -12,8 +12,8 @@ export default function Share({ title, thum, vid }) {
                 description: title,
                 imageUrl: thum,
                 link: {
-                    mobileWebUrl: "https://www.youtube.com/watch?v="+vid,
-                    androidExecParams: "test",
+                    mobileWebUrl: "https://youtu.be/"+vid,
+                    androidExecParams: "SRAPP",
                 },
             }
         });
