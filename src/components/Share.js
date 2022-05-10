@@ -18,7 +18,7 @@ export default function Share({ title, thum, vid }) {
             }
             , buttons: [
                 {
-                    itle: '바로가기',
+                    title: '바로가기',
                     link: {
                         mobileWebUrl: 'https://naever.com',
                         webUrl: 'https://naever.com',
