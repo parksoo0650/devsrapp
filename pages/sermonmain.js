@@ -153,7 +153,7 @@ export default function Sermonmain() {
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
-                                <Share title={mainData.title} />
+                                <Share title={mainData.title} thum={mainData.thumbnails} vid={mainData.videoId} />
                                 <div 
                                     className="tit" 
                                     onClick={() => {

@@ -9,11 +9,12 @@ export default function Praisemain() {
     const router = useRouter();
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "prc";
+    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
     // 성가대
-    const API_URL_PRC = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7";
+    const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
     // 헌금송
-    const API_URL_PRO = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl";
+    const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
@@ -81,8 +82,8 @@ export default function Praisemain() {
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
-                                <Share />
-                                <div 
+                                <Share title={mainData.title} thum={mainData.thumbnails} vid={mainData.videoId} />
+                                <div
                                     className="tit" 
                                     onClick={() => {
                                         router.push(`/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/praisedetail");

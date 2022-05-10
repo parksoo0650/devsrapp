@@ -17,13 +17,14 @@ export default function Onmain() {
     const router = useRouter();
     let con_kind = "";
     (router.query.kind) ? con_kind = router.query.kind : con_kind = "onm";
+    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
     // 온특새
-    const API_URL_ONM = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG";
+    const API_URL_ONM = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG`;
     // 온삼분
-    const API_URL_ONT = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA";
+    const API_URL_ONT = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
     // 온성경
-    const API_URL_ONB = "/youtube/playlistItems/&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr";
+    const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=11&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr`;
 
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
@@ -92,7 +93,7 @@ export default function Onmain() {
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
-                                    <Share />
+                                    <Share title={mainData.title} thum={mainData.thumbnails} vid={mainData.videoId} />
                                     <div className="tit" onClick={() => {
                                         router.push(`/onprayerdetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onprayerdetail");
                                     }}>{mainData.title}</div>

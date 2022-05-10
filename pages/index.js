@@ -30,9 +30,9 @@ export default function Home() {
   // 온3분
   const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
-  const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
+  const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=3&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
   // 헌금송
-  const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
+  const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=3&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
   // 수요낮예배 〔10:00 AM〕
   // 수요저녁예배 및 기도회 〔07:30 PM〕
   // 금요기도회 〔08:00 PM〕
