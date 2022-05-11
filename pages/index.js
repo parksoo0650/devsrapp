@@ -7,7 +7,6 @@ import 'swiper/css';
 import "swiper/css/pagination";
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import Top from '../src/components/Top';
-import Footer from "../src/components/Footer";
 import Link from "next/link";
 import Loading from "../src/components/Loading";
 import Share from "../src/components/Share";
@@ -16,7 +15,6 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 export default function Home() {
   const router = useRouter();
-
   const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
   // 주일설교
@@ -30,9 +28,9 @@ export default function Home() {
   // 온3분
   const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
-  const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=3&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
+  const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=6&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
   // 헌금송
-  const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=3&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
+  const API_URL_PRO = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=6&playlistId=PLCNxYye_JJpZ0jAa8IiITarzB-YF6aYdl`;
   // 수요낮예배 〔10:00 AM〕
   // 수요저녁예배 및 기도회 〔07:30 PM〕
   // 금요기도회 〔08:00 PM〕
@@ -45,11 +43,12 @@ export default function Home() {
   const [weekDataOnm, setWeekDataOnm] = useState([]);
   const [weekDataOnb, setWeekDataOnb] = useState([]);
   const [weekDataOns, setWeekDataOns] = useState([]);
+  const [praiseDataPrc, setPraiseDataPrc] = useState([]);
+  const [praiseDataPro, setPraiseDataPro] = useState([]);
+  const [liveDatas, setLiveDatas] = useState({ videoId: "", title: "", subTitle: "", thumbnails: "", publishedAt: "" });
   const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOns, setWeekSelectDataOns] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
-  const [liveDatas, setLiveDatas] = useState({ videoId: "", title: "", subTitle: "", thumbnails: "", publishedAt: "" });
-  const [praiseChoirDatas, setPraiseChoirDatas] = useState({ videoId: "", title: "", subTitle: "", thumbnails: "", publishedAt: "" });
   const [praiseOfferingDatas, setPraiseOfferingDatas] = useState({ videoId: "", title: "", subTitle: "", thumbnails: "", publishedAt: "" });
 
   const getLiveData = async () => {
@@ -99,15 +98,11 @@ export default function Home() {
     setWeekDataOns(dataOns.data.items);
 
     const dataPrc = await axios.get(API_URL_PRC);
-    let splitTitlePrc = dataPrc.data.items[0].snippet.title.split('|');
-    setPraiseChoirDatas({
-      title: splitTitlePrc[0],
-      date: splitTitlePrc[1],
-      videoId: dataPrc.data.items[0].snippet.resourceId.videoId,
-      thumbnails: dataPrc.data.items[0].snippet.thumbnails.medium.url,
-    });
+    setPraiseDataPrc(dataPrc.data.items);
 
     const dataPro = await axios.get(API_URL_PRO);
+    setPraiseDataPro(dataPro.data.items);
+
     let splitTitlePro = dataPro.data.items[0].snippet.title.split('|');
     setPraiseOfferingDatas({
       title: splitTitlePro[0],
@@ -361,34 +356,64 @@ export default function Home() {
             resistanceRatio={0}
             pagination={false}
           >
-            <SwiperSlide className="movie_wrap">
-              <img style={{ width: "100%" }} src={praiseChoirDatas.thumbnails} />
-              <div
-                className="info"
-                onClick={() => {
-                  router.push(`/praisedetail?vid=${praiseChoirDatas.videoId}&vtit=${praiseChoirDatas.title}&vdate=${praiseChoirDatas.date}&kind=prc`, "/praisedetail");
-                }}
-              >
-                <div className="tit">
-                  <a href="#">{praiseChoirDatas.title}</a>
-                </div>
-                <div className="date">{praiseChoirDatas.date}</div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className="movie_wrap">
-              <img style={{ width: "100%" }} src={praiseOfferingDatas.thumbnails} />
-              <div
-                className="info"
-                onClick={() => {
-                  router.push(`/praisedetail?vid=${praiseOfferingDatas.videoId}&vtit=${praiseOfferingDatas.title}&vdate=${praiseOfferingDatas.date}&kind=pro`, "/praisedetail");
-                }}
-              >
-                <div className="tit">
-                  <a href="#">{praiseOfferingDatas.title}</a>
-                </div>
-                <div className="date">{praiseOfferingDatas.date}</div>
-              </div>
-            </SwiperSlide>
+            {
+              praiseDataPrc.map((doc, i) => {
+                let splitListTitle = doc.snippet.title.split('|');
+                let ListTitle = splitListTitle[0];
+                let splitListDate = doc.snippet.publishedAt.split('T');
+                let ListDate = splitListDate[0].split('-');
+                let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                return (
+                  <SwiperSlide
+                    className="movie_wrap"
+                    key={doc.id}
+                  >
+                    <div
+                      onClick={() => {
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
+                      }}
+                    >
+                      <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
+                      <div className="info">
+                        <div className="tit">
+                          <a href="#">{ListTitle}</a>
+                        </div>
+                        <div className="date">{lDate}</div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+              })
+            }
+            {
+              praiseDataPro.map((doc, i) => {
+                let splitListTitle = doc.snippet.title.split('|');
+                let ListTitle = splitListTitle[0];
+                let splitListDate = doc.snippet.publishedAt.split('T');
+                let ListDate = splitListDate[0].split('-');
+                let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                return (
+                  <SwiperSlide
+                    className="movie_wrap"
+                    key={doc.id}
+                  >
+                    <div
+                      onClick={() => {
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
+                      }}
+                    >
+                      <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
+                      <div className="info">
+                        <div className="tit">
+                          <a href="#">{ListTitle}</a>
+                        </div>
+                        <div className="date">{lDate}</div>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                )
+              })
+            }
           </Swiper>
         </div>
 

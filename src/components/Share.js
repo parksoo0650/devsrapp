@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Sheet from 'react-modal-sheet';
 import {
     FacebookShareButton,
@@ -57,8 +57,6 @@ export default function Share({ title, thum, vid }) {
                                     <div className="tit">카카오톡</div>
                                 </li>
                                 <li>
-                                    {/* sms:?body=hello // Android */}
-                                    {/* sms:&body=hello // iOS */}
                                     {(isIOS) ?
                                         (
                                             <a href={`sms:&body=https://youtu.be/${vid}`}>
