@@ -77,17 +77,27 @@ export default function SiteMap() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/sermonmain?kind=tue">
+                                    <Link href="/returnMain">
                                         <a onClick={menuClose} style={{ display: "block" }}>환언특강</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/sermonmain?kind=wed">
+                                    <Link
+                                        href={{
+                                            pathname: '/prayerMain',
+                                            query: { kind: 'wed' },
+                                        }}
+                                    >
                                         <a onClick={menuClose} style={{ display: "block" }}>수요예배</a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/sermonmain?kind=fri">
+                                    <Link
+                                        href={{
+                                            pathname: '/prayerMain',
+                                            query: { kind: 'fri' },
+                                        }}
+                                    >
                                         <a onClick={menuClose} style={{ display: "block" }}>금요기도회</a>
                                     </Link>
                                 </li>

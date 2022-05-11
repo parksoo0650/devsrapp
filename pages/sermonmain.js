@@ -59,6 +59,10 @@ export default function Sermonmain() {
         getData(sermon);
     }, [sermon]);
 
+    useEffect(() => {
+        setSermon(kind);
+    }, [router]);
+
     const opts = {
         width: "320px",
         height: "200px",

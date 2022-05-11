@@ -46,6 +46,10 @@ export default function Praisemain() {
         getData(praise);
     }, [praise]);
 
+    useEffect(() => {
+        setPraise(kind);
+    }, [router]);
+
     const opts = {
         width: "320px",
         height: "200px",

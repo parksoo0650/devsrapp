@@ -58,6 +58,10 @@ export default function Onmain() {
         getData(series);
     }, [series]);
 
+    useEffect(() => {
+        setSeries(con_kind);
+    }, [router]);
+
     const opts = {
         width: "320px",
         height: "200px",

@@ -9,6 +9,7 @@ export default function Sermonmain() {
     const router = useRouter();
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "wed";
+
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
     // 수요예배
     const API_URL_WED = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZRwb9UsDgmMOJ3ex2VchNy`;
@@ -57,6 +58,10 @@ export default function Sermonmain() {
     useEffect(() => {
         getData(sermon);
     }, [sermon]);
+
+    useEffect(() => {
+        setSermon(kind);
+    }, [router]);
 
     const opts = {
         width: "320px",
