@@ -1,11 +1,9 @@
 import '../styles/globals.css';
 import Head from 'next/head';
 import BookProvider from '../src/components/bibleProvider';
-import HomeBar from '../src/components/HomeBar';
 import Layout from '../src/components/Layout';
 
 export default function MyApp({ Component, pageProps }) {
-  
   return (
     <>
       <Head>
@@ -36,15 +34,11 @@ export default function MyApp({ Component, pageProps }) {
         <link rel="apple-touch-startup-image" href="/images/splash-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
         <link rel="apple-touch-startup-image" href="/images/splash-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)" />
         <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
-        <script>
-          Kakao.init(process.env.NEXT_PUBLIC_KAKAO_KEY);
-        </script>
       </Head>
       <BookProvider>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-        <HomeBar />
       </BookProvider>
     </>
   )
