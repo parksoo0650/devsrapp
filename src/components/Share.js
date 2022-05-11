@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Sheet from 'react-modal-sheet';
+import {
+    FacebookShareButton,
+    FacebookIcon,
+} from "react-share";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import {
+    isIOS,
+    isAndroid
+} from "react-device-detect";
 
 export default function Share({ title, thum, vid }) {
     const [isOpen, setOpen] = useState(false);
@@ -20,8 +29,8 @@ export default function Share({ title, thum, vid }) {
                 {
                     title: '바로가기',
                     link: {
-                        mobileWebUrl: 'https://naever.com',
-                        webUrl: 'https://naever.com',
+                        mobileWebUrl: "https://youtu.be/" + vid,
+                        webUrl: "https://youtu.be/" + vid,
                     },
                 },
             ]
@@ -48,21 +57,34 @@ export default function Share({ title, thum, vid }) {
                                     <div className="tit">카카오톡</div>
                                 </li>
                                 <li>
-                                    <a href="sms:&body=문자발송테스트">
-                                        <img src="../icons/icon_share_sms.png" alt="sms" />
-                                        <div className="tit">문자</div>
-                                    </a>
+                                    {/* sms:?body=hello // Android */}
+                                    {/* sms:&body=hello // iOS */}
+                                    {(isIOS) ?
+                                        (
+                                            <a href="sms:&body={`https://youtu.be/${vid}`}">
+                                                <img src="../icons/icon_share_sms.png" alt="sms" />
+                                                <div className="tit">문자</div>
+                                            </a>
+                                        ) : (
+                                            <a href="sms:?body={`https://youtu.be/${vid}`}">
+                                                <img src="../icons/icon_share_sms.png" alt="sms" />
+                                                <div className="tit">문자</div>
+                                            </a>
+                                        )
+                                    }
                                 </li>
-                                <li>
-                                    <a href="#" target="_blank">
+                                <li onClick={() => alert("복사되었습니다")}>
+                                    <CopyToClipboard text={`https://youtu.be/${vid}`}>
                                         <img src="../icons/icon_share_url.png" alt="url" />
-                                        <div className="tit">URL복사</div>
-                                    </a>
+                                    </CopyToClipboard>
+                                    <div className="tit">URL복사</div>
                                 </li>
                                 <li>
                                     <a href="#" target="_blank">
-                                        <img src="../icons/icon_share_blog.png" alt="blog" />
-                                        <div className="tit">블로그</div>
+                                        <FacebookShareButton url={`https://youtu.be/${vid}`}>
+                                            <FacebookIcon size={77} round={true} borderRadius={24}></FacebookIcon>
+                                        </FacebookShareButton>
+                                        <div className="tit">페이스북</div>
                                     </a>
                                 </li>
                             </ul>

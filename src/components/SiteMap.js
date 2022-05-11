@@ -32,14 +32,14 @@ export default function SiteMap() {
                         </a>
                     </Link>
                 </li>
-                <li
+                {/* <li
                     onClick={() => {
                         alert("준비중입니다.");
                     }}
                 >
                     <i className="ico"><img src="/icons/ico_quick_weekly.svg" /></i>
                     <div className="menu">주보</div>
-                </li>
+                </li> */}
                 <li>
                     <Link href="/offering">
                         <a onClick={menuClose}>
@@ -52,8 +52,8 @@ export default function SiteMap() {
 
             <div className="menu_wrap">
                 <ul className="menu_list">
-                    <li>
-                        <span onClick={() => setToggle1(!toggle1)}>예배</span>
+                    <li onClick={() => setToggle1(!toggle1)}>
+                        <span>예배</span>
                         {toggle1 ? (
                             <ul className="sub_menu">
                                 <li>
@@ -63,7 +63,7 @@ export default function SiteMap() {
                                             query: { kind: 'def' },
                                         }}
                                     >
-                                        <a onClick={menuClose}>주일설교</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>주일설교</a>
                                     </Link>
                                 </li>
                                 <li>
@@ -73,29 +73,29 @@ export default function SiteMap() {
                                             query: { kind: 'sun' },
                                         }}
                                     >
-                                        <a onClick={menuClose}>1,3부 예배</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>1,3부 예배</a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/sermonmain?kind=tue">
-                                        <a onClick={menuClose}>환언특강</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>환언특강</a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/sermonmain?kind=wed">
-                                        <a onClick={menuClose}>수요예배</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>수요예배</a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/sermonmain?kind=fri">
-                                        <a onClick={menuClose}>금요기도회</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>금요기도회</a>
                                     </Link>
                                 </li>
                             </ul>
                         ) : (null)}
                     </li>
-                    <li>
-                        <span onClick={() => setToggle2(!toggle2)}>찬양</span>
+                    <li onClick={() => setToggle2(!toggle2)}>
+                        <span>찬양</span>
                         {toggle2 ? (
                             <ul className="sub_menu">
                                 <li>
@@ -105,7 +105,7 @@ export default function SiteMap() {
                                             query: { kind: 'prc' },
                                         }}
                                     >
-                                        <a onClick={menuClose}>성락교회 성가대</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>성락교회 성가대</a>
                                     </Link>
                                 </li>
                                 <li>
@@ -115,7 +115,7 @@ export default function SiteMap() {
                                             query: { kind: 'pro' },
                                         }}
                                     >
-                                        <a onClick={menuClose}>성략교회 헌금송</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>성략교회 헌금송</a>
                                     </Link>
                                 </li>
                             </ul>
@@ -123,41 +123,34 @@ export default function SiteMap() {
                     </li>
                     <li>
                         <Link href="/chapter/1/1">
-                            <a onClick={menuClose}>성경</a>
+                            <a onClick={menuClose} style={{display: "block"}}>성경</a>
                         </Link>
                     </li>
-                    <li>
-                        <span onClick={() => setToggle3(!toggle3)}>온시리즈</span>
+                    <li onClick={() => setToggle3(!toggle3)}>
+                        <span>온시리즈</span>
                         {toggle3 ? (
                             <ul className="sub_menu">
                                 <li>
                                     <Link href="/onbibledetail">
-                                        <a onClick={menuClose}>온성경</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>온성경</a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/onprayerdetail">
-                                        <a onClick={menuClose}>온특새</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>온특새</a>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/onthreedetail">
-                                        <a onClick={menuClose}>온3분</a>
+                                        <a onClick={menuClose} style={{display: "block"}}>온3분</a>
                                     </Link>
                                 </li>
                             </ul>
                         ) : (null)}
                     </li>
-                    <li
-                        onClick={() => {
-                            alert("준비중입니다.");
-                        }}
-                    >
-                        주보
-                    </li>
                     <li>
                         <Link href="/offering">
-                            <a onClick={menuClose}>헌금안내</a>
+                            <a onClick={menuClose} style={{display: "block"}}>헌금안내</a>
                         </Link>
                     </li>
                 </ul>

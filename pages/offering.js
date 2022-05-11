@@ -32,7 +32,7 @@ export default function Sermonmain() {
   return (
     <div className="sub_container offering_wrap">
       <div className="top_area">
-        <span className="btn_prev"></span>
+        <span className="btn_prev" onClick={() => router.push("/")}></span>
         <div className="top_title">헌금안내</div>
       </div>
 

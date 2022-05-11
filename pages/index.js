@@ -313,34 +313,34 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => {
-              alert("준비중입니다.");
-              //router.push("/weeklyorder"); 
-            }}>
-              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
-              <div className="txt">주보</div>
+            <li onClick={() => { router.push("/onmain"); }}>
+              <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
+              <div className="txt">온시리즈</div>
             </li>
             <li onClick={() => { router.push("/chapter/1/1"); }}>
               <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
               <div className="txt">성경</div>
             </li>
-            <li onClick={() => { router.push("/onmain"); }}>
-              <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
-              <div className="txt">온시리즈</div>
-            </li>
-            <li onClick={() => {
+            {/* <li onClick={() => {
+              alert("준비중입니다.");
+              //router.push("/weeklyorder"); 
+            }}>
+              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
+              <div className="txt">주보</div>
+            </li> */}
+            {/* <li onClick={() => {
               alert("준비중입니다.");
             }}>
               <div className="img"><img src="/icons/ico_quick_mission.svg" alt="1분 은혜" /></div>
               <div className="txt">1분 은혜</div>
-            </li>
-            <li onClick={() => {
+            </li> */}
+            {/* <li onClick={() => {
               alert("준비중입니다.");
               // router.push("/weeklynews");
             }}>
               <div className="img"><img src="/icons/ico_quick_news.svg" alt="교회소식" /></div>
               <div className="txt">교회소식</div>
-            </li>
+            </li> */}
             <li onClick={() => { router.push("/offering"); }}>
               <div className="img"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></div>
               <div className="txt">헌금안내</div>
@@ -444,7 +444,6 @@ export default function Home() {
           </Swiper>
         </div>
       </div>
-      <Footer />
     </>
   )
 }
