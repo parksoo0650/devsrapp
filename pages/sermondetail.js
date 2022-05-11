@@ -7,7 +7,7 @@ export default function Sermonmain() {
     const router = useRouter();
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "def";
-    const ser_kind = {"def":"주일설교","sun":"1,3부 예배","tue":"환언특강","wed":"수요예배","fri":"금요기도회"}
+    const ser_kind = { "def": "주일설교", "sun": "1,3부 예배", "tue": "환언특강", "wed": "수요예배", "fri": "금요기도회" }
     const [sermonD, setSermonD] = useState("예배순서");
     const opts = {
         width: "320px",
@@ -27,7 +27,7 @@ export default function Sermonmain() {
             <div className="movie_wrap">
                 <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-                    <Share />
+                    <Share title={router.query.vtit} thum={null} vid={router.query.vid} />
                     <div className="tit">
                         <a href="#">{router.query.vtit}</a>
                     </div>
@@ -35,7 +35,7 @@ export default function Sermonmain() {
                 </div>
             </div>
 
-            <div className="section" style={{display:"none"}}>
+            <div className="section" style={{ display: "none" }}>
                 <ul className="tab_area">
                     <li onClick={() => { setSermonD("예배순서"); }} className={(sermonD == "예배순서") ? "on" : ""}>예배순서</li>
                     <li onClick={() => { setSermonD("설교요지"); }} className={(sermonD == "설교요지") ? "on" : ""}>설교요지</li>
@@ -141,7 +141,7 @@ export default function Sermonmain() {
                         <div className="gist">
                             하나님은<br />
                             사랑이시다<br />
-                            그가 자기의 사랑의 대상을 독생자로 하셨으니 
+                            그가 자기의 사랑의 대상을 독생자로 하셨으니
                             <span className="bible">
                                 (마 17:5)
                                 <div className="layer_bible on">

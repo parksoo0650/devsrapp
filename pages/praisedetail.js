@@ -8,7 +8,7 @@ export default function Praisedetail() {
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "prc";
     let praise = ['재생목록', '찬양목록'];
-    const pra_kind = {"prc":"성가대","pro":"헌금송"}
+    const pra_kind = { "prc": "성가대", "pro": "헌금송" }
     const [praiseD, setPraiseD] = useState("재생목록");
     const opts = {
         width: "320px",
@@ -28,7 +28,7 @@ export default function Praisedetail() {
             <div className="movie_wrap">
                 <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-                    <Share />
+                    <Share title={router.query.vtit} thum={null} vid={router.query.vid} />
                     <div className="tit">
                         <a href="#">{router.query.vtit}</a>
                     </div>
@@ -36,7 +36,7 @@ export default function Praisedetail() {
                 </div>
             </div>
 
-            <div className="section" style={{display:"none"}}>
+            <div className="section" style={{ display: "none" }}>
                 <ul className="tab_area">
                     <li onClick={() => { setPraiseD("재생목록"); }} className={(praiseD == "재생목록") ? "on" : ""}>재생목록</li>
                     <li onClick={() => { setPraiseD("찬양목록"); }} className={(praiseD == "찬양목록") ? "on" : ""}>찬양목록</li>

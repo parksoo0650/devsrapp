@@ -61,12 +61,12 @@ export default function Share({ title, thum, vid }) {
                                     {/* sms:&body=hello // iOS */}
                                     {(isIOS) ?
                                         (
-                                            <a href="sms:&body={`https://youtu.be/${vid}`}">
+                                            <a href={`sms:&body=https://youtu.be/${vid}`}>
                                                 <img src="../icons/icon_share_sms.png" alt="sms" />
                                                 <div className="tit">문자</div>
                                             </a>
                                         ) : (
-                                            <a href="sms:?body={`https://youtu.be/${vid}`}">
+                                            <a href={`sms:?body=https://youtu.be/${vid}`}>
                                                 <img src="../icons/icon_share_sms.png" alt="sms" />
                                                 <div className="tit">문자</div>
                                             </a>

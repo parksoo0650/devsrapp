@@ -32,7 +32,7 @@ export default function Onmain() {
             <div className="movie_wrap">
                 <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-                    <Share />
+                    <Share title={router.query.vtit} thum={null} vid={router.query.vid} />
                     <div className="tit">
                         <a href="#">{router.query.vtit}</a>
                     </div>

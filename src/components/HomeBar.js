@@ -46,7 +46,7 @@ export default function HomeBar() {
                             <div className="ico">
                                 <img src={(router.pathname=="/onmain") ? "/icons/ico_onseries.svg" : "/icons/ico_onseries_off.svg"} alt="온시리즈" />
                             </div>
-                            <div className="menu">온시리즈</div>
+                            <div className="menu">콘텐츠</div>
                         </a>
                     </Link>
                 </li>

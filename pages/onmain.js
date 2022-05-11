@@ -139,7 +139,7 @@ export default function Onmain() {
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
-                                    <Share />
+                                    <Share title={mainData.title} thum={mainData.thumbnails} vid={mainData.videoId} />
                                     <div className="tit" onClick={() => {
                                         router.push(`/onthreedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onthreedetail");
                                     }}>{mainData.title}</div>
@@ -209,7 +209,7 @@ export default function Onmain() {
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
-                                    <Share />
+                                    <Share title={mainData.title} thum={mainData.thumbnails} vid={mainData.videoId} />
                                     <div className="tit" onClick={() => {
                                         router.push(`/onbibledetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onbibledetail");
                                     }}>{mainData.title}</div>
