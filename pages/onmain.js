@@ -69,7 +69,7 @@ export default function Onmain() {
     return (
         <div className="sub_container onseries_wrap">
             <div className="top_area">
-                <span className="btn_prev" onClick={() => router.push("/")}></span>
+                <span className="btn_prev" onClick={() => router.push("/contents")}></span>
                 <div className="top_title">온시리즈</div>
                 <div className="tab_wrap">
                     <ul className="tab_area">

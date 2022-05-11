@@ -41,10 +41,10 @@ export default function HomeBar() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/onmain">
+                    <Link href="/contents">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/onmain") ? "/icons/ico_onseries.svg" : "/icons/ico_onseries_off.svg"} alt="온시리즈" />
+                                <img src={(router.pathname=="/contents") ? "/icons/ico_onseries.svg" : "/icons/ico_onseries_off.svg"} alt="콘텐츠" />
                             </div>
                             <div className="menu">콘텐츠</div>
                         </a>
