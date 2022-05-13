@@ -6,6 +6,7 @@ import { db } from "../../../fbase";
 import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { BookConsumer } from "../../../src/components/bibleProvider";
 import Loading from "../../../src/components/Loading";
+import axios from "axios";
 
 const Post = ({ items, bid, cid }) => {
   const router = useRouter();
@@ -225,7 +226,7 @@ const Post = ({ items, bid, cid }) => {
 export async function getStaticPaths() {
   return {
     paths: [
-      // { params: { id: "1", cid: "1" } },
+      { params: { id: "1", cid: "1" } },
       // { params: { id: "2", cid: "1" } },
       // { params: { id: "3", cid: "1" } },
       // { params: { id: "4", cid: "1" } },
@@ -297,24 +298,24 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://srapp.vercel.app';
+
   const id = context.params.id;
   const cid = context.params.cid;
-  const book_data = [];
-  // const q = query(
-  //   collection(db, "bible"),
-  //   where("book", "==", parseInt(id)),
-  //   where("chapter", "==", parseInt(cid)),
-  //   orderBy("verse", "asc")
-  // );
-  // const querySnapshot = await getDocs(q);
 
-  // querySnapshot.forEach((doc) => {
-  //   book_data.push(doc.data());
-  // });
+  // const res = await fetch('http://localhost:3000/api/bible');
+  const response = await fetch(`${server}/api/bible?b=${id}&c=${cid}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  const json = await response.json();
 
   return {
     props: {
-      items: book_data,
+      items: json.bibles,
       bid: id,
       cid: cid
     },

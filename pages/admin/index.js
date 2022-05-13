@@ -1,27 +1,41 @@
-import Axios from "axios";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useMutation from "../../libs/client/useMutation";
+// import book from "../../public/book66.json";
 
 export default function Admin() {
-    const router = useRouter();
-    const [isLogin, setIsLogin] = useState(false);
+    const [bible, { loading, data, error }] = useMutation("/api/bible");
 
-    function checkLogin() {
-        //로그인
-        setIsLogin(true);
-    }
+    async function insertBible() {
+        if (loading) return;
 
-    function logout() {
-        //로그아웃
+        // book.forEach(async (element) => {
+            // console.log(element);
+            // await bible(element);
+        // });
+
+        // bible(book1);
+        // setSubmitting(true);
+        // fetch("/api/admin/bible", {c
+        //     method: "POST",
+        //     body: JSON.stringify(data),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        // }).then(() => {
+        //     setSubmitting(false);
+        // });
     }
 
     useEffect(() => {
-        checkLogin();
+        // insertBible();
     }, []);
+
     return (
-        <>
+        <div>
             admin page
-            {isLogin && <div onClick={logout}>Logout</div>}
-        </>
+            <div>
+                <button style={{ padding: "20px", fontWeight: "bold"}} onClick={ () => insertBible() }>{loading ? "Loading" : "finish"}</button>
+            </div>
+        </div>
     );
 }
