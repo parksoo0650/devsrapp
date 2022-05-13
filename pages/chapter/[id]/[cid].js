@@ -223,7 +223,7 @@ const Post = ({ items, bid, cid }) => {
 export async function getStaticPaths() {
   return {
     paths: [
-      // { params: { id: "1", cid: "1" } },
+      { params: { id: "1", cid: "1" } },
       // { params: { id: "2", cid: "1" } },
       // { params: { id: "3", cid: "1" } },
       // { params: { id: "4", cid: "1" } },

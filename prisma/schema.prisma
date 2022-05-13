@@ -38,4 +38,8 @@ model Bible {
   chapter Int
   verse   Int
   content String? @db.Text
+
+  @@index([book])
+  @@index([chapter])
+  @@index([verse])
 }
