@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import Sheet from "react-modal-sheet";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { db } from "../../../fbase";
-import { collection, query, where, orderBy, getDocs } from "firebase/firestore";
 import { BookConsumer } from "../../../src/components/bibleProvider";
 import Loading from "../../../src/components/Loading";
-import axios from "axios";
 
 const Post = ({ items, bid, cid }) => {
   const router = useRouter();
@@ -226,7 +223,7 @@ const Post = ({ items, bid, cid }) => {
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { id: "1", cid: "1" } },
+      // { params: { id: "1", cid: "1" } },
       // { params: { id: "2", cid: "1" } },
       // { params: { id: "3", cid: "1" } },
       // { params: { id: "4", cid: "1" } },
