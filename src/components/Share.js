@@ -24,6 +24,8 @@ export default function Share({ title, thum, vid }) {
                     webUrl: "https://youtu.be/" + vid,
                     androidExecParams: "SRAPP",
                 },
+                image_width: "800px",
+                image_height: "400px"
             }
             , buttons: [
                 {
