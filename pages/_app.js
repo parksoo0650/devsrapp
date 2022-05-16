@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/tailwind.css';
 import Head from 'next/head';
 import BookProvider from '../src/components/bibleProvider';
 import Layout from '../src/components/Layout';
