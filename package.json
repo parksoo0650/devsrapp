@@ -1,6 +1,5 @@
 {
   "name": "srapp",
-  "main": "function.js",
   "version": "1.0.0",
   "description": "",
   "private": true,
