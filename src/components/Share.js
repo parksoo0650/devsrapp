@@ -18,7 +18,7 @@ export default function Share({ title, thum, vid }) {
             content: {
                 title: "성락교회",
                 description: title,
-                imageUrl: thum,
+                imageUrl: "https://srapp.vercel.app"+thum,
                 link: {
                     mobileWebUrl: "https://youtu.be/" + vid,
                     webUrl: "https://youtu.be/" + vid,
