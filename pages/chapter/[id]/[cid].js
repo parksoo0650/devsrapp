@@ -5,19 +5,12 @@ import Link from "next/link";
 import { BookConsumer } from "../../../src/components/bibleProvider";
 import Loading from "../../../src/components/Loading";
 
-const Post = () => {
-  const dev = process.env.NODE_ENV !== 'production';
-  const server = dev ? 'http://localhost:3000' : 'https://srapp.vercel.app';
+const Post = ({ items, bid, cid }) => {
   const router = useRouter();
-
-  let bid = router.query.id;
-  let cid = router.query.cid;
-
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [isChapter, setIsChapter] = useState("");
-  const [isBible, setIsBible] = useState("");
-  const [items, setItems] = useState([]);
+  const [isChapter, setIsChapter] = useState(cid);
+  const [isBible, setIsBible] = useState(bid);
   const [bibleBook, setBibleBook] = useState("구약");
   const handleToggle = () => {
     setActive(!isActive);
@@ -26,23 +19,6 @@ const Post = () => {
   if (router.isFallback) {
     return <Loading />;
   }
-
-  const getData = async () => {
-    const response = await fetch(`${server}/api/bible?b=${router.query.id}&c=${router.query.cid}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-    const json = await response.json();
-    setItems(json.bibles);
-  };
-
-  useEffect(() => {
-    setIsBible(bid);
-    setIsChapter(cid);
-    getData();
-  }, [router]);
 
   return (
     <>
@@ -222,7 +198,7 @@ const Post = () => {
 
         <div className="section bible_con">
           <ul className="verse_list">
-            {items && items.map((item, i) => (
+            {items.map((item, i) => (
               <li key={i}>
                 <strong>{item.verse}.</strong> {item.content}
               </li>
@@ -243,5 +219,104 @@ const Post = () => {
     </>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "1", cid: "1" } },
+      { params: { id: "2", cid: "1" } },
+      { params: { id: "3", cid: "1" } },
+      { params: { id: "4", cid: "1" } },
+      { params: { id: "5", cid: "1" } },
+      { params: { id: "6", cid: "1" } },
+      { params: { id: "7", cid: "1" } },
+      { params: { id: "8", cid: "1" } },
+      { params: { id: "9", cid: "1" } },
+      { params: { id: "10", cid: "1" } },
+      { params: { id: "11", cid: "1" } },
+      { params: { id: "12", cid: "1" } },
+      { params: { id: "13", cid: "1" } },
+      { params: { id: "14", cid: "1" } },
+      { params: { id: "15", cid: "1" } },
+      { params: { id: "16", cid: "1" } },
+      { params: { id: "17", cid: "1" } },
+      { params: { id: "18", cid: "1" } },
+      { params: { id: "19", cid: "1" } },
+      { params: { id: "20", cid: "1" } },
+      { params: { id: "21", cid: "1" } },
+      { params: { id: "22", cid: "1" } },
+      { params: { id: "23", cid: "1" } },
+      { params: { id: "24", cid: "1" } },
+      { params: { id: "25", cid: "1" } },
+      { params: { id: "26", cid: "1" } },
+      { params: { id: "27", cid: "1" } },
+      { params: { id: "28", cid: "1" } },
+      { params: { id: "29", cid: "1" } },
+      { params: { id: "30", cid: "1" } },
+      { params: { id: "31", cid: "1" } },
+      { params: { id: "32", cid: "1" } },
+      { params: { id: "33", cid: "1" } },
+      { params: { id: "34", cid: "1" } },
+      { params: { id: "35", cid: "1" } },
+      { params: { id: "36", cid: "1" } },
+      { params: { id: "37", cid: "1" } },
+      { params: { id: "38", cid: "1" } },
+      { params: { id: "39", cid: "1" } },
+      { params: { id: "40", cid: "1" } },
+      { params: { id: "41", cid: "1" } },
+      { params: { id: "42", cid: "1" } },
+      { params: { id: "43", cid: "1" } },
+      { params: { id: "44", cid: "1" } },
+      { params: { id: "45", cid: "1" } },
+      { params: { id: "46", cid: "1" } },
+      { params: { id: "47", cid: "1" } },
+      { params: { id: "48", cid: "1" } },
+      { params: { id: "49", cid: "1" } },
+      { params: { id: "50", cid: "1" } },
+      { params: { id: "51", cid: "1" } },
+      { params: { id: "52", cid: "1" } },
+      { params: { id: "53", cid: "1" } },
+      { params: { id: "54", cid: "1" } },
+      { params: { id: "55", cid: "1" } },
+      { params: { id: "56", cid: "1" } },
+      { params: { id: "57", cid: "1" } },
+      { params: { id: "58", cid: "1" } },
+      { params: { id: "59", cid: "1" } },
+      { params: { id: "60", cid: "1" } },
+      { params: { id: "61", cid: "1" } },
+      { params: { id: "62", cid: "1" } },
+      { params: { id: "63", cid: "1" } },
+      { params: { id: "64", cid: "1" } },
+      { params: { id: "65", cid: "1" } },
+      { params: { id: "66", cid: "1" } },
+    ],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps(context) {
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://srapp.vercel.app';
+
+  const id = context.params.id;
+  const cid = context.params.cid;
+
+  // const res = await fetch('http://localhost:3000/api/bible');
+  const response = await fetch(`${server}/api/bible?b=${id}&c=${cid}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+  const json = await response.json();
+
+  return {
+    props: {
+      items: json.bibles,
+      bid: id,
+      cid: cid
+    },
+  };
+}
 
 export default Post;

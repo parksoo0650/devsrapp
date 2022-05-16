@@ -8,6 +8,12 @@ async function handler(req, res) {
             book: +req.query.b,
             chapter: +req.query.c,
         },
+        orderBy: [
+            {
+                verse: 'asc',
+            },
+
+        ],
     });
 
     res.json({
