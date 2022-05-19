@@ -75,7 +75,7 @@ export default function Sermonmain() {
         <div className="sub_container">
             <div className="top_area">
                 <span className="btn_prev" onClick={() => router.push("/")}></span>
-                <div className="top_title">예배</div>
+                <div className="top_title">예배 <img src="/icons/ico_arrow.svg"/></div>
                 <div className={isDrop ? "tab_wrap active" : "tab_wrap"}>
                     <div className="tab_bar">
                         전체보기
@@ -84,8 +84,15 @@ export default function Sermonmain() {
                     <ul className="tab_area">
                         <li onClick={() => { setSermon("def"); setIsLoading(true); }} className={(sermon == "def") ? "on" : ""}>주일설교</li>
                         <li onClick={() => { setSermon("sun"); setIsLoading(true); }} className={(sermon == "sun") ? "on" : ""}>1,3부 예배</li>
+                        <li onClick={() => { setSermon("sun"); setIsLoading(true); }} className={(sermon == "sun") ? "on" : ""}>수요예배</li>
                     </ul>
-                    <span className="btn_more" onClick={() => setIsDrop(true)}></span>
+                    {/* <span className="btn_more" onClick={() => setIsDrop(true)}></span> */}
+                </div>
+                <div className="dropdown">
+                    <ul>
+                        <li className="on">수요예배</li>
+                        <li>수요저녁예배 및 기도회</li>
+                    </ul>
                 </div>
             </div>
             {/* 드롭다운 메뉴가 활성화 되면 display:block */}
@@ -104,8 +111,7 @@ export default function Sermonmain() {
                 </div>
             ) : (
                 <>
-                    <div className="section pt30">
-                        <div className="title">최신 컨텐츠</div>
+                    <div className="section subborder">
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
@@ -119,14 +125,14 @@ export default function Sermonmain() {
                                     {mainData.title}
                                 </div>
                                 <div className="date">{mainData.publishedAt}</div>
-                                <div className="preacher">설교 : 김성현 감독</div>
+                                <div className="preacher">설교 : 김성현 목사</div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="section pt0">
-                        <div className="title">지난 예배 다시보기
-                            {/* <span className="filter" onClick={() => setIsFilter(true)}>필터</span> */}
+                    <div className="section subbordert">
+                        {/*<div className="title">지난 예배 다시보기
+                             <span className="filter" onClick={() => setIsFilter(true)}>필터</span> */}
                             {/* 필터 */}
                             {/* <div className={isFilter ? "layer_filter on" : "layer_filter"}>
                                 <button className="btn_close" onClick={() => setIsFilter(false)}></button>
@@ -142,8 +148,12 @@ export default function Sermonmain() {
                                     <span className="btn_select">선택</span>
                                 </div>
                             </div> */}
-                            {/* 필터 */}
-                        </div>
+                            {/* 필터 
+                        </div>*/}
+                        <ul className="sermon_filter">
+                            <li className="on">업데이트순</li>
+                            <li>회차순</li>
+                        </ul>
                         <ul className="sermon_list">
                             {
                                 listData.map((doc, i) => {
@@ -163,7 +173,7 @@ export default function Sermonmain() {
                                         >
                                             <div className="tit">{ListTitle.substring(0, 24)}...</div>
                                             <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
-                                            <div className="preacher">설교 : 김성현 감독</div>
+                                            <div className="preacher">설교 : 김성현 목사</div>
                                         </li>
                                     )
                                 })

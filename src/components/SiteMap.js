@@ -14,17 +14,41 @@ export default function SiteMap() {
     return (
         <div id="all_menu">
             <span className="btn_close" onClick={menuClose}></span>
-            <div className="tip">이 메뉴도 이용해보세요!</div>
+            {/* <div className="tip">이 메뉴도 이용해보세요!</div> */}
             <ul className="quick_list">
                 <li>
-                    <Link href={`/chapter/1/1`} >
+                    <Link href={`/sermonmain`} >
                         <a onClick={menuClose}>
-                            <i className="ico"><img src="/icons/ico_quick_bible1.svg" /></i>
-                            <div className="menu">성경</div>
+                            <div className="img"><img src="/icons/ico_quick_sermon.svg" alt="예배" /></div>
+                            <div className="txt">예배</div>
                         </a>
                     </Link>
                 </li>
                 <li>
+                    <Link href={`/praisemain`} >
+                        <a onClick={menuClose}>
+                            <div className="img"><img src="/icons/ico_quick_praise.svg" alt="예배" /></div>
+                            <div className="txt">찬양</div>
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={`/chapter/1/1`} >
+                        <a onClick={menuClose}>
+                            <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="예배" /></div>
+                            <div className="txt">성경</div>
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={`/chapter/1/1`} >
+                        <a onClick={menuClose}>
+                            <div className="img"></div>
+                            <div className="txt">환언특강</div>
+                        </a>
+                    </Link>
+                </li>
+                {/* <li>
                     <Link href="/onmain">
                         <a onClick={menuClose}>
                             <i className="ico"><img src="/icons/ico_quick_onseries.svg" /></i>
@@ -32,14 +56,14 @@ export default function SiteMap() {
                         </a>
                     </Link>
                 </li>
-                {/* <li
+                <li
                     onClick={() => {
                         alert("준비중입니다.");
                     }}
                 >
                     <i className="ico"><img src="/icons/ico_quick_weekly.svg" /></i>
                     <div className="menu">주보</div>
-                </li> */}
+                </li> 
                 <li>
                     <Link href="/offering">
                         <a onClick={menuClose}>
@@ -47,7 +71,7 @@ export default function SiteMap() {
                             <div className="menu">헌금안내</div>
                         </a>
                     </Link>
-                </li>
+                </li>*/}
             </ul>
 
             <div className="menu_wrap">
@@ -76,11 +100,11 @@ export default function SiteMap() {
                                         <a onClick={menuClose} style={{ display: "block" }}>1,3부 예배</a>
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link href="/returnMain">
                                         <a onClick={menuClose} style={{ display: "block" }}>환언특강</a>
                                     </Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link
                                         href={{
@@ -91,7 +115,7 @@ export default function SiteMap() {
                                         <a onClick={menuClose} style={{ display: "block" }}>수요예배</a>
                                     </Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link
                                         href={{
                                             pathname: '/prayerMain',
@@ -100,7 +124,7 @@ export default function SiteMap() {
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>금요기도회</a>
                                     </Link>
-                                </li>
+                                </li> */}
                             </ul>
                         ) : (null)}
                     </li>
@@ -115,7 +139,7 @@ export default function SiteMap() {
                                             query: { kind: 'prc' },
                                         }}
                                     >
-                                        <a onClick={menuClose} style={{ display: "block" }}>성락교회 성가대</a>
+                                        <a onClick={menuClose} style={{ display: "block" }}>성가대</a>
                                     </Link>
                                 </li>
                                 <li>
@@ -125,7 +149,7 @@ export default function SiteMap() {
                                             query: { kind: 'pro' },
                                         }}
                                     >
-                                        <a onClick={menuClose} style={{ display: "block" }}>성략교회 헌금송</a>
+                                        <a onClick={menuClose} style={{ display: "block" }}>헌금송</a>
                                     </Link>
                                 </li>
                             </ul>
@@ -137,7 +161,7 @@ export default function SiteMap() {
                         </Link>
                     </li>
                     <li onClick={() => setToggle3(!toggle3)}>
-                        <span>온시리즈</span>
+                        <span>콘텐츠</span>
                         {toggle3 ? (
                             <ul className="sub_menu">
                                 <li>
@@ -147,7 +171,7 @@ export default function SiteMap() {
                                             query: { kind: 'onb' },
                                         }}
                                     >
-                                        <a onClick={menuClose} style={{ display: "block" }}>온성경</a>
+                                        <a onClick={menuClose} style={{ display: "block" }}>온시리즈</a>
                                     </Link>
                                 </li>
                                 <li>
@@ -157,7 +181,7 @@ export default function SiteMap() {
                                             query: { kind: 'onm' },
                                         }}
                                     >
-                                        <a onClick={menuClose} style={{ display: "block" }}>온특새</a>
+                                        <a onClick={menuClose} style={{ display: "block" }}>환언특강</a>
                                     </Link>
                                 </li>
                                 <li>
@@ -167,7 +191,17 @@ export default function SiteMap() {
                                             query: { kind: 'ont' },
                                         }}
                                     >
-                                        <a onClick={menuClose} style={{ display: "block" }}>온3분</a>
+                                        <a onClick={menuClose} style={{ display: "block" }}>주중 기도회</a>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        href={{
+                                            pathname: '/onmain',
+                                            query: { kind: 'ont' },
+                                        }}
+                                    >
+                                        <a onClick={menuClose} style={{ display: "block" }}>1분 은혜</a>
                                     </Link>
                                 </li>
                             </ul>
