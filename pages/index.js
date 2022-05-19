@@ -199,8 +199,9 @@ export default function Home() {
       <Top />
       <div className="container">
         {(isLoading === false) ? (
-          <div className="section pt30">
-            <div className="title">{liveDatas.subTitle}</div>
+          <div className="section">
+            {/* <div className="title">{liveDatas.subTitle}</div> */}
+            
             <div className="movie_wrap">
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
               <div className="info">
@@ -214,7 +215,7 @@ export default function Home() {
                   <a href="#">{liveDatas.title}</a>
                 </div>
                 <div className="date">{liveDatas.publishedAt}</div>
-                <div className="preacher">설교: 김성현 감독</div>
+                <div className="preacher">설교: 김성현 목사</div>
               </div>
             </div>
           </div>
@@ -225,14 +226,14 @@ export default function Home() {
         )}
 
         <div className={(liveDatas.videoId) ? "section pt0" : "section pt25"}>
-          <div className="title">요일별 컨텐츠</div>
+          <div className="title">주중 콘텐츠</div>
           <div className="days_wrap">
             <ul className="day_list">
-              <li onClick={() => { getWeekData("월"); setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월</li>
-              <li onClick={() => { getWeekData("화"); setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화</li>
-              <li onClick={() => { getWeekData("수"); setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수</li>
-              <li onClick={() => { getWeekData("목"); setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목</li>
-              <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금</li>
+              <li onClick={() => { getWeekData("월"); setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월요일</li>
+              <li onClick={() => { getWeekData("화"); setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화요일</li>
+              <li onClick={() => { getWeekData("수"); setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수요일</li>
+              <li onClick={() => { getWeekData("목"); setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목요일</li>
+              <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금요일</li>
             </ul>
             <ul className="con_list">
               <li
@@ -298,7 +299,7 @@ export default function Home() {
         </div>
 
         <div className="section quick_wrap">
-          <div className="title">빠른접근</div>
+          {/* <div className="title">빠른접근</div> */}
           <ul className="quick_menu">
             <li onClick={() => { router.push("/sermonmain"); }}>
               <div className="img"><img src="/icons/ico_quick_sermon.svg" alt="예배" /></div>
@@ -308,14 +309,31 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => { router.push("/onmain"); }}>
-              <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
-              <div className="txt">온시리즈</div>
-            </li>
             <li onClick={() => { router.push("/chapter/1/1"); }}>
               <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
               <div className="txt">성경</div>
             </li>
+            <li onClick={() => { router.push("/"); }}>
+              <div className="img"></div>
+              <div className="txt">환언특강</div>
+            </li>
+            <li onClick={() => { router.push("/onmain"); }}>
+              <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
+              <div className="txt">온시리즈</div>
+            </li>
+            <li onClick={() => { router.push("/"); }}>
+              <div className="img"></div>
+              <div className="txt">1분은혜</div>
+            </li>
+            <li onClick={() => { router.push("/"); }}>
+              <div className="img"></div>
+              <div className="txt">주보</div>
+            </li>
+            <li onClick={() => { router.push("/"); }}>
+              <div className="img"></div>
+              <div className="txt">교회소식</div>
+            </li>
+            
             {/* <li onClick={() => {
               alert("준비중입니다.");
               //router.push("/weeklyorder"); 
@@ -342,13 +360,17 @@ export default function Home() {
             </li>
           </ul>
         </div>
+        
+        <div className="mdbanner">
+          <p class="nav">1/2</p>
+          <img src="/icons/md_banner.png" alt="배너" />
+        </div>
 
         <div className="section">
-          <div className="title">은혜로운 찬양
-            <Link href="/praisemain" >
+          <div className="title">은혜로운 찬양</div>
+          <Link href="/praisemain" >
               <a className="more">전체보기</a>
             </Link>
-          </div>
           <Swiper
             className="slide_wrap"
             spaceBetween={10}
@@ -373,12 +395,15 @@ export default function Home() {
                         router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
                       }}
                     >
-                      <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
+                      <div class="movie_thumb">
+                        <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
+                      </div>
                       <div className="info">
                         <div className="tit">
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
+                        <div className="preacher">설교: 김성현 목사</div>
                       </div>
                     </div>
                   </SwiperSlide>
@@ -408,6 +433,7 @@ export default function Home() {
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
+                        <div className="preacher">설교: 김성현 목사</div>
                       </div>
                     </div>
                   </SwiperSlide>

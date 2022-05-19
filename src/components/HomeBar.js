@@ -44,7 +44,7 @@ export default function HomeBar() {
                     <Link href="/contents">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/contents") ? "/icons/ico_onseries.svg" : "/icons/ico_onseries_off.svg"} alt="콘텐츠" />
+                                <img src={(router.pathname=="/contents") ? "/icons/ico_content.svg" : "/icons/ico_content_off.svg"} alt="콘텐츠" />
                             </div>
                             <div className="menu">콘텐츠</div>
                         </a>

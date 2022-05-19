@@ -62,8 +62,7 @@ export default function Praisemain() {
         <div className="sub_container">
             <div className="top_area">
                 <span className="btn_prev" onClick={() => router.push("/")}></span>
-                <div className="top_title">찬양</div>
-
+                <div className="top_title">찬양 <img src="/icons/ico_arrow.svg"/></div>
                 <div className="tab_wrap">
                     <div className="tab_bar">
                         전체보기
@@ -81,8 +80,7 @@ export default function Praisemain() {
                 </div>
             ) : (
                 <>
-                    <div className="section">
-                        <div className="title">최신 컨텐츠</div>
+                    <div className="section pt0 subborder">
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
@@ -99,10 +97,11 @@ export default function Praisemain() {
                             </div>
                         </div>
                     </div>
-                    <div className="section pt0">
-                        <div className="title">지난 찬양 다시보기 
-                            {/* <span className="filter">필터</span> */}
-                        </div>
+                    <div className="section subbordert">
+                        <ul className="sermon_filter">
+                            <li className="on">업데이트순</li>
+                            <li>회차순</li>
+                        </ul>
                         <ul className="sermon_list">
                             {
                                 listData.map((doc, i) => {

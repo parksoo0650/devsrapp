@@ -14,10 +14,26 @@ export default function Sermonmain() {
     <div className="sub_container offering_wrap">
       <div className="top_area">
         <span className="btn_prev" onClick={() => router.push("/")}></span>
-        <div className="top_title">헌금안내</div>
+        <div className="top_title">헌금안내 <img src="/icons/ico_arrow.svg"/></div>
+        <div className="domestic_wrap">
+            <ul className="tab_area">
+                <li onClick={() => {setOffering("국내");}} className={offering == "국내" ? "on" : ""}>국내</li>
+                <li onClick={() => {setOffering("해외");}} className={offering == "해외" ? "on" : ""}>해외</li>
+            </ul>
+        </div>
+      </div>
+
+      <div className="namehowto">
+        <p>입금자명 표기 방법 : [본인이름]+[배우자이름]+[헌금항목]</p>
+        <span className="arrowdown"><img src="/icons/ico_arrowdown.svg"/></span>
+      </div>
+      <div className="sender_example">
+        <img src="/icons/sender_example.png"/>
+        <p>※ 온라인 송금 시, 성도님의 정보나 헌금의 종류가 정확하지 않을 경우 헌금 등록 처리가 지연될 수 있습니다. 추후 내방 및 유선상으로 헌금 등록 확인을 부탁드립니다.</p>
       </div>
 
       <div className="section">
+        {/*
         <ul className="tab_area">
           <li
             onClick={() => {
@@ -35,7 +51,7 @@ export default function Sermonmain() {
           >
             해외
           </li>
-        </ul>
+        </ul> */}
         <div className="tab_con">
           {/* 국내 */}
           <div
@@ -43,103 +59,105 @@ export default function Sermonmain() {
               offering == "국내" ? "domestic_wrap" : "domestic_wrap hide"
             }
           >
+            
+            
             <ul className="bank_list">
               <li>
-                <span className="bank">우리은행</span>
                 <CopyToClipboard text="054-085786-01-023">
-                  <div onClick={() => doCopy()}>
-                    <span className="account">054-085786-01-023</span>
-                    <span className="name">성락침례교회</span>
-                    <span className="btn_copy"></span>
-                  </div>
+                <div onClick={() => doCopy()}>
+                  <p className="bank">우리은행</p>
+                  <p className="account">054-085786-01-023</p>
+                  <p className="name">성락침례교회</p>
+                  <span className="btn_copy"></span>
+                </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">KB국민은행</span>
                 <CopyToClipboard text="765201-04-038219">
-                  <div onClick={() => doCopy()}>
-                    <span className="account">765201-04-038219</span>
-                    <span className="name">성락침례교회</span>
-                    <span className="btn_copy"></span>
-                  </div>
+                <div onClick={() => doCopy()}>
+                  <p className="bank">KB국민은행</p>
+                  <p className="account">765201-04-038219</p>
+                  <p className="name">성락침례교회</p>
+                  <span className="btn_copy"></span>
+                </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">NH농협</span>
                 <CopyToClipboard text="054-01-092341">
                   <div onClick={() => doCopy()}>
-                    <span className="account">054-01-092341</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">NH농협</p>
+                    <p className="account">054-01-092341</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">신한은행</span>
                 <CopyToClipboard text="304-05-040250">
-                  <div onClick={() => doCopy()}>
-                    <span className="account">304-05-040250</span>
-                    <span className="name">성락침례교회 김성현</span>
-                    <span className="btn_copy"></span>
-                  </div>
+                <div onClick={() => doCopy()}>
+                  <p className="bank">신한은행</p>
+                  <p className="account">304-05-040250</p>
+                  <p className="name">성락침례교회</p>
+                  <span className="btn_copy"></span>
+                </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">스탠다드차타드 (SC)</span>
                 <CopyToClipboard text="350-20-267614">
-                  <div onClick={() => doCopy()}>
-                    <span className="account">350-20-267614</span>
-                    <span className="name">성락침례교회</span>
-                    <span className="btn_copy"></span>
-                  </div>
+                <div onClick={() => doCopy()}>
+                  <p className="bank">스탠다드차타드 (SC)</p>
+                  <p className="account">350-20-267614</p>
+                  <p className="name">성락침례교회</p>
+                  <span className="btn_copy"></span>
+                </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">우체국</span>
                 <CopyToClipboard text="010108-01-011171">
                   <div onClick={() => doCopy()}>
-                    <span className="account">010108-01-011171</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">우체국</p>
+                    <p className="account">010108-01-011171</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">IBK기업은행</span>
                 <CopyToClipboard text="077-117515-01-015">
                   <div onClick={() => doCopy()}>
-                    <span className="account">077-117515-01-015</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">IBK기업은행</p>
+                    <p className="account">077-117515-01-015</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">씨티은행</span>
                 <CopyToClipboard text="130-53216-251">
                   <div onClick={() => doCopy()}>
-                    <span className="account">130-53216-251</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">씨티은행</p>
+                    <p className="account">130-53216-251</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">KEB하나은행</span>
                 <CopyToClipboard text="116-075931-00104">
                   <div onClick={() => doCopy()}>
-                    <span className="account">116-075931-00104</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">KEB하나은행</p>
+                    <p className="account">116-075931-00104</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>
               </li>
               <li>
-                <span className="bank">수협중앙회</span>
                 <CopyToClipboard text="041-01-040932">
                   <div onClick={() => doCopy()}>
-                    <span className="account">041-01-040932</span>
-                    <span className="name">성락침례교회</span>
+                    <p className="bank">수협중앙회</p>
+                    <p className="account">041-01-040932</p>
+                    <p className="name">성락침례교회</p>
                     <span className="btn_copy"></span>
                   </div>
                 </CopyToClipboard>

@@ -35,17 +35,20 @@ export default function Sermonmain() {
                 </div>
             </div>
 
-            <div className="section" style={{ display: "none" }}>
+            {/* <div className="section" style={{ display: "none" }}> */}
+            <div className="section">
                 <ul className="tab_area">
                     <li onClick={() => { setSermonD("예배순서"); }} className={(sermonD == "예배순서") ? "on" : ""}>예배순서</li>
+                    <li onClick={() => { setSermonD("본문말씀"); }} className={(sermonD == "본문말씀") ? "on" : ""}>본문말씀</li>
                     <li onClick={() => { setSermonD("설교요지"); }} className={(sermonD == "설교요지") ? "on" : ""}>설교요지</li>
                     <li onClick={() => { setSermonD("교회소식"); }} className={(sermonD == "교회소식") ? "on" : ""}>교회소식</li>
+                    <li onClick={() => { setSermonD("주중말씀"); }} className={(sermonD == "주중말씀") ? "on" : ""}>주중말씀</li>
                 </ul>
                 <div className="tab_con">
                     {/* 예배순서 */}
                     <ul className={(sermonD == "예배순서") ? "order_wrap" : "order_wrap hide"}>
                         <li>
-                            <span>찬송</span>
+                            <span>찬송</span> 
                             <span>30장</span>
                             <span>일어서서</span>
                         </li>
@@ -135,6 +138,7 @@ export default function Sermonmain() {
                     <div className={(sermonD == "설교요지") ? "gist_wrap" : "gist_wrap hide"}>
                         <div className="gist_title">
                             하나님의 아들 그리스도
+                            <span className="textsize"></span>
                             <span className="translation"></span>
                         </div>
                         <div className="main_bible">마가복음 1:35~37</div>
@@ -200,7 +204,10 @@ export default function Sermonmain() {
 
                     {/* 교회소식 */}
                     <div className={(sermonD == "교회소식") ? "notice_wrap" : "notice_wrap hide"}>
-                        <div className="notice_title">1월은 성경 일독의 달입니다</div>
+                        <div className="notice_title">
+                            1월은 성경 일독의 달입니다
+                            <span className="textsize"></span>
+                        </div>
                         <ol className="list">
                             <li>
                                 <div className="tit">2022 성락교회 신년 전교인 성경통독사경회</div>

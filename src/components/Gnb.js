@@ -11,6 +11,7 @@ export default function Gnb() {
             <h1 className="logo" onClick={() => { router.push("/"); }}>
                 <img src="../images/logo.svg" alt="성락교회" />
             </h1>
+            <div className="live">라이브 <img src="/icons/ico_live.svg" alt="라이브" /></div>
             {/* <a href="/settings" className="alarm on"></a> */}
             {/* <span className="btn_search" onClick={() => { router.push("/search"); }}><img src="../icons/ico_search.svg" alt="검색" /></span> */}
             {/* <div className={isSearch ? "search_area on" : "search_area"}>

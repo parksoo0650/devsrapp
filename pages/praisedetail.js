@@ -21,11 +21,11 @@ export default function Praisedetail() {
     return (
         <div className="sub_container praise_detail">
             <div className="top_area">
-                <span className="btn_prev" onClick={() => router.push(`/praisemain?kind=${kind}`)}></span>
+                <span className="btn_close" onClick={() => router.push(`/praisemain?kind=${kind}`)}></span>
                 <div className="top_title">{pra_kind[kind]}</div>
             </div>
 
-            <div className="movie_wrap">
+            <div className="movie_wrap subborder">
                 <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
                     <Share title={router.query.vtit} thum={`/images/kakao_${kind}.jpg`} vid={router.query.vid} />
@@ -36,26 +36,28 @@ export default function Praisedetail() {
                 </div>
             </div>
 
-            <div className="section" style={{ display: "none" }}>
-                <ul className="tab_area">
+            {/* <div className="section" style={{ display: "none" }}> */}
+            <div className="section">
+                {/* <ul className="tab_area">
                     <li onClick={() => { setPraiseD("재생목록"); }} className={(praiseD == "재생목록") ? "on" : ""}>재생목록</li>
                     <li onClick={() => { setPraiseD("찬양목록"); }} className={(praiseD == "찬양목록") ? "on" : ""}>찬양목록</li>
-                </ul>
+                </ul> */}
                 <div className="tab_con">
 
                     {/* 재생목록 */}
                     <div className={(praiseD == "재생목록") ? "praise_wrap" : "praise_wrap hide"}>
+                  
                         <ul className="sermon_list">
                             <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                                <div className="tit">주가 나를 사랑하시어 - 뉴헤븐 성가대</div>
                                 <div className="date">2021년 11월 05일</div>
                             </li>
                             <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                                <div className="tit">주가 나를 사랑하시어 - 뉴헤븐 성가대</div>
                                 <div className="date">2021년 11월 05일</div>
                             </li>
                             <li>
-                                <div className="tit">주가 나를 사랑하시어<br />뉴헤븐 성가대</div>
+                                <div className="tit">주가 나를 사랑하시어 - 뉴헤븐 성가대</div>
                                 <div className="date">2021년 11월 05일</div>
                             </li>
                         </ul>
