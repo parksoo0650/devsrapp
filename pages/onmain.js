@@ -74,11 +74,19 @@ export default function Onmain() {
         <div className="sub_container onseries_wrap">
             <div className="top_area">
                 <span className="btn_prev" onClick={() => router.push("/contents")}></span>
-                <div className="top_title">온시리즈</div>
+                <div className="top_title">콘텐츠  <img src="/icons/ico_arrow.svg"/></div>
                 <div className="tab_wrap">
                     <ul className="tab_area">
-                        <li onClick={() => { setSeries("onm"); setIsLoading(true); }} className={(series == "onm") ? "on" : ""}>온특새</li>
+                        <li className="on">온시리즈</li>
+                        <li>환언특강</li>
+                        <li>주중 기도회</li>
+                        <li>1분 은혜</li>
+                    </ul>
+                </div>
+                <div className="dropdown">
+                    <ul>
                         <li onClick={() => { setSeries("ont"); setIsLoading(true); }} className={(series == "ont") ? "on" : ""}>온3분</li>
+                        <li onClick={() => { setSeries("onm"); setIsLoading(true); }} className={(series == "onm") ? "on" : ""}>온특새</li>
                         <li onClick={() => { setSeries("onb"); setIsLoading(true); }} className={(series == "onb") ? "on" : ""}>온성경</li>
                     </ul>
                 </div>
@@ -92,8 +100,7 @@ export default function Onmain() {
             ) : (
                 <>
                     <div className={(series == "onm") ? "onPrayer" : "onPrayer hide"}>
-                        <div className="section pt30">
-                            <div className="title">최신 컨텐츠</div>
+                        <div className="section subborder">
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
@@ -106,10 +113,11 @@ export default function Onmain() {
                             </div>
                         </div>
 
-                        <div className="section pt0">
-                            <div className="title">지난 컨텐츠 다시보기
-                                {/* <span className="filter">필터</span> */}
-                            </div>
+                        <div className="section subbordert">
+                            <ul className="sermon_filter">
+                                <li className="on">업데이트순</li>
+                                <li>회차순</li>
+                            </ul>
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {

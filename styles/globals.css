@@ -411,7 +411,7 @@ header .search_area .recent .list li .btn_delete {
 }
 .menu_wrap .menu_list {
 	margin-top: 30px;
-	border-bottom: 1px solid #ebebeb;
+
 }
 .menu_wrap .menu_list > li {
 	position: relative;
@@ -419,6 +419,9 @@ header .search_area .recent .list li .btn_delete {
     font-size: 16px;
 	font-weight: 500;
 	border-bottom: 1px solid #ebebeb;
+}
+.menu_wrap .menu_list > li:last-child {
+	border-bottom: 0px !important;
 }
 .menu_wrap .menu_list > li span:after {
 	content: '';
@@ -579,9 +582,9 @@ footer .sns_list li img {
 	COMMON
 ***********************************************************/
 /* 레이아웃 */
-.section:first-child {
+/* .section:first-child {
 	padding-top: 0px;
-}
+} */
 .section {
 	padding: 30px 15px;
 	overflow: hidden;
@@ -1030,6 +1033,7 @@ hr {
 	color:#A0A0A0;
 	font-weight:400;
 	padding: 0px 8px;
+	font-size:14px;
 }
 .top_area .dropdown li.on{
     color: #fff;
@@ -1038,6 +1042,7 @@ hr {
     background: #313131;
     display: inline;
     padding: 4px 10px;
+	font-size:14px;
 }
 .top_area .tab_wrap .tab_bar {
 	display: none;
@@ -1053,7 +1058,7 @@ hr {
 }
 .top_area .tab_area li {
 	display: inline-block;
-	padding: 0 15px;
+	padding:0 10px;
 	color: #A0A0A0;
 	font-size: 14px;
 	font-weight: 400;
@@ -2111,6 +2116,44 @@ hr {
 	margin: 0 3px;
 	font-size: 10px;
 	color: #999;
+}
+
+/**********************************************************
+	FAITH 1분은혜
+***********************************************************/
+.faith_wrap .faithmovie li {
+	display: inline-block;
+	width: 48.566%;
+	margin-bottom: 20px;
+}
+.faith_wrap .faithmovie li:nth-child(odd) {
+	margin-right:9px;
+}
+.faithmovie li .moviebox {
+	margin-bottom: 12px;
+}
+.faithmovie li .moviebox img {
+	width:100%;
+}
+.faithmovie li .tit {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 46px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+}
+.faithmovie li .date {
+	color: #A0A0A0;
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 300;
+    letter-spacing: 0.2px;
 }
 
 /**********************************************************
