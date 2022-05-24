@@ -13,6 +13,7 @@
   "dependencies": {
     "@moxy/react-wait-for-react": "^2.0.1",
     "@prisma/client": "^3.13.0",
+    "@tailwindcss/forms": "^0.5.2",
     "axios": "^0.21.4",
     "cross-env": "^7.0.3",
     "framer-motion": "^5.2.1",

@@ -24,7 +24,7 @@ export default function Home() {
   // 온특새
   const API_URL_ONM = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG`;
   // 온성경
-  const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpbN_Vhx8arRhZutfQfiYhvr`;
+  const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpZKRGb7hy_FJ1OIv4fxTF7S`;
   // 온3분
   const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
@@ -362,7 +362,7 @@ export default function Home() {
         </div>
         
         <div className="mdbanner">
-          <p class="nav">1/2</p>
+          <p className="nav">1/2</p>
           <img src="/icons/md_banner.png" alt="배너" />
         </div>
 
@@ -395,7 +395,7 @@ export default function Home() {
                         router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
                       }}
                     >
-                      <div class="movie_thumb">
+                      <div className="movie_thumb">
                         <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
                       </div>
                       <div className="info">
