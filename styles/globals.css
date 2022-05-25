@@ -202,6 +202,7 @@ header .live {
     font-family: Apple SD Gothic Neo;
 }
 header .live img { 
+	display: inline;
 	vertical-align: middle; 
 	margin-top: -3px;
 }
@@ -1009,6 +1010,10 @@ hr {
 	text-align: center;
 	height: 40px;
     line-height: 40px;
+}
+
+.top_area .top_title img{
+	display: inline;
 }
 
 .top_area .tab_wrap {

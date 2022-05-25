@@ -50,6 +50,19 @@ export default function Sermonmain() {
                 thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
                 publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
             });
+        } else {
+            apiData = await axios.get(API_URL_DEF);
+            const splitTitle = apiData.data.items[0].snippet.title.split('-');
+            const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+            const videoTitle = splitTitle[1].split('|');
+            const videoDate = splitDate[0].split('-');
+
+            setMainData({
+                videoId: apiData.data.items[0].snippet.resourceId.videoId,
+                title: videoTitle[0],
+                thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+                publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+            });
         }
         setListData(apiData.data.items);
         setIsLoading(false);
@@ -75,25 +88,23 @@ export default function Sermonmain() {
         <div className="sub_container">
             <div className="top_area">
                 <span className="btn_prev" onClick={() => router.push("/")}></span>
-                <div className="top_title">예배 <img src="/icons/ico_arrow.svg"/></div>
-                <div className={isDrop ? "tab_wrap active" : "tab_wrap"}>
-                    <div className="tab_bar">
-                        전체보기
-                        <span className="btn_close" onClick={() => setIsDrop(false)}></span>
-                    </div>
+                <div className="top_title">
+                    예배
+                    {/* <img src="/icons/ico_arrow.svg"/> */}
+                </div>
+                <div className="tab_wrap">
                     <ul className="tab_area">
                         <li onClick={() => { setSermon("def"); setIsLoading(true); }} className={(sermon == "def") ? "on" : ""}>주일설교</li>
                         <li onClick={() => { setSermon("sun"); setIsLoading(true); }} className={(sermon == "sun") ? "on" : ""}>1,3부 예배</li>
-                        <li onClick={() => { setSermon("sun"); setIsLoading(true); }} className={(sermon == "sun") ? "on" : ""}>수요예배</li>
+                        <li onClick={() => { setSermon("wed"); setIsLoading(true); }} className={(sermon == "wed") ? "on" : ""}>수요예배</li>
                     </ul>
-                    {/* <span className="btn_more" onClick={() => setIsDrop(true)}></span> */}
                 </div>
-                <div className="dropdown">
+                { (sermon == "wed") && <div className="dropdown">
                     <ul>
                         <li className="on">수요예배</li>
                         <li>수요저녁예배 및 기도회</li>
                     </ul>
-                </div>
+                </div> }
             </div>
             {/* 드롭다운 메뉴가 활성화 되면 display:block */}
             <div className="shadow"></div>

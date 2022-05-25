@@ -41,7 +41,7 @@ export default function SiteMap() {
                     </Link>
                 </li>
                 <li>
-                    <Link href={`/chapter/1/1`} >
+                    <Link href={`/returnMain`} >
                         <a onClick={menuClose}>
                             <div className="img"></div>
                             <div className="txt">환언특강</div>

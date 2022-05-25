@@ -79,7 +79,9 @@ export default function Share({ title, thum, vid }) {
                                 </li>
                                 <li>
                                     <a href="#" target="_blank">
-                                    <img src="../icons/icon_share_facebook.png" alt="facebook" />
+                                        <FacebookShareButton url={`https://youtu.be/${vid}`}>
+                                            <img src="../icons/icon_share_facebook.png" alt="facebook" />
+                                        </FacebookShareButton>
                                         <div className="tit">페이스북</div>
                                     </a>
                                 </li>
