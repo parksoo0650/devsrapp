@@ -48,35 +48,11 @@ export default function SiteMap() {
                         </a>
                     </Link>
                 </li>
-                {/* <li>
-                    <Link href="/onmain">
-                        <a onClick={menuClose}>
-                            <i className="ico"><img src="/icons/ico_quick_onseries.svg" /></i>
-                            <div className="menu">온시리즈</div>
-                        </a>
-                    </Link>
-                </li>
-                <li
-                    onClick={() => {
-                        alert("준비중입니다.");
-                    }}
-                >
-                    <i className="ico"><img src="/icons/ico_quick_weekly.svg" /></i>
-                    <div className="menu">주보</div>
-                </li> 
-                <li>
-                    <Link href="/offering">
-                        <a onClick={menuClose}>
-                            <i className="ico"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></i>
-                            <div className="menu">헌금안내</div>
-                        </a>
-                    </Link>
-                </li>*/}
             </ul>
 
             <div className="menu_wrap">
                 <ul className="menu_list">
-                    <li onClick={() => setToggle1(!toggle1)}>
+                    <li onClick={() => {setToggle2(false); setToggle3(false); setToggle1(!toggle1);} }>
                         <span>예배</span>
                         {toggle1 ? (
                             <ul className="sub_menu">
@@ -100,35 +76,20 @@ export default function SiteMap() {
                                         <a onClick={menuClose} style={{ display: "block" }}>1,3부 예배</a>
                                     </Link>
                                 </li>
-                                {/* <li>
-                                    <Link href="/returnMain">
-                                        <a onClick={menuClose} style={{ display: "block" }}>환언특강</a>
-                                    </Link>
-                                </li> */}
                                 <li>
                                     <Link
                                         href={{
-                                            pathname: '/prayerMain',
+                                            pathname: '/sermonmain',
                                             query: { kind: 'wed' },
                                         }}
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>수요예배</a>
                                     </Link>
                                 </li>
-                                {/* <li>
-                                    <Link
-                                        href={{
-                                            pathname: '/prayerMain',
-                                            query: { kind: 'fri' },
-                                        }}
-                                    >
-                                        <a onClick={menuClose} style={{ display: "block" }}>금요기도회</a>
-                                    </Link>
-                                </li> */}
                             </ul>
                         ) : (null)}
                     </li>
-                    <li onClick={() => setToggle2(!toggle2)}>
+                    <li onClick={() => { setToggle1(false); setToggle3(false); setToggle2(!toggle2); }}>
                         <span>찬양</span>
                         {toggle2 ? (
                             <ul className="sub_menu">
@@ -160,7 +121,7 @@ export default function SiteMap() {
                             <a onClick={menuClose} style={{ display: "block" }}>성경</a>
                         </Link>
                     </li>
-                    <li onClick={() => setToggle3(!toggle3)}>
+                    <li onClick={() => { setToggle1(false); setToggle2(false); setToggle3(!toggle3); }}>
                         <span>콘텐츠</span>
                         {toggle3 ? (
                             <ul className="sub_menu">
@@ -168,7 +129,6 @@ export default function SiteMap() {
                                     <Link
                                         href={{
                                             pathname: '/onmain',
-                                            query: { kind: 'onb' },
                                         }}
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>온시리즈</a>
@@ -177,8 +137,7 @@ export default function SiteMap() {
                                 <li>
                                     <Link
                                         href={{
-                                            pathname: '/onmain',
-                                            query: { kind: 'onm' },
+                                            pathname: '/returnMain',
                                         }}
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>환언특강</a>
@@ -187,8 +146,7 @@ export default function SiteMap() {
                                 <li>
                                     <Link
                                         href={{
-                                            pathname: '/onmain',
-                                            query: { kind: 'ont' },
+                                            pathname: '/prayerMain',
                                         }}
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>주중 기도회</a>
@@ -197,8 +155,7 @@ export default function SiteMap() {
                                 <li>
                                     <Link
                                         href={{
-                                            pathname: '/onmain',
-                                            query: { kind: 'ont' },
+                                            pathname: '/faith',
                                         }}
                                     >
                                         <a onClick={menuClose} style={{ display: "block" }}>1분 은혜</a>
