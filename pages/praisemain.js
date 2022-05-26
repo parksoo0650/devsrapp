@@ -36,7 +36,7 @@ export default function Praisemain() {
             videoId: apiData.data.items[0].snippet.resourceId.videoId,
             title: videoTitle,
             thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
-            publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+            publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
         });
         setListData(apiData.data.items);
         setIsLoading(false);
@@ -62,12 +62,8 @@ export default function Praisemain() {
         <div className="sub_container">
             <div className="top_area">
                 <span className="btn_prev" onClick={() => router.push("/")}></span>
-                <div className="top_title">찬양 <img src="/icons/ico_arrow.svg"/></div>
+                <div className="top_title">찬양</div>
                 <div className="tab_wrap">
-                    <div className="tab_bar">
-                        전체보기
-                        <span className="btn_close" onClick={() => setIsDrop(false)}></span>
-                    </div>
                     <ul className="tab_area">
                         <li onClick={() => { setPraise("prc"); setIsLoading(true); }} className={(praise == "prc") ? "on" : ""}>성가대</li>
                         <li onClick={() => { setPraise("pro"); setIsLoading(true); }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
@@ -109,7 +105,7 @@ export default function Praisemain() {
                                     let ListTitle = splitListTitle[0];
                                     let splitListDate = doc.snippet.publishedAt.split('T');
                                     let ListDate = splitListDate[0].split('-');
-                                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                                     return (
                                         <li 
                                             key={doc.id}
@@ -118,7 +114,7 @@ export default function Praisemain() {
                                             }}
                                         >
                                             <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
-                                            <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
                                         </li>
                                     )
                                 })

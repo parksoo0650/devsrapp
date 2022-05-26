@@ -429,7 +429,6 @@ header .search_area .recent .list li .btn_delete {
 	display: inline-block;
 	position: absolute;
 	right: 0;
-	top: 15px;
 	width: 24px;
 	height: 24px;
 	background: url('/icons/ico_drop.svg') no-repeat center	center;
@@ -1022,7 +1021,6 @@ hr {
     line-height: 42px;
     display: block;
 	text-align: center;
-	border-bottom: 1px solid #EBEDEF;
 }
 
 .top_area .dropdown {
@@ -1203,7 +1201,7 @@ hr {
 }
 .sermon_list .tit {
 	font-size: 14px;
-	width: 76%;
+	width: 70%;
     font-weight: 500;
     line-height: 17px;
     overflow: hidden;

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 export default function HomeBar() {
     const router = useRouter();
     const pathNameSplit = router.pathname.split('/');
+    const contentPages = ["/onmain", "/prayerMain", "/returnMain", "/praisemain"];
 
     return (
         <>
@@ -41,10 +42,10 @@ export default function HomeBar() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/contents">
+                    <Link href="/onmain">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/contents") ? "/icons/ico_content.svg" : "/icons/ico_content_off.svg"} alt="콘텐츠" />
+                                <img src={(contentPages.includes(router.pathname)) ? "/icons/ico_content.svg" : "/icons/ico_content_off.svg"} alt="콘텐츠" />
                             </div>
                             <div className="menu">콘텐츠</div>
                         </a>
