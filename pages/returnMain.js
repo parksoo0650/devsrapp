@@ -4,6 +4,7 @@ import axios from "axios";
 import YouTube from 'react-youtube';
 import Share from "../src/components/Share";
 import Loading from "../src/components/Loading";
+import ContentTab from "../src/components/ContentTab";
 
 export default function Sermonmain() {
     const router = useRouter();
@@ -26,7 +27,7 @@ export default function Sermonmain() {
             videoId: apiData.data.items[0].snippet.resourceId.videoId,
             title: videoTitle,
             thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
-            publishedAt: videoDate[0] + "년 " + videoDate[1] + "월 " + videoDate[2] + "일"
+            publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
         });
 
         setListData(apiData.data.items);
@@ -48,8 +49,7 @@ export default function Sermonmain() {
     return (
         <div className="sub_container">
             <div className="top_area">
-                <span className="btn_prev" onClick={() => router.push("/contents")}></span>
-                <div className="top_title">환언특강</div>
+                <ContentTab />
             </div>
 
             {(isLoading === true) ? (
@@ -58,8 +58,7 @@ export default function Sermonmain() {
                 </div>
             ) : (
                 <>
-                    <div className="section pt30">
-                        <div className="title">최신 컨텐츠</div>
+                    <div className="section pt0 subborder">
                         <div className="movie_wrap">
                             <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                             <div className="info">
@@ -78,16 +77,14 @@ export default function Sermonmain() {
                         </div>
                     </div>
 
-                    <div className="section pt0">
-                        <div className="title">지난 예배 다시보기
-                        </div>
+                    <div className="section subbordert">
                         <ul className="sermon_list">
                             {
                                 listData.map((doc, i) => {
                                     let splitListDate = doc.snippet.publishedAt.split('T');
                                     let ListDate = splitListDate[0].split('-');
                                     let ListTitle = doc.snippet.title;
-                                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                                     if (i == 0) {
                                         return false;
                                     }
@@ -98,8 +95,8 @@ export default function Sermonmain() {
                                                 router.push(`/returnDetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}`, "/sermondetail");
                                             }}
                                         >
-                                            <div className="tit">{ListTitle.substring(0, 24)}...</div>
-                                            <div className="date">{ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일"}</div>
+                                            <div className="tit">{ListTitle}</div>
+                                            <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
                                             <div className="preacher">설교 : 김기동 원로감독</div>
                                         </li>
                                     )

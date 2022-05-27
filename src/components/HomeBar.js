@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export default function HomeBar() {
     const router = useRouter();
     const pathNameSplit = router.pathname.split('/');
-    const contentPages = ["/onmain", "/prayerMain", "/returnMain", "/praisemain"];
+    const contentPages = ["/onmain", "/prayerMain", "/returnMain"];
 
     return (
         <>

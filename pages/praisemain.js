@@ -65,8 +65,8 @@ export default function Praisemain() {
                 <div className="top_title">찬양</div>
                 <div className="tab_wrap">
                     <ul className="tab_area">
-                        <li onClick={() => { setPraise("prc"); setIsLoading(true); }} className={(praise == "prc") ? "on" : ""}>성가대</li>
-                        <li onClick={() => { setPraise("pro"); setIsLoading(true); }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
+                        <li onClick={() => { if(praise != "prc") { setPraise("prc"); setIsLoading(true); } }} className={(praise == "prc") ? "on" : ""}>성가대</li>
+                        <li onClick={() => { if(praise != "pro") { setPraise("pro"); setIsLoading(true); } }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
                     </ul>
                 </div>
             </div>
@@ -94,10 +94,6 @@ export default function Praisemain() {
                         </div>
                     </div>
                     <div className="section subbordert">
-                        <ul className="sermon_filter">
-                            <li className="on">업데이트순</li>
-                            <li>회차순</li>
-                        </ul>
                         <ul className="sermon_list">
                             {
                                 listData.map((doc, i) => {
@@ -113,7 +109,7 @@ export default function Praisemain() {
                                                 router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${praise}`, "/praisedetail");
                                             }}
                                         >
-                                            <div className="tit">{ListTitle.substring(0, 24)}{(ListTitle.length > 24) ? "..." : ""}</div>
+                                            <div className="tit">{ListTitle}</div>
                                             <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
                                         </li>
                                     )

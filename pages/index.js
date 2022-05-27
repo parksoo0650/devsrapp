@@ -103,52 +103,53 @@ export default function Home() {
     onInint();
 
     weekDataOnm.forEach((doc) => {
-      let splitDateOnm = doc.snippet.publishedAt.split('T');
-      if (getDate(splitDateOnm[0]) === day) {
-        let splitTitleOnm1 = doc.snippet.title.split('-');
-        let splitTitleOnm2 = splitTitleOnm1[1].split('|');
-        setWeekSelectDataOnm({
-          title: splitTitleOnm2[0],
-          date: splitTitleOnm2[1],
-          videoId: doc.snippet.resourceId.videoId,
-          thumbnails: doc.snippet.thumbnails
-        });
+      if (doc.snippet.title !== "Private video") {
+        let splitDateOnm = doc.snippet.publishedAt.split('T');
+        if (getDate(splitDateOnm[0]) === day) {
+          let splitTitleOnm1 = doc.snippet.title.split('-');
+          let splitTitleOnm2 = splitTitleOnm1[1].split('|');
+          setWeekSelectDataOnm({
+            title: splitTitleOnm2[0],
+            date: splitTitleOnm2[1],
+            videoId: doc.snippet.resourceId.videoId,
+            thumbnails: doc.snippet.thumbnails
+          });
+        }
         return false;
       }
     });
 
     weekDataOnb.forEach((doc) => {
-      let splitDateOnb = doc.snippet.publishedAt.split('T');
-      let splitTitleOnb1 = [];
-      if (getDate(splitDateOnb[0]) === day) {
-        if (doc.snippet.title !== "Private video") {
+      if (doc.snippet.title !== "Private video") {
+        let splitDateOnb = doc.snippet.publishedAt.split('T');
+        let splitTitleOnb1 = [];
+        if (getDate(splitDateOnb[0]) === day) {
           splitTitleOnb1 = doc.snippet.title.split('|');
-        } else {
-          splitTitleOnb1[0] = "";
-          splitTitleOnb1[1] = "";
+          setWeekSelectDataOnb({
+            title: splitTitleOnb1[0],
+            date: splitTitleOnb1[1],
+            videoId: doc.snippet.resourceId.videoId,
+            thumbnails: doc.snippet.thumbnails
+          });
         }
-        setWeekSelectDataOnb({
-          title: splitTitleOnb1[0],
-          date: splitTitleOnb1[1],
-          videoId: doc.snippet.resourceId.videoId,
-          thumbnails: doc.snippet.thumbnails
-        });
         return false;
       }
     });
 
     if (day === "금") {
       weekDataOns.forEach((doc) => {
-        let splitDateOns = doc.snippet.publishedAt.split('T');
-        if (getDate(splitDateOns[0]) === day) {
-          let splitTitleOns1 = doc.snippet.title.split('-');
-          let splitTitleOns2 = splitTitleOns1[1].split('|');
-          setWeekSelectDataOns({
-            title: splitTitleOns2[0],
-            date: splitTitleOns2[1],
-            videoId: doc.snippet.resourceId.videoId,
-            thumbnails: doc.snippet.thumbnails
-          });
+        if (doc.snippet.title !== "Private video") {
+          let splitDateOns = doc.snippet.publishedAt.split('T');
+          if (getDate(splitDateOns[0]) === day) {
+            let splitTitleOns1 = doc.snippet.title.split('-');
+            let splitTitleOns2 = splitTitleOns1[1].split('|');
+            setWeekSelectDataOns({
+              title: splitTitleOns2[0],
+              date: splitTitleOns2[1],
+              videoId: doc.snippet.resourceId.videoId,
+              thumbnails: doc.snippet.thumbnails
+            });
+          }
           return false;
         }
       });
@@ -228,7 +229,7 @@ export default function Home() {
               <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금요일</li>
             </ul>
             <ul className="con_list">
-              {(weekSelectDataOnm.title) ? (
+              {(weekSelectDataOnm.title) &&
                 <li
                   onClick={() => {
                     router.push(`/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`, "/onprayerdetail");
@@ -247,8 +248,8 @@ export default function Home() {
                     <div className="date">{weekSelectDataOnm.date}</div>
                   </div>
                 </li>
-              ) : (null)}
-              {(weeks != "수" && weekSelectDataOnb.title) ? (
+              }
+              {(weeks != "수" && weekSelectDataOnb.title) &&
                 <li
                   onClick={() => {
                     router.push(`/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`, "/onbibledetail");
@@ -262,13 +263,12 @@ export default function Home() {
                   <div className="info">
                     <div className="tit">
                       {weekSelectDataOnb.title}
-                      {/* <span className="tag_up">UP</span> */}
                     </div>
                     <div className="date">{weekSelectDataOnb.date}</div>
                   </div>
                 </li>
-              ) : (null)}
-              {(weekSelectDataOns.title) ? (
+              }
+              {(weekSelectDataOns.title) &&
                 <li
                   onClick={() => {
                     router.push(`/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`, "/onthreedetail");
@@ -282,12 +282,11 @@ export default function Home() {
                   <div className="info">
                     <div className="tit">
                       {weekSelectDataOns.title}
-                      {/* <span className="tag_up">UP</span> */}
                     </div>
                     <div className="date">{weekSelectDataOns.date}</div>
                   </div>
                 </li>
-              ) : (null)}
+              }
             </ul>
           </div>
         </div>

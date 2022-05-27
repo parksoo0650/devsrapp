@@ -20,7 +20,6 @@ export default function Sermonmain() {
     const [mainData, setMainData] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
     const [listData, setListData] = useState([]);
     const [sermon, setSermon] = useState(kind);
-    const [isDrop, setIsDrop] = useState(false);
     const [isFilter, setIsFilter] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -111,22 +110,7 @@ export default function Sermonmain() {
                         <li onClick={() => { if(sermon != "wed") { setSermon("wed"); setIsLoading(true); } }} className={(sermon == "wed") ? "on" : ""}>수요예배</li>
                     </ul>
                 </div>
-                {/* <div className="dropdown">
-                    <ul>
-                        <li className="on">수요예배</li>
-                        <li>수요저녁예배 및 기도회</li>
-                    </ul>
-                </div> */}
             </div>
-            {/* 드롭다운 메뉴가 활성화 되면 display:block */}
-            <div className="shadow"></div>
-            <style jsx>
-                {`
-            .shadow {
-                display: ${isDrop ? "block" : "none"};
-            }
-            `}
-            </style>
 
             {(isLoading === true) ? (
                 <div className="loading_box">
@@ -154,10 +138,6 @@ export default function Sermonmain() {
                     </div>
 
                     <div className="section subbordert">
-                        {/* <ul className="sermon_filter">
-                            <li className="on">업데이트순</li>
-                            <li>회차순</li>
-                        </ul> */}
                         <ul className="sermon_list">
                             {
                                 listData.map((doc, i) => {
