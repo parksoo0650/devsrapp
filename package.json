@@ -32,6 +32,7 @@
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
     "react-youtube": "^7.13.1",
+    "reactjs-popup": "^2.0.5",
     "sass": "^1.45.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",

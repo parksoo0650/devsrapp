@@ -5,11 +5,12 @@ import YouTube from 'react-youtube';
 import Share from "../src/components/Share";
 import Loading from "../src/components/Loading";
 import ContentTab from "../src/components/ContentTab";
+import Popup from 'reactjs-popup';
 
 export default function faith() {
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=10&
-    channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=shorts_성락교회감독김성현목사&order=date`;
+    const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&
+    channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락교회설교숏츠&order=date`;
 
     const [listData, setListData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -25,10 +26,10 @@ export default function faith() {
     }, []);
 
     const opts = {
-        width: "320px",
-        height: "200px",
+        width: "1000",
+        height: "1000",
         playerVars: {
-            autoplay: 1, rel: 0, modestbranding: 1
+            autoplay: 0, rel: 0, modestbranding: 1
         },
     };
 
@@ -46,14 +47,36 @@ export default function faith() {
                     <ul className="faithmovie">
                         {
                             listData.map((doc, i) => {
-                                console.log(doc);
                                 let listTitle = doc.snippet.title.split('-');
                                 let splitListDate = doc.snippet.publishedAt.split('T');
                                 let ListDate = splitListDate[0].split('-');
                                 let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                                 return (
                                     <li key={i}>
-                                        <div className="moviebox"></div>
+                                        {/* <div className="popup-content">
+                                            <a className="close" onClick={close}>
+                                                &times;
+                                            </a>
+                                            <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                        </div> */}
+                                        <Popup
+                                            trigger={<div className="moviebox"></div>}
+                                            modal
+                                            nested
+                                        >
+                                            {close => (
+                                                <div className="modal">
+                                                    <button className="close" onClick={close}>
+                                                        &times;
+                                                    </button>
+                                                    <div className="header"></div>
+                                                    <div className="content">
+                                                        <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                                    </div>
+                                                </div>
+
+                                            )}
+                                        </Popup>
                                         <style jsx>
                                             {`
                                             .moviebox {

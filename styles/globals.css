@@ -2159,7 +2159,22 @@ hr {
     font-weight: 300;
     letter-spacing: 0.2px;
 }
-
+.popup-overlay {
+	z-index: 1000;
+	background:red;
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+}
+.modal > .header {
+	width: 100%;
+	border-bottom: 1px solid gray;
+	font-size: 18px;
+	text-align: center;
+	padding: 5px;
+}
 /**********************************************************
 	OFFERING(헌금)
 ***********************************************************/
