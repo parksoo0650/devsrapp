@@ -26,8 +26,8 @@ export default function faith() {
     }, []);
 
     const opts = {
-        width: "1000",
-        height: "1000",
+        width: "320px",
+        height: "700px",
         playerVars: {
             autoplay: 0, rel: 0, modestbranding: 1
         },
@@ -74,7 +74,6 @@ export default function faith() {
                                                         <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
                                                     </div>
                                                 </div>
-
                                             )}
                                         </Popup>
                                         <style jsx>
