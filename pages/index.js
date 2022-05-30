@@ -306,19 +306,19 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
               <div className="txt">성경</div>
             </li>
-            {/* <li onClick={() => { router.push("/"); }}>
+            <li onClick={() => { router.push("/returnMain"); }}>
               <div className="img"></div>
               <div className="txt">환언특강</div>
-            </li> */}
+            </li>
             <li onClick={() => { router.push("/onmain"); }}>
               <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
               <div className="txt">온시리즈</div>
             </li>
-            {/* <li onClick={() => { router.push("/"); }}>
+            <li onClick={() => { router.push("/faith"); }}>
               <div className="img"></div>
               <div className="txt">1분은혜</div>
             </li>
-            <li onClick={() => { router.push("/"); }}>
+            {/* <li onClick={() => { router.push("/"); }}>
               <div className="img"></div>
               <div className="txt">주보</div>
             </li>

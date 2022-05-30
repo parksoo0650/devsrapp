@@ -84,9 +84,9 @@ export default function Sermonmain() {
                 <ContentTab />
                 <div className="dropdown">
                     <ul>
-                        <li onClick={() => { setSermon("onm"); setIsLoading(true); }} className={(sermon == "onm") ? "on" : ""}>온특새</li>
-                        <li onClick={() => { setSermon("wed"); setIsLoading(true); }} className={(sermon == "wed") ? "on" : ""}>수요저녁예배 및 기도회</li>
-                        <li onClick={() => { setSermon("fri"); setIsLoading(true); }} className={(sermon == "fri") ? "on" : ""}>금요기도회</li>
+                        <li onClick={() => { if(sermon != "onm") { setSermon("onm"); setIsLoading(true); } }} className={(sermon == "onm") ? "on" : ""}>온특새</li>
+                        <li onClick={() => { if(sermon != "wed") { setSermon("wed"); setIsLoading(true); } }} className={(sermon == "wed") ? "on" : ""}>수요저녁예배 및 기도회</li>
+                        <li onClick={() => { if(sermon != "fri") { setSermon("fri"); setIsLoading(true); } }} className={(sermon == "fri") ? "on" : ""}>금요기도회</li>
                     </ul>
                 </div>
             </div>
@@ -122,7 +122,7 @@ export default function Sermonmain() {
                                     let splitListDate = doc.snippet.publishedAt.split('T');
                                     let ListDate = splitListDate[0].split('-');
                                     let ListTitle = doc.snippet.title;
-                                    let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                                     if (i == 0 && sermon != "sun") {
                                         return false;
                                     }

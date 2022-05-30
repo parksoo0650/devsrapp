@@ -9,8 +9,7 @@ import Popup from 'reactjs-popup';
 
 export default function faith() {
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&
-    channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락교회설교숏츠&order=date`;
+    const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락숏츠&order=date`;
 
     const [listData, setListData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -85,7 +84,7 @@ export default function faith() {
                                             `}
                                         </style>
                                         <div className="info">
-                                            <div className="tit">{listTitle[0]}</div>
+                                            <div className="tit">1분은혜 - {listTitle[0]}</div>
                                             <div className="date">{lDate}</div>
                                         </div>
                                     </li>
