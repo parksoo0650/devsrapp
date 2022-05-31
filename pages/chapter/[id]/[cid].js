@@ -33,9 +33,9 @@ const Post = ({ items, bid, cid }) => {
                 {book_name[bid]} {cid}장 <span className="arrow"></span>
               </div>
               <ul className="tool_list">
-                <li onClick={handleToggle}>
+                {/* <li onClick={handleToggle}>
                   <img src="/icons/ico_setting.svg" alt="설정" />
-                </li>
+                </li> */}
                 <li>
                   <img src="/icons/ico_search.svg" alt="검색" />
                 </li>

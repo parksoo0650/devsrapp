@@ -1586,6 +1586,11 @@ hr {
 	right: 15px;
 	top: 0;
 	display: flex;
+	height: 100%;
+	align-items: center;
+}
+.top_area .tool_list img {
+	display: inline;
 }
 .top_area .tool_list li + li {
 	margin-left: 15px;
@@ -1598,7 +1603,6 @@ hr {
 	align-items: center;
 	position: absolute;
 	left: 0;
-	top: 50px;
 	width: 100%;
 	padding: 20px 15px;
 	line-height: 34px;

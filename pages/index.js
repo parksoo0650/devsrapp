@@ -245,7 +245,7 @@ export default function Home() {
                       {weekSelectDataOnm.title}
                       {/* <span className="tag_up">UP</span> */}
                     </div>
-                    <div className="date">{weekSelectDataOnm.date}</div>
+                    <div className="date">{weekSelectDataOnm.date.substring(0,10)}</div>
                   </div>
                 </li>
               }
@@ -264,7 +264,7 @@ export default function Home() {
                     <div className="tit">
                       {weekSelectDataOnb.title}
                     </div>
-                    <div className="date">{weekSelectDataOnb.date}</div>
+                    <div className="date">{weekSelectDataOnb.date.substring(0,10)}</div>
                   </div>
                 </li>
               }
@@ -283,7 +283,7 @@ export default function Home() {
                     <div className="tit">
                       {weekSelectDataOns.title}
                     </div>
-                    <div className="date">{weekSelectDataOns.date}</div>
+                    <div className="date">{weekSelectDataOns.date.substring(0,10)}</div>
                   </div>
                 </li>
               }
