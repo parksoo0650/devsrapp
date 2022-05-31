@@ -14,7 +14,7 @@ export default function Sermonmain() {
     <div className="sub_container offering_wrap">
       <div className="top_area">
         <span className="btn_prev" onClick={() => router.push("/")}></span>
-        <div className="top_title">헌금안내 <img src="/icons/ico_arrow.svg"/></div>
+        <div className="top_title">헌금안내</div>
         <div className="domestic_wrap">
             <ul className="tab_area">
                 <li onClick={() => {setOffering("국내");}} className={offering == "국내" ? "on" : ""}>국내</li>

@@ -295,7 +295,7 @@ export default function Home() {
           {/* <div className="title">빠른접근</div> */}
           <ul className="quick_menu">
             <li onClick={() => { router.push("/sermonmain"); }}>
-              <div className="img"><img src="/icons/ico_quick_sermon.svg" alt="예배" /></div>
+              <div className="img"><img src="/icons/ico_sermon_new.svg" alt="예배" /></div>
               <div className="txt">예배</div>
             </li>
             <li onClick={() => { router.push("/praisemain"); }}>

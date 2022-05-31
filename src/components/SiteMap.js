@@ -19,7 +19,7 @@ export default function SiteMap() {
                 <li>
                     <Link href={`/sermonmain`} >
                         <a onClick={menuClose}>
-                            <div className="img"><img src="/icons/ico_quick_sermon.svg" alt="예배" /></div>
+                            <div className="img"><img src="/icons/ico_sermon_new.svg" alt="예배" /></div>
                             <div className="txt">예배</div>
                         </a>
                     </Link>
@@ -43,7 +43,7 @@ export default function SiteMap() {
                 <li>
                     <Link href={`/returnMain`} >
                         <a onClick={menuClose}>
-                            <div className="img"></div>
+                            <div className="img"><img src="/icons/ico_shorts.svg" alt="환언특강" /></div>
                             <div className="txt">환언특강</div>
                         </a>
                     </Link>
