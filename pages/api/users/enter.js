@@ -32,9 +32,7 @@ async function handler(req, res) {
         },
     });
 
-    if (phone) {
-        console.log(token);
-    } else if (email) {
+    if (email) {
         // const email = await mail.send({
         //     from: "sprs.sungrak@gmail.com",
         //     to: `${user.email}`,
