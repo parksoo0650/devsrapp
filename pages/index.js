@@ -302,10 +302,6 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
-            <li onClick={() => { router.push("/chapter/1/1"); }}>
-              <div className="img"><img src="/icons/ico_quick_bible1.svg" alt="성경" /></div>
-              <div className="txt">성경</div>
-            </li>
             <li onClick={() => { router.push("/returnMain"); }}>
               <div className="img"><img src="/icons/ico_return.svg" alt="환언특강" /></div>
               <div className="txt">환언특강</div>

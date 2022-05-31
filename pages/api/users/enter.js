@@ -28,15 +28,6 @@ async function handler(req, res) {
                 connect: {
                     id: user.id,
                 },
-                // connectOrCreate: {
-                //     where: {
-                //         ...user,
-                //     },
-                //     create: {
-                //         name: "Anonymous",
-                //         ...user,
-                //     },
-                // },
             },
         },
     });
@@ -44,14 +35,14 @@ async function handler(req, res) {
     if (phone) {
         console.log(token);
     } else if (email) {
-        const email = await mail.send({
-            from: "sprs.sungrak@gmail.com",
-            to: `${user.email}`,
-            subject: "Your SRAPP Admin Verification Email",
-            text: `Your token is ${payload}`,
-            html: `<strong>Your token is ${payload}</strong>`,
-        });
-        console.log(email);
+        // const email = await mail.send({
+        //     from: "sprs.sungrak@gmail.com",
+        //     to: `${user.email}`,
+        //     subject: "Your SRAPP Admin Verification Email",
+        //     text: `Your token is ${payload}`,
+        //     html: `<strong>Your token is ${payload}</strong>`,
+        // });
+        // console.log(email);
     }
 
     return res.json({
