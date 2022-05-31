@@ -4,6 +4,7 @@ import axios from "axios";
 import YouTube from 'react-youtube';
 import Share from "../src/components/Share";
 import Loading from "../src/components/Loading";
+import HomeBar from "../src/components/HomeBar";
 
 export default function Praisemain() {
     const router = useRouter();
@@ -59,66 +60,69 @@ export default function Praisemain() {
     };
 
     return (
-        <div className="sub_container">
-            <div className="top_area">
-                <span className="btn_prev" onClick={() => router.push("/")}></span>
-                <div className="top_title">찬양</div>
-                <div className="tab_wrap">
-                    <ul className="tab_area">
-                        <li onClick={() => { if(praise != "prc") { setPraise("prc"); setIsLoading(true); } }} className={(praise == "prc") ? "on" : ""}>성가대</li>
-                        <li onClick={() => { if(praise != "pro") { setPraise("pro"); setIsLoading(true); } }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
-                    </ul>
-                </div>
-            </div>
-            {(isLoading === true) ? (
-                <div className="loading_box">
-                    <Loading />
-                </div>
-            ) : (
-                <>
-                    <div className="section pt0 subborder">
-                        <div className="movie_wrap">
-                            <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
-                            <div className="info">
-                                <Share title={mainData.title} thum={`/images/kakao_${praise}.jpg`} vid={mainData.videoId} />
-                                <div
-                                    className="tit" 
-                                    onClick={() => {
-                                        router.push(`/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/praisedetail");
-                                    }}
-                                >
-                                    {mainData.title}
-                                </div>
-                                <div className="date">{mainData.publishedAt}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="section subbordert">
-                        <ul className="sermon_list">
-                            {
-                                listData.map((doc, i) => {
-                                    let splitListTitle = doc.snippet.title.split('|');
-                                    let ListTitle = splitListTitle[0];
-                                    let splitListDate = doc.snippet.publishedAt.split('T');
-                                    let ListDate = splitListDate[0].split('-');
-                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                                    return (
-                                        <li 
-                                            key={doc.id}
-                                            onClick={() => {
-                                                router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${praise}`, "/praisedetail");
-                                            }}
-                                        >
-                                            <div className="tit">{ListTitle}</div>
-                                            <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
-                                        </li>
-                                    )
-                                })
-                            }
+        <>
+            <div className="sub_container">
+                <div className="top_area">
+                    <span className="btn_prev" onClick={() => router.push("/")}></span>
+                    <div className="top_title">찬양</div>
+                    <div className="tab_wrap">
+                        <ul className="tab_area">
+                            <li onClick={() => { if (praise != "prc") { setPraise("prc"); setIsLoading(true); } }} className={(praise == "prc") ? "on" : ""}>성가대</li>
+                            <li onClick={() => { if (praise != "pro") { setPraise("pro"); setIsLoading(true); } }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
                         </ul>
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+                {(isLoading === true) ? (
+                    <div className="loading_box">
+                        <Loading />
+                    </div>
+                ) : (
+                    <>
+                        <div className="section pt0 subborder">
+                            <div className="movie_wrap">
+                                <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                <div className="info">
+                                    <Share title={mainData.title} thum={`/images/kakao_${praise}.jpg`} vid={mainData.videoId} />
+                                    <div
+                                        className="tit"
+                                        onClick={() => {
+                                            router.push(`/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/praisedetail");
+                                        }}
+                                    >
+                                        {mainData.title}
+                                    </div>
+                                    <div className="date">{mainData.publishedAt}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="section subbordert">
+                            <ul className="sermon_list">
+                                {
+                                    listData.map((doc, i) => {
+                                        let splitListTitle = doc.snippet.title.split('|');
+                                        let ListTitle = splitListTitle[0];
+                                        let splitListDate = doc.snippet.publishedAt.split('T');
+                                        let ListDate = splitListDate[0].split('-');
+                                        let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
+                                        return (
+                                            <li
+                                                key={doc.id}
+                                                onClick={() => {
+                                                    router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${praise}`, "/praisedetail");
+                                                }}
+                                            >
+                                                <div className="tit">{ListTitle}</div>
+                                                <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    </>
+                )}
+            </div>
+            <HomeBar />
+        </>
     );
 }

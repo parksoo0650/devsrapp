@@ -5,6 +5,7 @@ import YouTube from 'react-youtube';
 import Share from "../src/components/Share";
 import Loading from "../src/components/Loading";
 import ContentTab from "../src/components/ContentTab";
+import HomeBar from "../src/components/HomeBar";
 
 export default function Sermonmain() {
     const router = useRouter();
@@ -36,8 +37,8 @@ export default function Sermonmain() {
         }
         let splitTitle = "";
         let splitDate = "";
-        if( sermon === "wed"){
-            if(apiData.data.items[0].snippet.title.includes("수요저녁예배")){
+        if (sermon === "wed") {
+            if (apiData.data.items[0].snippet.title.includes("수요저녁예배")) {
                 splitTitle = apiData.data.items[0].snippet.title.split('|');
                 splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
             } else {
@@ -79,73 +80,76 @@ export default function Sermonmain() {
     };
 
     return (
-        <div className="sub_container">
-            <div className="top_area">
-                <ContentTab />
-                <div className="dropdown">
-                    <ul>
-                        <li onClick={() => { if(sermon != "onm") { setSermon("onm"); setIsLoading(true); } }} className={(sermon == "onm") ? "on" : ""}>온특새</li>
-                        <li onClick={() => { if(sermon != "wed") { setSermon("wed"); setIsLoading(true); } }} className={(sermon == "wed") ? "on" : ""}>수요저녁예배 및 기도회</li>
-                        <li onClick={() => { if(sermon != "fri") { setSermon("fri"); setIsLoading(true); } }} className={(sermon == "fri") ? "on" : ""}>금요기도회</li>
-                    </ul>
-                </div>
-            </div>
-
-            {(isLoading === true) ? (
-                <div className="loading_box">
-                    <Loading />
-                </div>
-            ) : (
-                <>
-                    <div className="section subborder">
-                        <div className="movie_wrap">
-                            <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
-                            <div className="info">
-                                <Share title={mainData.title} thum={`/images/kakao_${sermon}.jpg`} vid={mainData.videoId} />
-                                <div
-                                    className="tit"
-                                    onClick={() => {
-                                        router.push(`/prayerDetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${sermon}`, "/sermondetail");
-                                    }}
-                                >
-                                    {mainData.title}
-                                </div>
-                                <div className="date">{mainData.publishedAt}</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="section subbordert">
-                        <ul className="sermon_list">
-                            {
-                                listData.map((doc, i) => {
-                                    let splitListDate = doc.snippet.publishedAt.split('T');
-                                    let ListDate = splitListDate[0].split('-');
-                                    let ListTitle = doc.snippet.title;
-                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                                    if (i == 0 && sermon != "sun") {
-                                        return false;
-                                    }
-                                    if((sermon == "wed") && !ListTitle.includes("수요저녁예배")) {
-                                        return false;
-                                    }
-                                    return (
-                                        <li
-                                            key={doc.id}
-                                            onClick={() => {
-                                                router.push(`/prayerDetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${sermon}`, "/sermondetail");
-                                            }}
-                                        >
-                                            <div className="tit">{ListTitle}</div>
-                                            <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
-                                        </li>
-                                    )
-                                })
-                            }
+        <>
+            <div className="sub_container">
+                <div className="top_area">
+                    <ContentTab />
+                    <div className="dropdown">
+                        <ul>
+                            <li onClick={() => { if (sermon != "onm") { setSermon("onm"); setIsLoading(true); } }} className={(sermon == "onm") ? "on" : ""}>온특새</li>
+                            <li onClick={() => { if (sermon != "wed") { setSermon("wed"); setIsLoading(true); } }} className={(sermon == "wed") ? "on" : ""}>수요저녁예배 및 기도회</li>
+                            <li onClick={() => { if (sermon != "fri") { setSermon("fri"); setIsLoading(true); } }} className={(sermon == "fri") ? "on" : ""}>금요기도회</li>
                         </ul>
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+
+                {(isLoading === true) ? (
+                    <div className="loading_box">
+                        <Loading />
+                    </div>
+                ) : (
+                    <>
+                        <div className="section subborder">
+                            <div className="movie_wrap">
+                                <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                <div className="info">
+                                    <Share title={mainData.title} thum={`/images/kakao_${sermon}.jpg`} vid={mainData.videoId} />
+                                    <div
+                                        className="tit"
+                                        onClick={() => {
+                                            router.push(`/prayerDetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${sermon}`, "/sermondetail");
+                                        }}
+                                    >
+                                        {mainData.title}
+                                    </div>
+                                    <div className="date">{mainData.publishedAt}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section subbordert">
+                            <ul className="sermon_list">
+                                {
+                                    listData.map((doc, i) => {
+                                        let splitListDate = doc.snippet.publishedAt.split('T');
+                                        let ListDate = splitListDate[0].split('-');
+                                        let ListTitle = doc.snippet.title;
+                                        let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
+                                        if (i == 0 && sermon != "sun") {
+                                            return false;
+                                        }
+                                        if ((sermon == "wed") && !ListTitle.includes("수요저녁예배")) {
+                                            return false;
+                                        }
+                                        return (
+                                            <li
+                                                key={doc.id}
+                                                onClick={() => {
+                                                    router.push(`/prayerDetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${sermon}`, "/sermondetail");
+                                                }}
+                                            >
+                                                <div className="tit">{ListTitle}</div>
+                                                <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
+                                            </li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    </>
+                )}
+            </div>
+            <HomeBar />
+        </>
     );
 }

@@ -9,6 +9,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import Link from "next/link";
 import Loading from "../src/components/Loading";
 import Share from "../src/components/Share";
+import HomeBar from "../src/components/HomeBar";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -462,6 +463,7 @@ export default function Home() {
           </Swiper>
         </div>
       </div>
+      <HomeBar />
     </>
   )
 }

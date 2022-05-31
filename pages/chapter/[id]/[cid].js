@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { BookConsumer } from "../../../src/components/bibleProvider";
 import Loading from "../../../src/components/Loading";
+import HomeBar from "../../../src/components/HomeBar";
 
 const Post = ({ items, bid, cid }) => {
   const router = useRouter();
@@ -216,6 +217,7 @@ const Post = ({ items, bid, cid }) => {
           </Link>
         </div>
       </div>
+      <HomeBar />
     </>
   );
 };
