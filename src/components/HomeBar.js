@@ -25,7 +25,7 @@ export default function HomeBar() {
                     <Link href="/sermonmain">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/sermonmain") ? "/icons/ico_sermon.svg" : "/icons/ico_sermon_off.svg"} alt="예배" />
+                                <img src={(router.pathname=="/sermonmain") ? "/icons/ico_sermonnew_on.svg" : "/icons/ico_sermonnew_off.svg"} alt="예배" />
                             </div>
                             <div className="menu">예배</div>
                         </a>
