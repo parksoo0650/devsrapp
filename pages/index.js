@@ -307,7 +307,7 @@ export default function Home() {
               <div className="txt">성경</div>
             </li>
             <li onClick={() => { router.push("/returnMain"); }}>
-              <div className="img"></div>
+              <div className="img"><img src="/icons/ico_return.svg" alt="환언특강" /></div>
               <div className="txt">환언특강</div>
             </li>
             <li onClick={() => { router.push("/onmain"); }}>
@@ -315,7 +315,7 @@ export default function Home() {
               <div className="txt">온시리즈</div>
             </li>
             <li onClick={() => { router.push("/faith"); }}>
-              <div className="img"></div>
+              <div className="img"><img src="/icons/ico_shorts.svg" alt="1분은혜" /></div>
               <div className="txt">1분은혜</div>
             </li>
             {/* <li onClick={() => { router.push("/"); }}>

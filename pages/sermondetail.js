@@ -36,7 +36,7 @@ export default function Sermonmain() {
             </div>
 
             {/* <div className="section" style={{ display: "none" }}> */}
-            <div className="section">
+            <div className="section" style={{ display: "none" }}>
                 <ul className="tab_area">
                     <li onClick={() => { setSermonD("예배순서"); }} className={(sermonD == "예배순서") ? "on" : ""}>예배순서</li>
                     <li onClick={() => { setSermonD("본문말씀"); }} className={(sermonD == "본문말씀") ? "on" : ""}>본문말씀</li>

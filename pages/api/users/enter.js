@@ -1,6 +1,62 @@
+import mail from "@sendgrid/mail";
+import withHandler from "../../../libs/server/withHandler";
 import client from "../../../libs/server/client";
 
-export default async function handler(req, res) {
-    console.log(req.body);
-    res.status(200).end();
+mail.setApiKey(process.env.SENDGRID_KEY);
+
+async function handler(req, res) {
+    const { phone, email } = req.body;
+
+    const inputUser = phone ? { phone: +phone } : email ? { email } : null;
+    if (!inputUser) return res.status(400).json({ ok: false });
+
+    const payload = Math.floor(100000 + Math.random() * 900000) + "";
+
+    console.log(email);
+
+    const user = await client.user.findUnique({
+        where: {
+            email,
+        },
+    });
+    console.log(user);
+
+    const token = await client.token.create({
+        data: {
+            payload,
+            user: {
+                connect: {
+                    id: user.id,
+                },
+                // connectOrCreate: {
+                //     where: {
+                //         ...user,
+                //     },
+                //     create: {
+                //         name: "Anonymous",
+                //         ...user,
+                //     },
+                // },
+            },
+        },
+    });
+
+    if (phone) {
+        console.log(token);
+    } else if (email) {
+        const email = await mail.send({
+            from: "sprs.sungrak@gmail.com",
+            to: `${user.email}`,
+            subject: "Your SRAPP Admin Verification Email",
+            text: `Your token is ${payload}`,
+            html: `<strong>Your token is ${payload}</strong>`,
+        });
+        console.log(email);
+    }
+
+    return res.json({
+        ok: true,
+    });
 }
+
+export default withHandler("POST", handler);
