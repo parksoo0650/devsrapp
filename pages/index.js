@@ -356,7 +356,7 @@ export default function Home() {
                 let ListTitle = splitListTitle[0];
                 let splitListDate = doc.snippet.publishedAt.split('T');
                 let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                 return (
                   <SwiperSlide
                     className="movie_wrap"
@@ -371,11 +371,10 @@ export default function Home() {
                         <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
                       </div>
                       <div className="info">
-                        <div className="tit">
+                        <div className="tit" style={{ height: "46px" }}>
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
-                        <div className="preacher">설교: 김성현 목사</div>
                       </div>
                     </div>
                   </SwiperSlide>

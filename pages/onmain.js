@@ -64,7 +64,7 @@ export default function Onmain() {
     };
 
     return (
-        <div className="sub_container onseries_wrap">
+        <div className="sub_container">
             <div className="top_area">
                 <ContentTab />
                 <div className="dropdown">
