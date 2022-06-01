@@ -384,7 +384,7 @@ export default function Home() {
                 let ListTitle = splitListTitle[0];
                 let splitListDate = doc.snippet.publishedAt.split('T');
                 let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + "년 " + ListDate[1] + "월 " + ListDate[2] + "일";
+                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                 return (
                   <SwiperSlide
                     className="movie_wrap"

@@ -42,7 +42,7 @@ export default function Sermonmain() {
                 splitTitle = apiData.data.items[0].snippet.title.split('|');
                 splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
             } else {
-                plitTitle = apiData.data.items[1].snippet.title.split('|');
+                splitTitle = apiData.data.items[1].snippet.title.split('|');
                 splitDate = apiData.data.items[1].snippet.publishedAt.split('T');
             }
         } else {

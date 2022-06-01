@@ -37,7 +37,7 @@ export default function Praisedetail() {
             </div>
 
             {/* <div className="section" style={{ display: "none" }}> */}
-            <div className="section">
+            <div className="section" style={{ display: "none" }}>
                 {/* <ul className="tab_area">
                     <li onClick={() => { setPraiseD("재생목록"); }} className={(praiseD == "재생목록") ? "on" : ""}>재생목록</li>
                     <li onClick={() => { setPraiseD("찬양목록"); }} className={(praiseD == "찬양목록") ? "on" : ""}>찬양목록</li>
