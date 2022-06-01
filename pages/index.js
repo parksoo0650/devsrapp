@@ -397,11 +397,10 @@ export default function Home() {
                     >
                       <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
                       <div className="info">
-                        <div className="tit">
+                        <div className="tit" style={{ height: "46px" }}>
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
-                        <div className="preacher">설교: 김성현 목사</div>
                       </div>
                     </div>
                   </SwiperSlide>

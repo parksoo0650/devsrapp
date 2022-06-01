@@ -152,7 +152,7 @@ legend, caption {
 }
 .sub_container {
 	/* margin-top: 58px; */
-	margin-bottom: 82px;
+	padding-bottom: 82px;
 	flex: 1;
 	background: #F8F8F8;
 }
@@ -2426,14 +2426,13 @@ hr {
 	align-items: center;
 }
 .popup-content {
-	padding-top:15px;
 	width: 100%;
 	height: 100%;
 	background:black;
 }
-.popup-content .modal {
+.popup-content .modal .close {
 	color: white;
-	font-size: 32px;
+	font-size: 28px;
 	padding-left: 15px;
 }
 .popup-overlay {
@@ -2448,7 +2447,7 @@ hr {
 .popup-content .iframe_wrap iframe {
 	position: absolute;
 	left: 0;
-	top: 0;
+	top: -10px;
 	width: 100% !important;
 	min-height: 700px !important;
 	/* height: 100% !important; */

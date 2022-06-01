@@ -43,7 +43,7 @@ export default function SiteMap() {
                 <li>
                     <Link href={`/returnMain`} >
                         <a onClick={menuClose}>
-                            <div className="img"><img src="/icons/ico_shorts.svg" alt="환언특강" /></div>
+                            <div className="img"><img src="/icons/ico_return.svg" alt="환언특강" /></div>
                             <div className="txt">환언특강</div>
                         </a>
                     </Link>
