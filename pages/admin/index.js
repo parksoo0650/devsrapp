@@ -1,7 +1,9 @@
+import useUser from "../../libs/client/useUser";
 import Layout from "../../src/components/AdminLayout";
 import Link from "next/link";
 
 const Admin = () => {
+    const user = useUser();
     return (
         <Layout title="Admin">
             <div className="flex flex-col space-y-5 divide-y">

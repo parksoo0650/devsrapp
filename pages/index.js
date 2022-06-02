@@ -332,7 +332,7 @@ export default function Home() {
 
         <div className="mdbanner">
           {/* <p className="nav">1/2</p> */}
-          <img src="/icons/md_banner.png" alt="배너" />
+          <img src="/icons/md_banner2.png" alt="배너" />
         </div>
 
         <div className="section">

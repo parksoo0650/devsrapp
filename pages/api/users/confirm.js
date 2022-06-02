@@ -1,6 +1,6 @@
-import { withIronSessionApiRoute } from "iron-session/next";
 import withHandler from "../../../libs/server/withHandler";
 import client from "../../../libs/server/client";
+import { withApiSession } from "../../../libs/server/withSession";
 
 async function handler(req, res) {
     const { token } = req.body;
@@ -14,10 +14,14 @@ async function handler(req, res) {
         id: exists?.userId,
     };
     await req.session.save();
-    res.status(200).end();
+    await client.token.deleteMany({
+        where: {
+            userId: exists.userId,
+        },
+    });
+    res.json({ ok: true });
 }
 
-export default withIronSessionApiRoute(withHandler("POST", handler), {
-    cookieName: "srappsession",
-    password: process.env.IRONSESS_KEY,
-});
+export default withApiSession(
+    withHandler({ method: "POST", handler, isPrivate: false })
+);

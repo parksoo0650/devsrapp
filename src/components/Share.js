@@ -53,19 +53,19 @@ export default function Share({ title, thum, vid }) {
                             <div className="title">공유하기</div>
                             <ul className="sns_list">
                                 <li onClick={shareKakao}>
-                                    <img src="../icons/icon_share_kakao.png" alt="kakao" />
+                                    <img src="../icons/icon_share_kakao2.png" alt="kakao" />
                                     <div className="tit">카카오톡</div>
                                 </li>
                                 <li>
                                     {(isIOS) ?
                                         (
                                             <a href={`sms:&body=https://youtu.be/${vid}`}>
-                                                <img src="../icons/icon_share_sms.png" alt="sms" />
+                                                <img src="../icons/icon_share_sms2.png" alt="sms" />
                                                 <div className="tit">문자</div>
                                             </a>
                                         ) : (
                                             <a href={`sms:?body=https://youtu.be/${vid}`}>
-                                                <img src="../icons/icon_share_sms.png" alt="sms" />
+                                                <img src="../icons/icon_share_sms2.png" alt="sms" />
                                                 <div className="tit">문자</div>
                                             </a>
                                         )
@@ -73,14 +73,14 @@ export default function Share({ title, thum, vid }) {
                                 </li>
                                 <li onClick={() => alert("복사되었습니다")}>
                                     <CopyToClipboard text={`https://youtu.be/${vid}`}>
-                                        <img src="../icons/icon_share_url.png" alt="url" />
+                                        <img src="../icons/icon_share_url2.png" alt="url" />
                                     </CopyToClipboard>
                                     <div className="tit">URL복사</div>
                                 </li>
                                 <li>
                                     <a href="#" target="_blank">
                                         <FacebookShareButton url={`https://youtu.be/${vid}`}>
-                                            <img src="../icons/icon_share_facebook.png" alt="facebook" />
+                                            <img src="../icons/icon_share_facebook2.png" alt="facebook" />
                                         </FacebookShareButton>
                                         <div className="tit">페이스북</div>
                                     </a>

@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../../src/components/button";
 import Input from "../../src/components/input";
 import useMutation from "../../libs/client/useMutation";
-import { cls } from "../../libs/utils";
+import { useRouter } from "next/router";
 
 const Enter = () => {
     const [enter, { loading, data, error }] = useMutation("/api/users/enter");
@@ -19,6 +19,12 @@ const Enter = () => {
         if (tokenLoading) return;
         confirmToken(validForm);
     };
+    const router = useRouter();
+    useEffect(() => {
+        if (tokenData?.ok) {
+            router.push("/admin");
+        }
+    }, [tokenData, router]);
     return (
         <div className="mt-16 px-4">
             <h3 className="text-3xl font-bold text-center">Enter to Admin</h3>
