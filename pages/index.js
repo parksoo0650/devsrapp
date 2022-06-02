@@ -199,7 +199,7 @@ export default function Home() {
             <div className="movie_wrap">
               <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
               <div className="info">
-                <Share title={liveDatas.title} thum="/images/kakao_def.jpg" vid={liveDatas.videoId} />
+                <Share title={liveDatas.title} thum="/images/kakao_def_new.jpg" vid={liveDatas.videoId} />
                 <div
                   className="tit pr25"
                   onClick={() => {

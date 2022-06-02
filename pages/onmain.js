@@ -89,7 +89,7 @@ export default function Onmain() {
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
-                                    <Share title={mainData.title} thum={`/images/kakao_${series}.jpg`} vid={mainData.videoId} />
+                                    <Share title={mainData.title} thum={`/images/kakao_${series}_new.jpg`} vid={mainData.videoId} />
                                     <div className="tit" onClick={() => {
                                         router.push(`/onprayerdetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`, "/onprayerdetail");
                                     }}>{mainData.title}</div>

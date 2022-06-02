@@ -27,7 +27,7 @@ export default function Sermonmain() {
             <div className="movie_wrap">
                 <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
                 <div className="info">
-                    <Share title={router.query.vtit} thum="/images/kakao_def.jpg" vid={router.query.vid} />
+                    <Share title={router.query.vtit} thum="/images/kakao_def_new.jpg" vid={router.query.vid} />
                     <div className="tit">
                         <a href="#">{router.query.vtit}</a>
                     </div>
