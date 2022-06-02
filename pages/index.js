@@ -368,7 +368,7 @@ export default function Home() {
                         <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
                       </div>
                       <div className="info">
-                        <div className="tit" style={{ height: "46px" }}>
+                        <div className="tit">
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
@@ -397,7 +397,7 @@ export default function Home() {
                     >
                       <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
                       <div className="info">
-                        <div className="tit" style={{ height: "46px" }}>
+                        <div className="tit">
                           <a href="#">{ListTitle}</a>
                         </div>
                         <div className="date">{lDate}</div>
