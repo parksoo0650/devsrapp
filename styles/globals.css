@@ -420,8 +420,8 @@ header .search_area .recent .list li .btn_delete {
 .menu_wrap .menu_list .drop_iocn {
 	display: inline-block;
 	position: absolute;
-	top:24px;
-	right: 4px;
+	top:10px;
+	right: 0;
 }
 
 @keyframes sub_menu_toggle {

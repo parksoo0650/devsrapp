@@ -54,7 +54,7 @@ export default function SiteMap() {
                     <ul className="menu_list">
                         <li onClick={() => { setToggle2(false); setToggle3(false); setToggle1(!toggle1); }}>
                             <span>예배</span>
-                            <img className="drop_iocn" src={(toggle1) ? "/icons/ico_up.svg" : "/icons/ico_drop.svg"} alt="drop" />
+                            <img className="drop_iocn" src={(toggle1) ? "/icons/ico_drop_up.svg" : "/icons/ico_drop_down.svg"} alt="drop" />
                             {toggle1 ? (
                                 <ul className="sub_menu">
                                     <li>
@@ -92,7 +92,7 @@ export default function SiteMap() {
                         </li>
                         <li onClick={() => { setToggle1(false); setToggle3(false); setToggle2(!toggle2); }}>
                             <span>찬양</span>
-                            <img className="drop_iocn" src={(toggle2) ? "/icons/ico_up.svg" : "/icons/ico_drop.svg"} alt="drop" />
+                            <img className="drop_iocn" src={(toggle2) ? "/icons/ico_drop_up.svg" : "/icons/ico_drop_down.svg"} alt="drop" />
                             {toggle2 ? (
                                 <ul className="sub_menu">
                                     <li>
@@ -125,7 +125,7 @@ export default function SiteMap() {
                         </li>
                         <li onClick={() => { setToggle1(false); setToggle2(false); setToggle3(!toggle3); }}>
                             <span>콘텐츠</span>
-                            <img className="drop_iocn" src={(toggle3) ? "/icons/ico_up.svg" : "/icons/ico_drop.svg"} alt="drop" />
+                            <img className="drop_iocn" src={(toggle3) ? "/icons/ico_drop_up.svg" : "/icons/ico_drop_down.svg"} alt="drop" />
                             {toggle3 ? (
                                 <ul className="sub_menu">
                                     <li>
