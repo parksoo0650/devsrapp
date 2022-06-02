@@ -422,7 +422,7 @@ export default function Home() {
             <SwiperSlide>
               <Link href="youtube://channel/UCkrWb-HCk3fA7szpbmLHTmw">
                 <a>
-                  <div className="img"><img src="../icons/thumb_bwm.svg" alt="청년부" /></div>
+                  <div className="img"><img src="/images/bwm_logo.png" alt="청년부" /></div>
                   <div className="txt">청년부</div>
                 </a>
               </Link>
