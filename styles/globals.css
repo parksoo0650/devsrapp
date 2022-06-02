@@ -646,6 +646,13 @@ footer .sns_list li img {
 	background: url('/icons/ico_go.svg') no-repeat center center;
 }
 
+.btn_share_white {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background: url('/icons/btn_share_w.svg') no-repeat center center;
+}
+
 .btn_close {
 	display: inline-block;
 	position: absolute;
@@ -2430,6 +2437,7 @@ hr {
 	color: white;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	/* font-size: 28px; */
 	/* padding-left: 15px; */
 }

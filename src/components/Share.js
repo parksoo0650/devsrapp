@@ -10,7 +10,7 @@ import {
     isAndroid
 } from "react-device-detect";
 
-export default function Share({ title, thum, vid }) {
+export default function Share({ title, thum, vid, type }) {
     const [isOpen, setOpen] = useState(false);
     const shareKakao = () => {
         Kakao.Link.sendDefault({
@@ -39,7 +39,7 @@ export default function Share({ title, thum, vid }) {
 
     return (
         <>
-            <span className="btn_share" onClick={() => setOpen(true)}></span>
+            <span className={ (type=="white") ? "btn_share_white" : "btn_share"} onClick={() => setOpen(true)}></span>
             <Sheet
                 isOpen={isOpen}
                 onClose={() => setOpen(false)}

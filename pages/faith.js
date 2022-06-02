@@ -63,9 +63,9 @@ export default function faith() {
                                                     <div className="modal">
                                                         <div className="header">
                                                             <button className="close" onClick={close}>
-                                                                <img src="/icons/ico_close.svg" alt="닫기" />
+                                                                <img src="/icons/btn_close_w.svg" alt="닫기" />
                                                             </button>
-                                                            <Share title={listTitle[0]} thum={`/images/kakao_shorts.jpg`} vid={doc.id.videoId} />
+                                                            <Share title={listTitle[0]} thum={`/images/kakao_shorts.jpg`} vid={doc.id.videoId} type="white" />
                                                         </div>
                                                         <div className="content">
                                                             <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
