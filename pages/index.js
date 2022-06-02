@@ -300,7 +300,7 @@ export default function Home() {
               <div className="txt">예배</div>
             </li>
             <li onClick={() => { router.push("/praisemain"); }}>
-              <div className="img"><img src="/icons/ico_quick_praise.svg" alt="찬양" /></div>
+              <div className="img"><img src="/icons/ico_quick_praise_new.svg" alt="찬양" /></div>
               <div className="txt">찬양</div>
             </li>
             <li onClick={() => { router.push("/returnMain"); }}>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import SiteMap from "./SiteMap";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
@@ -15,7 +14,7 @@ export default function HomeBar() {
                     <Link href="/">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/") ? "/icons/ico_home.svg" : "/icons/ico_home_off.svg"} alt="홈" />
+                                <img src={(router.pathname == "/") ? "/icons/ico_home.svg" : "/icons/ico_home_off.svg"} alt="홈" />
                             </div>
                             <div className="menu">홈</div>
                         </a>
@@ -25,7 +24,7 @@ export default function HomeBar() {
                     <Link href="/sermonmain">
                         <a>
                             <div className="ico">
-                                <img src={(router.pathname=="/sermonmain") ? "/icons/ico_sermonnew_on.svg" : "/icons/ico_sermonnew_off.svg"} alt="예배" />
+                                <img src={(router.pathname == "/sermonmain") ? "/icons/ico_sermonnew_on.svg" : "/icons/ico_sermonnew_off.svg"} alt="예배" />
                             </div>
                             <div className="menu">예배</div>
                         </a>
@@ -51,17 +50,17 @@ export default function HomeBar() {
                         </a>
                     </Link>
                 </li>
-                <li onClick={() => {
-                    let allMenu = document.getElementById('all_menu');
-                    allMenu.className = 'on';
-                }}>
-                    <div className="ico">
-                        <img src="/icons/ico_menu_off.svg" alt="전체보기" />
-                    </div>
-                    <div className="menu">전체보기</div>
+                <li>
+                    <Link href="/SiteMap">
+                        <a>
+                            <div className="ico">
+                                <img src={(router.pathname == "/SiteMap") ? "/icons/ico_menu.svg" : "/icons/ico_menu_off.svg"} alt="전체보기" />
+                            </div>
+                            <div className="menu">전체보기</div>
+                        </a>
+                    </Link>
                 </li>
             </ul>
-            <SiteMap />
         </>
     );
 }
