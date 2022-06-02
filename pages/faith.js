@@ -54,12 +54,6 @@ export default function faith() {
                                     let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
                                     return (
                                         <li key={i}>
-                                            {/* <div className="popup-content">
-                                            <a className="close" onClick={close}>
-                                                &times;
-                                            </a>
-                                            <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
-                                        </div> */}
                                             <Popup
                                                 trigger={<div className="moviebox"></div>}
                                                 modal
@@ -67,10 +61,12 @@ export default function faith() {
                                             >
                                                 {close => (
                                                     <div className="modal">
-                                                        <button className="close" onClick={close}>
-                                                            &times;
-                                                        </button>
-                                                        <div className="header"></div>
+                                                        <div className="header">
+                                                            <button className="close" onClick={close}>
+                                                                <img src="/icons/ico_close.svg" alt="닫기" />
+                                                            </button>
+                                                            <Share title={listTitle[0]} thum={`/images/kakao_shorts.jpg`} vid={doc.id.videoId} />
+                                                        </div>
                                                         <div className="content">
                                                             <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
                                                         </div>

@@ -34,14 +34,22 @@ export default function Onmain() {
         } else if (series === "onb") {
             apiData = await axios.get(API_URL_ONB);
         }
-        const splitTitle = apiData.data.items[0].snippet.title.split('|');
-        const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+
+        let onData = [];
+        if (apiData.data.items[0].snippet.title !== "Private video") {
+            onData = apiData.data.items[0];
+        } else {
+            onData = apiData.data.items[1];
+        }
+        const splitTitle = onData.snippet.title.split('|');
+        const splitDate = onData.snippet.publishedAt.split('T');
         const videoTitle = splitTitle[0];
         const videoDate = splitDate[0].split('-');
+
         setMainData({
-            videoId: apiData.data.items[0].snippet.resourceId.videoId,
+            videoId: onData.snippet.resourceId.videoId,
             title: videoTitle,
-            thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+            thumbnails: onData.snippet.thumbnails.medium.url,
             publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
         });
         setListData(apiData.data.items);
@@ -101,6 +109,9 @@ export default function Onmain() {
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
+                                        if (doc.snippet.title === "Private video") {
+                                            return false;
+                                        }
                                         let splitListTitle = doc.snippet.title.split('|');
                                         let ListTitle = splitListTitle[0];
                                         let splitListDate = doc.snippet.publishedAt.split('T');

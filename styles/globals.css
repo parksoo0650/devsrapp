@@ -2421,9 +2421,17 @@ hr {
 	background:black;
 }
 .popup-content .modal .close {
+	/* color: white; */
+	/* font-size: 28px; */
+	/* padding-left: 15px; */
+}
+.popup-content .modal .header {
+	padding: 5px 10px 0px 10px;
 	color: white;
-	font-size: 28px;
-	padding-left: 15px;
+	display: flex;
+	justify-content: space-between;
+	/* font-size: 28px; */
+	/* padding-left: 15px; */
 }
 .popup-overlay {
 	z-index: 1000;
@@ -2437,7 +2445,7 @@ hr {
 .popup-content .iframe_wrap iframe {
 	position: absolute;
 	left: 0;
-	top: -10px;
+	top: 0;
 	width: 100% !important;
 	min-height: 700px !important;
 	/* height: 100% !important; */
