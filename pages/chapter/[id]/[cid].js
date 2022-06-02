@@ -207,12 +207,12 @@ const Post = ({ items, bid, cid }) => {
           </ul>
           <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
             <a>
-              <span className="btn_left"></span>
+              <img className="btn_left" src="/icons/ico_left.svg" alt="이전" />
             </a>
           </Link>
           <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
             <a>
-              <span className="btn_right"></span>
+              <img className="btn_right" src="/icons/ico_right.svg" alt="다음" />
             </a>
           </Link>
         </div>

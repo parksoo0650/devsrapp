@@ -3,7 +3,8 @@ import Layout from "../../src/components/AdminLayout";
 import Link from "next/link";
 
 const Admin = () => {
-    const user = useUser();
+    const { user, isLoading } = useUser();
+    console.log(user);
     return (
         <Layout title="Admin">
             <div className="flex flex-col space-y-5 divide-y">

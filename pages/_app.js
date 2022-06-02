@@ -1,3 +1,4 @@
+import { SWRConfig } from "swr";
 import '../styles/globals.css';
 import '../styles/tailwind.css';
 import Head from 'next/head';
@@ -6,7 +7,12 @@ import Layout from '../src/components/Layout';
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <SWRConfig
+      value={{
+        fetcher: (url) =>
+          fetch(url).then((response) => response.json()),
+      }}
+    >
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -41,6 +47,6 @@ export default function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </Layout>
       </BookProvider>
-    </>
+    </SWRConfig>
   )
 }

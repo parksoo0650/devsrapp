@@ -1640,18 +1640,18 @@ hr {
 	left: 8px;
 	bottom: 100px;
 	z-index: 100;
-	width: 55px;
-	height: 55px;
-	background: url('/icons/ico_swiper_left.svg') no-repeat center center;
+	/* width: 55px; */
+	/* height: 55px; */
+	/* background: url('/icons/ico_left.svg') no-repeat center center; */
 }
 .bible_con .btn_right {
 	position: fixed;
 	right: 8px;
 	bottom: 100px;
 	z-index: 100;
-	width: 55px;
-	height: 55px;
-	background: url('/icons/ico_swiper_right.svg') no-repeat center center;
+	/* width: 55px; */
+	/* height: 55px; */
+	/* background: url('/icons/ico_right.svg') no-repeat center center; */
 }
 .verse_list li {
 	line-height: 26px;
