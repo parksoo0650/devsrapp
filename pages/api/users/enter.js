@@ -48,4 +48,4 @@ async function handler(req, res) {
     });
 }
 
-export default withHandler({ method: "POST", handler, isPrivate: false });
+export default withHandler({ methods: ["POST"], handler, isPrivate: false });

@@ -1,10 +1,10 @@
 export default function withHandler({
-    method,
+    methods,
     isPrivate = true,
     handler,
 }) {
     return async function (req, res) {
-        if (req.method !== method) {
+        if (req.method && !methods.includes(req.method)) {
             return res.status(405).end();
         }
         if (isPrivate && !req.session.user) {

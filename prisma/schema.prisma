@@ -43,3 +43,15 @@ model Bible {
   @@index([chapter])
   @@index([verse])
 }
+
+model Contents {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt String?
+  image       String?
+  name        String
+  description String   @db.MediumText
+  videoId     String?
+  kind        String
+}

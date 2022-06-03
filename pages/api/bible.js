@@ -32,4 +32,4 @@ async function handler(req, res) {
     // return res.status(200).end();
 }
 
-export default withHandler({ method: "GET", handler, isPrivate: false });
+export default withHandler({ methods: ["GET"], handler, isPrivate: false });
