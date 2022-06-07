@@ -10,13 +10,16 @@ import Link from "next/link";
 import Loading from "../src/components/Loading";
 import Share from "../src/components/Share";
 import HomeBar from "../src/components/HomeBar";
+import useSWR from "swr";
+import Popup from 'reactjs-popup';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 export default function Home() {
   const router = useRouter();
-  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const { data } = useSWR("/api/contents");
 
+  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   // 주일설교
   const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
   // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
@@ -26,7 +29,7 @@ export default function Home() {
   // 온성경
   const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpZKRGb7hy_FJ1OIv4fxTF7S`;
   // 온3분
-  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
+  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
   const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=6&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
   // 헌금송
@@ -138,6 +141,7 @@ export default function Home() {
     });
 
     if (day === "금") {
+      console.log(weekDataOns);
       weekDataOns.forEach((doc) => {
         if (doc.snippet.title !== "Private video") {
           let splitDateOns = doc.snippet.publishedAt.split('T');
@@ -246,7 +250,7 @@ export default function Home() {
                       {weekSelectDataOnm.title}
                       {/* <span className="tag_up">UP</span> */}
                     </div>
-                    <div className="date">{weekSelectDataOnm.date.substring(0,10)}</div>
+                    <div className="date">{weekSelectDataOnm.date.substring(0, 10)}</div>
                   </div>
                 </li>
               }
@@ -265,7 +269,7 @@ export default function Home() {
                     <div className="tit">
                       {weekSelectDataOnb.title}
                     </div>
-                    <div className="date">{weekSelectDataOnb.date.substring(0,10)}</div>
+                    <div className="date">{weekSelectDataOnb.date.substring(0, 10)}</div>
                   </div>
                 </li>
               }
@@ -284,9 +288,42 @@ export default function Home() {
                     <div className="tit">
                       {weekSelectDataOns.title}
                     </div>
-                    <div className="date">{weekSelectDataOns.date.substring(0,10)}</div>
+                    <div className="date">{weekSelectDataOns.date.substring(0, 10)}</div>
                   </div>
                 </li>
+              }
+              {weeks == "월" &&
+                <Popup
+                  trigger={
+                    <li>
+                      <div className="movie">
+                        <img src="/images/shorts_main.jpg" />
+                      </div>
+                      <div className="info">
+                        <div className="tit">
+                          {data?.contents[0].name}
+                        </div>
+                        <div className="date"></div>
+                      </div>
+                    </li>
+                  }
+                  modal
+                  nested
+                >
+                  {close => (
+                    <div className="modal">
+                      <div className="header">
+                        <button className="close" onClick={close}>
+                          <img src="/icons/btn_close_w.svg" alt="닫기" />
+                        </button>
+                        <Share title={data?.contents[0].name} thum={`/images/kakao_shorts.jpg`} vid={data?.contents[0].videoId} type="white" />
+                      </div>
+                      <div className="content">
+                        <YouTube videoId={data?.contents[0].videoId} opts={opts} containerClassName="iframe_wrap" />
+                      </div>
+                    </div>
+                  )}
+                </Popup>
               }
             </ul>
           </div>

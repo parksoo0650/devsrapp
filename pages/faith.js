@@ -1,6 +1,3 @@
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import YouTube from 'react-youtube';
 import Share from "../src/components/Share";
 import Loading from "../src/components/Loading";
@@ -11,22 +8,6 @@ import useSWR from "swr";
 
 export default function faith() {
     const { data } = useSWR("/api/contents");
-    const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-    const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락숏츠&order=date`;
-
-    const [listData, setListData] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const getData = async () => {
-        let apiData = await axios.get(API_URL_SHORTS);
-        setListData(apiData.data.items);
-        setIsLoading(false);
-    };
-
-    useEffect(() => {
-        getData();
-    }, []);
-
     const opts = {
         width: "320px",
         height: "700px",
@@ -41,7 +22,7 @@ export default function faith() {
                 <div className="top_area">
                     <ContentTab />
                 </div>
-                {(isLoading === true) ? (
+                {(!data) ? (
                     <div className="loading_box">
                         <Loading />
                     </div>
