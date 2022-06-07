@@ -12,11 +12,11 @@ export default function Layout({
         router.back();
     };
     return (
-        <div className="w-full max-w-xl mx-auto p-4">
+        <div className="w-full max-w-2xl mx-auto p-4">
             <div
                 className={cls(
                     !canGoBack ? "justify-center" : "",
-                    "bg-white w-full max-w-xl text-lg px-10 font-medium py-3 fixed text-gray-800 border-b top-0  flex items-center"
+                    "bg-white w-full max-w-2xl text-lg font-medium py-3 text-gray-800 border-b top-0  flex items-center"
                 )}
             >
                 {canGoBack ? (
@@ -39,7 +39,7 @@ export default function Layout({
                 ) : null}
                 {title ? <span>{title}</span> : null}
             </div>
-            <div className="pt-12">{children}</div>
+            <div className="pt-6">{children}</div>
         </div>
     );
 }

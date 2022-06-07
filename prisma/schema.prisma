@@ -55,3 +55,21 @@ model Contents {
   videoId     String?
   kind        String
 }
+
+model Weekly {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  publishedAt   String?
+  volume        Int
+  weekNo        Int
+  bible         String
+  titleKR       String
+  titleEN       String?
+  descriptionKR String   @db.LongText
+  descriptionEN String?  @db.LongText
+  hymn1         Int
+  hymn2         Int
+  pray1         String
+  pray2         String
+}

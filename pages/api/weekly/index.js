@@ -1,0 +1,68 @@
+import withHandler from "../../../libs/server/withHandler";
+import client from "../../../libs/server/client";
+import { withApiSession } from "../../../libs/server/withSession";
+
+async function handler(req, res) {
+
+    if (req.method === "GET") {
+        const weekly = await client.Weekly.findMany({
+            orderBy: [
+                {
+                    publishedAt: 'desc',
+                },
+            ],
+        });
+        res.json({
+            ok: true,
+            weekly,
+        });
+    }
+
+    if (req.method === "POST") {
+        const {
+            body: {
+                publishedAt,
+                volume,
+                weekNo,
+                bible,
+                titleKR,
+                titleEN,
+                descriptionKR,
+                descriptionEN,
+                hymn1,
+                hymn2,
+                pray1,
+                pray2,
+            }
+        } = req;
+
+        const weekly = await client.Weekly.create({
+            data: {
+                publishedAt,
+                volume: +volume,
+                weekNo: +weekNo,
+                bible,
+                titleKR,
+                titleEN,
+                descriptionKR,
+                descriptionEN,
+                hymn1: +hymn1,
+                hymn2: +hymn2,
+                pray1,
+                pray2,
+            },
+        });
+        res.json({
+            ok: true,
+            weekly,
+        });
+    }
+}
+
+export default withApiSession(
+    withHandler({
+        methods: ["GET", "POST"],
+        handler,
+        isPrivate: false,
+    })
+);
