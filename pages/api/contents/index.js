@@ -5,7 +5,16 @@ import { withApiSession } from "../../../libs/server/withSession";
 async function handler(req, res) {
 
     if (req.method === "GET") {
-        const contents = await client.Contents.findMany({});
+        const contents = await client.Contents.findMany({
+            where: {
+                kind: "shorts",
+            },
+            orderBy: [
+                {
+                    publishedAt: 'desc',
+                },
+            ],
+        });
         res.json({
             ok: true,
             contents,
@@ -14,7 +23,7 @@ async function handler(req, res) {
 
     if (req.method === "POST") {
         const {
-            body: { name, kind, description, videoId, publishedAt, photoId  }
+            body: { name, kind, description, videoId, publishedAt, photoId }
         } = req;
 
         const contents = await client.Contents.create({
