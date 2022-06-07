@@ -9,7 +9,7 @@ async function handler(req, res) {
             id: +id.toString(),
         }
     });
-    console.log(contents);
+    // console.log(contents);
     res.json({ ok: true, contents });
 }
 

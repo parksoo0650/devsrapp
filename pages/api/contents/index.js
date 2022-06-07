@@ -3,9 +3,6 @@ import client from "../../../libs/server/client";
 import { withApiSession } from "../../../libs/server/withSession";
 
 async function handler(req, res) {
-    const {
-        body: { name, kind, description }
-    } = req;
 
     if (req.method === "GET") {
         const contents = await client.Contents.findMany({});
@@ -14,13 +11,20 @@ async function handler(req, res) {
             contents,
         });
     }
+
     if (req.method === "POST") {
+        const {
+            body: { name, kind, description, videoId, publishedAt, photoId  }
+        } = req;
+
         const contents = await client.Contents.create({
             data: {
                 name,
                 kind,
                 description,
-                image: "xx",
+                videoId,
+                publishedAt,
+                image: photoId,
             },
         });
         res.json({

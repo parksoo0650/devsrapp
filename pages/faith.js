@@ -7,8 +7,10 @@ import Loading from "../src/components/Loading";
 import ContentTab from "../src/components/ContentTab";
 import Popup from 'reactjs-popup';
 import HomeBar from "../src/components/HomeBar";
+import useSWR from "swr";
 
 export default function faith() {
+    const { data } = useSWR("/api/contents");
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
     const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락숏츠&order=date`;
 
@@ -46,49 +48,33 @@ export default function faith() {
                 ) : (
                     <div className="section subborder">
                         <ul className="faithmovie">
-                            {
-                                listData.map((doc, i) => {
-                                    let listTitle = doc.snippet.title.split('-');
-                                    let splitListDate = doc.snippet.publishedAt.split('T');
-                                    let ListDate = splitListDate[0].split('-');
-                                    let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                                    return (
-                                        <li key={i}>
-                                            <Popup
-                                                trigger={<div className="moviebox"></div>}
-                                                modal
-                                                nested
-                                            >
-                                                {close => (
-                                                    <div className="modal">
-                                                        <div className="header">
-                                                            <button className="close" onClick={close}>
-                                                                <img src="/icons/btn_close_w.svg" alt="닫기" />
-                                                            </button>
-                                                            <Share title={listTitle[0]} thum={`/images/kakao_shorts.jpg`} vid={doc.id.videoId} type="white" />
-                                                        </div>
-                                                        <div className="content">
-                                                            <YouTube videoId={doc.id.videoId} opts={opts} containerClassName="iframe_wrap" />
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </Popup>
-                                            <style jsx>
-                                                {`
-                                            .moviebox {
-                                                background-image: url(${doc.snippet.thumbnails.high.url});
-                                                background-position: center;
-                                            }
-                                            `}
-                                            </style>
-                                            <div className="info">
-                                                <div className="tit">1분은혜 - {listTitle[0]}</div>
-                                                <div className="date">{lDate}</div>
+                            {data?.contents?.map((content) => (
+                                <li key={content.id}>
+                                    <Popup
+                                        trigger={<div className="moviebox"></div>}
+                                        modal
+                                        nested
+                                    >
+                                        {close => (
+                                            <div className="modal">
+                                                <div className="header">
+                                                    <button className="close" onClick={close}>
+                                                        <img src="/icons/btn_close_w.svg" alt="닫기" />
+                                                    </button>
+                                                    <Share title={content.name} thum={`/images/kakao_shorts.jpg`} vid={content.videoId} type="white" />
+                                                </div>
+                                                <div className="content">
+                                                    <YouTube videoId={content.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                                </div>
                                             </div>
-                                        </li>
-                                    );
-                                })
-                            }
+                                        )}
+                                    </Popup>
+                                    <div className="info">
+                                        <div className="tit">1분은혜 - {content.name}</div>
+                                        <div className="date">{content.publishedAt}</div>
+                                    </div>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 )}

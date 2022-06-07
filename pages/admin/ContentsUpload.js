@@ -10,11 +10,21 @@ import { useRouter } from "next/router";
 const ContentsUpload = () => {
     const router = useRouter();
     const { register, handleSubmit, watch } = useForm();
-    const [uploadProduct, { loading, data }] = useMutation("/api/contents");
-    const onValid = (data) => {
+    const [uploadContents, { loading, data }] = useMutation("/api/contents");
+
+    const onValid = async ({ name, kind, description, videoId, publishedAt }) => {
         if (loading) return;
-        console.log(data);
-        // uploadProduct(data);
+        if (image && image.length > 0) {
+            const { uploadURL } = await (await fetch(`/api/files`)).json();
+            const form = new FormData();
+            form.append("file", image[0], name);
+            const {
+                result: { id },
+            } = await (await fetch(uploadURL, { method: "POST", body: form })).json();
+            uploadContents({ name, kind, description, videoId, publishedAt, photoId: id });
+        } else {
+            uploadContents({ name, kind, description, videoId, publishedAt });
+        }
     };
 
     useEffect(() => {
@@ -77,14 +87,28 @@ const ContentsUpload = () => {
                 <Input
                     register={register("kind", { required: true })}
                     required
-                    label="kind"
+                    label="Kind"
                     name="kind"
+                    type="text"
+                />
+                <Input
+                    register={register("videoId", { required: true })}
+                    required
+                    label="VideoId"
+                    name="videoId"
+                    type="text"
+                />
+                <Input
+                    register={register("publishedAt", { required: true })}
+                    required
+                    label="PublishedAt"
+                    name="publishedAt"
                     type="text"
                 />
                 <TextArea
                     register={register("description", { required: true })}
-                    name="description"
                     label="Description"
+                    name="description"
                     required
                 />
                 <Button text={loading ? "Loading..." : "Upload item"} />

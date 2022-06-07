@@ -14,7 +14,7 @@ const Contents = () => {
                     <Link key={content.id} href={`/admin/contents/${content.id}`}>
                         <a className="flex cursor-pointer flex-col pt-4 items-start">
                             <span className="flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                                No.{content.kind}
+                                {content.kind}
                             </span>
                             <div className="mt-2 px-2 text-gray-700">
                                 <span className="text-orange-500 font-medium">Title.</span> {content.name}
