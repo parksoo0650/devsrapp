@@ -2135,7 +2135,7 @@ hr {
 }
 .faithmovie li .moviebox {
 	margin-bottom: 12px;
-	min-height: 360px;
+	/* min-height: 360px; */
 }
 .faithmovie li .moviebox img {
 	width:100%;

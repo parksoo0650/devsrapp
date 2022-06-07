@@ -51,7 +51,7 @@ export default function faith() {
                             {data?.contents?.map((content) => (
                                 <li key={content.id}>
                                     <Popup
-                                        trigger={<div className="moviebox"></div>}
+                                        trigger={<div className="moviebox"><img src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${content.image}/shorts`} /></div>}
                                         modal
                                         nested
                                     >
