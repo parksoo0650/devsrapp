@@ -1,11 +1,19 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { isIOS } from 'react-device-detect';
 
 export default function HomeBar() {
     const router = useRouter();
+    const [bottomPadding, setBottomPadding] = useState("");
     const pathNameSplit = router.pathname.split('/');
     const contentPages = ["/onmain", "/prayerMain", "/returnMain"];
+
+    useEffect(() => {
+        if(isIOS) {
+            setBottomPadding("26px");
+        }
+    }, []);
 
     return (
         <>
@@ -61,6 +69,13 @@ export default function HomeBar() {
                     </Link>
                 </li>
             </ul>
+            <style jsx>
+            {`
+            #home_bar {
+                padding-bottom: ${bottomPadding};
+            }
+            `}
+            </style>
         </>
     );
 }

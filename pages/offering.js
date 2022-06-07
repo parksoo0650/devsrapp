@@ -4,6 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function Sermonmain() {
   const router = useRouter();
+  const [toggle, setToggle] = useState(false);
   const [offering, setOffering] = useState("국내");
 
   const doCopy = () => {
@@ -23,35 +24,22 @@ export default function Sermonmain() {
         </div>
       </div>
 
-      <div className="namehowto">
+      <div className="namehowto" onClick={() => { setToggle(!toggle); }}>
         <p>입금자명 표기 방법 : [본인이름]+[배우자이름]+[헌금항목]</p>
-        <span className="arrowdown"><img src="/icons/ico_arrowdown.svg"/></span>
+        <span className="arrowdown">
+          {/* <img src="/icons/ico_arrowdown.svg"/> */}
+          <img style={{}} src={(toggle) ? "/icons/ico_drop_up.svg" : "/icons/ico_drop_down.svg"} alt="drop" />
+        </span>
       </div>
+
+      { toggle &&
       <div className="sender_example">
         <img src="/icons/sender_example.png"/>
         <p>※ 온라인 송금 시, 성도님의 정보나 헌금의 종류가 정확하지 않을 경우 헌금 등록 처리가 지연될 수 있습니다. 추후 내방 및 유선상으로 헌금 등록 확인을 부탁드립니다.</p>
       </div>
+      }
 
       <div className="section">
-        {/*
-        <ul className="tab_area">
-          <li
-            onClick={() => {
-              setOffering("국내");
-            }}
-            className={offering == "국내" ? "on" : ""}
-          >
-            국내
-          </li>
-          <li
-            onClick={() => {
-              setOffering("해외");
-            }}
-            className={offering == "해외" ? "on" : ""}
-          >
-            해외
-          </li>
-        </ul> */}
         <div className="tab_con">
           {/* 국내 */}
           <div
@@ -59,8 +47,6 @@ export default function Sermonmain() {
               offering == "국내" ? "domestic_wrap" : "domestic_wrap hide"
             }
           >
-            
-            
             <ul className="bank_list">
               <li>
                 <CopyToClipboard text="054-085786-01-023">

@@ -17,7 +17,7 @@ const Contents = () => {
                                 {content.kind}
                             </span>
                             <div className="mt-2 px-2 text-gray-700">
-                                <span className="text-orange-500 font-medium">Title.</span> {content.name}
+                                <span className="text-orange-500 font-medium">{content.publishedAt}</span> {content.name}
                             </div>
                         </a>
                     </Link>

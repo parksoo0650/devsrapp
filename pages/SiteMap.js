@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import HomeBar from "../src/components/HomeBar";
 
 export default function SiteMap() {
