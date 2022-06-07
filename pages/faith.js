@@ -10,7 +10,7 @@ import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 
 export default function faith() {
-    const { data } = useSWR("/api/contents");
+    const { data } = useSWR("/api/contents", false);
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
     const API_URL_SHORTS = `https://www.googleapis.com/youtube/v3/search/?key=${API_KEY}&part=snippet&maxResults=20&channelId=UCWi7MvGUsaJLlGMkN5yWKZQ&q=성락숏츠&order=date`;
 

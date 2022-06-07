@@ -33,14 +33,13 @@ async function handler(req, res) {
     });
 
     if (email) {
-        // const email = await mail.send({
-        //     from: "sprs.sungrak@gmail.com",
-        //     to: `${user.email}`,
-        //     subject: "Your SRAPP Admin Verification Email",
-        //     text: `Your token is ${payload}`,
-        //     html: `<strong>Your token is ${payload}</strong>`,
-        // });
-        // console.log(email);
+        const email = await mail.send({
+            from: "sprs.sungrak@gmail.com",
+            to: `${user.email}`,
+            subject: "Your SRAPP Admin Verification Email",
+            text: `Your token is ${payload}`,
+            html: `<strong>Your token is ${payload}</strong>`,
+        });
     }
 
     return res.json({
