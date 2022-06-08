@@ -1,8 +1,6 @@
-import Layout from "../src/components/WeeklyLayout";
 
-export default function weeklyorder() {
+export default function Weeklyorder() {
     return (
-        <Layout>
         <ul className="order_wrap">
             <li>
                 <span>찬송</span>
@@ -90,6 +88,5 @@ export default function weeklyorder() {
                 <span>목사</span>
             </li>
         </ul>
-        </Layout>
     );
 }

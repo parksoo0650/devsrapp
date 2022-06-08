@@ -6,18 +6,18 @@ import useSWR from "swr";
 
 const Weekly = () => {
     const { user, isLoading } = useUser();
-    const { data } = useSWR("/api/contents");
+    const { data } = useSWR("/api/weekly");
     return (
         <Layout canGoBack title="주보 관리자">
             <div className="flex flex-col space-y-5 divide-y">
-                {data?.contents?.map((content) => (
-                    <Link key={content.id} href={`/admin/contents/${content.id}`}>
+                {data?.weekly?.map((week) => (
+                    <Link key={week.id} href={`/admin/weekly/${week.id}`}>
                         <a className="flex cursor-pointer flex-col pt-4 items-start">
                             <span className="flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                                {content.kind}
+                                {week.volume}권 {week.weekNo}호
                             </span>
                             <div className="mt-2 px-2 text-gray-700">
-                                <span className="text-orange-500 font-medium">{content.publishedAt}</span> {content.name}
+                                <span className="text-orange-500 font-medium">{week.publishedAt}</span> {week.titleKR}
                             </div>
                         </a>
                     </Link>

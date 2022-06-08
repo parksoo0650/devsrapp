@@ -1,8 +1,5 @@
-import Layout from "../src/components/WeeklyLayout";
-
-export default function weeklysummary() {
+export default function Weeklysummary() {
     return (
-        <Layout>
         <div className="gist_wrap">
             <div className="gist_title">
                 하나님의 아들 그리스도
@@ -68,6 +65,5 @@ export default function weeklysummary() {
                 </ul>
             </div>
         </div>
-        </Layout>
     );
 }

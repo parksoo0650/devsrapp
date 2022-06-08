@@ -1,6 +1,8 @@
 import Share from "../src/components/Share";
+import { useRouter } from "next/router";
 
 export default function weeklynews() {
+    const router = useRouter();
     return (
         <>
             <div className="sub_container">
