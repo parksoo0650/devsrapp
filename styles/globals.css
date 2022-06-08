@@ -904,7 +904,7 @@ hr {
 /**중간배너**/
 .mdbanner {
 	width:100%;
-	height:110px;
+	/* height:110px; */
 	overflow: hidden;
 	position: relative;
 }

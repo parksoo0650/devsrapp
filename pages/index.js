@@ -15,7 +15,7 @@ import Popup from 'reactjs-popup';
 import Image from "next/image";
 import shortsMain from "../public/images/shorts_main.jpg";
 import bwmLogo from "../public/images/bwm_logo.png";
-
+import mdBanner from "../public/icons/md_banner2.png";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -372,8 +372,7 @@ export default function Home() {
         </div>
 
         <div className="mdbanner">
-          {/* <p className="nav">1/2</p> */}
-          <img src="/icons/md_banner2.png" alt="배너" />
+          <Image src={mdBanner} placeholder="blur" quality={100} />
         </div>
 
         <div className="section">
