@@ -14,7 +14,6 @@ export default function Layout(props) {
                     <span className="btn_prev"></span>
                     <div className="top_title">주보</div>
                     <div className="info">
-                        <span className="date">2021. 12. 5</span>
                         <span className="issue" onClick={() => setIsJubo(true)}>제 51권 50호</span>
                     
                         {/* 주보 */}

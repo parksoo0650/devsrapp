@@ -1172,8 +1172,12 @@ hr {
 	font-weight:500;
 }
 .sermon_list li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	position: relative;
 	border-bottom: 1px solid #EBEDEF;
+	margin-top: 15px;
     padding-bottom: 15px;
 }
 .sermon_list li:after {
@@ -1184,19 +1188,25 @@ hr {
     top: 4px;
     width: 85px;
     height: 35px;
-    background: url(/icons/ico_play.svg) no-repeat center center;
+    /* background: url(/icons/ico_play.svg) no-repeat center center; */
 }
 .sermon_list li:last-child {
 	border-bottom:0px;
 }
-.sermon_list .tit {
-	font-size: 14px;
+.sermon_list .tit_box {
 	width: 70%;
+}
+.sermon_list .weekly_tit_box {
+	width: 100%;
+}
+.sermon_list .tit {
+	width: 100%;
+	font-size: 14px;
     font-weight: 500;
     line-height: 17px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .sermon_list .date {
 	display: inline-block;
@@ -1214,9 +1224,6 @@ hr {
 	font-size: 12px;
 	font-weight: 300;
 	border-left: 1px solid #d6d6d6;
-}
-.sermon_list li + li {
-	margin-top: 10px;
 }
 
 /* 필터 */
@@ -2386,6 +2393,9 @@ hr {
 }
 .pt10 {
 	padding-top: 10px !important;
+}
+.pt15 {
+	padding-top: 15px !important;
 }
 .pt30 {
 	padding-top: 30px !important;

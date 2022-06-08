@@ -79,7 +79,7 @@ export default function Sermonmain() {
                             </div>
                         </div>
 
-                        <div className="section subbordert">
+                        <div className="section subbordert pt15">
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
@@ -97,9 +97,14 @@ export default function Sermonmain() {
                                                     router.push(`/returnDetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}`, "/sermondetail");
                                                 }}
                                             >
-                                                <div className="tit">{ListTitle}</div>
-                                                <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
-                                                <div className="preacher">설교 : 김기동 원로감독</div>
+                                                <div className="tit_box">
+                                                    <div className="tit">{ListTitle}</div>
+                                                    <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
+                                                    <div className="preacher">설교 : 김기동 원로감독</div>
+                                                </div>
+                                                <div className="play_icon">
+                                                    <img src="/icons/ico_play.svg" alt="play" />
+                                                </div>
                                             </li>
                                         )
                                     })

@@ -78,7 +78,7 @@ export default function Praisemain() {
                     </div>
                 ) : (
                     <>
-                        <div className="section pt0 subborder">
+                        <div className="section subborder pt0">
                             <div className="movie_wrap">
                                 <YouTube videoId={mainData.videoId} opts={opts} containerClassName="iframe_wrap" />
                                 <div className="info">
@@ -95,7 +95,7 @@ export default function Praisemain() {
                                 </div>
                             </div>
                         </div>
-                        <div className="section subbordert">
+                        <div className="section subbordert pt15">
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
@@ -111,8 +111,13 @@ export default function Praisemain() {
                                                     router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${lDate}&kind=${praise}`, "/praisedetail");
                                                 }}
                                             >
-                                                <div className="tit">{ListTitle}</div>
-                                                <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
+                                                <div className="tit_box">
+                                                    <div className="tit">{ListTitle}</div>
+                                                    <div className="date">{ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2]}</div>
+                                                </div>
+                                                <div className="play_icon">
+                                                    <img src="/icons/ico_play.svg" alt="play" />
+                                                </div>
                                             </li>
                                         )
                                     })
