@@ -12,6 +12,7 @@ module.exports = withPWA({
     runtimeCaching,
   },
   images: {
+    domains: ["imagedelivery.net"],
     formats: ['image/avif', 'image/webp']
   },
   async rewrites() {

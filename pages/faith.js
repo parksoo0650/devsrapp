@@ -5,6 +5,7 @@ import ContentTab from "../src/components/ContentTab";
 import Popup from 'reactjs-popup';
 import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
+import Image from "next/image";
 
 export default function faith() {
     const { data } = useSWR("/api/contents");
@@ -32,7 +33,16 @@ export default function faith() {
                             {data?.contents?.map((content) => (
                                 <li key={content.id}>
                                     <Popup
-                                        trigger={<div className="moviebox"><img src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${content.image}/shorts`} /></div>}
+                                        trigger={
+                                            <div className="relative pb-80">
+                                                {/* <img src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${content.image}/shorts`} /> */}
+                                                <Image
+                                                    src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${content.image}/shorts`}
+                                                    className="bg-slate-300 object-cover"
+                                                    layout="fill"
+                                                />
+                                            </div>
+                                        }
                                         modal
                                         nested
                                     >
@@ -50,7 +60,7 @@ export default function faith() {
                                             </div>
                                         )}
                                     </Popup>
-                                    <div className="info">
+                                    <div className="pt-3">
                                         <div className="tit">1분은혜 - {content.name}</div>
                                         <div className="date">{content.publishedAt}</div>
                                     </div>

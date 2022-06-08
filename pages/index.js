@@ -12,6 +12,10 @@ import Share from "../src/components/Share";
 import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 import Popup from 'reactjs-popup';
+import Image from "next/image";
+import shortsMain from "../public/images/shorts_main.jpg";
+import bwmLogo from "../public/images/bwm_logo.png";
+
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -297,7 +301,7 @@ export default function Home() {
                   trigger={
                     <li>
                       <div className="movie">
-                        <img src="/images/shorts_main.jpg" />
+                        <Image src={shortsMain} placeholder="blur" quality={50} />
                       </div>
                       <div className="info">
                         <div className="tit">
@@ -459,7 +463,9 @@ export default function Home() {
             <SwiperSlide>
               <Link href="youtube://channel/UCkrWb-HCk3fA7szpbmLHTmw">
                 <a>
-                  <div className="img"><img src="/images/bwm_logo.png" alt="청년부" /></div>
+                  <div className="img">
+                    <Image src={bwmLogo} placeholder="blur" quality={100} />
+                  </div>
                   <div className="txt">청년부</div>
                 </a>
               </Link>
