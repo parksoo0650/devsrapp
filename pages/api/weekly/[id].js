@@ -4,7 +4,7 @@ import { withApiSession } from "../../../libs/server/withSession";
 
 async function handler(req, res) {
     const { id } = req.query;
-    const weekly = await client.Weekly.findUnique({
+    const weekly = await client.weekly.findUnique({
         where: {
             id: +id.toString(),
         }
@@ -17,5 +17,6 @@ export default withApiSession(
     withHandler({
         methods: ["GET"],
         handler,
+        isPrivate: false,
     })
 );

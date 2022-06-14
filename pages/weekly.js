@@ -1,8 +1,12 @@
 import Share from "../src/components/Share";
 import { useRouter } from "next/router";
+import useSWR from "swr";
+import Link from "next/link";
 
 export default function weeklynews() {
     const router = useRouter();
+    const { data } = useSWR("/api/weekly");
+    
     return (
         <>
             <div className="sub_container">
@@ -14,31 +18,31 @@ export default function weeklynews() {
                 <div className="section subborder jubo_wrap pt0">
                     <div className="movie_wrap">
                         <div className="visual">
-                            <div className="title">이름으로도 기억되는 자</div>
-                            <div className="eng">Those who are Konwn by Name</div>
-                            <div className="bible">[마가복음 13:24~37]</div>
+                            <div className="title">{data?.weekly[0].descriptionKR}</div>
+                            <div className="eng">{data?.weekly[0].descriptionEN}</div>
+                            <div className="bible">[{data?.weekly[0].bible}]</div>
                         </div>
                         <div className="info">
                             <Share title="" thum="" vid="" />
-                            <div className="date">날짜</div>
+                            <div className="date">{data?.weekly[0].publishedAt}</div>
                         </div>
                     </div>
                 </div>
 
                 <div className="section subbordert">
                     <ul className="sermon_list">
-                        <li>
-                            <div className="weekly_tit_box">
-                                <div className="tit">주보</div>
-                                <div className="date">2022.06.08</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="weekly_tit_box">
-                                <div className="tit">주보</div>
-                                <div className="date">2022.06.08</div>
-                            </div>
-                        </li>
+                    {data?.weekly?.map((item) => (
+                        <Link href={`/weekly/${item.id}`} key={item.id}>
+                            <a>
+                                <li >
+                                    <div className="weekly_tit_box">
+                                        <div className="tit">{item.descriptionKR}</div>
+                                        <div className="date">{item.publishedAt}</div>
+                                    </div>
+                                </li>
+                            </a>
+                        </Link>
+                    ))}
                     </ul>
                 </div>
             </div>

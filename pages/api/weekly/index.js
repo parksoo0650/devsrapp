@@ -5,7 +5,7 @@ import { withApiSession } from "../../../libs/server/withSession";
 async function handler(req, res) {
 
     if (req.method === "GET") {
-        const weekly = await client.Weekly.findMany({
+        const weekly = await client.weekly.findMany({
             orderBy: [
                 {
                     publishedAt: 'desc',
@@ -36,7 +36,7 @@ async function handler(req, res) {
             }
         } = req;
 
-        const weekly = await client.Weekly.create({
+        const weekly = await client.weekly.create({
             data: {
                 publishedAt,
                 volume: +volume,

@@ -4,6 +4,8 @@ import Link from "next/link";
 import Weeklyorder from "../../src/components/Weeklyorder";
 import Weeklysummary from "../../src/components/Weeklysummary";
 import Loading from "../../src/components/Loading";
+import useSWR from "swr";
+
 
 export default function weekly() {
     const router = useRouter();
@@ -11,6 +13,12 @@ export default function weekly() {
     (router.query.kind) ? kind = router.query.kind : kind = "ord";
     const [tabKind, setTabKind] = useState(kind);
     const [isLoading, setIsLoading] = useState(true);
+
+    const { data, error } = useSWR(
+        router.query.id ? `/api/weekly/${router.query.id}` : null
+    );
+
+    console.log(data);
 
     useEffect(() => {
         setTabKind(kind);

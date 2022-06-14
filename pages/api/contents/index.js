@@ -5,7 +5,7 @@ import { withApiSession } from "../../../libs/server/withSession";
 async function handler(req, res) {
 
     if (req.method === "GET") {
-        const contents = await client.Contents.findMany({
+        const contents = await client.contents.findMany({
             where: {
                 kind: "shorts",
             },
@@ -26,7 +26,7 @@ async function handler(req, res) {
             body: { name, kind, description, videoId, publishedAt, photoId }
         } = req;
 
-        const contents = await client.Contents.create({
+        const contents = await client.contents.create({
             data: {
                 name,
                 kind,

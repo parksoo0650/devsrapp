@@ -12,7 +12,7 @@ export default function Weeklysummary() {
                 그가 자기의 사랑의 대상을 독생자로 하셨으니 
                 <span className="bible">
                     (마 17:5)
-                    <div className="layer_bible on">
+                    <div className="layer_bible">
                         <span className="btn_close"></span>
                         <ul className="verse_list">
                             <li><strong>1.</strong> 바울과 실루아노와 디모데는 하나님 아버지와 주 예수 그리스도 안에 있는 데살로니가인의 교회에 편지하노니 은혜와 평강이 너희에게 있을지어다</li>
