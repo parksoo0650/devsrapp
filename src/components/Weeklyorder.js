@@ -1,10 +1,11 @@
 
-export default function Weeklyorder() {
+export default function Weeklyorder( {data} ) {
+    console.log(data);
     return (
         <ul className="order_wrap">
             <li>
                 <span>찬송</span>
-                <span>30장</span>
+                <span>{data?.hymn1}장</span>
                 <span>일어서서</span>
             </li>
             <li>
@@ -19,7 +20,7 @@ export default function Weeklyorder() {
             </li>
             <li>
                 <span>찬송</span>
-                <span>93장</span>
+                <span>{data?.hymn2}장</span>
                 <span>다같이</span>
             </li>
             <li>
@@ -34,7 +35,7 @@ export default function Weeklyorder() {
             </li>
             <li>
                 <span>기도</span>
-                <span>①원유신 ②김영태</span>
+                <span>①{data?.pray1} ②{data?.pray2}</span>
                 <span></span>
             </li>
             <li>
@@ -64,7 +65,7 @@ export default function Weeklyorder() {
             </li>
             <li>
                 <span>성경교독</span>
-                <span>마가복음<br />12:35~37</span>
+                <span>{data?.bible}</span>
                 <span>다같이</span>
             </li>
             <li>
@@ -74,7 +75,7 @@ export default function Weeklyorder() {
             </li>
             <li>
                 <span>설교</span>
-                <span>하나님의 아들 그리스도</span>
+                <span>{data?.titleKR}</span>
                 <span>김성현 감독</span>
             </li>
             <li>

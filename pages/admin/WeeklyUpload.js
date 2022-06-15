@@ -14,14 +14,14 @@ const WeeklyUpload = () => {
 
     const onValid = async (data) => {
         if (loading) return;
-        console.log(data);
+        // console.log(data);
         uploadWeekly(data);
     };
 
     useEffect(() => {
-        // if (data?.ok) {
-        //     router.replace(`/admin/contents/${data.contents.id}`);
-        // }
+        if (data?.ok) {
+            router.replace(`/admin/weekly/${data.weekly.id}`);
+        }
     }, [data, router]);
 
     return (

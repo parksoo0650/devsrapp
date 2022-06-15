@@ -18,8 +18,8 @@ export default function weeklynews() {
                 <div className="section subborder jubo_wrap pt0">
                     <div className="movie_wrap">
                         <div className="visual">
-                            <div className="title">{data?.weekly[0].descriptionKR}</div>
-                            <div className="eng">{data?.weekly[0].descriptionEN}</div>
+                            <div className="title">{data?.weekly[0].titleKR}</div>
+                            <div className="eng">{data?.weekly[0].titleEN}</div>
                             <div className="bible">[{data?.weekly[0].bible}]</div>
                         </div>
                         <div className="info">
@@ -36,7 +36,7 @@ export default function weeklynews() {
                             <a>
                                 <li >
                                     <div className="weekly_tit_box">
-                                        <div className="tit">{item.descriptionKR}</div>
+                                        <div className="tit">{item.titleKR}</div>
                                         <div className="date">{item.publishedAt}</div>
                                     </div>
                                 </li>

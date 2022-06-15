@@ -18,8 +18,6 @@ export default function weekly() {
         router.query.id ? `/api/weekly/${router.query.id}` : null
     );
 
-    console.log(data);
-
     useEffect(() => {
         setTabKind(kind);
     }, [router]);
@@ -31,7 +29,7 @@ export default function weekly() {
                 <div className="top_title">주보</div>
             </div>
             <div className="flex justify-center items-center py-3 bg-zinc-700 text-white text-base">
-                제 51권 50호 <span className="px-2 opacity-50 text-sm">|</span> 2022.06.07
+                제 {data?.weekly.volume}권 {data?.weekly.weekNo}호 <span className="px-2 opacity-50 text-sm">|</span> {data?.weekly.publishedAt}
             </div>
             <div className="section">
                 <ul className="tab_area">
@@ -39,8 +37,8 @@ export default function weekly() {
                     <li onClick={() => { if (tabKind != "ser") { setTabKind("ser"); } }} className={(tabKind == "ser") ? "on" : ""}>설교요지</li>
                 </ul>
                 <div className="tab_con">
-                    {(tabKind == "ord") && <Weeklyorder />}
-                    {(tabKind == "ser") && <Weeklysummary />}
+                    {(tabKind == "ord") && <Weeklyorder data={data?.weekly} />}
+                    {(tabKind == "ser") && <Weeklysummary data={data?.weekly} />}
                 </div>
             </div>
         </div>
