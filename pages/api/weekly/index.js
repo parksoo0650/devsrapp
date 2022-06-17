@@ -8,7 +8,7 @@ async function handler(req, res) {
         const weekly = await client.weekly.findMany({
             orderBy: [
                 {
-                    publishedAt: 'desc',
+                    weekNo: 'desc',
                 },
             ],
         });

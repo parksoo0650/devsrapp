@@ -355,10 +355,11 @@ export default function Home() {
               <div className="img"><img src="/icons/ico_shorts.svg" alt="1분은혜" /></div>
               <div className="txt">1분은혜</div>
             </li>
-            {/* <li onClick={() => { router.push("/"); }}>
-              <div className="img"></div>
+            <li onClick={() => { router.push("/weekly"); }}>
+              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
               <div className="txt">주보</div>
             </li>
+            {/* 
             <li onClick={() => { router.push("/"); }}>
               <div className="img"></div>
               <div className="txt">교회소식</div>
