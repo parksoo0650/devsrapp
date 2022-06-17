@@ -356,7 +356,7 @@ export default function Home() {
               <div className="txt">1분은혜</div>
             </li>
             <li onClick={() => { router.push("/weekly"); }}>
-              <div className="img"><img src="/icons/ico_quick_weekly.svg" alt="주보" /></div>
+              <div className="img"><img src="/icons/ico_quick_weekly2.svg" alt="주보" /></div>
               <div className="txt">주보</div>
             </li>
             {/* 
