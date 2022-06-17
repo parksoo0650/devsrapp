@@ -10,7 +10,9 @@ export default function Weeklysummary( {data} ) {
                 { (translation) ? data?.titleKR : data?.titleEN }
                 <span className="translation" onClick={() => { setTranslation(!translation); }}></span>
             </div>
-            <div className="main_bible">{data?.bible}</div>
+            <div className="main_bible">
+                { (translation) ? data?.bible : data?.bibleEN }
+            </div>
             <div className="gist" style={{whiteSpace: "pre-wrap"}}>
                 { (translation) ? data?.descriptionKR : data?.descriptionEN }
                 <span className="bible" >
