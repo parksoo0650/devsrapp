@@ -17,15 +17,19 @@ export default function weeklynews() {
 
                 <div className="section subborder jubo_wrap pt0">
                     <div className="movie_wrap">
-                        <div className="visual">
-                            <div className="title">{data?.weekly[0].titleKR}</div>
-                            <div className="eng">{data?.weekly[0].titleEN}</div>
-                            <div className="bible">[{data?.weekly[0].bible}]</div>
-                        </div>
-                        <div className="info">
-                            <Share title="" thum="" vid="" />
-                            <div className="date">{data?.weekly[0].publishedAt}</div>
-                        </div>
+                    <Link href={`/weekly/${data?.weekly[0].id}`}>
+                        <a>
+                            <div className="visual">
+                                <div className="title">{data?.weekly[0].titleKR}</div>
+                                <div className="eng">{data?.weekly[0].titleEN}</div>
+                                <div className="bible">[{data?.weekly[0].bible}]</div>
+                            </div>
+                            <div className="info">
+                                <Share title="" thum="" vid="" />
+                                <div className="date">{data?.weekly[0].publishedAt}</div>
+                            </div>
+                        </a>
+                    </Link>
                     </div>
                 </div>
 

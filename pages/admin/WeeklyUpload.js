@@ -51,8 +51,15 @@ const WeeklyUpload = () => {
                 <Input
                     register={register("bible", { required: true })}
                     required
-                    label="설교말씀"
+                    label="설교말씀(한글)"
                     name="bible"
+                    type="text"
+                />
+                <Input
+                    register={register("bibleEN", { required: true })}
+                    required
+                    label="설교말씀(영문)"
+                    name="bibleEN"
                     type="text"
                 />
                 <Input

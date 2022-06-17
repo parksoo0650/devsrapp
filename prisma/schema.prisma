@@ -64,6 +64,7 @@ model Weekly {
   volume        Int
   weekNo        Int
   bible         String
+  bibleEN       String
   titleKR       String
   titleEN       String?
   descriptionKR String   @db.LongText
