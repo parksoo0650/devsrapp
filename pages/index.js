@@ -180,14 +180,16 @@ export default function Home() {
     setWeekSelectDataOns({});
   }
 
-  useEffect(() => {
-    setWeeks(week[date.getDay()]);
+  let onDay = (date.getDay()==0 || date.getDay()==6) ? 1 : date.getDay();
+
+  useEffect(() => {  
+    setWeeks(week[onDay]);
     getLiveData();
     getOnData();
   }, []);
 
   useEffect(() => {
-    getWeekData(week[date.getDay()]);
+    getWeekData(week[onDay]);
   }, [weekDataOnm, weekDataOnb, weekDataOns]);
 
   return (
