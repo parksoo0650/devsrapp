@@ -12,6 +12,10 @@ export default function Praisemain() {
     (router.query.kind) ? kind = router.query.kind : kind = "prc";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
+    // 주일연합
+    const API_URL_P15 = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpay21CtEHF5AOApshF7JO9j`;
+    // 주일예배
+    const API_URL_P11 = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZzRz1PIAikIeiRkXQVvd8V`;
     // 성가대
     const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=50&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
     // 헌금송
@@ -28,6 +32,10 @@ export default function Praisemain() {
             apiData = await axios.get(API_URL_PRC);
         } else if (praise === "pro") {
             apiData = await axios.get(API_URL_PRO);
+        } else if (praise === "p15") {
+            apiData = await axios.get(API_URL_P15);
+        } else if (praise === "p11") {
+            apiData = await axios.get(API_URL_P11);
         }
         const splitTitle = apiData.data.items[0].snippet.title.split('|');
         const splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
@@ -69,6 +77,8 @@ export default function Praisemain() {
                         <ul className="tab_area">
                             <li onClick={() => { if (praise != "prc") { setPraise("prc"); setIsLoading(true); } }} className={(praise == "prc") ? "on" : ""}>성가대</li>
                             <li onClick={() => { if (praise != "pro") { setPraise("pro"); setIsLoading(true); } }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
+                            <li onClick={() => { if (praise != "p15") { setPraise("p15"); setIsLoading(true); } }} className={(praise == "p15") ? "on" : ""}>주일연합예배찬양</li>
+                            <li onClick={() => { if (praise != "p11") { setPraise("p11"); setIsLoading(true); } }} className={(praise == "p11") ? "on" : ""}>주일예배찬양</li>
                         </ul>
                     </div>
                 </div>
@@ -99,6 +109,9 @@ export default function Praisemain() {
                             <ul className="sermon_list">
                                 {
                                     listData.map((doc, i) => {
+                                        if (i == 0) {
+                                            return false;
+                                        }
                                         let splitListTitle = doc.snippet.title.split('|');
                                         let ListTitle = splitListTitle[0];
                                         let splitListDate = doc.snippet.publishedAt.split('T');

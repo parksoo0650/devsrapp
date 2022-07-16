@@ -313,9 +313,7 @@ header .search_area .recent .list li .btn_delete {
 	padding: 9px 0 9px 0;
 	background-color: #fff;
 	border-top: 1px solid #ebebeb;
-	transition: 0.5s;
 	bottom: 0;
-	opacity: 1;
 }
 #home_bar li {
 	width: 20%;

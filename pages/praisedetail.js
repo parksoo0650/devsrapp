@@ -8,7 +8,7 @@ export default function Praisedetail() {
     let kind = "";
     (router.query.kind) ? kind = router.query.kind : kind = "prc";
     let praise = ['재생목록', '찬양목록'];
-    const pra_kind = { "prc": "성가대", "pro": "헌금송" }
+    const pra_kind = { "prc": "성가대", "pro": "헌금송", "p15": "주일연합예배찬양", "p11": "주일예배찬양" }
     const [praiseD, setPraiseD] = useState("재생목록");
     const opts = {
         width: "320px",
