@@ -115,6 +115,26 @@ export default function SiteMap() {
                                             <a onClick={menuClose} style={{ display: "block" }}>헌금송</a>
                                         </Link>
                                     </li>
+                                    <li>
+                                        <Link
+                                            href={{
+                                                pathname: '/praisemain',
+                                                query: { kind: 'p15' },
+                                            }}
+                                        >
+                                            <a onClick={menuClose} style={{ display: "block" }}>주일연합예배찬양</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href={{
+                                                pathname: '/praisemain',
+                                                query: { kind: 'p11' },
+                                            }}
+                                        >
+                                            <a onClick={menuClose} style={{ display: "block" }}>주일예배찬양</a>
+                                        </Link>
+                                    </li>
                                 </ul>
                             ) : (null)}
                         </li>
