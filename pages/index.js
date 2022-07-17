@@ -415,7 +415,7 @@ export default function Home() {
                   >
                     <div
                       onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p15`, "/praisedetail");
                       }}
                     >
                       <div className="movie_thumb">
@@ -446,7 +446,7 @@ export default function Home() {
                   >
                     <div
                       onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p11`, "/praisedetail");
                       }}
                     >
                       <div className="movie_thumb">
