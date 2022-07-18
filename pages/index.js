@@ -19,7 +19,7 @@ import mdBanner from "../public/icons/md_banner2.png";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
   const { data } = useSWR("/api/contents");
 
@@ -81,6 +81,7 @@ export default function Home() {
       }
     } else {
       api_data = await axios.get(API_URL_DEF);
+      console.log(api_data);
       splitTitle = api_data.data.items[0].snippet.title.split('-');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
@@ -318,7 +319,7 @@ export default function Home() {
                       </div>
                       <div className="info">
                         <div className="tit">
-                          {data?.contents[0].name}
+                          {data?.contents[0]?.name}
                         </div>
                         <div className="date"></div>
                       </div>
@@ -333,10 +334,10 @@ export default function Home() {
                         <button className="close" onClick={close}>
                           <img src="/icons/btn_close_w.svg" alt="닫기" />
                         </button>
-                        <Share title={data?.contents[0].name} thum={`/images/kakao_shorts.jpg`} vid={data?.contents[0].videoId} type="white" />
+                        <Share title={data?.contents[0]?.name} thum={`/images/kakao_shorts.jpg`} vid={data?.contents[0]?.videoId} type="white" />
                       </div>
                       <div className="content">
-                        <YouTube videoId={data?.contents[0].videoId} opts={opts} containerClassName="iframe_wrap" />
+                        <YouTube videoId={data?.contents[0]?.videoId} opts={opts} containerClassName="iframe_wrap" />
                       </div>
                     </div>
                   )}
@@ -584,3 +585,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home;
