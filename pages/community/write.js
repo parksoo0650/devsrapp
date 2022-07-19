@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 
 const Write = () => {
   const router = useRouter();
-  const { register, handleSubmit, watch } = useForm();
+  const { register, handleSubmit, watch, formState: { isSubmitting } } = useForm();
   const [post, { loading, data }] = useMutation("/api/posts");
 
   const onValid = async ({ kind, category, question, nickName, password, email }) => {
@@ -144,7 +144,7 @@ const Write = () => {
           placeholder="답변을 메일로 받기 원하시면 입력해주세요."
         />
 
-        <Button text={loading ? "Loading..." : "Submit"} />
+        <Button text={loading ? "Loading..." : "Submit"} disabled={isSubmitting} />
       </form>
     </AdminLayout>
   );
