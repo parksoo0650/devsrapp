@@ -29,6 +29,11 @@ async function handler(req, res) {
 
   if (req.method === "GET") {
     const posts = await client.post.findMany({
+      orderBy: [
+        {
+          createdAt: "desc",
+        },
+      ],
       include: {
         _count: {
           select: {

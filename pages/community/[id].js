@@ -8,7 +8,11 @@ import React, { useState, useEffect } from "react";
 
 const CommunityPostDetail = () => {
   const router = useRouter();
-  const kind = { "questions": "수련회질문", "lost": "분실/실종", "please": "해주세요" }
+  const kind = {
+    questions: "수련회질문",
+    lost: "분실/실종",
+    please: "해주세요",
+  };
   const { register, handleSubmit, reset } = useForm();
   const [isWondering, setIsWondering] = useState(false);
   const { data, mutate } = useSWR(
@@ -63,10 +67,12 @@ const CommunityPostDetail = () => {
           <div className="mt-2 px-4 text-gray-700">
             <span className="text-orange-500 font-medium">Q.</span>{" "}
             {data?.post?.question}
-            <img
-              src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/shorts`}
-              className="h-96 bg-slate-300"
-            />
+            {data?.post?.image && (
+              <img
+                src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/shorts`}
+                className="h-96 bg-slate-300"
+              />
+            )}
           </div>
           <div className="flex px-4 space-x-5 mt-3 text-gray-700 py-2.5 border-t border-b-[2px]  w-full">
             {!isWondering ? (
