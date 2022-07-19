@@ -2,14 +2,23 @@ import withHandler from "../../../libs/server/withHandler";
 import client from "../../../libs/server/client";
 
 async function handler(req, res) {
+  // const {
+  //   body: { question },
+  // } = req;
   const {
-    body: { question },
+    body: { kind, category, question, nickName, password, email, photoId },
   } = req;
 
   if (req.method === "POST") {
     const post = await client.post.create({
       data: {
+        kind,
+        category,
         question,
+        nickName,
+        password,
+        email,
+        image: photoId,
       },
     });
     res.json({

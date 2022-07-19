@@ -8,6 +8,7 @@ import React, { useState, useEffect } from "react";
 
 const CommunityPostDetail = () => {
   const router = useRouter();
+  const kind = { "questions": "수련회질문", "lost": "분실/실종", "please": "해주세요" }
   const { register, handleSubmit, reset } = useForm();
   const [isWondering, setIsWondering] = useState(false);
   const { data, mutate } = useSWR(
@@ -56,12 +57,16 @@ const CommunityPostDetail = () => {
     <AdminLayout canGoBack>
       <div>
         <span className="inline-flex my-3 ml-4 items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-          질문
+          {kind[data?.post?.category]}
         </span>
         <div>
           <div className="mt-2 px-4 text-gray-700">
             <span className="text-orange-500 font-medium">Q.</span>{" "}
             {data?.post?.question}
+            <img
+              src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/shorts`}
+              className="h-96 bg-slate-300"
+            />
           </div>
           <div className="flex px-4 space-x-5 mt-3 text-gray-700 py-2.5 border-t border-b-[2px]  w-full">
             {!isWondering ? (
@@ -140,7 +145,7 @@ const CommunityPostDetail = () => {
         <form className="px-4" onSubmit={handleSubmit(onValid)}>
           <TextArea
             name="description"
-            placeholder="Answer this question!"
+            placeholder="답변을 입력해주세요."
             required
             register={register("answer", { required: true, minLength: 5 })}
           />

@@ -82,6 +82,10 @@ model Post {
   question  String      @db.MediumText
   nickName  String?
   password  String?
+  email     String?
+  image     String?
+  category  String
+  kind      String
   answers   Answer[]
   wondering Wondering[]
 }

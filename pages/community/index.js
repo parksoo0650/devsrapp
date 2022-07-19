@@ -5,6 +5,7 @@ import useSWR from "swr";
 
 const Community = () => {
   const { data } = useSWR(`/api/posts`);
+  const kind = { "questions": "수련회질문", "lost": "분실/실종", "please": "해주세요" }
   return (
     <AdminLayout hasTabBar title="문의하기">
       <div className="space-y-4 divide-y-[2px]">
@@ -12,14 +13,14 @@ const Community = () => {
           <Link key={post.id} href={`/community/${post.id}`}>
             <a className="flex cursor-pointer flex-col pt-4 items-start">
               <span className="flex ml-4 items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                질문
+                {kind[post.category]}
               </span>
               <div className="mt-2 px-4 text-gray-700">
                 <span className="text-orange-500 font-medium">Q.</span>{" "}
                 {post.question}
               </div>
               <div className="mt-5 px-4 flex items-center justify-between w-full text-gray-500 font-medium text-xs">
-                <span></span>
+                <span>{post?.nickName}</span>
                 <span>{post.createdAt}</span>
               </div>
               <div className="flex px-4 space-x-5 mt-3 text-gray-700 py-2.5 border-t   w-full">
