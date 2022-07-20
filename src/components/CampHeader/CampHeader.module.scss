@@ -1,0 +1,30 @@
+.CampHeader {
+  padding: 12px 20px;
+  position: relative;
+
+  span {
+    display: block;
+    height: 20px;
+
+    button {
+      width: 20px;
+      height: 20px;
+      background-image: url('../../../public/icons/ico_back.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+
+    h3 {
+      display: block;
+      text-align: center;
+      height: 100%;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+    }
+  }
+}

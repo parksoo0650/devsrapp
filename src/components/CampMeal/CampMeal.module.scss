@@ -1,0 +1,84 @@
+.CampMeal {
+  text-align: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 0 16px;
+
+    // 공유 버튼
+    button {
+      width: 20px;
+      height: 16px;
+      background-image: url('../../../public/icons/ico_go.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    // 날짜 표시
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100%;
+      align-items: center;
+
+      // 각각의 날짜
+      li {
+        display: inline-block;
+        width: 106px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+
+  // 구분선
+  .horizontalLine {
+    width: 86%;
+    height: 1px;
+    background-color: #ebedef;
+    display: inline-block;
+  }
+
+  // 3x3 그리드 테이블
+  section {
+    margin: 20px 16px 0 0;
+    display: grid;
+    grid-template-rows: repeat(3, 196px);
+    grid-template-columns: repeat(3, 106px);
+    justify-content: right;
+
+    // 각각의 박스
+    article {
+      background: #f8f8f8;
+      border: 1px solid #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:nth-child(1) {
+        grid-column: 2 / 4;
+      }
+
+      &:nth-child(2) {
+        grid-column: 2 / 3;
+      }
+
+      // 박스 안의 내용
+      ul {
+        li {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 18px;
+          letter-spacing: -0.5px;
+        }
+      }
+    }
+  }
+}
