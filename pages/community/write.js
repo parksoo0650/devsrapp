@@ -1,5 +1,5 @@
 import Button from "../../src/components/button";
-import AdminLayout from "../../src/components/AdminLayout";
+import EventLayout from "../../src/components/EventLayout";
 import TextArea from "../../src/components/textarea";
 import Input from "../../src/components/input";
 import useMutation from "../../libs/client/useMutation";
@@ -11,11 +11,7 @@ import Loading from "../../src/components/Loading";
 const Write = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    watch,
-  } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const [post, { loading, data }] = useMutation("/api/posts");
 
   const onValid = async ({
@@ -69,61 +65,90 @@ const Write = () => {
   }, [image]);
 
   return (
-    <AdminLayout canGoBack title="문의하기 글쓰기">
+    <EventLayout
+      canGoBack
+      title={router.query.kind == "q" ? "문의하기" : "성락인스타 글쓰기"}
+    >
       {isLoading === true ? (
         <div className="loading_box">
           <Loading />
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4">
-          <Input
-            register={register("kind", { required: true, value: "notice" })}
-            required
-            name="kind"
-            type="hidden"
-          />
-          <div className="flex space-x-4">
-            <label htmlFor="questions">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="questions"
-                id="questions"
+        <form onSubmit={handleSubmit(onValid)} className="px-4 space-y-4">
+          {router.query.kind == "q" ? (
+            <>
+              <Input
+                register={register("kind", { required: true, value: "notice" })}
                 required
+                name="kind"
+                type="hidden"
               />
-              수련회질문
-            </label>
-            <label htmlFor="lost">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="lost"
-                id="lost"
+              <div className="flex space-x-4">
+                <label htmlFor="questions">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="questions"
+                    id="questions"
+                    required
+                  />
+                  수련회질문
+                </label>
+                <label htmlFor="lost">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="lost"
+                    id="lost"
+                    required
+                  />
+                  분실/실종
+                </label>
+                <label htmlFor="please">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="please"
+                    id="please"
+                    required
+                  />
+                  해주세요
+                </label>
+              </div>
+            </>
+          ) : (
+            <>
+              <Input
+                register={register("kind", { required: true, value: "insta" })}
                 required
+                name="kind"
+                type="hidden"
               />
-              분실/실종
-            </label>
-            <label htmlFor="please">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="please"
-                id="please"
+              <Input
+                register={register("category", {
+                  required: true,
+                  value: "insta",
+                })}
                 required
+                name="category"
+                type="hidden"
               />
-              해주세요
-            </label>
-          </div>
+            </>
+          )}
           <TextArea
             register={register("question", { required: true })}
             required
-            placeholder="성락교회 수련회 관련된 질문을 적어주세요."
+            placeholder={
+              router.query.kind == "q"
+                ? "성락교회 수련회 관련된 질문을 적어주세요."
+                : "성락인스타를 남겨주세요."
+            }
           />
           <div>
-            <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
+            <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 w-10 h-10 rounded-md">
               {imagePreview ? (
                 <img src={imagePreview} className="h-full" />
               ) : (
@@ -165,20 +190,19 @@ const Write = () => {
             label="게시글비번"
             placeholder="게시글 수정/삭제를 원하시면 입력해주세요."
           />
-          <Input
-            register={register("email", { required: false })}
-            name="email"
-            type="text"
-            label="이메일"
-            placeholder="답변을 메일로 받기 원하시면 입력해주세요."
-          />
-
-          <Button
-            text={loading ? "Loading..." : "Submit"}
-          />
+          {router.query.kind == "q" && (
+            <Input
+              register={register("email", { required: false })}
+              name="email"
+              type="text"
+              label="이메일"
+              placeholder="답변을 메일로 받기 원하시면 입력해주세요."
+            />
+          )}
+          <Button text={loading ? "Loading..." : "Submit"} />
         </form>
       )}
-    </AdminLayout>
+    </EventLayout>
   );
 };
 

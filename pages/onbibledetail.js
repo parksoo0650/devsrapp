@@ -20,7 +20,7 @@ export default function Onmain() {
     return (
         <div className="sub_container onseries_detail">
             <div className="top_area">
-                <span className="btn_prev" onClick={() => router.push('/onmain?kind=onb')}></span>
+                <span className="btn_prev" onClick={() => push('/onmain?kind=onb')}></span>
                 <div className="top_title">온성경</div>
             </div>
 

@@ -1,13 +1,12 @@
 import Link from "next/link";
-import FloatingButton from "../../src/components/floating-button";
-import AdminLayout from "../../src/components/AdminLayout";
+import EventLayout from "../../src/components/EventLayout";
 import useSWR from "swr";
 
 const Community = () => {
-  const { data } = useSWR(`/api/posts`);
+  const { data } = useSWR(`/api/posts?ckind=notice`);
   const kind = { "questions": "수련회질문", "lost": "분실/실종", "please": "해주세요" }
   return (
-    <AdminLayout hasTabBar title="문의하기">
+    <EventLayout hasTabBar title="문의하기" kind="q">
       <div className="space-y-4 divide-y-[2px]">
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/community/${post.id}`}>
@@ -62,24 +61,8 @@ const Community = () => {
             </a>
           </Link>
         ))}
-        <FloatingButton href="/community/write">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
-            ></path>
-          </svg>
-        </FloatingButton>
       </div>
-    </AdminLayout>
+    </EventLayout>
   );
 };
 
