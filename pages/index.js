@@ -28,12 +28,14 @@ const Home = () => {
   const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
   // 주일예배 1부 〔06:30 AM〕 · 3부 〔10:30 AM
   const API_URL_SUN = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=2&playlistId=PLCNxYye_JJpYLa-0kkDLhDAw-Rzq3keT6`;
+  // 수요예배
+  const API_URL_WED = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZRwb9UsDgmMOJ3ex2VchNy`;
   // 온특새
   const API_URL_ONM = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG`;
   // 온성경
   const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpZKRGb7hy_FJ1OIv4fxTF7S`;
   // 온3분
-  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
+  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
   // 성가대
   const API_URL_PRC = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=2&playlistId=PLCNxYye_JJpZu77kdDQL8br9UXmYybrw7`;
   // 헌금송
@@ -60,6 +62,7 @@ const Home = () => {
   const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
   const [weekSelectDataOns, setWeekSelectDataOns] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
+  const hours = new Date().getHours();
 
   const getLiveData = async () => {
     const api_data = {};
@@ -67,6 +70,7 @@ const Home = () => {
     const splitDate = "";
     const videoTitle = "";
     const videoDate = "";
+    const videoDateStr = "";
 
     if (week[date.getDay()] === "일") {
       api_data = await axios.get(API_URL_SUN);
@@ -74,9 +78,19 @@ const Home = () => {
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
       videoDate = splitDate[0].split('-');
+      videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
 
-      let hours = new Date().getHours();
       if (hours > 7 && hours < 13) {
+        setIsLive(true);
+      }
+    } else if (week[date.getDay()] === "수" && hours > 10 && hours < 13) {
+      api_data = await axios.get(API_URL_WED);
+      splitTitle = api_data.data.items[0].snippet.title.split('|');
+      splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
+      videoTitle = splitTitle;
+      videoDateStr = splitTitle[1];
+
+      if (hours > 10 && hours < 13) {
         setIsLive(true);
       }
     } else {
@@ -86,12 +100,13 @@ const Home = () => {
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
       videoDate = splitDate[0].split('-');
+      videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
     }
     setLiveDatas({
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       thumbnails: api_data.data.items[0].snippet.thumbnails.medium.url,
-      publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
+      publishedAt: videoDateStr
     });
 
     setIsLoading(false);
@@ -231,7 +246,7 @@ const Home = () => {
                   <a href="#">{liveDatas.title}</a>
                 </div>
                 <div className="date">{liveDatas.publishedAt}</div>
-                <div className="preacher">설교: 김성현 목사</div>
+                { (week[date.getDay()] === "수" && hours > 10 && hours < 13) ? null : (<div className="preacher">설교: 김성현 목사</div>) }
               </div>
             </div>
           </div>
@@ -403,7 +418,7 @@ const Home = () => {
             pagination={false}
           >
             {
-              praiseDataP15.map((doc, i) => {
+              praiseDataP11.map((doc, i) => {
                 let splitListTitle = doc.snippet.title.split('|');
                 let ListTitle = splitListTitle[0];
                 let splitListDate = doc.snippet.publishedAt.split('T');
@@ -416,7 +431,7 @@ const Home = () => {
                   >
                     <div
                       onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p15`, "/praisedetail");
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p11`, "/praisedetail");
                       }}
                     >
                       <div className="movie_thumb">
@@ -434,7 +449,7 @@ const Home = () => {
               })
             }
             {
-              praiseDataP11.map((doc, i) => {
+              praiseDataP15.map((doc, i) => {
                 let splitListTitle = doc.snippet.title.split('|');
                 let ListTitle = splitListTitle[0];
                 let splitListDate = doc.snippet.publishedAt.split('T');
@@ -447,7 +462,7 @@ const Home = () => {
                   >
                     <div
                       onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p11`, "/praisedetail");
+                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p15`, "/praisedetail");
                       }}
                     >
                       <div className="movie_thumb">
@@ -537,7 +552,7 @@ const Home = () => {
             pagination={false}
           >
             <SwiperSlide>
-              <Link href="youtube://channel/UCkrWb-HCk3fA7szpbmLHTmw">
+              <Link href="https://www.youtube.com/channel/UCkrWb-HCk3fA7szpbmLHTmw">
                 <a>
                   <div className="img">
                     <Image src={bwmLogo} placeholder="blur" quality={100} />
@@ -547,7 +562,7 @@ const Home = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="youtube://channel/UCW6bF9L0ZK__Tlwl19B0FYQ">
+              <Link href="https://www.youtube.com/channel/UCW6bF9L0ZK__Tlwl19B0FYQ">
                 <a>
                   <div className="img"><img src="../icons/thumb_cba.svg" alt="대학부" /></div>
                   <div className="txt">대학부</div>
@@ -555,7 +570,7 @@ const Home = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="youtube://channel/UCcD3GeLh6aBwBN_A5yr4pEg">
+              <Link href="https://www.youtube.com/channel/UCcD3GeLh6aBwBN_A5yr4pEg">
                 <a>
                   <div className="img"><img src="../icons/thumb_high.svg" alt="고등부" /></div>
                   <div className="txt">고등부</div>
@@ -563,7 +578,7 @@ const Home = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="youtube://channel/UCDzjhPXk9IypRuCopoFDvlg">
+              <Link href="https://www.youtube.com/channel/UCDzjhPXk9IypRuCopoFDvlg">
                 <a>
                   <div className="img"><img src="../icons/thumb_secondary.svg" alt="중등부" /></div>
                   <div className="txt">중등부</div>
@@ -571,7 +586,7 @@ const Home = () => {
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="youtube://channel/UCVZgyTaNK1q-CKM481MO35A">
+              <Link href="https://www.youtube.com/channel/UCVZgyTaNK1q-CKM481MO35A">
                 <a>
                   <div className="img"><img src="../icons/thumb_elementary.svg" alt="유치부" /></div>
                   <div className="txt">어린이부</div>

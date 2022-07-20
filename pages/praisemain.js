@@ -9,7 +9,7 @@ import HomeBar from "../src/components/HomeBar";
 export default function Praisemain() {
     const router = useRouter();
     let kind = "";
-    (router.query.kind) ? kind = router.query.kind : kind = "prc";
+    (router.query.kind) ? kind = router.query.kind : kind = "p11";
     const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
     // 주일연합
@@ -75,10 +75,10 @@ export default function Praisemain() {
                     <div className="top_title">찬양</div>
                     <div className="tab_wrap">
                         <ul className="tab_area">
+                            <li onClick={() => { if (praise != "p11") { setPraise("p11"); setIsLoading(true); } }} className={(praise == "p11") ? "on" : ""}>주일예배찬양</li>
+                            <li onClick={() => { if (praise != "p15") { setPraise("p15"); setIsLoading(true); } }} className={(praise == "p15") ? "on" : ""}>주일연합예배찬양</li>
                             <li onClick={() => { if (praise != "prc") { setPraise("prc"); setIsLoading(true); } }} className={(praise == "prc") ? "on" : ""}>성가대</li>
                             <li onClick={() => { if (praise != "pro") { setPraise("pro"); setIsLoading(true); } }} className={(praise == "pro") ? "on" : ""}>헌금송</li>
-                            <li onClick={() => { if (praise != "p15") { setPraise("p15"); setIsLoading(true); } }} className={(praise == "p15") ? "on" : ""}>주일연합예배찬양</li>
-                            <li onClick={() => { if (praise != "p11") { setPraise("p11"); setIsLoading(true); } }} className={(praise == "p11") ? "on" : ""}>주일예배찬양</li>
                         </ul>
                     </div>
                 </div>
