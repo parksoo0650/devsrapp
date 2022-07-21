@@ -21,10 +21,15 @@ const CampInfo = () => {
       {!menu && (
         <div>
           <CampMenu onClick={onClick} title='식당안내' />
+          <br />
           <CampMenu onClick={onClick} title='진행본부' />
+          <br />
           <CampMenu onClick={onClick} title='기도실(숙소)안내' />
+          <br />
           <CampMenu onClick={onClick} title='차량운행' />
+          <br />
           <CampMenu onClick={onClick} title='프로그램 세부정보' />
+          <br />
           <CampMenu onClick={onClick} title='수련회 일정' />
         </div>
       )}
