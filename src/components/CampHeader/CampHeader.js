@@ -1,9 +1,16 @@
 import classNames from 'classnames/bind';
+import { useRouter } from 'next/router';
 import styles from './CampHeader.module.scss';
 
 const cn = classNames.bind(styles);
 
-const CampHeader = ({ title, onClick }) => {
+const CampHeader = ({ title }) => {
+  const router = useRouter();
+
+  const onClick = () => {
+    router.push('/2022-summer-camp');
+  };
+
   return (
     <div className={cn('CampHeader')}>
       <span>

@@ -1,5 +1,9 @@
-const CampMenu = ({ title, onClick }) => {
-  return <div onClick={onClick}>{title}</div>;
+const CampMenu = ({ id, title, onClick }) => {
+  return (
+    <div onClick={onClick} id={id}>
+      {title}
+    </div>
+  );
 };
 
 export default CampMenu;

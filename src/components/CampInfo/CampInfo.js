@@ -1,46 +1,24 @@
-import { useState } from 'react';
+import { useRouter } from 'next/router';
 import CampMenu from '../CampMenu/CampMenu';
-import CampMeal from '../CampMeal/CampMeal';
-import CampCentral from '../CampCentral/CampCentral';
-import CampRoom from '../CampRoom/CampRoom';
-import CampShuttle from '../CampShuttle/CampShuttle';
-import CampEvents from '../CampEvents/CampEvents';
-import CampSchedule from '../CampSchedule/CampSchedule';
 
 // 2022 여름 수련회 안내
 const CampInfo = () => {
-  const [menu, setMenu] = useState(null);
+  const router = useRouter();
 
   const onClick = (event) => {
-    if (!event.target.textContent) setMenu(() => null);
-    setMenu(() => event.target.textContent);
+    // console.dir(event.target.id);
+    router.push(`2022-summer-camp/${event.target.id}`);
   };
 
   return (
-    <>
-      {!menu && (
-        <div>
-          <CampMenu onClick={onClick} title='식당안내' />
-          <br />
-          <CampMenu onClick={onClick} title='진행본부' />
-          <br />
-          <CampMenu onClick={onClick} title='기도실(숙소)안내' />
-          <br />
-          <CampMenu onClick={onClick} title='차량운행' />
-          <br />
-          <CampMenu onClick={onClick} title='프로그램 세부정보' />
-          <br />
-          <CampMenu onClick={onClick} title='수련회 일정' />
-        </div>
-      )}
-
-      {menu === '식당안내' && <CampMeal onClick={onClick} />}
-      {menu === '진행본부' && <CampCentral onClick={onClick} />}
-      {menu === '기도실(숙소)안내' && <CampRoom onClick={onClick} />}
-      {menu === '차량운행' && <CampShuttle onClick={onClick} />}
-      {menu === '프로그램 세부정보' && <CampEvents onClick={onClick} />}
-      {menu === '수련회 일정' && <CampSchedule onClick={onClick} />}
-    </>
+    <div>
+      <CampMenu onClick={onClick} title='식당안내' id='meal' />
+      <CampMenu onClick={onClick} title='진행본부' id='central' />
+      <CampMenu onClick={onClick} title='기도실(숙소)안내' id='room' />
+      <CampMenu onClick={onClick} title='차량운행' id='shuttle' />
+      <CampMenu onClick={onClick} title='프로그램 세부정보' id='events' />
+      <CampMenu onClick={onClick} title='수련회 일정' id='schedule' />
+    </div>
   );
 };
 
