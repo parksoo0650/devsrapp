@@ -106,3 +106,13 @@ model Wondering {
   post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId    Int
 }
+
+model Agency {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  latitude  Float?
+  longitude Float?
+  range     Float?
+}

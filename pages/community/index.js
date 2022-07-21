@@ -1,26 +1,48 @@
 import Link from "next/link";
 import EventLayout from "../../src/components/EventLayout";
 import useSWR from "swr";
+import { cls } from "../../libs/utils";
+import Image from "next/image";
 
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=notice`);
-  const kind = { "questions": "수련회질문", "lost": "분실/실종", "please": "해주세요" }
+  const kind = {
+    questions: "수련회 질문",
+    lost: "분실/실종",
+    please: "도와주세요",
+  };
   return (
     <EventLayout hasTabBar title="문의하기" kind="q">
-      <div className="space-y-4 divide-y-[2px]">
+      <div className="space-y-4 divide-y-[8px]">
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/community/${post.id}`}>
             <a className="flex cursor-pointer flex-col pt-4 items-start">
-              <span className="flex ml-4 items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+              <span
+                className={cls(
+                  post.category == "questions" ? "bg-blue-600" : "bg-gray-800",
+                  post.category == "lost" ? "bg-red-600" : "bg-gray-800",
+                  post.category == "please" ? "bg-green-600" : "bg-gray-800",
+                  "flex ml-4 items-center px-2.5 py-0.5 rounded-sm text-xs font-medium text-white"
+                )}
+              >
                 {kind[post.category]}
               </span>
-              <div className="mt-2 px-4 text-gray-700">
-                <span className="text-orange-500 font-medium">Q.</span>{" "}
+              <div className="mt-2 px-4 text-gray-700 whitespace-pre-wrap">
                 {post.question}
+                {post?.image ? (
+                  <div className="pt-4">
+                    <Image
+                      src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${post?.image}/shorts`}
+                      width="80"
+                      height="80"
+                    />
+                  </div>
+                ) : null}
               </div>
+
               <div className="mt-5 px-4 flex items-center justify-between w-full text-gray-500 font-medium text-xs">
-                <span>{post?.nickName}</span>
-                <span>{post.createdAt}</span>
+                <span>{post?.nickName ? post?.nickName : "성락인"}</span>
+                <span>{post.createdAt.substring(0, 10)}</span>
               </div>
               <div className="flex px-4 space-x-5 mt-3 text-gray-700 py-2.5 border-t   w-full">
                 <span className="flex space-x-2 items-center text-sm">
