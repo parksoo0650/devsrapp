@@ -62,11 +62,11 @@
           display: flex;
 
           p {
-            // 출발, 도착 텍스트
+            // 출발, 도착 동그라미
             &:nth-child(1) {
               margin-right: 8px;
-              width: 26px;
-              height: 26px;
+              width: 27px;
+              height: 27px;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -92,6 +92,7 @@
         }
       }
 
+      // 출발 - 도착 동그라미 연결 선
       div {
         &:nth-child(1) {
           position: relative;
@@ -99,7 +100,7 @@
           &::after {
             content: '';
             width: 1px;
-            height: 6px;
+            height: 5px;
             background-color: #ebedef;
             position: absolute;
             bottom: -6px;
