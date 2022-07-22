@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Loading from "../../src/components/Loading";
 import useCoords from "../../libs/client/useCoords";
+import useSWR from "swr";
 
 const Write = () => {
   const router = useRouter();
@@ -15,6 +16,12 @@ const Write = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { register, handleSubmit, watch } = useForm();
   const [post, { loading, data }] = useMutation("/api/posts");
+
+  const { data: coords } = useSWR(
+    latitude && longitude
+      ? `/api/posts/coords?latitude=${latitude}&longitude=${longitude}`
+      : null
+  );
 
   const onValid = async ({
     kind,
@@ -53,7 +60,7 @@ const Write = () => {
 
   useEffect(() => {
     if (data && data.ok) {
-      if(router.query.kind == "q"){
+      if (router.query.kind == "q") {
         router.push(`/community`);
       } else if (router.query.kind == "s") {
         router.push(`/srinsta`);
@@ -81,6 +88,12 @@ const Write = () => {
           <Loading />
         </div>
       ) : (
+        <>
+        {!coords?.coords[0]?.name && 
+          <div className="mx-4 py-4 text-red-600 text-lg font-bold">
+            수련회 장소에서만 작성이 가능합니다.
+          </div>
+        }
         <form onSubmit={handleSubmit(onValid)} className="mt-4">
           {router.query.kind == "q" ? (
             <>
@@ -91,7 +104,7 @@ const Write = () => {
                 type="hidden"
               />
               <div className="flex flex-wrap items-center space-x-4 px-4 py-4 justify-around text-base border-b border-t">
-                <div class="flex items-center mr-4">
+                <div className="flex items-center mr-4">
                   <input
                     {...register("category")}
                     type="radio"
@@ -99,16 +112,16 @@ const Write = () => {
                     value="questions"
                     id="questions"
                     required
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
-                    for="questions"
-                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    htmlFor="questions"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     수련회 질문
                   </label>
                 </div>
-                <div class="flex items-center mr-4">
+                <div className="flex items-center mr-4">
                   <input
                     {...register("category")}
                     type="radio"
@@ -116,16 +129,16 @@ const Write = () => {
                     value="lost"
                     id="lost"
                     required
-                    class="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
-                    for="lost"
-                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    htmlFor="lost"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     분실/실종
                   </label>
                 </div>
-                <div class="flex items-center mr-4">
+                <div className="flex items-center mr-4">
                   <input
                     {...register("category")}
                     type="radio"
@@ -133,11 +146,11 @@ const Write = () => {
                     value="please"
                     id="please"
                     required
-                    class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                    className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                   />
                   <label
-                    for="please"
-                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                    htmlFor="please"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     도와주세요
                   </label>
@@ -239,9 +252,12 @@ const Write = () => {
             </div>
           )}
           <div className="px-4 py-4">
-            <Button text={loading ? "Loading..." : "글쓰기"} />
+            {coords?.coords[0]?.name ? (
+              <Button text={loading ? "Loading..." : "글쓰기"} />
+            ) : null}
           </div>
         </form>
+        </>
       )}
     </EventLayout>
   );

@@ -18,6 +18,7 @@ const CommunityPostDetail = () => {
   const { data, mutate } = useSWR(
     router.query.id ? `/api/posts/${router.query.id}` : null
   );
+  
   const [wonder, { loading }] = useMutation(
     `/api/posts/${router.query.id}/wonder`
   );
