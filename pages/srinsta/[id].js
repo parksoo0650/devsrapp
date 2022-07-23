@@ -63,23 +63,15 @@ const CommunityPostDetail = () => {
   return (
     <EventLayout canGoBack>
       <div>
-        <span
-          className={cls(
-            data?.post?.category == "questions" ? "bg-blue-600" : "bg-gray-800",
-            data?.post?.category == "lost" ? "bg-red-600" : "bg-gray-800",
-            data?.post?.category == "please" ? "bg-green-600" : "bg-gray-800",
-            "inline-flex my-3 ml-4 items-center px-2.5 py-1 rounded-sm text-xs font-medium text-white"
-          )}
-        >
-          {kind[data?.post?.category]}
-        </span>
         <div className=" border-t">
-          <div className="mt-2 px-4 text-gray-700 text-lg">{data?.post?.question}</div>
+          <div className="mt-2 px-4 text-gray-700 text-lg">
+            {data?.post?.question}
+          </div>
           {data?.post?.image && (
             <img
-            src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/public`}
-            className="h-full bg-slate-300"
-          />
+              src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/public`}
+              className="h-full bg-slate-300"
+            />
           )}
           <div className="flex px-4 space-x-5 text-gray-700 py-2.5 border-b-[2px]  w-full">
             {!isWondering ? (

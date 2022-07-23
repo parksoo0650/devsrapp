@@ -11,7 +11,7 @@ const Community = () => {
     <EventLayout hasTabBar title="성락인스타" kind="s">
       <div className="space-y-4">
         {data?.posts?.map((post) => (
-          <Link key={post.id} href={`/community/${post.id}`}>
+          <Link key={post.id} href={`/srinsta/${post.id}`}>
             <a className="flex cursor-pointer flex-col items-start">
               <div className="p-4 flex items-center justify-between w-full text-gray-800 font-medium text-base">
                 <span>{post?.nickName ? post?.nickName : "성락인"}</span>

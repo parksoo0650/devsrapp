@@ -22,7 +22,7 @@ const Community = () => {
                   post.category == "questions" ? "bg-blue-600" : "bg-gray-800",
                   post.category == "lost" ? "bg-red-600" : "bg-gray-800",
                   post.category == "please" ? "bg-green-600" : "bg-gray-800",
-                  "flex ml-4 items-center px-2.5 py-0.5 rounded-sm text-xs font-medium text-white"
+                  "flex ml-4 items-center px-2.5 py-1 rounded-sm text-xs font-medium text-white"
                 )}
               >
                 {kind[post.category]}
@@ -30,11 +30,13 @@ const Community = () => {
               <div className="mt-2 px-4 text-gray-700 whitespace-pre-wrap">
                 {post.question}
                 {post?.image ? (
-                  <div className="pt-4">
+                  <div className="pt-4 w-20 relative pb-20">
                     <Image
                       src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${post?.image}/shorts`}
-                      width="80"
-                      height="80"
+                      // width="80"
+                      // height="80"
+                      layout="fill"
+                      className=" rounded-md object-cover"
                     />
                   </div>
                 ) : null}
