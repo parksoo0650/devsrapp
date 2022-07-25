@@ -12,8 +12,8 @@ const CampMealCard = ({ time, list }) => {
       {/* 메뉴 리스트 */}
       <div className={cn('MenuList')}>
         <ul>
-          {list.map((item) => (
-            <li>{item}</li>
+          {list.map((item, index) => (
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </div>
