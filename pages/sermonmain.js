@@ -167,7 +167,7 @@ export default function Sermonmain() {
                 <div
                   onClick={() => {
                     router.push(
-                      `/sermondetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`,
+                      `/sermondetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${sermon}`,
                       "/sermondetail"
                     );
                   }}
@@ -184,7 +184,7 @@ export default function Sermonmain() {
                     className="tit"
                     onClick={() => {
                       router.push(
-                        `/sermondetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`,
+                        `/sermondetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${sermon}`,
                         "/sermondetail"
                       );
                     }}
