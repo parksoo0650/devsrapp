@@ -4,7 +4,7 @@ import styles from './CampMealDropdown.module.scss';
 
 const cn = classNames.bind(styles);
 
-const CampMealDropdown = ({ menu }) => {
+const CampMealDropdown = ({ time, menu }) => {
   const [toggle, setToggle] = useState(false);
 
   const onClick = () => {
