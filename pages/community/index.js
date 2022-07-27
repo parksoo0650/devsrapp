@@ -28,7 +28,9 @@ const Community = () => {
                 {kind[post.category]}
               </span>
               <div className="mt-2 px-4 text-gray-700 whitespace-pre-wrap">
-                {post.question}
+                <div className="h-20 overflow-hidden text-ellipsis">
+                  {post.question}
+                </div>
                 {post?.image ? (
                   <div className="pt-4 w-20 relative pb-20">
                     <Image

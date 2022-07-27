@@ -1,5 +1,6 @@
 import EventLayout from "../../src/components/EventLayout";
 import TextArea from "../../src/components/textarea";
+import Button from "../../src/components/button";
 import useSWR from "swr";
 import useMutation from "../../libs/client/useMutation";
 import { useRouter } from "next/router";
@@ -162,9 +163,7 @@ const CommunityPostDetail = () => {
             required
             register={register("answer", { required: true })}
           />
-          <button className="mt-2 w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:outline-none ">
-            {answerLoading ? "Loading..." : "Reply"}
-          </button>
+          <Button text={answerLoading ? "Loading..." : "답변쓰기"} />
         </form>
       </div>
     </EventLayout>

@@ -1,5 +1,6 @@
 import EventLayout from "../../src/components/EventLayout";
 import TextArea from "../../src/components/textarea";
+import Button from "../../src/components/button";
 import useSWR from "swr";
 import useMutation from "../../libs/client/useMutation";
 import { useRouter } from "next/router";
@@ -70,7 +71,7 @@ const CommunityPostDetail = () => {
           {data?.post?.image && (
             <img
               src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/public`}
-              className="h-full bg-slate-300"
+              className="w-full bg-slate-300"
             />
           )}
           <div className="flex px-4 space-x-5 text-gray-700 py-2.5 border-b-[2px]  w-full">
@@ -154,9 +155,7 @@ const CommunityPostDetail = () => {
             required
             register={register("answer", { required: true })}
           />
-          <button className="mt-2 w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:outline-none ">
-            {answerLoading ? "Loading..." : "Reply"}
-          </button>
+          <Button text={answerLoading ? "Loading..." : "답변쓰기"} />
         </form>
       </div>
     </EventLayout>

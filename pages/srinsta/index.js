@@ -47,7 +47,7 @@ const Community = () => {
                   <span>댓글 {post._count.answers}</span>
                 </span>
               </div>
-              <div className="px-4 text-gray-700 whitespace-pre-wrap">
+              <div className="px-4 text-gray-700 whitespace-pre-wrap h-10 overflow-hidden text-ellipsis">
                 {post.question}
               </div>
             </a>
