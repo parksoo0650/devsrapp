@@ -12,14 +12,14 @@ async function handler(req, res) {
   const coords = await client.Agency.findMany({
     where: {
       id: 1,
-      latitude: {
-        gte: parsedLatitude - 0.01,
-        lte: parsedLatitude + 0.01,
-      },
-      longitude: {
-        gte: parsedLongitue - 0.01,
-        lte: parsedLongitue + 0.01,
-      },
+      // latitude: {
+      //   gte: parsedLatitude - 0.01,
+      //   lte: parsedLatitude + 0.01,
+      // },
+      // longitude: {
+      //   gte: parsedLongitue - 0.01,
+      //   lte: parsedLongitue + 0.01,
+      // },
     },
   });
 
