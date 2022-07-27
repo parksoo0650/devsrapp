@@ -1,26 +1,30 @@
 import classNames from 'classnames/bind';
-import styles from './Fundamental.module.scss';
+import styles from './MarketFundamental.module.scss';
 
 const cn = classNames.bind(styles);
 
-const Fundamental = ({
+const MarketFundamental = ({
   addon,
   title,
   place,
+  placeAdditional,
   date,
   time,
-  timeAdditional,
   infoAdditional,
   description,
 }) => {
   return (
-    <article className={cn('Fundamental')}>
+    <article className={cn('MarketFundamental')}>
       <h3>{title}</h3>
 
       <span>
         <div />
         <p>장소 : {place}</p>
       </span>
+
+      {placeAdditional ? (
+        <p className={cn('placeAdditional')}>{placeAdditional}</p>
+      ) : null}
 
       <span>
         <div />
@@ -31,10 +35,6 @@ const Fundamental = ({
         <div />
         <p>시간 : {time}</p>
       </span>
-
-      {timeAdditional ? (
-        <p className={cn('timeAdditional')}>{timeAdditional}</p>
-      ) : null}
 
       {infoAdditional ? (
         <span className={cn('infoAdditional')}>
@@ -50,4 +50,4 @@ const Fundamental = ({
   );
 };
 
-export default Fundamental;
+export default MarketFundamental;

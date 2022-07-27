@@ -7,6 +7,9 @@ import Sub03HealingCrusade from './subComponents/Sub03HealingCrusade';
 import Sub04ConsultingAndDeliverance from './subComponents/Sub04ConsultingAndDeliverance';
 import Sub05PrayerRoom from './subComponents/Sub05PrayerRoom';
 import Sub06LectureForEveryone from './subComponents/Sub06LectureForEveryone';
+import Sub07HappyLecture from './subComponents/Sub07HappyLecture';
+import Sub08Recreation from './subComponents/Sub08Recreation';
+import MarketContainer from './templates/MarketContainer';
 
 const cn = classNames.bind(styles);
 
@@ -20,6 +23,9 @@ const CampEvents = ({ onClick }) => {
       <Sub04ConsultingAndDeliverance />
       <Sub05PrayerRoom />
       <Sub06LectureForEveryone />
+      <Sub07HappyLecture />
+      <Sub08Recreation />
+      <MarketContainer title='09-13. 우동마켓(우리동네마켓)' />
     </section>
   );
 };
