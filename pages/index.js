@@ -95,17 +95,19 @@ const Home = () => {
       }
     } else {
       api_data = await axios.get(API_URL_DEF);
-      console.log(api_data);
       splitTitle = api_data.data.items[0].snippet.title.split('-');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
       videoDate = splitDate[0].split('-');
       videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
     }
+    // maxres
+    // high
+    // medium
     setLiveDatas({
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
-      thumbnails: api_data.data.items[0].snippet.thumbnails.medium.url,
+      thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
       publishedAt: videoDateStr
     });
 
@@ -234,7 +236,14 @@ const Home = () => {
         {(isLoading === false) ? (
           <div className="section pt0">
             <div className="movie_wrap">
-              <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" />
+              {/* <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" /> */}
+              <div
+                  onClick={() => {
+                    router.push(`/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`, "/sermondetail");
+                  }}
+                >
+                <img style={{ width: "100%" }} src={liveDatas?.thumbnails} />
+              </div>
               <div className="info">
                 <Share title={liveDatas.title} thum="/images/kakao_def_new.jpg" vid={liveDatas.videoId} />
                 <div

@@ -78,7 +78,7 @@ const CommunityPostDetail = () => {
           {data?.post?.image && (
             <img
             src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${data?.post.image}/public`}
-            className="h-full bg-slate-300"
+            className="w-full bg-slate-300"
           />
           )}
           <div className="flex px-4 space-x-5 text-gray-700 py-2.5 border-b-[2px]  w-full">
