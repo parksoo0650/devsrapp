@@ -205,7 +205,7 @@ const Post = ({ items, bid, cid }) => {
               </li>
             ))}
           </ul>
-          {cid > 0 &&
+          {cid > 1 &&
           <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
             <a>
               <img className="btn_left" src="/icons/ico_left.svg" alt="이전" />
