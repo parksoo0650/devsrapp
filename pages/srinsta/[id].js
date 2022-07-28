@@ -69,7 +69,7 @@ const CommunityPostDetail = () => {
                 {data?.post?.nickName ? data?.post?.nickName : "성락인"}
               </span>
             </div>
-            <div className="mt-2 px-4 text-gray-700 text-lg whitespace-pre-wrap">
+            <div className="mb-2 px-4 text-gray-700 text-base whitespace-pre-wrap">
               {data?.post?.question}
             </div>
             {data?.post?.image && (
