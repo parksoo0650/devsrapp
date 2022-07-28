@@ -13,7 +13,7 @@ const Community = () => {
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/srinsta/${post.id}`}>
             <a className="flex cursor-pointer flex-col items-start">
-              <div className="p-4 flex items-center justify-between w-full text-gray-800 font-medium text-base">
+              <div className="px-4 pt-4 pb-2 flex items-center justify-between w-full text-gray-800 font-medium text-base">
                 <span>{post?.nickName ? post?.nickName : "성락인"}</span>
               </div>
               {post?.image && (
@@ -50,6 +50,7 @@ const Community = () => {
               <div className="px-4 text-gray-700 whitespace-pre-wrap h-10 overflow-hidden text-ellipsis">
                 {post.question}
               </div>
+              <div className="w-full flex justify-end pr-4">...더보기</div>
             </a>
           </Link>
         ))}

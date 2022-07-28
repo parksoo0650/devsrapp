@@ -62,8 +62,11 @@ const CommunityPostDetail = () => {
   }, [answerData, reset, mutate]);
 
   return (
-    <EventLayout canGoBack title="성락인스타">
-      <div className=" border-t mt-4">
+    <EventLayout canGoBack>
+      <div className="">
+        <div className="px-4 pt-4 pb-2 flex items-center justify-between w-full text-gray-800 font-medium text-base">
+          <span>{data?.post?.nickName ? data?.post?.nickName : "성락인"}</span>
+        </div>
         <div className="mt-2 px-4 text-gray-700 text-lg whitespace-pre-wrap">
           {data?.post?.question}
         </div>
