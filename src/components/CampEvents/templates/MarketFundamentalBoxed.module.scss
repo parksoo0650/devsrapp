@@ -1,0 +1,101 @@
+.MarketFundamentalBoxed {
+  padding: 0 0 20px;
+
+  h3 {
+    margin: 15px 0 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.5px;
+  }
+
+  .box {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 15px 15px 5px;
+
+    // subtitle
+    h4 {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+      padding: 0 0 8px;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      padding: 0 0 8px;
+
+      div {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      p {
+        padding: 0;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: -0.5px;
+      }
+
+      // 장소
+      &:nth-of-type(1) {
+        div {
+          background-image: url('../../../../public/icons/ico_place.svg');
+        }
+        p {
+          letter-spacing: -1px;
+        }
+      }
+
+      // 일자
+      &:nth-of-type(2) {
+        div {
+          background-image: url('../../../../public/icons/ico_date.svg');
+        }
+      }
+
+      // 시간
+      &:nth-of-type(3) {
+        div {
+          background-image: url('../../../../public/icons/ico_time.svg');
+        }
+      }
+    }
+
+    .infoAdditional {
+      div {
+        background-image: url('../../../../public/icons/ico_topic.svg');
+      }
+    }
+  }
+
+  pre {
+    &:nth-of-type(1) {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+      margin: 15px 0 4px;
+    }
+
+    &:nth-of-type(2) {
+      font-family: 'Noto Sans KR';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 17px;
+      letter-spacing: -0.5px;
+      color: #737373;
+    }
+  }
+}

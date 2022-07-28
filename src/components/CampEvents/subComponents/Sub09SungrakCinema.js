@@ -1,27 +1,82 @@
 import MarketFundamental from '../templates/MarketFundamental';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import classNames from 'classnames/bind';
 import styles from './Sub09SungrakCinema.module.scss';
+import { useEffect } from 'react';
 
 const cn = classNames.bind(styles);
 
 const Sub09AddOn = () => {
+  useEffect(() => {
+    const dots = document.querySelector('.swiper-pagination');
+    dots.style.display = 'flex';
+    dots.style.justifyContent = 'center';
+
+    const activatedDot = document.querySelector(
+      '.swiper-pagination-bullet-active'
+    );
+    activatedDot.style.backgroundColor = 'black';
+  }, []);
+
   return (
-    <Swiper>
-      <SwiperSlide>
-        <div />
-        <span>1관 : 리더센터 예수홀 (B1F)</span>
+    <>
+      <Swiper
+        className={cn('AddOn')}
+        modules={[Pagination]}
+        // spaceBetween={50}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        onSlideChange={() => {
+          const activatedDot = document.querySelector(
+            '.swiper-pagination-bullet-active'
+          );
+          activatedDot.style.backgroundColor = 'black';
+        }}
+      >
+        <SwiperSlide className={cn('Slide')}>
+          <article>
+            <div className={cn('placeIcon')} />
+            <span>1관 : 리더센터 예수홀 (B1F)</span>
+          </article>
 
-        <h4>미션</h4>
-        <p>
-          예수의 모습 그대로 살아가려는 신부 가브리엘, 원주민을 전도하기 위한
-          헌신적인 그의 사랑과 노력을 그린 실화 바탕의 영화
-        </p>
-      </SwiperSlide>
+          <article>
+            <div className={cn('textArea')}>
+              <h4>미션</h4>
+              <p>
+                예수의 모습 그대로 살아가려는　신부 가브리엘, 원주민을 전도하기
+                위한 헌신적인 그의 사랑과 노력을 그린 실화 바탕의 영화
+              </p>
+            </div>
 
-      <SwiperSlide>2</SwiperSlide>
-    </Swiper>
+            <div className={cn('movieImage')} />
+          </article>
+        </SwiperSlide>
+
+        <SwiperSlide className={cn('Slide')}>
+          <article>
+            <div className={cn('placeIcon')} />
+            <span>2관 : 리더센터 2층 마가홀</span>
+          </article>
+
+          <article>
+            <div className={cn('textArea')}>
+              <h4>믿음의 승부</h4>
+              <p>
+                샤일로 기독학교 미식 축구팀 감독이 절대적인 하나님을 체험하며
+                신앙의 회복이 이루어짐으로 인해 자신의 처한 모든 어려움이
+                해결되고, 하나님의 전능하심을 체험하는 과정을 그린 실화 바탕의
+                영화.
+              </p>
+            </div>
+
+            <div className={cn('movieImage')} />
+          </article>
+        </SwiperSlide>
+      </Swiper>
+    </>
   );
 };
 
