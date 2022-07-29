@@ -7,6 +7,7 @@ async function handler(req, res) {
   // } = req;
   const {
     body: { kind, category, question, nickName, password, email, photoId },
+    query: { ckind },
   } = req;
 
   if (req.method === "POST") {
@@ -29,6 +30,9 @@ async function handler(req, res) {
 
   if (req.method === "GET") {
     const posts = await client.post.findMany({
+      where: {
+        kind: ckind,
+      },
       orderBy: [
         {
           createdAt: "desc",

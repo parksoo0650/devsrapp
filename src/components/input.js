@@ -10,20 +10,20 @@ export default function Input({
     return (
         <div>
             <label
-                className="mb-1 block text-sm font-medium text-gray-700"
+                className="mb-1 block text-sm text-gray-700 font-bold"
                 htmlFor={name}
             >
                 {label}
             </label>
             {kind === "text" ? (
-                <div className="rounded-md relative flex  items-center shadow-sm">
+                <div className="rounded-md relative flex items-center">
                     <input
                         id={name}
                         required={required}
                         {...register}
                         type={type}
                         placeholder={placeholder}
-                        className="appearance-none w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500"
+                        className="appearance-none w-full px-3 py-2 rounded-md border-none bg-gray-100 focus:ring-white border-white focus:border-white outline-none resize-none shadow-none"
                     />
                 </div>
             ) : null}

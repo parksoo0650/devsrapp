@@ -99,20 +99,10 @@ export default function SiteMap() {
                                         <Link
                                             href={{
                                                 pathname: '/praisemain',
-                                                query: { kind: 'prc' },
+                                                query: { kind: 'p11' },
                                             }}
                                         >
-                                            <a onClick={menuClose} style={{ display: "block" }}>성가대</a>
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link
-                                            href={{
-                                                pathname: '/praisemain',
-                                                query: { kind: 'pro' },
-                                            }}
-                                        >
-                                            <a onClick={menuClose} style={{ display: "block" }}>헌금송</a>
+                                            <a onClick={menuClose} style={{ display: "block" }}>주일예배찬양</a>
                                         </Link>
                                     </li>
                                     <li>
@@ -129,10 +119,20 @@ export default function SiteMap() {
                                         <Link
                                             href={{
                                                 pathname: '/praisemain',
-                                                query: { kind: 'p11' },
+                                                query: { kind: 'prc' },
                                             }}
                                         >
-                                            <a onClick={menuClose} style={{ display: "block" }}>주일예배찬양</a>
+                                            <a onClick={menuClose} style={{ display: "block" }}>성가대</a>
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            href={{
+                                                pathname: '/praisemain',
+                                                query: { kind: 'pro' },
+                                            }}
+                                        >
+                                            <a onClick={menuClose} style={{ display: "block" }}>헌금송</a>
                                         </Link>
                                     </li>
                                 </ul>

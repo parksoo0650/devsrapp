@@ -1,5 +1,5 @@
 import Button from "../../src/components/button";
-import AdminLayout from "../../src/components/AdminLayout";
+import EventLayout from "../../src/components/EventLayout";
 import TextArea from "../../src/components/textarea";
 import Input from "../../src/components/input";
 import useMutation from "../../libs/client/useMutation";
@@ -7,16 +7,21 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Loading from "../../src/components/Loading";
+import useCoords from "../../libs/client/useCoords";
+import useSWR from "swr";
 
 const Write = () => {
   const router = useRouter();
+  const { latitude, longitude } = useCoords();
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    watch,
-  } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const [post, { loading, data }] = useMutation("/api/posts");
+
+  const { data: coords } = useSWR(
+    latitude && longitude
+      ? `/api/posts/coords?latitude=${latitude}&longitude=${longitude}`
+      : null
+  );
 
   const onValid = async ({
     kind,
@@ -55,7 +60,12 @@ const Write = () => {
 
   useEffect(() => {
     if (data && data.ok) {
-      router.push(`/community/${data.post.id}`);
+      if (router.query.kind == "q") {
+        router.push(`/community`);
+      } else if (router.query.kind == "s") {
+        router.push(`/srinsta`);
+      }
+      // router.push(`/community/${data.post.id}`);
     }
   }, [data, router]);
 
@@ -69,66 +79,123 @@ const Write = () => {
   }, [image]);
 
   return (
-    <AdminLayout canGoBack title="문의하기 글쓰기">
+    <EventLayout
+      canGoBack
+      title={router.query.kind == "q" ? "문의하기" : "성락인스타 글쓰기"}
+    >
       {isLoading === true ? (
         <div className="loading_box">
           <Loading />
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onValid)} className="p-4 space-y-4">
-          <Input
-            register={register("kind", { required: true, value: "notice" })}
-            required
-            name="kind"
-            type="hidden"
-          />
-          <div className="flex space-x-4">
-            <label htmlFor="questions">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="questions"
-                id="questions"
-                required
-              />
-              수련회질문
-            </label>
-            <label htmlFor="lost">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="lost"
-                id="lost"
-                required
-              />
-              분실/실종
-            </label>
-            <label htmlFor="please">
-              <input
-                {...register("category")}
-                type="radio"
-                name="category"
-                value="please"
-                id="please"
-                required
-              />
-              해주세요
-            </label>
+        <>
+        {!coords?.coords[0]?.name && 
+          <div className="mx-4 py-4 text-red-600 text-lg font-bold">
+            수련회 장소에서만 작성이 가능합니다.
           </div>
-          <TextArea
-            register={register("question", { required: true })}
-            required
-            placeholder="성락교회 수련회 관련된 질문을 적어주세요."
-          />
-          <div>
-            <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
+        }
+        <form onSubmit={handleSubmit(onValid)} className="mt-4">
+          {router.query.kind == "q" ? (
+            <>
+              <Input
+                register={register("kind", { required: true, value: "notice" })}
+                required
+                name="kind"
+                type="hidden"
+              />
+              <div className="flex flex-wrap items-center space-x-4 px-4 py-4 justify-around text-base border-b border-t">
+                <div className="flex items-center mr-4">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="questions"
+                    id="questions"
+                    required
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label
+                    htmlFor="questions"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    수련회 질문
+                  </label>
+                </div>
+                <div className="flex items-center mr-4">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="lost"
+                    id="lost"
+                    required
+                    className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label
+                    htmlFor="lost"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    분실/실종
+                  </label>
+                </div>
+                <div className="flex items-center mr-4">
+                  <input
+                    {...register("category")}
+                    type="radio"
+                    name="category"
+                    value="please"
+                    id="please"
+                    required
+                    className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                  />
+                  <label
+                    htmlFor="please"
+                    className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                  >
+                    도와주세요
+                  </label>
+                </div>
+              </div>
+            </>
+          ) : (
+            <>
+              <Input
+                register={register("kind", { required: true, value: "insta" })}
+                required
+                name="kind"
+                type="hidden"
+              />
+              <Input
+                register={register("category", {
+                  required: true,
+                  value: "insta",
+                })}
+                required
+                name="category"
+                type="hidden"
+              />
+            </>
+          )}
+
+          <div className="mx-4 py-2 border-b">
+            <TextArea
+              register={register("question", { required: true })}
+              required
+              placeholder={
+                router.query.kind == "q"
+                  ? "성락교회 수련회 관련된 질문을 적어주세요."
+                  : "성락인스타를 남겨주세요."
+              }
+            />
+          </div>
+
+          <div className="mx-4 py-4 border-b text-gray-500 text-xs">
+            <label className="w-full cursor-pointer bg-gray-800 text-white font-bold flex items-center justify-center w-20 h-20 rounded-md mb-2">
               {imagePreview ? (
                 <img src={imagePreview} className="h-full" />
               ) : (
                 <svg
-                  className="h-12 w-12"
+                  className="h-8 w-8"
                   stroke="currentColor"
                   fill="none"
                   viewBox="0 0 48 48"
@@ -150,35 +217,49 @@ const Write = () => {
                 accept="image/*"
               />
             </label>
+            최대 1장까지 사진 첨부 가능합니다.
           </div>
-          <Input
-            register={register("nickName", { required: false })}
-            name="nickName"
-            type="text"
-            label="닉네임"
-            placeholder="닉네임 표기를 원하시면 입력해주세요."
-          />
-          <Input
-            register={register("password", { required: false })}
-            name="password"
-            type="text"
-            label="게시글비번"
-            placeholder="게시글 수정/삭제를 원하시면 입력해주세요."
-          />
-          <Input
-            register={register("email", { required: false })}
-            name="email"
-            type="text"
-            label="이메일"
-            placeholder="답변을 메일로 받기 원하시면 입력해주세요."
-          />
 
-          <Button
-            text={loading ? "Loading..." : "Submit"}
-          />
+          <div className="mx-4 py-4 border-b">
+            <Input
+              register={register("nickName", { required: false })}
+              name="nickName"
+              type="text"
+              label="닉네임"
+              placeholder="닉네임 표기를 원하시면 입력해주세요."
+            />
+          </div>
+
+          <div className="mx-4 py-4 border-b">
+            <Input
+              register={register("password", { required: false })}
+              name="password"
+              type="text"
+              label="게시글 비번"
+              placeholder="게시글 수정/삭제를 원하시면 입력해주세요."
+            />
+          </div>
+
+          {router.query.kind == "q" && (
+            <div className="mx-4 py-4 border-b">
+              <Input
+                register={register("email", { required: false })}
+                name="email"
+                type="text"
+                label="이메일"
+                placeholder="답변을 메일로 받기 원하시면 입력해주세요."
+              />
+            </div>
+          )}
+          <div className="px-4 py-4">
+            {coords?.coords[0]?.name ? (
+              <Button text={loading ? "Loading..." : "글쓰기"} />
+            ) : null}
+          </div>
         </form>
+        </>
       )}
-    </AdminLayout>
+    </EventLayout>
   );
 };
 
