@@ -3,21 +3,36 @@ import styles from './CampMealCard.module.scss';
 
 const cn = classNames.bind(styles);
 
-const CampMealCard = ({ time, list }) => {
+const CampMealCard = ({ date, lunch, dinner, lunchList, dinnerList }) => {
   return (
     <div className={cn('CampMealCard')}>
-      <h4>{time.text}</h4>
-      <span>{time.description}</span>
+      <h2>◎ {date}</h2>
 
-      {/* 메뉴 리스트 */}
-      <div className={cn('MenuList')}>
-        <ul>
-          {list.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-      {/* end of MenuList */}
+      {lunch ? (
+        <>
+          <h4>{lunch.text}</h4>
+          <span>{lunch.description}</span>
+
+          <ul>
+            {lunchList.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
+
+      {dinner ? (
+        <>
+          <h4>{dinner.text}</h4>
+          <span>{dinner.description}</span>
+
+          <ul>
+            {dinnerList.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </>
+      ) : null}
     </div>
   );
 };
