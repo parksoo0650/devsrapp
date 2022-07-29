@@ -7,6 +7,8 @@ const CampMenu = ({ id, title, onClick }) => {
   return (
     <div onClick={onClick} id={id} className={cn('CampMenu')}>
       {title}
+
+      <div className='camp-home-menu-icon' />
     </div>
   );
 };

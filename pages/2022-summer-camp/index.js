@@ -1,7 +1,7 @@
-import CampInfo from '../../src/components/CampInfo/CampInfo';
+import CampHome from '../../src/components/CampHome/CampHome';
 
 const CampIndexPage = () => {
-  return <CampInfo />;
+  return <CampHome />;
 };
 
 export default CampIndexPage;
