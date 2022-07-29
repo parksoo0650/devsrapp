@@ -1,0 +1,40 @@
+.CampSchedule {
+  text-align: center;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 0 16px;
+
+    // 공유 버튼
+    button {
+      width: 20px;
+      height: 16px;
+      background-image: url('../../../public/icons/ico_go.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    // 날짜 표시
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100%;
+      align-items: center;
+
+      // 각각의 날짜
+      li {
+        display: inline-block;
+        width: 106px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+}
