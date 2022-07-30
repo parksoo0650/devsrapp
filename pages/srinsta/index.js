@@ -8,7 +8,7 @@ import iconAnswer from "../../public/icons/event/icon_answer.png";
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=insta`);
   return (
-    <EventLayout hasTabBar title="성락인스타" kind="s">
+    <EventLayout hasTabBar title="성락인스타" kind="s" canGoBack>
       <div className="space-y-4">
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/srinsta/${post.id}`}>

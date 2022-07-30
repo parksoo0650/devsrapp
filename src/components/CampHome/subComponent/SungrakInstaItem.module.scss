@@ -1,18 +1,32 @@
 .SungrakInstaItem {
-  .image {
-    width: 160px;
-    height: 160px;
-    background: #d9d9d9;
-    border-radius: 4px;
+  div {
+    position: relative;
+    padding-bottom: 160px;
     margin: 0 0 10px;
+    .image {
+      width: 160px;
+      height: 160px;
+      background: #d9d9d9;
+      border-radius: 4px;
+      position: absolute;
+      top: 0;
+      object-fit: cover;
+    }
   }
 
   // 텍스트 영역 박스
   p {
-    display: block;
     width: 160px;
-    font-family: 'Noto Sans KR';
+    font-family: "Noto Sans KR";
     font-style: normal;
+    white-space: normal;
+    line-height: 1.2;
+    height: 4em;
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 
     .author {
       margin-right: 4px;
