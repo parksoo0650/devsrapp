@@ -4,11 +4,12 @@ import useSWR from "swr";
 import Image from "next/image";
 import iconLike from "../../public/icons/event/icon_like.png";
 import iconAnswer from "../../public/icons/event/icon_answer.png";
+import CampNavbar from '../../src/components/CampNavbar/CampNavbar';
 
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=insta`);
   return (
-    <EventLayout hasTabBar title="성락인스타" kind="s" canGoBack>
+    <EventLayout hasTabBar title="성락인스타" kind="s">
       <div className="space-y-4">
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/srinsta/${post.id}`}>
@@ -55,6 +56,7 @@ const Community = () => {
           </Link>
         ))}
       </div>
+      <CampNavbar />
     </EventLayout>
   );
 };

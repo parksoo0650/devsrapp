@@ -12,13 +12,13 @@ export default function Layout({ title, canGoBack, children, kind }) {
   };
   return (
     <div className={cls(
-        "w-full max-w-2xl mx-auto mb-10"
+        "w-full max-w-2xl mx-auto mb-28"
         )}
     >
       <div
         className={cls(
           !canGoBack ? "justify-between" : "",
-          "bg-white w-full max-w-2xl text-lg font-bold px-4 pt-2 text-gray-800 top-0  flex items-center"
+          "bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0  flex items-center fixed z-50"
         )}
       >
         {canGoBack ? (

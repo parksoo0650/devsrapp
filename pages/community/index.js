@@ -3,6 +3,7 @@ import EventLayout from "../../src/components/EventLayout";
 import useSWR from "swr";
 import { cls } from "../../libs/utils";
 import Image from "next/image";
+import CampNavbar from '../../src/components/CampNavbar/CampNavbar';
 
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=notice`);
@@ -88,6 +89,7 @@ const Community = () => {
           </Link>
         ))}
       </div>
+      <CampNavbar />
     </EventLayout>
   );
 };

@@ -7,7 +7,8 @@ export default function HomeBar() {
   const router = useRouter();
   const [bottomPadding, setBottomPadding] = useState('');
   const pathNameSplit = router.pathname.split('/');
-  const contentPages = ['/onmain', '/prayerMain', '/returnMain'];
+  const contentSrinstaPages = ['/srinsta'];
+  const contentCommunityPages = ['/community'];
 
   useEffect(() => {
     if (isIOS) {
@@ -60,7 +61,7 @@ export default function HomeBar() {
               <div className='ico'>
                 <img
                   src={
-                    contentPages.includes(router.pathname)
+                    contentSrinstaPages.includes(router.pathname)
                       ? '/icons/CampInstaActivated.svg'
                       : '/icons/CampInsta.svg'
                   }
@@ -78,7 +79,7 @@ export default function HomeBar() {
               <div className='ico'>
                 <img
                   src={
-                    contentPages.includes(router.pathname)
+                    contentCommunityPages.includes(router.pathname)
                       ? '/icons/CampAskingActivated.svg'
                       : '/icons/CampAsking.svg'
                   }
