@@ -7,7 +7,7 @@ const BannerAndNotice = () => {
   return (
     <>
       <div className={cn('MainBanner')}>
-        <span>성락교회 여름 수련회</span>
+        <span>교회와 함께</span>
 
         <h1>
           사랑과 겸손으로 <br />

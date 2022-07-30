@@ -20,6 +20,8 @@ const CampProgram = () => {
 
   return (
     <div className={cn('CampProgram')}>
+      <h3>수련회 안내</h3>
+
       {/* <CampMenu onClick={onClick} title='수련회 일정표' id='schedule' /> */}
       <CampMenu onClick={onClick} title='프로그램 세부정보' id='events' />
       {/* <CampMenu onClick={onClick} title='식당안내' id='meal' /> */}
