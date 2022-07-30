@@ -4,6 +4,7 @@ import styles from './CampHome.module.scss';
 import BannerAndNotice from './subComponent/BannerAndNotice';
 import SungrakInsta from './subComponent/SungrakInsta';
 import Asking from './subComponent/Asking';
+import CampNavbar from '../CampNavbar/CampNavbar';
 
 const cn = classNames.bind(styles);
 
@@ -24,6 +25,11 @@ const CampHome = () => {
       <SectionContainer>
         <Asking />
       </SectionContainer>
+
+      <br />
+      <br />
+      <br />
+      <CampNavbar />
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import CampMenu from '../CampMenu/CampMenu';
 import classNames from 'classnames/bind';
 import styles from './CampProgram.module.scss';
+import CampNavbar from '../CampNavbar/CampNavbar';
 
 const cn = classNames.bind(styles);
 
@@ -10,7 +11,7 @@ const CampProgram = () => {
 
   const onClick = (event) => {
     // console.dir(event.target.id);
-    router.push(`2022-summer-camp/${event.target.id}`);
+    router.push(`program/${event.target.id}`);
   };
 
   // const icons = document.querySelectorAll('.camp-home-menu-icon');
@@ -26,6 +27,11 @@ const CampProgram = () => {
       <CampMenu onClick={onClick} title='진행본부' id='central' />
       {/* 지도 CampMap */}
       {/* 환영글 CampWelcome */}
+
+      <br />
+      <br />
+      <br />
+      <CampNavbar />
     </div>
   );
 };

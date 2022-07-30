@@ -8,7 +8,7 @@ const CampHeader = ({ title }) => {
   const router = useRouter();
 
   const onClick = () => {
-    router.push('/2022-summer-camp');
+    router.push('/2022-summer-camp/program');
   };
 
   return (

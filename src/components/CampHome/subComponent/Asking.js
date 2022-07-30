@@ -16,7 +16,7 @@ const Asking = () => {
 
       <Swiper
         className={cn('Swiper')}
-        spaceBetween={15}
+        spaceBetween={20}
         slidesPerView={1.5}
         resistanceRatio={0}
         pagination={false}
