@@ -3,6 +3,7 @@ import styles from './Asking.module.scss';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import AskingItem from './AskingItem';
+import Link from "next/link";
 
 const cn = classNames.bind(styles);
 
@@ -11,10 +12,18 @@ const Asking = () => {
     <section className={cn('Asking')}>
       <div>
         <h3>문의하기</h3>
-        <span>전체보기</span>
+        <Link href={`/community`}>
+          <a>
+            <span>전체보기</span>
+          </a>
+        </Link>
       </div>
 
-      <Swiper
+      <div>
+      문의하기 게시판은 8월 3일 부터 이용이 가능합니다.
+      </div>
+
+      {/* <Swiper
         className={cn('Swiper')}
         spaceBetween={20}
         slidesPerView={1.5}
@@ -41,7 +50,7 @@ const Asking = () => {
             author='성락교회 사랑'
           />
         </SwiperSlide>
-      </Swiper>
+      </Swiper> */}
     </section>
   );
 };

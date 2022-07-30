@@ -23,9 +23,9 @@ const CampHome = () => {
       </SectionContainer>
 
       {/* 문의하기 */}
-      {/* <SectionContainer>
+      <SectionContainer>
         <Asking />
-      </SectionContainer> */}
+      </SectionContainer>
 
       
       <CampNavbar />

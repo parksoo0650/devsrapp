@@ -20,13 +20,9 @@
     font-family: "Noto Sans KR";
     font-style: normal;
     white-space: normal;
-    line-height: 1.2;
-    height: 4em;
-    text-align: left;
-    word-wrap: break-word;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
+    height: 60px;
+    overflow: hidden;
+    
 
     .author {
       margin-right: 4px;
