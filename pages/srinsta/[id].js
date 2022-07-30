@@ -88,7 +88,7 @@ const CommunityPostDetail = () => {
         </div>
       ) : (
         <>
-          <div className="">
+          <div className="pt-16">
             <div className="px-4 pt-4 pb-2 flex items-center justify-between w-full text-gray-800 font-medium text-base">
               <span>
                 {data?.post?.nickName ? data?.post?.nickName : "성락인"}

@@ -13,7 +13,7 @@ const SungrakInsta = () => {
   return (
     <section className={cn("SungrakInsta")}>
       <div>
-        <h3>성락인스타</h3>
+        <h3>성락in스타</h3>
         <Link href={`/srinsta`}>
           <a>
             <span>전체보기</span>

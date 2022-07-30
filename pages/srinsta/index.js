@@ -9,8 +9,8 @@ import CampNavbar from '../../src/components/CampNavbar/CampNavbar';
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=insta`);
   return (
-    <EventLayout hasTabBar title="성락인스타" kind="s">
-      <div className="space-y-4">
+    <EventLayout hasTabBar title="성락in스타" kind="s">
+      <div className="space-y-4 pt-16">
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/srinsta/${post.id}`}>
             <a className="flex cursor-pointer flex-col items-start">

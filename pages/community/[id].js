@@ -63,7 +63,7 @@ const CommunityPostDetail = () => {
 
   return (
     <EventLayout canGoBack>
-      <div>
+      <div className="pt-16">
         <span
           className={cls(
             data?.post?.category == "questions" ? "bg-blue-600" : "bg-gray-800",
