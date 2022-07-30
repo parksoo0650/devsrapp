@@ -1,11 +1,15 @@
-import CampHeader from '../CampHeader/CampHeader';
 import CampNavbar from '../CampNavbar/CampNavbar';
 import CampToggle from '../CampToggle/CampToggle';
+import classNames from 'classnames/bind';
+import styles from './CampCentral.module.scss';
 
-const CampCentral = ({ onClick }) => {
+const cn = classNames.bind(styles);
+
+const CampCentral = () => {
   return (
-    <div>
-      <CampHeader onClick={onClick} title='진행본부' option='invisible' />
+    <div className={cn('CampCentral')}>
+      <h3>진행본부</h3>
+
       <div
         style={{
           display: 'block',
