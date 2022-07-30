@@ -17,6 +17,7 @@ import shortsMain from '../public/images/shorts_main.jpg';
 import bwmLogo from '../public/images/bwm_logo.png';
 import mdBanner from '../public/icons/md_banner2.png';
 import CampToggle from '../src/components/CampToggle/CampToggle';
+import CampBanner from '../src/components/CampBanner/CampBanner';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -312,6 +313,8 @@ const Home = () => {
             <Loading />
           </div>
         )}
+
+        <CampBanner />
 
         <div className={liveDatas.videoId ? 'section pt0' : 'section pt25'}>
           <div className='title'>주중 콘텐츠</div>
