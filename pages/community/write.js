@@ -81,7 +81,7 @@ const Write = () => {
   return (
     <EventLayout
       canGoBack
-      title={router.query.kind == "q" ? "문의하기" : "성락인스타 글쓰기"}
+      title={router.query.kind == "q" ? "문의하기" : "성락in스타 글쓰기"}
     >
       {isLoading === true ? (
         <div className="loading_box">

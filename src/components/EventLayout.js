@@ -17,12 +17,12 @@ export default function Layout({ title, canGoBack, children, kind }) {
     >
       <div
         className={cls(
-          !canGoBack ? "justify-between" : "",
+          !canGoBack ? "justify-between" : "justify-center",
           "bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0  flex items-center fixed z-50"
         )}
       >
         {canGoBack ? (
-          <button onClick={onClick}>
+          <button onClick={onClick} className="absolute w-full">
             <svg
               className="w-6 h-6"
               fill="none"
