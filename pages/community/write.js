@@ -236,7 +236,7 @@ const Write = () => {
               name="password"
               type="text"
               label="게시글 비번"
-              placeholder="게시글 수정/삭제를 원하시면 입력해주세요."
+              placeholder="게시글 삭제를 원하시면 입력해주세요."
             />
           </div>
 
