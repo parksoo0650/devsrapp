@@ -1,34 +1,31 @@
-import { useRouter } from 'next/router';
-import CampMenu from '../CampMenu/CampMenu';
+import SectionContainer from '../SectionContainer/SectionContainer';
 import classNames from 'classnames/bind';
 import styles from './CampHome.module.scss';
+import BannerAndNotice from './subComponent/BannerAndNotice';
+import SungrakInsta from './subComponent/SungrakInsta';
+import Asking from './subComponent/Asking';
 
 const cn = classNames.bind(styles);
 
-// 2022 여름 수련회 안내
-const CampInfo = () => {
-  const router = useRouter();
-
-  const onClick = (event) => {
-    // console.dir(event.target.id);
-    router.push(`2022-summer-camp/${event.target.id}`);
-  };
-
-  // const icons = document.querySelectorAll('.camp-home-menu-icon');
-  // console.dir(icons);
-
+const CampHome = () => {
   return (
     <div className={cn('CampHome')}>
-      <CampMenu onClick={onClick} title="수련회 일정표" id="schedule" />
-      <CampMenu onClick={onClick} title="프로그램 세부정보" id="events" />
-      <CampMenu onClick={onClick} title="식당안내" id="meal" />
-      <CampMenu onClick={onClick} title="기도실(리더센터) 사용안내" id="room" />
-      <CampMenu onClick={onClick} title="차량운행" id="shuttle" />
-      <CampMenu onClick={onClick} title="진행본부" id="central" />
-      {/* 지도 CampMap */}
-      {/* 환영글 CampWelcome */}
+      {/* 배너 및 공지사항 */}
+      <SectionContainer>
+        <BannerAndNotice />
+      </SectionContainer>
+
+      {/* 성락 인스타 */}
+      <SectionContainer>
+        <SungrakInsta />
+      </SectionContainer>
+
+      {/* 문의하기 */}
+      <SectionContainer>
+        <Asking />
+      </SectionContainer>
     </div>
   );
 };
 
-export default CampInfo;
+export default CampHome;

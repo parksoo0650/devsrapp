@@ -1,0 +1,57 @@
+.AskingItem {
+  background: #f8f8f8;
+  border-radius: 4px;
+  padding: 15px 10px 15px 15px;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  width: 246px;
+
+  .tag {
+    display: block;
+    padding: 0px 6px 2px;
+    width: fit-content;
+    height: 19px;
+    background: #6685ff;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin: 0 0 5px;
+  }
+
+  .flexBox {
+    display: flex;
+
+    .textArea {
+      display: block;
+
+      .preview {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+        padding: 4px 0;
+        width: 150px;
+      }
+
+      .author {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+        color: #8e8e8e;
+      }
+    }
+
+    .image {
+      width: 61px;
+      height: 61px;
+      background: #d9d9d9;
+      border-radius: 4px;
+      margin-left: 10px;
+    }
+  }
+}

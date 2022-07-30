@@ -1,0 +1,35 @@
+.SungrakInstaItem {
+  .image {
+    width: 160px;
+    height: 160px;
+    background: #d9d9d9;
+    border-radius: 4px;
+    margin: 0 0 10px;
+  }
+
+  // 텍스트 영역 박스
+  p {
+    display: block;
+    width: 160px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+
+    .author {
+      margin-right: 4px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+      display: inline;
+    }
+
+    .preview {
+      display: inline;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+      color: #000000;
+    }
+  }
+}
