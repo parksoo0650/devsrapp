@@ -5,6 +5,7 @@ import BannerAndNotice from './subComponent/BannerAndNotice';
 import SungrakInsta from './subComponent/SungrakInsta';
 import Asking from './subComponent/Asking';
 import CampNavbar from '../CampNavbar/CampNavbar';
+import CampToggle from '../CampToggle/CampToggle';
 
 const cn = classNames.bind(styles);
 
@@ -30,6 +31,7 @@ const CampHome = () => {
       <br />
       <br />
       <CampNavbar />
+      <CampToggle />
     </div>
   );
 };

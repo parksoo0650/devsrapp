@@ -1,27 +1,28 @@
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import YouTube from 'react-youtube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "swiper/css/pagination";
+import 'swiper/css/pagination';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
-import Link from "next/link";
-import Loading from "../src/components/Loading";
-import Share from "../src/components/Share";
-import HomeBar from "../src/components/HomeBar";
-import useSWR from "swr";
+import Link from 'next/link';
+import Loading from '../src/components/Loading';
+import Share from '../src/components/Share';
+import HomeBar from '../src/components/HomeBar';
+import useSWR from 'swr';
 import Popup from 'reactjs-popup';
-import Image from "next/image";
-import shortsMain from "../public/images/shorts_main.jpg";
-import bwmLogo from "../public/images/bwm_logo.png";
-import mdBanner from "../public/icons/md_banner2.png";
+import Image from 'next/image';
+import shortsMain from '../public/images/shorts_main.jpg';
+import bwmLogo from '../public/images/bwm_logo.png';
+import mdBanner from '../public/icons/md_banner2.png';
+import CampToggle from '../src/components/CampToggle/CampToggle';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Home = () => {
   const router = useRouter();
-  const { data } = useSWR("/api/contents");
+  const { data } = useSWR('/api/contents');
 
   const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   // 주일설교
@@ -47,10 +48,14 @@ const Home = () => {
 
   const date = new Date();
   const week = ['일', '월', '화', '수', '목', '금', '토'];
-  const opts = { width: "320px", height: "200px", playerVars: { autoplay: 1, rel: 0, modestbranding: 1 } };
+  const opts = {
+    width: '320px',
+    height: '200px',
+    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+  };
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
-  const [weeks, setWeeks] = useState("");
+  const [weeks, setWeeks] = useState('');
   const [weekDataOnm, setWeekDataOnm] = useState([]);
   const [weekDataOnb, setWeekDataOnb] = useState([]);
   const [weekDataOns, setWeekDataOns] = useState([]);
@@ -58,32 +63,52 @@ const Home = () => {
   const [praiseDataPro, setPraiseDataPro] = useState([]);
   const [praiseDataP15, setPraiseDataP15] = useState([]);
   const [praiseDataP11, setPraiseDataP11] = useState([]);
-  const [liveDatas, setLiveDatas] = useState({ videoId: "", title: "", thumbnails: "", publishedAt: "" });
-  const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
-  const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
-  const [weekSelectDataOns, setWeekSelectDataOns] = useState({ title: "", date: "", videoId: "", thumbnails: "" });
+  const [liveDatas, setLiveDatas] = useState({
+    videoId: '',
+    title: '',
+    thumbnails: '',
+    publishedAt: '',
+  });
+  const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({
+    title: '',
+    date: '',
+    videoId: '',
+    thumbnails: '',
+  });
+  const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({
+    title: '',
+    date: '',
+    videoId: '',
+    thumbnails: '',
+  });
+  const [weekSelectDataOns, setWeekSelectDataOns] = useState({
+    title: '',
+    date: '',
+    videoId: '',
+    thumbnails: '',
+  });
   const hours = new Date().getHours();
 
   const getLiveData = async () => {
     const api_data = {};
-    const splitTitle = "";
-    const splitDate = "";
-    const videoTitle = "";
-    const videoDate = "";
-    const videoDateStr = "";
+    const splitTitle = '';
+    const splitDate = '';
+    const videoTitle = '';
+    const videoDate = '';
+    const videoDateStr = '';
 
-    if (week[date.getDay()] === "일") {
+    if (week[date.getDay()] === '일') {
       api_data = await axios.get(API_URL_SUN);
       splitTitle = api_data.data.items[0].snippet.title.split('-');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
       videoDate = splitDate[0].split('-');
-      videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
+      videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
 
       if (hours > 7 && hours < 13) {
         setIsLive(true);
       }
-    } else if (week[date.getDay()] === "수" && hours > 10 && hours < 13) {
+    } else if (week[date.getDay()] === '수' && hours > 10 && hours < 13) {
       api_data = await axios.get(API_URL_WED);
       splitTitle = api_data.data.items[0].snippet.title.split('|');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
@@ -99,7 +124,7 @@ const Home = () => {
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
       videoTitle = splitTitle[1].split('|');
       videoDate = splitDate[0].split('-');
-      videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2]
+      videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
     }
     // maxres
     // high
@@ -108,7 +133,7 @@ const Home = () => {
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
       title: videoTitle[0],
       thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
-      publishedAt: videoDateStr
+      publishedAt: videoDateStr,
     });
 
     setIsLoading(false);
@@ -141,7 +166,7 @@ const Home = () => {
     onInint();
 
     weekDataOnm.forEach((doc) => {
-      if (doc.snippet.title !== "Private video") {
+      if (doc.snippet.title !== 'Private video') {
         let splitDateOnm = doc.snippet.publishedAt.split('T');
         if (getDate(splitDateOnm[0]) === day) {
           let splitTitleOnm1 = doc.snippet.title.split('-');
@@ -150,7 +175,7 @@ const Home = () => {
             title: splitTitleOnm2[0],
             date: splitTitleOnm2[1],
             videoId: doc.snippet.resourceId.videoId,
-            thumbnails: doc.snippet.thumbnails
+            thumbnails: doc.snippet.thumbnails,
           });
         }
         return false;
@@ -158,7 +183,7 @@ const Home = () => {
     });
 
     weekDataOnb.forEach((doc) => {
-      if (doc.snippet.title !== "Private video") {
+      if (doc.snippet.title !== 'Private video') {
         let splitDateOnb = doc.snippet.publishedAt.split('T');
         let splitTitleOnb1 = [];
         if (getDate(splitDateOnb[0]) === day) {
@@ -167,17 +192,17 @@ const Home = () => {
             title: splitTitleOnb1[0],
             date: splitTitleOnb1[1],
             videoId: doc.snippet.resourceId.videoId,
-            thumbnails: doc.snippet.thumbnails
+            thumbnails: doc.snippet.thumbnails,
           });
         }
         return false;
       }
     });
 
-    if (day === "금") {
+    if (day === '금') {
       console.log(weekDataOns);
       weekDataOns.forEach((doc) => {
-        if (doc.snippet.title !== "Private video") {
+        if (doc.snippet.title !== 'Private video') {
           let splitDateOns = doc.snippet.publishedAt.split('T');
           if (getDate(splitDateOns[0]) === day) {
             let splitTitleOns1 = doc.snippet.title.split('-');
@@ -186,7 +211,7 @@ const Home = () => {
               title: splitTitleOns2[0],
               date: splitTitleOns2[1],
               videoId: doc.snippet.resourceId.videoId,
-              thumbnails: doc.snippet.thumbnails
+              thumbnails: doc.snippet.thumbnails,
             });
           }
           return false;
@@ -195,24 +220,24 @@ const Home = () => {
     } else {
       setWeekSelectDataOns({});
     }
-  }
+  };
 
   // 날짜를 요일로 전환함수
   const getDate = (day) => {
     let dayOfWeek = week[new Date(day).getDay() + 1];
     return dayOfWeek;
-  }
+  };
 
   // On 콘텐츠 초기화
   const onInint = () => {
     setWeekSelectDataOnm({});
     setWeekSelectDataOnb({});
     setWeekSelectDataOns({});
-  }
+  };
 
-  let onDay = (date.getDay()==0 || date.getDay()==6) ? 1 : date.getDay();
+  let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
 
-  useEffect(() => {  
+  useEffect(() => {
     setWeeks(week[onDay]);
     getLiveData();
     getOnData();
@@ -225,380 +250,519 @@ const Home = () => {
   return (
     <>
       <header>
-        <div className="inner">
-          <h1 className="logo" onClick={() => { router.push("/"); }}>
-            <img src="../images/logo.svg" alt="성락교회" />
+        <div className='inner'>
+          <h1
+            className='logo'
+            onClick={() => {
+              router.push('/');
+            }}
+          >
+            <img src='../images/logo.svg' alt='성락교회' />
           </h1>
-          {isLive && <div className="live">라이브 <img src="/icons/ico_live.svg" alt="라이브" /></div>}
+          {isLive && (
+            <div className='live'>
+              라이브 <img src='/icons/ico_live.svg' alt='라이브' />
+            </div>
+          )}
         </div>
       </header>
-      <div className="container">
-        {(isLoading === false) ? (
-          <div className="section pt0">
-            <div className="movie_wrap">
+      <div className='container'>
+        {isLoading === false ? (
+          <div className='section pt0'>
+            <div className='movie_wrap'>
               {/* <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" /> */}
               <div
-                  onClick={() => {
-                    router.push(`/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`, "/sermondetail");
-                  }}
-                >
-                <img style={{ width: "100%" }} src={liveDatas?.thumbnails} />
+                onClick={() => {
+                  router.push(
+                    `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`,
+                    '/sermondetail'
+                  );
+                }}
+              >
+                <img style={{ width: '100%' }} src={liveDatas?.thumbnails} />
               </div>
-              <div className="info">
-                <Share title={liveDatas.title} thum="/images/kakao_def_new.jpg" vid={liveDatas.videoId} />
+              <div className='info'>
+                <Share
+                  title={liveDatas.title}
+                  thum='/images/kakao_def_new.jpg'
+                  vid={liveDatas.videoId}
+                />
                 <div
-                  className="tit pr25"
+                  className='tit pr25'
                   onClick={() => {
-                    router.push(`/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`, "/sermondetail");
+                    router.push(
+                      `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`,
+                      '/sermondetail'
+                    );
                   }}
                 >
-                  <a href="#">{liveDatas.title}</a>
+                  <a href='#'>{liveDatas.title}</a>
                 </div>
-                <div className="date">{liveDatas.publishedAt}</div>
-                { (week[date.getDay()] === "수" && hours > 10 && hours < 13) ? null : (<div className="preacher">설교: 김성현 목사</div>) }
+                <div className='date'>{liveDatas.publishedAt}</div>
+                {week[date.getDay()] === '수' &&
+                hours > 10 &&
+                hours < 13 ? null : (
+                  <div className='preacher'>설교: 김성현 목사</div>
+                )}
               </div>
             </div>
           </div>
         ) : (
-          <div className="loading_box">
+          <div className='loading_box'>
             <Loading />
           </div>
         )}
 
-        <div className={(liveDatas.videoId) ? "section pt0" : "section pt25"}>
-          <div className="title">주중 콘텐츠</div>
-          <div className="days_wrap">
-            <ul className="day_list">
-              <li onClick={() => { getWeekData("월"); setWeeks("월"); }} className={(weeks == "월") ? "on" : ""}>월요일</li>
-              <li onClick={() => { getWeekData("화"); setWeeks("화"); }} className={(weeks == "화") ? "on" : ""}>화요일</li>
-              <li onClick={() => { getWeekData("수"); setWeeks("수"); }} className={(weeks == "수") ? "on" : ""}>수요일</li>
-              <li onClick={() => { getWeekData("목"); setWeeks("목"); }} className={(weeks == "목") ? "on" : ""}>목요일</li>
-              <li onClick={() => { getWeekData("금"); setWeeks("금"); }} className={(weeks == "금") ? "on" : ""}>금요일</li>
+        <div className={liveDatas.videoId ? 'section pt0' : 'section pt25'}>
+          <div className='title'>주중 콘텐츠</div>
+          <div className='days_wrap'>
+            <ul className='day_list'>
+              <li
+                onClick={() => {
+                  getWeekData('월');
+                  setWeeks('월');
+                }}
+                className={weeks == '월' ? 'on' : ''}
+              >
+                월요일
+              </li>
+              <li
+                onClick={() => {
+                  getWeekData('화');
+                  setWeeks('화');
+                }}
+                className={weeks == '화' ? 'on' : ''}
+              >
+                화요일
+              </li>
+              <li
+                onClick={() => {
+                  getWeekData('수');
+                  setWeeks('수');
+                }}
+                className={weeks == '수' ? 'on' : ''}
+              >
+                수요일
+              </li>
+              <li
+                onClick={() => {
+                  getWeekData('목');
+                  setWeeks('목');
+                }}
+                className={weeks == '목' ? 'on' : ''}
+              >
+                목요일
+              </li>
+              <li
+                onClick={() => {
+                  getWeekData('금');
+                  setWeeks('금');
+                }}
+                className={weeks == '금' ? 'on' : ''}
+              >
+                금요일
+              </li>
             </ul>
-            <ul className="con_list">
-              {(weekSelectDataOnm.title) &&
+            <ul className='con_list'>
+              {weekSelectDataOnm.title && (
                 <li
                   onClick={() => {
-                    router.push(`/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`, "/onprayerdetail");
+                    router.push(
+                      `/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`,
+                      '/onprayerdetail'
+                    );
                   }}
                 >
-                  <div className="movie">
-                    {(weekSelectDataOnm.thumbnails) ? (
+                  <div className='movie'>
+                    {weekSelectDataOnm.thumbnails ? (
                       <img src={weekSelectDataOnm.thumbnails.medium.url} />
-                    ) : (null)}
+                    ) : null}
                   </div>
-                  <div className="info">
-                    <div className="tit">
+                  <div className='info'>
+                    <div className='tit'>
                       {weekSelectDataOnm.title}
                       {/* <span className="tag_up">UP</span> */}
                     </div>
-                    <div className="date">{weekSelectDataOnm.date.substring(0, 10)}</div>
+                    <div className='date'>
+                      {weekSelectDataOnm.date.substring(0, 10)}
+                    </div>
                   </div>
                 </li>
-              }
-              {(weeks != "수" && weekSelectDataOnb.title) &&
+              )}
+              {weeks != '수' && weekSelectDataOnb.title && (
                 <li
                   onClick={() => {
-                    router.push(`/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`, "/onbibledetail");
+                    router.push(
+                      `/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`,
+                      '/onbibledetail'
+                    );
                   }}
                 >
-                  <div className="movie">
-                    {(weekSelectDataOnb.thumbnails) ? (
+                  <div className='movie'>
+                    {weekSelectDataOnb.thumbnails ? (
                       <img src={weekSelectDataOnb.thumbnails.medium.url} />
-                    ) : (null)}
+                    ) : null}
                   </div>
-                  <div className="info">
-                    <div className="tit">
-                      {weekSelectDataOnb.title}
+                  <div className='info'>
+                    <div className='tit'>{weekSelectDataOnb.title}</div>
+                    <div className='date'>
+                      {weekSelectDataOnb.date.substring(0, 10)}
                     </div>
-                    <div className="date">{weekSelectDataOnb.date.substring(0, 10)}</div>
                   </div>
                 </li>
-              }
-              {(weekSelectDataOns.title) &&
+              )}
+              {weekSelectDataOns.title && (
                 <li
                   onClick={() => {
-                    router.push(`/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`, "/onthreedetail");
+                    router.push(
+                      `/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`,
+                      '/onthreedetail'
+                    );
                   }}
                 >
-                  <div className="movie">
-                    {(weekSelectDataOns.thumbnails) ? (
+                  <div className='movie'>
+                    {weekSelectDataOns.thumbnails ? (
                       <img src={weekSelectDataOns.thumbnails.medium.url} />
-                    ) : (null)}
+                    ) : null}
                   </div>
-                  <div className="info">
-                    <div className="tit">
-                      {weekSelectDataOns.title}
+                  <div className='info'>
+                    <div className='tit'>{weekSelectDataOns.title}</div>
+                    <div className='date'>
+                      {weekSelectDataOns.date.substring(0, 10)}
                     </div>
-                    <div className="date">{weekSelectDataOns.date.substring(0, 10)}</div>
                   </div>
                 </li>
-              }
-              {weeks == "월" &&
+              )}
+              {weeks == '월' && (
                 <Popup
                   trigger={
                     <li>
-                      <div className="movie">
-                        <Image src={shortsMain} placeholder="blur" quality={50} />
+                      <div className='movie'>
+                        <Image
+                          src={shortsMain}
+                          placeholder='blur'
+                          quality={50}
+                        />
                       </div>
-                      <div className="info">
-                        <div className="tit">
-                          {data?.contents[0]?.name}
-                        </div>
-                        <div className="date"></div>
+                      <div className='info'>
+                        <div className='tit'>{data?.contents[0]?.name}</div>
+                        <div className='date'></div>
                       </div>
                     </li>
                   }
                   modal
                   nested
                 >
-                  {close => (
-                    <div className="modal">
-                      <div className="header">
-                        <button className="close" onClick={close}>
-                          <img src="/icons/btn_close_w.svg" alt="닫기" />
+                  {(close) => (
+                    <div className='modal'>
+                      <div className='header'>
+                        <button className='close' onClick={close}>
+                          <img src='/icons/btn_close_w.svg' alt='닫기' />
                         </button>
-                        <Share title={data?.contents[0]?.name} thum={`/images/kakao_shorts.jpg`} vid={data?.contents[0]?.videoId} type="white" />
+                        <Share
+                          title={data?.contents[0]?.name}
+                          thum={`/images/kakao_shorts.jpg`}
+                          vid={data?.contents[0]?.videoId}
+                          type='white'
+                        />
                       </div>
-                      <div className="content">
-                        <YouTube videoId={data?.contents[0]?.videoId} opts={opts} containerClassName="iframe_wrap" />
+                      <div className='content'>
+                        <YouTube
+                          videoId={data?.contents[0]?.videoId}
+                          opts={opts}
+                          containerClassName='iframe_wrap'
+                        />
                       </div>
                     </div>
                   )}
                 </Popup>
-              }
+              )}
             </ul>
           </div>
         </div>
 
-        <div className="section quick_wrap">
+        <div className='section quick_wrap'>
           {/* <div className="title">빠른접근</div> */}
-          <ul className="quick_menu">
-            <li onClick={() => { router.push("/sermonmain"); }}>
-              <div className="img"><img src="/icons/ico_sermon_new.svg" alt="예배" /></div>
-              <div className="txt">예배</div>
+          <ul className='quick_menu'>
+            <li
+              onClick={() => {
+                router.push('/sermonmain');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_sermon_new.svg' alt='예배' />
+              </div>
+              <div className='txt'>예배</div>
             </li>
-            <li onClick={() => { router.push("/praisemain"); }}>
-              <div className="img"><img src="/icons/ico_quick_praise_new.svg" alt="찬양" /></div>
-              <div className="txt">찬양</div>
+            <li
+              onClick={() => {
+                router.push('/praisemain');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_quick_praise_new.svg' alt='찬양' />
+              </div>
+              <div className='txt'>찬양</div>
             </li>
-            <li onClick={() => { router.push("/returnMain"); }}>
-              <div className="img"><img src="/icons/ico_return.svg" alt="환언특강" /></div>
-              <div className="txt">환언특강</div>
+            <li
+              onClick={() => {
+                router.push('/returnMain');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_return.svg' alt='환언특강' />
+              </div>
+              <div className='txt'>환언특강</div>
             </li>
-            <li onClick={() => { router.push("/onmain"); }}>
-              <div className="img"><img src="/icons/ico_quick_onseries.svg" alt="온시리즈" /></div>
-              <div className="txt">온시리즈</div>
+            <li
+              onClick={() => {
+                router.push('/onmain');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_quick_onseries.svg' alt='온시리즈' />
+              </div>
+              <div className='txt'>온시리즈</div>
             </li>
-            <li onClick={() => { router.push("/faith"); }}>
-              <div className="img"><img src="/icons/ico_shorts.svg" alt="1분은혜" /></div>
-              <div className="txt">1분은혜</div>
+            <li
+              onClick={() => {
+                router.push('/faith');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_shorts.svg' alt='1분은혜' />
+              </div>
+              <div className='txt'>1분은혜</div>
             </li>
-            <li onClick={() => { router.push("/weekly"); }}>
-              <div className="img"><img src="/icons/ico_quick_weekly2.svg" alt="주보" /></div>
-              <div className="txt">주보</div>
+            <li
+              onClick={() => {
+                router.push('/weekly');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_quick_weekly2.svg' alt='주보' />
+              </div>
+              <div className='txt'>주보</div>
             </li>
             {/* 
             <li onClick={() => { router.push("/"); }}>
               <div className="img"></div>
               <div className="txt">교회소식</div>
             </li> */}
-            <li onClick={() => { router.push("/offering"); }}>
-              <div className="img"><img src="/icons/ico_quick_offering.svg" alt="헌금안내" /></div>
-              <div className="txt">헌금안내</div>
+            <li
+              onClick={() => {
+                router.push('/offering');
+              }}
+            >
+              <div className='img'>
+                <img src='/icons/ico_quick_offering.svg' alt='헌금안내' />
+              </div>
+              <div className='txt'>헌금안내</div>
             </li>
           </ul>
         </div>
 
-        <div className="mdbanner">
-          <Image src={mdBanner} placeholder="blur" quality={100} />
+        <div className='mdbanner'>
+          <Image src={mdBanner} placeholder='blur' quality={100} />
         </div>
 
-        <div className="section">
-          <div className="title">은혜로운 찬양</div>
-          <Link href="/praisemain" >
-            <a className="more">전체보기</a>
+        <div className='section'>
+          <div className='title'>은혜로운 찬양</div>
+          <Link href='/praisemain'>
+            <a className='more'>전체보기</a>
           </Link>
           <Swiper
-            className="slide_wrap"
+            className='slide_wrap'
             spaceBetween={10}
-            slidesPerView={"auto"}
+            slidesPerView={'auto'}
             resistanceRatio={0}
             pagination={false}
           >
-            {
-              praiseDataP11.map((doc, i) => {
-                let splitListTitle = doc.snippet.title.split('|');
-                let ListTitle = splitListTitle[0];
-                let splitListDate = doc.snippet.publishedAt.split('T');
-                let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                return (
-                  <SwiperSlide
-                    className="movie_wrap"
-                    key={doc.id}
+            {praiseDataP11.map((doc, i) => {
+              let splitListTitle = doc.snippet.title.split('|');
+              let ListTitle = splitListTitle[0];
+              let splitListDate = doc.snippet.publishedAt.split('T');
+              let ListDate = splitListDate[0].split('-');
+              let lDate = ListDate[0] + '. ' + ListDate[1] + '. ' + ListDate[2];
+              return (
+                <SwiperSlide className='movie_wrap' key={doc.id}>
+                  <div
+                    onClick={() => {
+                      router.push(
+                        `/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p11`,
+                        '/praisedetail'
+                      );
+                    }}
                   >
-                    <div
-                      onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p11`, "/praisedetail");
-                      }}
-                    >
-                      <div className="movie_thumb">
-                        <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
-                      </div>
-                      <div className="info">
-                        <div className="tit">
-                          <a href="#">{ListTitle}</a>
-                        </div>
-                        <div className="date">{lDate}</div>
-                      </div>
+                    <div className='movie_thumb'>
+                      <img
+                        style={{ width: '100%' }}
+                        src={doc.snippet.thumbnails.medium.url}
+                      />
                     </div>
-                  </SwiperSlide>
-                )
-              })
-            }
-            {
-              praiseDataP15.map((doc, i) => {
-                let splitListTitle = doc.snippet.title.split('|');
-                let ListTitle = splitListTitle[0];
-                let splitListDate = doc.snippet.publishedAt.split('T');
-                let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                return (
-                  <SwiperSlide
-                    className="movie_wrap"
-                    key={doc.id}
+                    <div className='info'>
+                      <div className='tit'>
+                        <a href='#'>{ListTitle}</a>
+                      </div>
+                      <div className='date'>{lDate}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+            {praiseDataP15.map((doc, i) => {
+              let splitListTitle = doc.snippet.title.split('|');
+              let ListTitle = splitListTitle[0];
+              let splitListDate = doc.snippet.publishedAt.split('T');
+              let ListDate = splitListDate[0].split('-');
+              let lDate = ListDate[0] + '. ' + ListDate[1] + '. ' + ListDate[2];
+              return (
+                <SwiperSlide className='movie_wrap' key={doc.id}>
+                  <div
+                    onClick={() => {
+                      router.push(
+                        `/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p15`,
+                        '/praisedetail'
+                      );
+                    }}
                   >
-                    <div
-                      onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=p15`, "/praisedetail");
-                      }}
-                    >
-                      <div className="movie_thumb">
-                        <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
-                      </div>
-                      <div className="info">
-                        <div className="tit">
-                          <a href="#">{ListTitle}</a>
-                        </div>
-                        <div className="date">{lDate}</div>
-                      </div>
+                    <div className='movie_thumb'>
+                      <img
+                        style={{ width: '100%' }}
+                        src={doc.snippet.thumbnails.medium.url}
+                      />
                     </div>
-                  </SwiperSlide>
-                )
-              })
-            }
-            {
-              praiseDataPrc.map((doc, i) => {
-                let splitListTitle = doc.snippet.title.split('|');
-                let ListTitle = splitListTitle[0];
-                let splitListDate = doc.snippet.publishedAt.split('T');
-                let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                return (
-                  <SwiperSlide
-                    className="movie_wrap"
-                    key={doc.id}
+                    <div className='info'>
+                      <div className='tit'>
+                        <a href='#'>{ListTitle}</a>
+                      </div>
+                      <div className='date'>{lDate}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+            {praiseDataPrc.map((doc, i) => {
+              let splitListTitle = doc.snippet.title.split('|');
+              let ListTitle = splitListTitle[0];
+              let splitListDate = doc.snippet.publishedAt.split('T');
+              let ListDate = splitListDate[0].split('-');
+              let lDate = ListDate[0] + '. ' + ListDate[1] + '. ' + ListDate[2];
+              return (
+                <SwiperSlide className='movie_wrap' key={doc.id}>
+                  <div
+                    onClick={() => {
+                      router.push(
+                        `/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`,
+                        '/praisedetail'
+                      );
+                    }}
                   >
-                    <div
-                      onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
-                      }}
-                    >
-                      <div className="movie_thumb">
-                        <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
-                      </div>
-                      <div className="info">
-                        <div className="tit">
-                          <a href="#">{ListTitle}</a>
-                        </div>
-                        <div className="date">{lDate}</div>
-                      </div>
+                    <div className='movie_thumb'>
+                      <img
+                        style={{ width: '100%' }}
+                        src={doc.snippet.thumbnails.medium.url}
+                      />
                     </div>
-                  </SwiperSlide>
-                )
-              })
-            }
-            {
-              praiseDataPro.map((doc, i) => {
-                let splitListTitle = doc.snippet.title.split('|');
-                let ListTitle = splitListTitle[0];
-                let splitListDate = doc.snippet.publishedAt.split('T');
-                let ListDate = splitListDate[0].split('-');
-                let lDate = ListDate[0] + ". " + ListDate[1] + ". " + ListDate[2];
-                return (
-                  <SwiperSlide
-                    className="movie_wrap"
-                    key={doc.id}
+                    <div className='info'>
+                      <div className='tit'>
+                        <a href='#'>{ListTitle}</a>
+                      </div>
+                      <div className='date'>{lDate}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
+            {praiseDataPro.map((doc, i) => {
+              let splitListTitle = doc.snippet.title.split('|');
+              let ListTitle = splitListTitle[0];
+              let splitListDate = doc.snippet.publishedAt.split('T');
+              let ListDate = splitListDate[0].split('-');
+              let lDate = ListDate[0] + '. ' + ListDate[1] + '. ' + ListDate[2];
+              return (
+                <SwiperSlide className='movie_wrap' key={doc.id}>
+                  <div
+                    onClick={() => {
+                      router.push(
+                        `/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`,
+                        '/praisedetail'
+                      );
+                    }}
                   >
-                    <div
-                      onClick={() => {
-                        router.push(`/praisedetail?vid=${doc.snippet.resourceId.videoId}&vtit=${ListTitle}&vdate=${ListDate}&kind=prc`, "/praisedetail");
-                      }}
-                    >
-                      <img style={{ width: "100%" }} src={doc.snippet.thumbnails.medium.url} />
-                      <div className="info">
-                        <div className="tit">
-                          <a href="#">{ListTitle}</a>
-                        </div>
-                        <div className="date">{lDate}</div>
+                    <img
+                      style={{ width: '100%' }}
+                      src={doc.snippet.thumbnails.medium.url}
+                    />
+                    <div className='info'>
+                      <div className='tit'>
+                        <a href='#'>{ListTitle}</a>
                       </div>
+                      <div className='date'>{lDate}</div>
                     </div>
-                  </SwiperSlide>
-                )
-              })
-            }
+                  </div>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
 
-        <div className="section pt0">
-          <div className="title">성락교회 미래세대</div>
+        <div className='section pt0'>
+          <div className='title'>성락교회 미래세대</div>
           <Swiper
-            className="future_generation"
+            className='future_generation'
             spaceBetween={7}
-            slidesPerView={"auto"}
+            slidesPerView={'auto'}
             resistanceRatio={0}
             pagination={false}
           >
             <SwiperSlide>
-              <Link href="https://www.youtube.com/channel/UCkrWb-HCk3fA7szpbmLHTmw">
+              <Link href='https://www.youtube.com/channel/UCkrWb-HCk3fA7szpbmLHTmw'>
                 <a>
-                  <div className="img">
-                    <Image src={bwmLogo} placeholder="blur" quality={100} />
+                  <div className='img'>
+                    <Image src={bwmLogo} placeholder='blur' quality={100} />
                   </div>
-                  <div className="txt">청년부</div>
+                  <div className='txt'>청년부</div>
                 </a>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="https://www.youtube.com/channel/UCW6bF9L0ZK__Tlwl19B0FYQ">
+              <Link href='https://www.youtube.com/channel/UCW6bF9L0ZK__Tlwl19B0FYQ'>
                 <a>
-                  <div className="img"><img src="../icons/thumb_cba.svg" alt="대학부" /></div>
-                  <div className="txt">대학부</div>
+                  <div className='img'>
+                    <img src='../icons/thumb_cba.svg' alt='대학부' />
+                  </div>
+                  <div className='txt'>대학부</div>
                 </a>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="https://www.youtube.com/channel/UCcD3GeLh6aBwBN_A5yr4pEg">
+              <Link href='https://www.youtube.com/channel/UCcD3GeLh6aBwBN_A5yr4pEg'>
                 <a>
-                  <div className="img"><img src="../icons/thumb_high.svg" alt="고등부" /></div>
-                  <div className="txt">고등부</div>
+                  <div className='img'>
+                    <img src='../icons/thumb_high.svg' alt='고등부' />
+                  </div>
+                  <div className='txt'>고등부</div>
                 </a>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="https://www.youtube.com/channel/UCDzjhPXk9IypRuCopoFDvlg">
+              <Link href='https://www.youtube.com/channel/UCDzjhPXk9IypRuCopoFDvlg'>
                 <a>
-                  <div className="img"><img src="../icons/thumb_secondary.svg" alt="중등부" /></div>
-                  <div className="txt">중등부</div>
+                  <div className='img'>
+                    <img src='../icons/thumb_secondary.svg' alt='중등부' />
+                  </div>
+                  <div className='txt'>중등부</div>
                 </a>
               </Link>
             </SwiperSlide>
             <SwiperSlide>
-              <Link href="https://www.youtube.com/channel/UCVZgyTaNK1q-CKM481MO35A">
+              <Link href='https://www.youtube.com/channel/UCVZgyTaNK1q-CKM481MO35A'>
                 <a>
-                  <div className="img"><img src="../icons/thumb_elementary.svg" alt="유치부" /></div>
-                  <div className="txt">어린이부</div>
+                  <div className='img'>
+                    <img src='../icons/thumb_elementary.svg' alt='유치부' />
+                  </div>
+                  <div className='txt'>어린이부</div>
                 </a>
               </Link>
             </SwiperSlide>
@@ -606,8 +770,9 @@ const Home = () => {
         </div>
       </div>
       <HomeBar />
+      <CampToggle />
     </>
-  )
-}
+  );
+};
 
 export default Home;
