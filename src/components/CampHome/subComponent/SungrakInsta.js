@@ -24,7 +24,7 @@ const SungrakInsta = () => {
       <Swiper
         className={cn("Swiper")}
         spaceBetween={10}
-        slidesPerView={2.2}
+        slidesPerView={2.1}
         resistanceRatio={0}
         pagination={false}
       >
