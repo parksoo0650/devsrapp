@@ -29,7 +29,7 @@ const SungrakInsta = () => {
         pagination={false}
       >
         {data?.posts?.map((post) => (
-          <SwiperSlide>
+          <SwiperSlide key={post.id}>
             <Link key={post.id} href={`/srinsta/${post.id}`}>
               <a>
                 <SungrakInstaItem

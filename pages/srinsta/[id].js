@@ -251,7 +251,7 @@ const CommunityPostDetail = () => {
                       placeholder="작성할때 입력한 비밀번호를 입력해주세요."
                     />
                   </div>
-                  <div className="mb-2 text-red-500 text-sm font-bold ">비밀번호가 기억나지 않는 경우는 정장원 목사님께 문의 바랍니다.</div>
+                  <div className="mb-2 text-red-500 text-sm font-bold ">비밀번호 분실시 삭제가 불가능합니다.</div>
                   <Button text={answerLoading ? "Loading..." : "삭제하기"} />
                 </form>
               )}
