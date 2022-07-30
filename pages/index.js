@@ -94,17 +94,21 @@ const Home = () => {
     const api_data = {};
     const splitTitle = '';
     const splitDate = '';
+    const videoTitleTmp = '';
     const videoTitle = '';
     const videoDate = '';
     const videoDateStr = '';
+    const thumbnails = '';
 
     if (week[date.getDay()] === '일') {
       api_data = await axios.get(API_URL_SUN);
-      splitTitle = api_data.data.items[0].snippet.title.split('-');
+      splitTitle = api_data.data.items[0].snippet.title.split('|');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
-      videoTitle = splitTitle[1].split('|');
+      videoTitleTmp = splitTitle[0].split('-');
+      videoTitle = videoTitleTmp[1];
       videoDate = splitDate[0].split('-');
       videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
+      thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
 
       if (hours > 7 && hours < 13) {
         setIsLive(true);
@@ -113,8 +117,10 @@ const Home = () => {
       api_data = await axios.get(API_URL_WED);
       splitTitle = api_data.data.items[0].snippet.title.split('|');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
-      videoTitle = splitTitle;
+      videoTitle = splitTitle[0];
       videoDateStr = splitTitle[1];
+      thumbnails = api_data.data.items[0].snippet.thumbnails.medium.url;
+
 
       if (hours > 10 && hours < 13) {
         setIsLive(true);
@@ -123,17 +129,19 @@ const Home = () => {
       api_data = await axios.get(API_URL_DEF);
       splitTitle = api_data.data.items[0].snippet.title.split('-');
       splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
-      videoTitle = splitTitle[1].split('|');
+      videoTitleTmp = splitTitle[1].split('|');
+      videoTitle = videoTitleTmp[0];
       videoDate = splitDate[0].split('-');
       videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
+      thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
     }
     // maxres
     // high
     // medium
     setLiveDatas({
       videoId: api_data.data.items[0].snippet.resourceId.videoId,
-      title: videoTitle[0],
-      thumbnails: api_data.data.items[0].snippet.thumbnails.maxres.url,
+      title: videoTitle,
+      thumbnails: thumbnails,
       publishedAt: videoDateStr,
     });
 

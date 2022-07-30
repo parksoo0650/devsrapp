@@ -65,7 +65,7 @@ export default function Sermonmain() {
           <div className="date">{router.query.vdate}</div>
         </div>
       </div>
-      {(kind == "def" || kind == "sun") && (
+      {((kind == "def" || kind == "sun") && data?.weekly[0]) && (
         <div className="section">
           <ul className="tab_area">
             <li
