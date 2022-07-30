@@ -16,6 +16,14 @@ const CampToggle = () => {
     router.push('/');
   };
 
+  const paths = [
+    '/2022-summer-camp',
+    '/2022-summer-camp/program',
+    '/srinsta',
+    '/community',
+    '/2022-summer-camp/central',
+  ];
+
   useEffect(() => {
     const campActivated = document.querySelector('.CampActivated');
     if (campActivated) {
@@ -36,16 +44,14 @@ const CampToggle = () => {
     <section className={cn('CampToggle')}>
       <div
         onClick={goToCamp}
-        className={
-          router.pathname === '/2022-summer-camp' ? 'CampActivated' : 'null'
-        }
+        className={paths.includes(router.pathname) ? 'CampActivated' : null}
       >
         수련회
       </div>
 
       <div
         onClick={goToHome}
-        className={router.pathname === '/' ? 'HomeActivated' : 'null'}
+        className={router.pathname === '/' ? 'HomeActivated' : null}
       >
         성락홈
       </div>

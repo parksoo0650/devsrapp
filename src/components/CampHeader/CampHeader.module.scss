@@ -16,6 +16,10 @@
       position: absolute;
       top: 12px;
       left: 20px;
+
+      &.invisible {
+        display: none;
+      }
     }
 
     h3 {

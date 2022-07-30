@@ -47,10 +47,10 @@ export default function HomeBar() {
                       ? '/icons/CampProgramActivated.svg'
                       : '/icons/CampProgram.svg'
                   }
-                  alt='프로그램'
+                  alt='수련회 안내'
                 />
               </div>
-              <div className='menu'>프로그램</div>
+              <div className='menu'>수련회 안내</div>
             </a>
           </Link>
         </li>
@@ -87,6 +87,24 @@ export default function HomeBar() {
                 />
               </div>
               <div className='menu'>문의하기</div>
+            </a>
+          </Link>
+        </li>
+
+        <li>
+          <Link href='/2022-summer-camp/central'>
+            <a>
+              <div className='ico'>
+                <img
+                  src={
+                    router.pathname === '/2022-summer-camp/central'
+                      ? '/icons/CampCentralActivated.svg'
+                      : '/icons/CampCentralOutline.svg'
+                  }
+                  alt='진행본부'
+                />
+              </div>
+              <div className='menu'>진행본부</div>
             </a>
           </Link>
         </li>

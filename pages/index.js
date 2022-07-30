@@ -448,7 +448,7 @@ const Home = () => {
                         />
                       </div>
                       <div className='info'>
-                        <div className='tit'>{data?.contents[0]?.name}</div>
+                        {/* <div className='tit'>{data?.contents[0]?.name}</div> */}
                         <div className='date'></div>
                       </div>
                     </li>
@@ -463,15 +463,15 @@ const Home = () => {
                           <img src='/icons/btn_close_w.svg' alt='닫기' />
                         </button>
                         <Share
-                          title={data?.contents[0]?.name}
+                          // title={data?.contents[0]?.name}
                           thum={`/images/kakao_shorts.jpg`}
-                          vid={data?.contents[0]?.videoId}
+                          // vid={data?.contents[0]?.videoId}
                           type='white'
                         />
                       </div>
                       <div className='content'>
                         <YouTube
-                          videoId={data?.contents[0]?.videoId}
+                          // videoId={data?.contents[0]?.videoId}
                           opts={opts}
                           containerClassName='iframe_wrap'
                         />

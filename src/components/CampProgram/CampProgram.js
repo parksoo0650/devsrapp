@@ -3,6 +3,7 @@ import CampMenu from '../CampMenu/CampMenu';
 import classNames from 'classnames/bind';
 import styles from './CampProgram.module.scss';
 import CampNavbar from '../CampNavbar/CampNavbar';
+import CampToggle from '../CampToggle/CampToggle';
 
 const cn = classNames.bind(styles);
 
@@ -32,6 +33,7 @@ const CampProgram = () => {
       <br />
       <br />
       <CampNavbar />
+      <CampToggle />
     </div>
   );
 };
