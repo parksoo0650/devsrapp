@@ -1,5 +1,5 @@
 .SungrakInstaItem {
-  div {
+  .imgbox {
     position: relative;
     padding-bottom: 160px;
     margin-bottom: 10px;
@@ -15,7 +15,7 @@
   }
 
   // 텍스트 영역 박스
-  p {
+  .textbox {
     width: 160px;
     font-style: normal;
     height: 60px;
