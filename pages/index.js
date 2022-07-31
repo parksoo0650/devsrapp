@@ -263,6 +263,13 @@ const Home = () => {
     getWeekData(week[onDay]);
   }, [weekDataOnm, weekDataOnb, weekDataOns]);
 
+  
+  useEffect(() => {
+    // setWeeks(week[onDay]);
+    getLiveData();
+    // getOnData();
+  }, [dataSermon]);
+
   return (
     <>
       <header>
