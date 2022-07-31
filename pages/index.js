@@ -97,14 +97,29 @@ const Home = () => {
         setIsLive(true);
       }
     } else {
-      api_data = await axios.get(API_URL_DEF);
-      splitTitle = api_data.data.items[0].snippet.title.split("-");
-      splitDate = api_data.data.items[0].snippet.publishedAt.split("T");
-      videoTitleTmp = splitTitle[1].split("|");
-      videoTitle = videoTitleTmp[0];
-      videoDate = splitDate[0].split("-");
-      videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2];
-      thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
+      videoTitle = dataSermon?.contents[0]?.name;
+      videoDateStr = dataSermon?.contents[0]?.publishedAt;
+      videoIdStr = dataSermon?.contents[0]?.videoId;
+      thumbnails = dataSermon?.contents[0]?.image;
+
+      // api_data = await axios.get(API_URL_DEF);
+      // if (api_data.data.items[0].snippet.title === "Private video") {
+      //   splitTitle = api_data.data.items[1].snippet.title.split("-");
+      //   splitDate = api_data.data.items[1].snippet.publishedAt.split("T");
+      //   videoTitleTmp = splitTitle[1].split("|");
+      //   videoTitle = videoTitleTmp[0];
+      //   videoDate = splitDate[0].split("-");
+      //   videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2];
+      //   thumbnails = api_data.data.items[1].snippet.thumbnails.maxres.url;
+      // } else {
+      //   splitTitle = api_data.data.items[0].snippet.title.split("-");
+      //   splitDate = api_data.data.items[0].snippet.publishedAt.split("T");
+      //   videoTitleTmp = splitTitle[1].split("|");
+      //   videoTitle = videoTitleTmp[0];
+      //   videoDate = splitDate[0].split("-");
+      //   videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2];
+      //   thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
+      // }
     }
     // maxres
     // high
@@ -252,17 +267,10 @@ const Home = () => {
                   );
                 }}
               >
-                {week[date.getDay()] === "일" ? (
-                  <img
-                    style={{ width: "100%" }}
-                    src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${liveDatas?.thumbnails}/public`}
-                  />
-                ) : (
-                  <img
-                    style={{ width: "100%" }}
-                    src={`${liveDatas?.thumbnails}`}
-                  />
-                )}
+                <img
+                  style={{ width: "100%" }}
+                  src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${liveDatas?.thumbnails}/public`}
+                />
               </div>
               <div className="info">
                 <Share
