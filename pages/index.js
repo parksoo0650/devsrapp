@@ -108,7 +108,7 @@ const Home = () => {
       videoTitle = videoTitleTmp[1];
       videoDate = splitDate[0].split('-');
       videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
-      thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
+      thumbnails = api_data.data.items[0].snippet.thumbnails.medium.url;
 
       if (hours > 7 && hours < 13) {
         setIsLive(true);
