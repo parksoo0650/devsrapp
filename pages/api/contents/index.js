@@ -19,7 +19,6 @@ async function handler(req, res) {
       ],
     });
 
-    // console.log(contents);
     res.json({
       ok: true,
       contents,
@@ -28,14 +27,13 @@ async function handler(req, res) {
 
   if (req.method === "POST") {
     const {
-      body: { name, kind, subKind, description, videoId, publishedAt, photoId },
+      body: { name, kind, description, videoId, publishedAt, photoId },
     } = req;
 
     const contents = await client.contents.create({
       data: {
         name,
         kind,
-        subKind,
         description,
         videoId,
         publishedAt,

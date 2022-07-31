@@ -11,7 +11,7 @@ async function handler(req, res) {
       publishedAt: pdate,
     },
   });
-  console.log(weekly);
+  
   res.json({ ok: true, weekly });
 }
 

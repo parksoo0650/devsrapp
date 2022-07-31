@@ -145,7 +145,7 @@ export default function Praisemain() {
                 <div
                   onClick={() => {
                     router.push(
-                      `/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`,
+                      `/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${praise}`,
                       "/praisedetail"
                     );
                   }}
@@ -162,7 +162,7 @@ export default function Praisemain() {
                     className="tit"
                     onClick={() => {
                       router.push(
-                        `/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`,
+                        `/praisedetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}&kind=${praise}`,
                         "/praisedetail"
                       );
                     }}
