@@ -92,6 +92,13 @@ const ContentsUpload = () => {
                     type="text"
                 />
                 <Input
+                    register={register("subKind", { required: true })}
+                    required
+                    label="subKind"
+                    name="subKind"
+                    type="text"
+                />
+                <Input
                     register={register("videoId", { required: true })}
                     required
                     label="VideoId"

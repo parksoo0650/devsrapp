@@ -23,7 +23,8 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Home = () => {
   const router = useRouter();
-  const { data } = useSWR('/api/contents');
+  const { data:dataShorts } = useSWR('/api/contents?kind=shorts');
+  const { data:dataSermon } = useSWR("/api/contents?kind=sermon");
 
   const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
   // 주일설교
@@ -99,16 +100,22 @@ const Home = () => {
     const videoDate = '';
     const videoDateStr = '';
     const thumbnails = '';
+    const videoIdStr = '';
 
     if (week[date.getDay()] === '일') {
-      api_data = await axios.get(API_URL_SUN);
-      splitTitle = api_data.data.items[0].snippet.title.split('|');
-      splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
-      videoTitleTmp = splitTitle[0].split('-');
-      videoTitle = videoTitleTmp[1];
-      videoDate = splitDate[0].split('-');
-      videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
-      thumbnails = api_data.data.items[0].snippet.thumbnails.medium.url;
+      // api_data = await axios.get(API_URL_SUN);
+      // splitTitle = api_data.data.items[0].snippet.title.split('|');
+      // splitDate = api_data.data.items[0].snippet.publishedAt.split('T');
+      // videoTitleTmp = splitTitle[0].split('-');
+      // videoTitle = videoTitleTmp[1];
+      // videoDate = splitDate[0].split('-');
+      // videoDateStr = videoDate[0] + '. ' + videoDate[1] + '. ' + videoDate[2];
+      // thumbnails = api_data.data.items[0].snippet.thumbnails.medium.url;
+
+      videoTitle = dataSermon?.contents[0]?.name;
+      videoDateStr = dataSermon?.contents[0]?.publishedAt;
+      videoIdStr = dataSermon?.contents[0]?.videoId;
+      thumbnails = dataSermon?.contents[0]?.image;
 
       if (hours > 7 && hours < 13) {
         setIsLive(true);
@@ -139,7 +146,7 @@ const Home = () => {
     // high
     // medium
     setLiveDatas({
-      videoId: api_data.data.items[0].snippet.resourceId.videoId,
+      videoId: videoIdStr,
       title: videoTitle,
       thumbnails: thumbnails,
       publishedAt: videoDateStr,
@@ -288,7 +295,7 @@ const Home = () => {
                   );
                 }}
               >
-                <img style={{ width: '100%' }} src={liveDatas?.thumbnails} />
+                <img style={{ width: '100%' }} src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${liveDatas?.thumbnails}/public`} />
               </div>
               <div className='info'>
                 <Share
@@ -456,7 +463,7 @@ const Home = () => {
                         />
                       </div>
                       <div className='info'>
-                        <div className='tit'>{data?.contents[0]?.name}</div>
+                        <div className='tit'>{dataShorts?.contents[0]?.name}</div>
                         <div className='date'></div>
                       </div>
                     </li>
@@ -471,15 +478,15 @@ const Home = () => {
                           <img src='/icons/btn_close_w.svg' alt='닫기' />
                         </button>
                         <Share
-                          title={data?.contents[0]?.name}
+                          title={dataShorts?.contents[0]?.name}
                           thum={`/images/kakao_shorts.jpg`}
-                          vid={data?.contents[0]?.videoId}
+                          vid={dataShorts?.contents[0]?.videoId}
                           type='white'
                         />
                       </div>
                       <div className='content'>
                         <YouTube
-                          videoId={data?.contents[0]?.videoId}
+                          videoId={dataShorts?.contents[0]?.videoId}
                           opts={opts}
                           containerClassName='iframe_wrap'
                         />

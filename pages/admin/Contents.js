@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 const Contents = () => {
     const { user, isLoading } = useUser();
-    const { data } = useSWR("/api/contents");
+    const { data } = useSWR("/api/contents?kind=shorts");
     return (
         <Layout canGoBack title="콘텐츠 관리자">
             <div className="flex flex-col space-y-5 divide-y">

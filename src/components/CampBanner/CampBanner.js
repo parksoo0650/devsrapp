@@ -8,10 +8,10 @@ const CampBanner = () => {
   return (
     <Link href='/2022-summer-camp'>
       <a>
-        <div className={cn('CampBanner')} />;
+        <div className={cn('CampBanner')} />
       </a>
     </Link>
   );
-};
+}
 
 export default CampBanner;
