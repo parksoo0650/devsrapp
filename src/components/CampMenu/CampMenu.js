@@ -8,7 +8,7 @@ const CampMenu = ({ id, title, onClick }) => {
     <div onClick={onClick} id={id} className={cn('CampMenu')}>
       {title}
 
-      <div className='camp-home-menu-icon' />
+      <div className={cn('icon-' + id, 'icon')} />
     </div>
   );
 };
