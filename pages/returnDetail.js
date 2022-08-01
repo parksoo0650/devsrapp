@@ -9,7 +9,7 @@ export default function Praisedetail() {
         width: "320px",
         height: "200px",
         playerVars: {
-            autoplay: 1, rel: 0, modestbranding: 1
+            autoplay: 0, rel: 0, modestbranding: 1
         },
     };
 

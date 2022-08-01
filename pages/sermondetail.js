@@ -27,7 +27,7 @@ export default function Sermonmain() {
     width: "320px",
     height: "200px",
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       rel: 0,
       modestbranding: 1,
     },
