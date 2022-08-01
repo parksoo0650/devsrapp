@@ -11,11 +11,6 @@ import Share from "../src/components/Share";
 import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 import Popup from "reactjs-popup";
-import Image from "next/image";
-import shortsMain from "../public/images/shorts_main.jpg";
-import onmMain from "../public/images/onm_main.jpeg";
-import bwmLogo from "../public/images/bwm_logo.png";
-import mdBanner from "../public/icons/md_banner2.png";
 import CampToggle from "../src/components/CampToggle/CampToggle";
 import CampBanner from "../src/components/CampBanner/CampBanner";
 
@@ -48,7 +43,6 @@ const Home = () => {
     title: "",
     date: "",
     videoId: "",
-    thumbnails: "",
   });
   const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({
     title: "",
@@ -99,7 +93,6 @@ const Home = () => {
             title: doc.name,
             date: doc.publishedAt,
             videoId: doc.videoId,
-            thumbnails: doc.image,
           });
         }
         if (doc.subKind === "onb") {
@@ -120,7 +113,6 @@ const Home = () => {
       title: "",
       date: "",
       videoId: "",
-      thumbnails: "",
     });
 
     setWeekSelectDataOnb({
@@ -137,7 +129,6 @@ const Home = () => {
             title: doc.name,
             date: doc.publishedAt,
             videoId: doc.videoId,
-            thumbnails: doc.image,
           });
         }
         if (doc.subKind === "onb") {
@@ -315,79 +306,68 @@ const Home = () => {
               </li>
             </ul>
             <ul className="con_list">
-              {weekSelectDataOnm.title && (
-                <li
-                  onClick={() => {
-                    router.push(
-                      `/onprayerdetail?vid=${weekSelectDataOnm.videoId}&vtit=${weekSelectDataOnm.title}&vdate=${weekSelectDataOnm.date}&kind=onm`,
-                      "/onprayerdetail"
+              {dataOncontents?.contents.map((doc, i) => {
+                let week = ["일", "월", "화", "수", "목", "금", "토"];
+                let dateStr = doc.publishedAt.replace(/\./g, "-");
+                let dayOfWeek = week[new Date(dateStr).getDay()];
+
+                if (dayOfWeek == weeks) {
+                  if (doc.subKind === "onm") {
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/onprayerdetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/onprayerdetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`/images/onm_main.jpeg`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
                     );
-                  }}
-                >
-                  <div className="movie">
-                    <Image src={onmMain} placeholder="blur" quality={50} />
-                  </div>
-                  <div className="info">
-                    <div className="tit">{weekSelectDataOnm.title}</div>
-                    <div className="date">{weekSelectDataOnm.date}</div>
-                  </div>
-                </li>
-              )}
-              {weeks != "수" && weekSelectDataOnb.title && (
-                <li
-                  onClick={() => {
-                    router.push(
-                      `/onbibledetail?vid=${weekSelectDataOnb.videoId}&vtit=${weekSelectDataOnb.title}&vdate=${weekSelectDataOnb.date}&kind=onb`,
-                      "/onbibledetail"
+                  }
+                  if (doc.subKind === "onb") {
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/onprayerdetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/onprayerdetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
                     );
-                  }}
-                >
-                  <div className="movie">
-                    <img
-                      style={{ width: "100%" }}
-                      src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${weekSelectDataOnb.thumbnails}/public`}
-                    />
-                  </div>
-                  <div className="info">
-                    <div className="tit">{weekSelectDataOnb.title}</div>
-                    <div className="date">
-                      {weekSelectDataOnb.date}
-                    </div>
-                  </div>
-                </li>
-              )}
-              {weekSelectDataOns.title && (
-                <li
-                  onClick={() => {
-                    router.push(
-                      `/onthreedetail?vid=${weekSelectDataOns.videoId}&vtit=${weekSelectDataOns.title}&vdate=${weekSelectDataOns.date}&kind=ont`,
-                      "/onthreedetail"
-                    );
-                  }}
-                >
-                  <div className="movie">
-                    {weekSelectDataOns.thumbnails ? (
-                      <img src={weekSelectDataOns.thumbnails.medium.url} />
-                    ) : null}
-                  </div>
-                  <div className="info">
-                    <div className="tit">{weekSelectDataOns.title}</div>
-                    <div className="date">
-                      {weekSelectDataOns.date.substring(0, 10)}
-                    </div>
-                  </div>
-                </li>
-              )}
+                  }
+                }
+              })}
               {weeks == "월" && (
                 <Popup
                   trigger={
                     <li>
                       <div className="movie">
-                        <Image
-                          src={shortsMain}
-                          placeholder="blur"
-                          quality={50}
-                        />
+                        <img src="/images/shorts_main.jpg" />
                       </div>
                       <div className="info">
                         <div className="tit">
@@ -509,7 +489,7 @@ const Home = () => {
         </div>
 
         <div className="mdbanner">
-          <Image src={mdBanner} placeholder="blur" quality={100} />
+          <img src="/icons/md_banner2.png" />
         </div>
 
         <div className="section">
@@ -567,7 +547,7 @@ const Home = () => {
               <Link href="https://www.youtube.com/channel/UCkrWb-HCk3fA7szpbmLHTmw">
                 <a>
                   <div className="img">
-                    <Image src={bwmLogo} placeholder="blur" quality={100} />
+                    <img src="/images/bwm_logo.png" />>
                   </div>
                   <div className="txt">청년부</div>
                 </a>
