@@ -5,35 +5,53 @@ import { withApiSession } from "../../../libs/server/withSession";
 async function handler(req, res) {
   if (req.method === "GET") {
     const {
-      query: { kind },
+      query: { kind, subKind },
     } = req;
 
-    const contents = await client.contents.findMany({
-      where: {
-        kind: kind,
-      },
-      orderBy: [
-        {
-          publishedAt: "desc",
+    if (subKind) {
+      const contents = await client.contents.findMany({
+        where: {
+          kind: kind,
+          subKind: subKind,
         },
-      ],
-    });
-
-    res.json({
-      ok: true,
-      contents,
-    });
+        orderBy: [
+          {
+            publishedAt: "desc",
+          },
+        ],
+      });
+      res.json({
+        ok: true,
+        contents,
+      });
+    } else {
+      const contents = await client.contents.findMany({
+        where: {
+          kind: kind,
+        },
+        orderBy: [
+          {
+            publishedAt: "desc",
+          },
+        ],
+      });
+      res.json({
+        ok: true,
+        contents,
+      });
+    }
   }
 
   if (req.method === "POST") {
     const {
-      body: { name, kind, description, videoId, publishedAt, photoId },
+      body: { name, kind, subKind, description, videoId, publishedAt, photoId },
     } = req;
 
     const contents = await client.contents.create({
       data: {
         name,
         kind,
+        subKind,
         description,
         videoId,
         publishedAt,

@@ -93,42 +93,67 @@ const Home = () => {
   };
 
   const getOnData = async () => {
-    setWeekSelectDataOnm({
-      title: dataOncontents?.contents[0]?.name,
-      date: dataOncontents?.contents[0]?.publishedAt,
-      videoId: dataOncontents?.contents[0]?.videoId,
-      thumbnails: dataOncontents?.contents[0]?.image,
+    // console.log(week[new Date().getDay()]);
+
+    dataOncontents?.contents.forEach((doc) => {
+      if (getDate(doc.publishedAt) === week[new Date().getDay()]) {
+        if (doc.subKind === "onm") {
+          setWeekSelectDataOnm({
+            title: doc.name,
+            date: doc.publishedAt,
+            videoId: doc.videoId,
+            thumbnails: doc.image,
+          });
+        }
+        if (doc.subKind === "onb") {
+          setWeekSelectDataOnb({
+            title: doc.name,
+            date: doc.publishedAt,
+            videoId: doc.videoId,
+            thumbnails: doc.image,
+          });
+        }
+        return false;
+      }
     });
   };
 
   const getWeekData = (day) => {
-    dataOncontents?.contents.forEach((doc) => {
-      if (getDate(doc.publishedAt) === day) {
-        setWeekSelectDataOnm({
-          title: doc.name,
-          date: doc.publishedAt,
-          videoId: doc.videoId,
-          thumbnails: doc.image,
-        });
-      }
+    setWeekSelectDataOnm({
+      title: "",
+      date: "",
+      videoId: "",
+      thumbnails: "",
     });
 
-    // weekDataOnb.forEach((doc) => {
-    //   if (doc.snippet.title !== "Private video") {
-    //     let splitDateOnb = doc.snippet.publishedAt.split("T");
-    //     let splitTitleOnb1 = [];
-    //     if (getDate(splitDateOnb[0]) === day) {
-    //       splitTitleOnb1 = doc.snippet.title.split("|");
-    //       setWeekSelectDataOnb({
-    //         title: splitTitleOnb1[0],
-    //         date: splitTitleOnb1[1],
-    //         videoId: doc.snippet.resourceId.videoId,
-    //         thumbnails: doc.snippet.thumbnails,
-    //       });
-    //     }
-    //     return false;
-    //   }
-    // });
+    setWeekSelectDataOnb({
+      title: "",
+      date: "",
+      videoId: "",
+      thumbnails: "",
+    });
+
+    dataOncontents?.contents.forEach((doc) => {
+      if (getDate(doc.publishedAt) === day) {
+        if (doc.subKind === "onm") {
+          setWeekSelectDataOnm({
+            title: doc.name,
+            date: doc.publishedAt,
+            videoId: doc.videoId,
+            thumbnails: doc.image,
+          });
+        }
+        if (doc.subKind === "onb") {
+          setWeekSelectDataOnb({
+            title: doc.name,
+            date: doc.publishedAt,
+            videoId: doc.videoId,
+            thumbnails: doc.image,
+          });
+        }
+        return false;
+      }
+    });
 
     // if (day === "금") {
     //   weekDataOns.forEach((doc) => {
@@ -325,14 +350,15 @@ const Home = () => {
                   }}
                 >
                   <div className="movie">
-                    {weekSelectDataOnb.thumbnails ? (
-                      <img src={weekSelectDataOnb.thumbnails.medium.url} />
-                    ) : null}
+                    <img
+                      style={{ width: "100%" }}
+                      src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${weekSelectDataOnb.thumbnails}/public`}
+                    />
                   </div>
                   <div className="info">
                     <div className="tit">{weekSelectDataOnb.title}</div>
                     <div className="date">
-                      {weekSelectDataOnb.date.substring(0, 10)}
+                      {weekSelectDataOnb.date}
                     </div>
                   </div>
                 </li>
@@ -511,7 +537,7 @@ const Home = () => {
                   <div
                     onClick={() => {
                       router.push(
-                        `/praisedetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=p11`,
+                        `/praisedetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
                         "/praisedetail"
                       );
                     }}

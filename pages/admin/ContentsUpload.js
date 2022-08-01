@@ -12,7 +12,7 @@ const ContentsUpload = () => {
     const { register, handleSubmit, watch } = useForm();
     const [uploadContents, { loading, data }] = useMutation("/api/contents");
 
-    const onValid = async ({ name, kind, description, videoId, publishedAt }) => {
+    const onValid = async ({ name, kind, subKind, description, videoId, publishedAt }) => {
         if (loading) return;
         if (image && image.length > 0) {
             const { uploadURL } = await (await fetch(`/api/files`)).json();
@@ -21,9 +21,9 @@ const ContentsUpload = () => {
             const {
                 result: { id },
             } = await (await fetch(uploadURL, { method: "POST", body: form })).json();
-            uploadContents({ name, kind, description, videoId, publishedAt, photoId: id });
+            uploadContents({ name, kind, subKind, description, videoId, publishedAt, photoId: id });
         } else {
-            uploadContents({ name, kind, description, videoId, publishedAt });
+            uploadContents({ name, kind, subKind, description, videoId, publishedAt });
         }
     };
 
@@ -89,6 +89,13 @@ const ContentsUpload = () => {
                     required
                     label="Kind"
                     name="kind"
+                    type="text"
+                />
+                <Input
+                    register={register("subKind")}
+                    required
+                    label="SubKind"
+                    name="subKind"
                     type="text"
                 />
                 <Input
