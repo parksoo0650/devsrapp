@@ -228,8 +228,8 @@ const Home = () => {
                         key={doc.id}
                         onClick={() => {
                           router.push(
-                            `/onprayerdetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
-                            "/onprayerdetail"
+                            `/onbibledetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/onbibledetail"
                           );
                         }}
                       >
