@@ -8,7 +8,7 @@ import useSWR from "swr";
 import Image from "next/image";
 
 export default function faith() {
-    const { data } = useSWR("/api/contents");
+    const { data } = useSWR("/api/contents?kind=shorts");
     const opts = {
         width: "320px",
         height: "700px",

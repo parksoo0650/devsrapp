@@ -54,6 +54,7 @@ model Contents {
   description String   @db.MediumText
   videoId     String?
   kind        String
+  subKind     String?
 }
 
 model Weekly {

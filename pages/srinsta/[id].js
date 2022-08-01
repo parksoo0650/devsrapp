@@ -81,7 +81,7 @@ const CommunityPostDetail = () => {
   }, [deleteData]);
 
   return (
-    <EventLayout canGoBack title="성락in스타 글쓰기">
+    <EventLayout canGoBack title="성락in스타">
       {!data?.post ? (
         <div className="loading_box">
           <Loading />

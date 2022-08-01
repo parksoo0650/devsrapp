@@ -22,7 +22,7 @@ export default function Layout({ title, canGoBack, children, kind }) {
         )}
       >
         {canGoBack ? (
-          <button onClick={onClick} className="absolute w-full">
+          <button onClick={onClick} className="absolute w-full px-2">
             <svg
               className="w-6 h-6"
               fill="none"
