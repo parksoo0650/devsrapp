@@ -24,12 +24,9 @@ const Home = () => {
   const { data: dataOncontents } = useSWR("/api/contents?kind=oncontents");
 
   const date = new Date();
+  const hours = new Date().getHours();
   const week = ["일", "월", "화", "수", "목", "금", "토"];
-  const opts = {
-    width: "320px",
-    height: "200px",
-    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
-  };
+
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [weeks, setWeeks] = useState("");
@@ -39,24 +36,15 @@ const Home = () => {
     thumbnails: "",
     publishedAt: "",
   });
-  const [weekSelectDataOnm, setWeekSelectDataOnm] = useState({
-    title: "",
-    date: "",
-    videoId: "",
-  });
-  const [weekSelectDataOnb, setWeekSelectDataOnb] = useState({
-    title: "",
-    date: "",
-    videoId: "",
-    thumbnails: "",
-  });
-  const [weekSelectDataOns, setWeekSelectDataOns] = useState({
-    title: "",
-    date: "",
-    videoId: "",
-    thumbnails: "",
-  });
-  const hours = new Date().getHours();
+  const opts = {
+    width: "320px",
+    height: "200px",
+    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+  };
+
+  let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
+  let onmCnt = 0;
+  let onbCnt = 0;
 
   const getLiveData = async () => {
     const videoTitle = "";
@@ -83,106 +71,9 @@ const Home = () => {
     setIsLoading(false);
   };
 
-  const getOnData = async () => {
-    // console.log(week[new Date().getDay()]);
-
-    dataOncontents?.contents.forEach((doc) => {
-      if (getDate(doc.publishedAt) === week[new Date().getDay()]) {
-        if (doc.subKind === "onm") {
-          setWeekSelectDataOnm({
-            title: doc.name,
-            date: doc.publishedAt,
-            videoId: doc.videoId,
-          });
-        }
-        if (doc.subKind === "onb") {
-          setWeekSelectDataOnb({
-            title: doc.name,
-            date: doc.publishedAt,
-            videoId: doc.videoId,
-            thumbnails: doc.image,
-          });
-        }
-        return false;
-      }
-    });
-  };
-
-  const getWeekData = (day) => {
-    setWeekSelectDataOnm({
-      title: "",
-      date: "",
-      videoId: "",
-    });
-
-    setWeekSelectDataOnb({
-      title: "",
-      date: "",
-      videoId: "",
-      thumbnails: "",
-    });
-
-    dataOncontents?.contents.forEach((doc) => {
-      if (getDate(doc.publishedAt) === day) {
-        if (doc.subKind === "onm") {
-          setWeekSelectDataOnm({
-            title: doc.name,
-            date: doc.publishedAt,
-            videoId: doc.videoId,
-          });
-        }
-        if (doc.subKind === "onb") {
-          setWeekSelectDataOnb({
-            title: doc.name,
-            date: doc.publishedAt,
-            videoId: doc.videoId,
-            thumbnails: doc.image,
-          });
-        }
-        return false;
-      }
-    });
-
-    // if (day === "금") {
-    //   weekDataOns.forEach((doc) => {
-    //     if (doc.snippet.title !== "Private video") {
-    //       let splitDateOns = doc.snippet.publishedAt.split("T");
-    //       if (getDate(splitDateOns[0]) === day) {
-    //         let splitTitleOns1 = doc.snippet.title.split("-");
-    //         let splitTitleOns2 = splitTitleOns1[1].split("|");
-    //         setWeekSelectDataOns({
-    //           title: splitTitleOns2[0],
-    //           date: splitTitleOns2[1],
-    //           videoId: doc.snippet.resourceId.videoId,
-    //           thumbnails: doc.snippet.thumbnails,
-    //         });
-    //       }
-    //       return false;
-    //     }
-    //   });
-    // } else {
-    //   setWeekSelectDataOns({});
-    // }
-  };
-
-  // 날짜를 요일로 전환함수
-  const getDate = (day) => {
-    let dayOfWeek = week[new Date(day).getDay()];
-    return dayOfWeek;
-  };
-
-  let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
-
   useEffect(() => {
     setWeeks(week[onDay]);
     getLiveData();
-    getOnData();
-  }, []);
-
-  useEffect(() => {
-    setWeeks(week[onDay]);
-    getLiveData();
-    getOnData();
   }, [dataSermon, dataOncontents]);
 
   return (
@@ -205,7 +96,7 @@ const Home = () => {
         </div>
       </header>
       <div className="container">
-        {isLoading === false ? (
+        {dataSermon?.contents[0] ? (
           <div className="section pt0">
             <div className="movie_wrap">
               <div
@@ -261,7 +152,6 @@ const Home = () => {
             <ul className="day_list">
               <li
                 onClick={() => {
-                  getWeekData("월");
                   setWeeks("월");
                 }}
                 className={weeks == "월" ? "on" : ""}
@@ -270,7 +160,6 @@ const Home = () => {
               </li>
               <li
                 onClick={() => {
-                  getWeekData("화");
                   setWeeks("화");
                 }}
                 className={weeks == "화" ? "on" : ""}
@@ -279,7 +168,6 @@ const Home = () => {
               </li>
               <li
                 onClick={() => {
-                  getWeekData("수");
                   setWeeks("수");
                 }}
                 className={weeks == "수" ? "on" : ""}
@@ -288,7 +176,6 @@ const Home = () => {
               </li>
               <li
                 onClick={() => {
-                  getWeekData("목");
                   setWeeks("목");
                 }}
                 className={weeks == "목" ? "on" : ""}
@@ -297,7 +184,6 @@ const Home = () => {
               </li>
               <li
                 onClick={() => {
-                  getWeekData("금");
                   setWeeks("금");
                 }}
                 className={weeks == "금" ? "on" : ""}
@@ -307,12 +193,12 @@ const Home = () => {
             </ul>
             <ul className="con_list">
               {dataOncontents?.contents.map((doc, i) => {
-                let week = ["일", "월", "화", "수", "목", "금", "토"];
                 let dateStr = doc.publishedAt.replace(/\./g, "-");
                 let dayOfWeek = week[new Date(dateStr).getDay()];
 
                 if (dayOfWeek == weeks) {
-                  if (doc.subKind === "onm") {
+                  if (doc.subKind === "onm" && onmCnt==0) {
+                    onmCnt = onmCnt + 1;
                     return (
                       <li
                         key={doc.id}
@@ -336,7 +222,7 @@ const Home = () => {
                       </li>
                     );
                   }
-                  if (doc.subKind === "onb") {
+                  if (doc.subKind === "onb" && onbCnt==0) {
                     return (
                       <li
                         key={doc.id}

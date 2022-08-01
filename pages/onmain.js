@@ -54,7 +54,7 @@ export default function Onmain() {
     setMainData({
       videoId: onData.snippet.resourceId.videoId,
       title: videoTitle,
-      thumbnails: onData.snippet.thumbnails.maxres.url,
+      thumbnails: onData.snippet.thumbnails.medium.url,
       publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2],
     });
     setListData(apiData.data.items);
