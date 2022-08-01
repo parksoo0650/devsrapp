@@ -38,9 +38,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [weeks, setWeeks] = useState("");
-  const [weekDataOnm, setWeekDataOnm] = useState([]);
-  const [weekDataOnb, setWeekDataOnb] = useState([]);
-  const [weekDataOns, setWeekDataOns] = useState([]);
   const [liveDatas, setLiveDatas] = useState({
     videoId: "",
     title: "",
@@ -196,10 +193,6 @@ const Home = () => {
     getLiveData();
     getOnData();
   }, [dataSermon, dataOncontents]);
-
-  useEffect(() => {
-    getWeekData(week[onDay]);
-  }, [weekDataOnm, weekDataOnb, weekDataOns]);
 
   return (
     <>
