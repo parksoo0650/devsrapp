@@ -80,7 +80,7 @@ export default function Sermonmain() {
       setMainData({
         videoId: apiData.data.items[0].snippet.resourceId.videoId,
         title: videoTitle[0],
-        thumbnails: apiData.data.items[0].snippet.thumbnails.maxres.url,
+        thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
         publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2],
       });
     }

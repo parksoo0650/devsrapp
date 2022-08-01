@@ -1,6 +1,5 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import YouTube from "react-youtube";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -14,6 +13,7 @@ import useSWR from "swr";
 import Popup from "reactjs-popup";
 import Image from "next/image";
 import shortsMain from "../public/images/shorts_main.jpg";
+import onmMain from "../public/images/onm_main.jpeg";
 import bwmLogo from "../public/images/bwm_logo.png";
 import mdBanner from "../public/icons/md_banner2.png";
 import CampToggle from "../src/components/CampToggle/CampToggle";
@@ -26,16 +26,7 @@ const Home = () => {
   const { data: dataShorts } = useSWR("/api/contents?kind=shorts");
   const { data: dataSermon } = useSWR("/api/contents?kind=sermon");
   const { data: dataPraise } = useSWR("/api/contents?kind=praise");
-
-  const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  // 주일설교
-  const API_URL_DEF = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZXsl4cQEjzBWRUFSCb2MCE`;
-  // 온특새
-  const API_URL_ONM = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=5&playlistId=PLCNxYye_JJpY-KpZNb-R3VMkoIEkMZSfG`;
-  // 온성경
-  const API_URL_ONB = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=4&playlistId=PLCNxYye_JJpZKRGb7hy_FJ1OIv4fxTF7S`;
-  // 온3분
-  const API_URL_ONS = `https://www.googleapis.com/youtube/v3/playlistItems/?key=${API_KEY}&part=snippet,contentDetails&maxResults=1&playlistId=PLCNxYye_JJpZmSoNBoZdnZ0CnpEGh3pQA`;
+  const { data: dataOncontents } = useSWR("/api/contents?kind=oncontents");
 
   const date = new Date();
   const week = ["일", "월", "화", "수", "목", "금", "토"];
@@ -77,53 +68,20 @@ const Home = () => {
   const hours = new Date().getHours();
 
   const getLiveData = async () => {
-    const api_data = {};
-    const splitTitle = "";
-    const splitDate = "";
-    const videoTitleTmp = "";
     const videoTitle = "";
-    const videoDate = "";
     const videoDateStr = "";
     const thumbnails = "";
     const videoIdStr = "";
 
-    if (week[date.getDay()] === "일") {
-      videoTitle = dataSermon?.contents[0]?.name;
-      videoDateStr = dataSermon?.contents[0]?.publishedAt;
-      videoIdStr = dataSermon?.contents[0]?.videoId;
-      thumbnails = dataSermon?.contents[0]?.image;
+    videoTitle = dataSermon?.contents[0]?.name;
+    videoDateStr = dataSermon?.contents[0]?.publishedAt;
+    videoIdStr = dataSermon?.contents[0]?.videoId;
+    thumbnails = dataSermon?.contents[0]?.image;
 
-      if (hours > 7 && hours < 13) {
-        setIsLive(true);
-      }
-    } else {
-      videoTitle = dataSermon?.contents[0]?.name;
-      videoDateStr = dataSermon?.contents[0]?.publishedAt;
-      videoIdStr = dataSermon?.contents[0]?.videoId;
-      thumbnails = dataSermon?.contents[0]?.image;
-
-      // api_data = await axios.get(API_URL_DEF);
-      // if (api_data.data.items[0].snippet.title === "Private video") {
-      //   splitTitle = api_data.data.items[1].snippet.title.split("-");
-      //   splitDate = api_data.data.items[1].snippet.publishedAt.split("T");
-      //   videoTitleTmp = splitTitle[1].split("|");
-      //   videoTitle = videoTitleTmp[0];
-      //   videoDate = splitDate[0].split("-");
-      //   videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2];
-      //   thumbnails = api_data.data.items[1].snippet.thumbnails.maxres.url;
-      // } else {
-      //   splitTitle = api_data.data.items[0].snippet.title.split("-");
-      //   splitDate = api_data.data.items[0].snippet.publishedAt.split("T");
-      //   videoTitleTmp = splitTitle[1].split("|");
-      //   videoTitle = videoTitleTmp[0];
-      //   videoDate = splitDate[0].split("-");
-      //   videoDateStr = videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2];
-      //   thumbnails = api_data.data.items[0].snippet.thumbnails.maxres.url;
-      // }
+    if (week[date.getDay()] === "일" && hours > 7 && hours < 13) {
+      setIsLive(true);
     }
-    // maxres
-    // high
-    // medium
+
     setLiveDatas({
       videoId: videoIdStr,
       title: videoTitle,
@@ -135,86 +93,70 @@ const Home = () => {
   };
 
   const getOnData = async () => {
-    const dataOnm = await axios.get(API_URL_ONM);
-    setWeekDataOnm(dataOnm.data.items);
-
-    const dataOnb = await axios.get(API_URL_ONB);
-    setWeekDataOnb(dataOnb.data.items);
-
-    const dataOns = await axios.get(API_URL_ONS);
-    setWeekDataOns(dataOns.data.items);
+    setWeekSelectDataOnm({
+      title: dataOncontents?.contents[0]?.name,
+      date: dataOncontents?.contents[0]?.publishedAt,
+      videoId: dataOncontents?.contents[0]?.videoId,
+      thumbnails: dataOncontents?.contents[0]?.image,
+    });
   };
 
   const getWeekData = (day) => {
-    onInint();
-
-    weekDataOnm.forEach((doc) => {
-      if (doc.snippet.title !== "Private video") {
-        let splitDateOnm = doc.snippet.publishedAt.split("T");
-        if (getDate(splitDateOnm[0]) === day) {
-          let splitTitleOnm1 = doc.snippet.title.split("-");
-          let splitTitleOnm2 = splitTitleOnm1[1].split("|");
-          setWeekSelectDataOnm({
-            title: splitTitleOnm2[0],
-            date: splitTitleOnm2[1],
-            videoId: doc.snippet.resourceId.videoId,
-            thumbnails: doc.snippet.thumbnails,
-          });
-        }
-        return false;
+    dataOncontents?.contents.forEach((doc) => {
+      if (getDate(doc.publishedAt) === day) {
+        setWeekSelectDataOnm({
+          title: doc.name,
+          date: doc.publishedAt,
+          videoId: doc.videoId,
+          thumbnails: doc.image,
+        });
       }
+      return false;
     });
 
-    weekDataOnb.forEach((doc) => {
-      if (doc.snippet.title !== "Private video") {
-        let splitDateOnb = doc.snippet.publishedAt.split("T");
-        let splitTitleOnb1 = [];
-        if (getDate(splitDateOnb[0]) === day) {
-          splitTitleOnb1 = doc.snippet.title.split("|");
-          setWeekSelectDataOnb({
-            title: splitTitleOnb1[0],
-            date: splitTitleOnb1[1],
-            videoId: doc.snippet.resourceId.videoId,
-            thumbnails: doc.snippet.thumbnails,
-          });
-        }
-        return false;
-      }
-    });
+    // weekDataOnb.forEach((doc) => {
+    //   if (doc.snippet.title !== "Private video") {
+    //     let splitDateOnb = doc.snippet.publishedAt.split("T");
+    //     let splitTitleOnb1 = [];
+    //     if (getDate(splitDateOnb[0]) === day) {
+    //       splitTitleOnb1 = doc.snippet.title.split("|");
+    //       setWeekSelectDataOnb({
+    //         title: splitTitleOnb1[0],
+    //         date: splitTitleOnb1[1],
+    //         videoId: doc.snippet.resourceId.videoId,
+    //         thumbnails: doc.snippet.thumbnails,
+    //       });
+    //     }
+    //     return false;
+    //   }
+    // });
 
-    if (day === "금") {
-      weekDataOns.forEach((doc) => {
-        if (doc.snippet.title !== "Private video") {
-          let splitDateOns = doc.snippet.publishedAt.split("T");
-          if (getDate(splitDateOns[0]) === day) {
-            let splitTitleOns1 = doc.snippet.title.split("-");
-            let splitTitleOns2 = splitTitleOns1[1].split("|");
-            setWeekSelectDataOns({
-              title: splitTitleOns2[0],
-              date: splitTitleOns2[1],
-              videoId: doc.snippet.resourceId.videoId,
-              thumbnails: doc.snippet.thumbnails,
-            });
-          }
-          return false;
-        }
-      });
-    } else {
-      setWeekSelectDataOns({});
-    }
+    // if (day === "금") {
+    //   weekDataOns.forEach((doc) => {
+    //     if (doc.snippet.title !== "Private video") {
+    //       let splitDateOns = doc.snippet.publishedAt.split("T");
+    //       if (getDate(splitDateOns[0]) === day) {
+    //         let splitTitleOns1 = doc.snippet.title.split("-");
+    //         let splitTitleOns2 = splitTitleOns1[1].split("|");
+    //         setWeekSelectDataOns({
+    //           title: splitTitleOns2[0],
+    //           date: splitTitleOns2[1],
+    //           videoId: doc.snippet.resourceId.videoId,
+    //           thumbnails: doc.snippet.thumbnails,
+    //         });
+    //       }
+    //       return false;
+    //     }
+    //   });
+    // } else {
+    //   setWeekSelectDataOns({});
+    // }
   };
 
   // 날짜를 요일로 전환함수
   const getDate = (day) => {
-    let dayOfWeek = week[new Date(day).getDay() + 1];
+    let dayOfWeek = week[new Date(day).getDay()];
     return dayOfWeek;
-  };
-
-  // On 콘텐츠 초기화
-  const onInint = () => {
-    setWeekSelectDataOnm({});
-    setWeekSelectDataOnb({});
-    setWeekSelectDataOns({});
   };
 
   let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
@@ -226,14 +168,14 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    getWeekData(week[onDay]);
-  }, [weekDataOnm, weekDataOnb, weekDataOns]);
-
-  useEffect(() => {
     setWeeks(week[onDay]);
     getLiveData();
     getOnData();
-  }, [dataSermon]);
+  }, [dataSermon, dataOncontents]);
+
+  useEffect(() => {
+    getWeekData(week[onDay]);
+  }, [weekDataOnm, weekDataOnb, weekDataOns]);
 
   return (
     <>
@@ -258,7 +200,6 @@ const Home = () => {
         {isLoading === false ? (
           <div className="section pt0">
             <div className="movie_wrap">
-              {/* <YouTube videoId={liveDatas.videoId} opts={opts} containerClassName="iframe_wrap" /> */}
               <div
                 onClick={() => {
                   router.push(
@@ -367,18 +308,11 @@ const Home = () => {
                   }}
                 >
                   <div className="movie">
-                    {weekSelectDataOnm.thumbnails ? (
-                      <img src={weekSelectDataOnm.thumbnails.medium.url} />
-                    ) : null}
+                    <Image src={onmMain} placeholder="blur" quality={50} />
                   </div>
                   <div className="info">
-                    <div className="tit">
-                      {weekSelectDataOnm.title}
-                      {/* <span className="tag_up">UP</span> */}
-                    </div>
-                    <div className="date">
-                      {weekSelectDataOnm.date.substring(0, 10)}
-                    </div>
+                    <div className="tit">{weekSelectDataOnm.title}</div>
+                    <div className="date">{weekSelectDataOnm.date}</div>
                   </div>
                 </li>
               )}
@@ -477,7 +411,6 @@ const Home = () => {
         </div>
 
         <div className="section quick_wrap">
-          {/* <div className="title">빠른접근</div> */}
           <ul className="quick_menu">
             <li
               onClick={() => {
