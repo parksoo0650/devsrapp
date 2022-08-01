@@ -102,7 +102,6 @@ const Home = () => {
   };
 
   const getWeekData = (day) => {
-    setWeekSelectDataOnm({});
     dataOncontents?.contents.forEach((doc) => {
       if (getDate(doc.publishedAt) === day) {
         setWeekSelectDataOnm({
@@ -112,7 +111,6 @@ const Home = () => {
           thumbnails: doc.image,
         });
       }
-      return false;
     });
 
     // weekDataOnb.forEach((doc) => {
