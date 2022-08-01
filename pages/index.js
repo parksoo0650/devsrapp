@@ -102,6 +102,7 @@ const Home = () => {
   };
 
   const getWeekData = (day) => {
+    setWeekSelectDataOnm({});
     dataOncontents?.contents.forEach((doc) => {
       if (getDate(doc.publishedAt) === day) {
         setWeekSelectDataOnm({
