@@ -49,7 +49,7 @@ export default function Praisemain() {
     setMainData({
       videoId: apiData.data.items[0].snippet.resourceId.videoId,
       title: videoTitle,
-      thumbnails: apiData.data.items[0].snippet.thumbnails.maxres.url,
+      thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
       publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2],
     });
     setListData(apiData.data.items);
