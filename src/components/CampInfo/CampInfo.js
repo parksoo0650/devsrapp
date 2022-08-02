@@ -28,7 +28,7 @@ const CampInfo = () => {
       <CampMenu onClick={onClick} title='환영글' id='welcome' />
 
       {/* <CampMenu onClick={onClick} title='진행본부' id='central' /> */}
-      <h3>8월 3일에 전체 메뉴가 공개됩니다.</h3>
+      {/* <h3>8월 3일에 전체 메뉴가 공개됩니다.</h3> */}
 
       <div
         style={{
