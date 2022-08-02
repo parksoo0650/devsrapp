@@ -1,65 +1,95 @@
-// '식단 메뉴' 텍스트
-.subTitle {
-  margin: 16px;
-  padding: 0 14px;
-  text-align: start;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.5px;
-}
-
 .CampMeal {
-  text-align: center;
+  padding: 15px 15px 13px;
+  margin-bottom: 6px;
+  background-color: white;
+  // border-top: 1px solid #ebedef;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
 
-  nav {
+  h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  span {
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 44px;
-    padding: 0 16px;
+    padding: 0 0 8px;
 
-    ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      // border-bottom: 1px solid #ebedef;
+    div {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
 
-      // 각각의 날짜
-      @mixin TabStyle {
-        display: inline-block;
-        width: 110px;
-        height: 44px;
-        text-align: center;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        letter-spacing: -0.5px;
-        box-sizing: border-box;
-        background: #ffffff;
-        border: 1px solid #ebedef;
-        border-radius: 4px;
-        margin: 4px;
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+
+      bold {
+        color: #ef533c;
+        font-weight: 500;
       }
+    }
 
-      .TabNotFocused {
-        @include TabStyle;
+    // 장소
+    &:nth-of-type(1) {
+      div {
+        background-image: url('../../../public/icons/ico_place.svg');
       }
+    }
 
-      .TabFocused {
-        @include TabStyle;
-        background-color: #313131;
-        color: white;
+    // 시간
+    &:nth-of-type(2) {
+      div {
+        background-image: url('../../../public/icons/ico_date.svg');
+      }
+    }
+
+    // 식권구매
+    &:nth-of-type(3) {
+      div {
+        background-image: url('../../../public/icons/ico_topic.svg');
       }
     }
   }
 
-  .horizontalLine {
-    width: 346px;
-    height: 1px;
-    background-color: #ebedef;
-    display: inline-block;
+  .timeAdditional {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    padding-left: 57px;
+    position: relative;
+    bottom: 6px;
+  }
+
+  pre {
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+    color: #737373;
+  }
+
+  .Swiper {
+    margin-top: 15px;
+
+    .SwiperSlide {
+      // padding: 15px;
+      height: 302px;
+      background: #f8f8f8;
+      border-radius: 4px;
+    }
   }
 }

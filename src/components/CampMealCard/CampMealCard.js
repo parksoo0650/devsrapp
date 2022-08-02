@@ -14,7 +14,7 @@ const CampMealCard = ({ date, lunch, dinner, lunchList, dinnerList }) => {
           <span>{lunch.description}</span>
 
           <ul>
-            {lunchList.map((item, index) => (
+            {lunchList?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
@@ -27,7 +27,7 @@ const CampMealCard = ({ date, lunch, dinner, lunchList, dinnerList }) => {
           <span>{dinner.description}</span>
 
           <ul>
-            {dinnerList.map((item, index) => (
+            {dinnerList?.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>

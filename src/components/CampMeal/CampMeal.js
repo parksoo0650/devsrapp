@@ -6,6 +6,7 @@ import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import { useEffect } from 'react';
+import CampHeader from '../CampHeader/CampHeader';
 
 const cn = classNames.bind(styles);
 
@@ -50,57 +51,91 @@ const list = {
 const CampMeal = () => {
   useEffect(() => {
     const dots = document.querySelectorAll('.swiper-pagination');
-    dots[2].style.display = 'flex';
-    dots[2].style.justifyContent = 'center';
+    dots[0].style.display = 'flex';
+    dots[0].style.justifyContent = 'center';
 
     const activatedDot = document.querySelectorAll(
       '.swiper-pagination-bullet-active'
     );
-    activatedDot[2].style.backgroundColor = 'black';
+    activatedDot[0].style.backgroundColor = 'black';
   }, []);
 
   return (
-    <Swiper
-      className={cn('CampMeal')}
-      modules={[Pagination]}
-      // spaceBetween={50}
-      slidesPerView={1}
-      pagination={{ clickable: true }}
-      onSlideChange={() => {
-        const activatedDot = document.querySelectorAll(
-          '.swiper-pagination-bullet-active'
-        );
-        activatedDot[2].style.backgroundColor = 'black';
-      }}
-    >
-      <SwiperSlide>
-        <CampMealCard
-          date='첫째날 8. 3(수)'
-          dinner={time.dinner}
-          dinnerList={list.firstDinner}
-        />
-      </SwiperSlide>
+    <div>
+      <CampHeader title='식당안내' />
+      <br />
+      <br />
 
-      <SwiperSlide>
-        <CampMealCard
-          date='둘째날 8. 4(목)'
-          lunch={time.lunch}
-          lunchList={list.secondLunch}
-          dinner={time.dinner}
-          dinnerList={list.secondDinner}
-        />
-      </SwiperSlide>
+      <div className={cn('CampMeal')}>
+        <h3>교회 식당 이용 안내</h3>
 
-      <SwiperSlide>
-        <CampMealCard
-          date='셋째날 8. 5(금)'
-          lunch={time.lunch}
-          lunchList={list.thirdLunch}
-          dinner={time.dinner}
-          dinnerList={list.thirdDinner}
-        />
-      </SwiperSlide>
-    </Swiper>
+        <span>
+          <div />
+          <p>장소 : 센터 별관 2층 식당</p>
+        </span>
+
+        <span>
+          <div />
+          <p>시간 : 중식 - 오후 12:00 - 1:30</p>
+        </span>
+
+        <p className={cn('timeAdditional')}>석식 - 오후 6:00 - 7:30</p>
+
+        <span>
+          <div />
+          <p>
+            식권구매 : 어른 <bold>4,000</bold>원, 어린이(초등생까지){' '}
+            <bold>2,000</bold>원
+          </p>
+        </span>
+
+        <pre>
+          ※ 사전구매한 식권만 사용 (식권 현장구매 및 환불 불가) <br />※ 조식은
+          배대원 조식서비스 및 인근 외부 식당 이용해 주세요
+        </pre>
+
+        <Swiper
+          className={cn('Swiper')}
+          modules={[Pagination]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          onSlideChange={() => {
+            const activatedDot = document.querySelectorAll(
+              '.swiper-pagination-bullet-active'
+            );
+            activatedDot[0].style.backgroundColor = 'black';
+          }}
+        >
+          <SwiperSlide className={cn('SwiperSlide')}>
+            <CampMealCard
+              date='첫째날 8. 3(수)'
+              dinner={time.dinner}
+              dinnerList={list.firstDinner}
+            />
+          </SwiperSlide>
+
+          <SwiperSlide className={cn('SwiperSlide')}>
+            <CampMealCard
+              date='둘째날 8. 4(목)'
+              lunch={time.lunch}
+              lunchList={list.secondLunch}
+              dinner={time.dinner}
+              dinnerList={list.secondDinner}
+            />
+          </SwiperSlide>
+
+          <SwiperSlide className={cn('SwiperSlide')}>
+            <CampMealCard
+              date='셋째날 8. 5(금)'
+              lunch={time.lunch}
+              lunchList={list.thirdLunch}
+              dinner={time.dinner}
+              dinnerList={list.thirdDinner}
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </div>
   );
 };
 

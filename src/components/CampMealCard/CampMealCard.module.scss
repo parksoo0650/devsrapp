@@ -1,5 +1,5 @@
 .CampMealCard {
-  margin: 15px 0 0;
+  // margin: 15px 0 0;
   padding: 15px;
   background: #f8f8f8;
   border-radius: 4px;
@@ -21,6 +21,7 @@
     font-size: 14px;
     line-height: 20px;
     letter-spacing: -0.5px;
+    margin: 0 0 4px;
   }
 
   // 시간 표시 텍스트
@@ -38,6 +39,10 @@
     padding: 10px 0 20px;
 
     li {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
     }
   }
 }
