@@ -5,14 +5,14 @@ const cn = classNames.bind(styles);
 
 const ContactButton = ({ name, tel }) => {
   return (
-    <div className={cn('ContactButton')}>
+    <a className={cn('ContactButton')} href={`tel:${tel}`}>
       <p>
         <span>{name}</span>
         <span>{tel}</span>
       </p>
 
       <p className={cn('phoneIcon')} />
-    </div>
+    </a>
   );
 };
 
