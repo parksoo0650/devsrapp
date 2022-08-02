@@ -28,7 +28,6 @@ const MarketContainer = ({ title }) => {
       <Sub12SungrakPlayground />
       <hr />
       <Sub13SungrakBibleBridge />
-      <hr />
     </section>
   );
 };
