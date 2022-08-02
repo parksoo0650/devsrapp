@@ -1,7 +1,7 @@
 import CampInfo from '../../../src/components/CampInfo/CampInfo';
 
-const ProgramIndex = () => {
+const InfoIndex = () => {
   return <CampInfo />;
 };
 
-export default ProgramIndex;
+export default InfoIndex;
