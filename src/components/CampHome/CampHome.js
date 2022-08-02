@@ -19,7 +19,7 @@ const ModalStyle = {
     left: 0,
     right: 0,
     // bottom: '20vh',
-    top: '12vh',
+    top: '16vh',
     height: '700px',
     zIndex: 9999,
     padding: 0,
