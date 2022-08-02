@@ -13,9 +13,11 @@ const CampCentral = () => {
         <h3>진행본부</h3>
       </div>
 
-      <br />
-      <br />
-      <br />
+      <div
+        style={{
+          height: '62px',
+        }}
+      />
 
       <span className={cn('item')}>
         <div />
