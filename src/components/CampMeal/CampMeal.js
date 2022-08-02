@@ -48,7 +48,7 @@ const list = {
   ],
 };
 
-const CampMeal = () => {
+const CampMeal = ({ option }) => {
   useEffect(() => {
     const dots = document.querySelectorAll('.swiper-pagination');
     dots[0].style.display = 'flex';
