@@ -38,12 +38,12 @@ export default function HomeBar() {
         </li>
 
         <li>
-          <Link href='/2022-summer-camp/program'>
+          <Link href='/2022-summer-camp/info'>
             <a>
               <div className='ico'>
                 <img
                   src={
-                    router.pathname == '/2022-summer-camp/program'
+                    router.pathname == '/2022-summer-camp/info'
                       ? '/icons/CampProgramActivated.svg'
                       : '/icons/CampProgram.svg'
                   }

@@ -9,7 +9,7 @@ const CampHeader = ({ title, option }) => {
   const router = useRouter();
 
   const onClick = () => {
-    router.push('/2022-summer-camp/program');
+    router.push('/2022-summer-camp/info');
   };
 
   useEffect(() => {

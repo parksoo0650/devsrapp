@@ -18,7 +18,7 @@ const CampToggle = () => {
 
   const paths = [
     '/2022-summer-camp',
-    '/2022-summer-camp/program',
+    '/2022-summer-camp/info',
     '/srinsta',
     '/community',
     '/2022-summer-camp/central',

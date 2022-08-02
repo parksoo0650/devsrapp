@@ -1,23 +1,23 @@
 import { useRouter } from 'next/router';
 import CampMenu from '../CampMenu/CampMenu';
 import classNames from 'classnames/bind';
-import styles from './CampProgram.module.scss';
+import styles from './CampInfo.module.scss';
 import CampNavbar from '../CampNavbar/CampNavbar';
 import CampToggle from '../CampToggle/CampToggle';
 import { useEffect } from 'react';
 
 const cn = classNames.bind(styles);
 
-const CampProgram = () => {
+const CampInfo = () => {
   const router = useRouter();
 
   const onClick = (event) => {
     // console.dir(event.target.id);
-    router.push(`program/${event.target.id}`);
+    router.push(`info/${event.target.id}`);
   };
 
   return (
-    <div className={cn('CampProgram')}>
+    <div className={cn('CampInfo')}>
       <h3>수련회 안내</h3>
 
       <CampMenu onClick={onClick} title='여름수련회 프로그램' id='schedule' />
@@ -42,4 +42,4 @@ const CampProgram = () => {
   );
 };
 
-export default CampProgram;
+export default CampInfo;
