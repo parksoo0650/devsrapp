@@ -9,7 +9,13 @@ const cn = classNames.bind(styles);
 const CampCentral = () => {
   return (
     <div className={cn('CampCentral')}>
-      <h3>진행본부</h3>
+      <div class='justify-between bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0  flex items-center fixed z-50'>
+        <h3>진행본부</h3>
+      </div>
+
+      <br />
+      <br />
+      <br />
 
       <span className={cn('item')}>
         <div />

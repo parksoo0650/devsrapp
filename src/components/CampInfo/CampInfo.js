@@ -17,7 +17,13 @@ const CampInfo = () => {
 
   return (
     <div className={cn('CampInfo')}>
-      <h3>수련회 안내</h3>
+      <div class='justify-between bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0 flex items-center fixed z-50'>
+        <h3>수련회 안내</h3>
+      </div>
+
+      <br />
+      <br />
+      <br />
 
       <CampMenu onClick={onClick} title='여름수련회 프로그램' id='schedule' />
       <CampMenu onClick={onClick} title='프로그램 세부정보' id='events' />
