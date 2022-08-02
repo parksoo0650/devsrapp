@@ -45,7 +45,7 @@ const CampShuttle = ({ onClick }) => {
 
       <h3 className={cn('subTitle')}>◎ 차량운행 관련 문의 및 도움요청</h3>
 
-      <ContactButton name='조상호 목사' tel='010-8775-2429' />
+      <ContactButton name='조상호 목사' tel='010 - 8775 - 2429' />
       <br />
       <br />
       <br />

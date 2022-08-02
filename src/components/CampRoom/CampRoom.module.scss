@@ -1,0 +1,54 @@
+.CampRoom {
+  padding: 15px 15px 0;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+
+  h3 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin: 15px 0 0;
+  }
+
+  .box {
+    margin: 10px 0 0;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 4px;
+
+    span {
+      display: block;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+
+      // 입실, 퇴실
+      p {
+        display: inline;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      // 시간 표시
+      bold {
+        font-weight: 500;
+        color: #ef533c;
+      }
+    }
+
+    ol {
+      margin: 10px 0 0;
+      padding-left: 15px;
+
+      li {
+        list-style: decimal;
+      }
+    }
+  }
+
+  .Contact {
+    margin: 0;
+  }
+}
