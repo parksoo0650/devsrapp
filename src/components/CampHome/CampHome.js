@@ -70,14 +70,18 @@ const CampHome = () => {
         </SectionContainer>
 
         {/* 성락 인스타 */}
-        <SectionContainer>
-          <SungrakInsta />
-        </SectionContainer>
+        {!showPopup && (
+          <SectionContainer>
+            <SungrakInsta />
+          </SectionContainer>
+        )}
 
         {/* 문의하기 */}
-        <SectionContainer>
-          <Asking />
-        </SectionContainer>
+        {!showPopup && (
+          <SectionContainer>
+            <Asking />
+          </SectionContainer>
+        )}
 
         {!showPopup && <CampToggle />}
       </div>
