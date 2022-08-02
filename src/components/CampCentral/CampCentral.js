@@ -29,7 +29,7 @@ const CampCentral = () => {
       </span>
 
       <ContactButton name='김내완 목사' tel='070 - 7300 - 3146' />
-      <ContactButton name='김내완 목사' tel='070 - 3203 - 9799' />
+      <ContactButton name='오세진 목사' tel='070 - 3203 - 9799' />
 
       <span className={cn('item')}>
         <div />
