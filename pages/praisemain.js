@@ -42,14 +42,22 @@ export default function Praisemain() {
     } else if (praise === "p11") {
       apiData = await axios.get(API_URL_P11);
     }
-    const splitTitle = apiData.data.items[0].snippet.title.split("|");
-    const splitDate = apiData.data.items[0].snippet.publishedAt.split("T");
+    let pData = [];
+    if (apiData.data.items[0].snippet.title !== "Private video") {
+      pData = apiData.data.items[0];
+    } else if (apiData.data.items[1].snippet.title !== "Private video") {
+      pData = apiData.data.items[1];
+    } else {
+      pData = apiData.data.items[2];
+    }
+    const splitTitle = pData.snippet.title.split("|");
+    const splitDate = pData.snippet.publishedAt.split("T");
     const videoTitle = splitTitle[0];
     const videoDate = splitDate[0].split("-");
     setMainData({
-      videoId: apiData.data.items[0].snippet.resourceId.videoId,
+      videoId: pData.snippet.resourceId.videoId,
       title: videoTitle,
-      thumbnails: apiData.data.items[0].snippet.thumbnails.medium.url,
+      thumbnails: pData.snippet.thumbnails.medium.url,
       publishedAt: videoDate[0] + ". " + videoDate[1] + ". " + videoDate[2],
     });
     setListData(apiData.data.items);
@@ -177,6 +185,9 @@ export default function Praisemain() {
               <ul className="sermon_list">
                 {listData.map((doc, i) => {
                   if (i == 0) {
+                    return false;
+                  }
+                  if( doc.snippet.title == "Private video") {
                     return false;
                   }
                   let splitListTitle = doc.snippet.title.split("|");
