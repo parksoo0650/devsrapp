@@ -29,9 +29,7 @@ const CampSchedule = ({ onClick }) => {
 
         {/* 일정 표시 */}
         <div className={cn('ScheduleTable')}>
-          <div className={cn('item', 'DawnCrusade')}>
-            새벽성회 <span>8시</span>
-          </div>
+          <div className={cn('item', 'DawnCrusade')}>새벽성회</div>
           <div className={cn('item', 'Breakfast')}>아침식사</div>
           <div className={cn('item', 'Rest1')}>휴식</div>
           <div className={cn('item', 'HappyLecture')}>행복한 특강</div>
