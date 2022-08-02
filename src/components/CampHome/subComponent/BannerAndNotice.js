@@ -18,6 +18,9 @@ const BannerAndNotice = () => {
       <div className={cn('Notice')}>
         <h2>2022 여름수련회</h2>
         <span>세계센터 대성전에서 만나요~!</span>
+
+        {/* 수정 바랍니다. */}
+        <p>1/5 전체보기</p>
       </div>
     </>
   );

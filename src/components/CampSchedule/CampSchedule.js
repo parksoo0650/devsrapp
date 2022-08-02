@@ -29,22 +29,55 @@ const CampSchedule = ({ onClick }) => {
 
         {/* 일정 표시 */}
         <div className={cn('ScheduleTable')}>
-          <div className={cn('item', 'DawnCrusade')}>새벽성회</div>
+          <div className={cn('item', 'DawnCrusade')}>
+            <div>
+              새벽성회 <br />
+              <bold>5시 50분 ~ 7시</bold>
+            </div>
+          </div>
           <div className={cn('item', 'Breakfast')}>아침식사</div>
           <div className={cn('item', 'Rest1')}>휴식</div>
-          <div className={cn('item', 'HappyLecture')}>행복한 특강</div>
-          <div className={cn('item', 'LectureForEveryone')}>전교인 특강</div>
+          <div className={cn('item', 'HappyLecture')}>
+            <div>
+              행복한 특강 <br />
+              <bold>10시 ~ 12시</bold>
+            </div>
+          </div>
+          <div className={cn('item', 'LectureForEveryone')}>
+            <div>
+              전교인 특강 <br />
+              <bold>10시 ~ 12시</bold>
+            </div>
+          </div>
           <div className={cn('item', 'Lunch')}>점심식사</div>
           <div className={cn('item', 'Rest2')}>휴식</div>
           <div className={cn('item', 'Recreation')}>
-            행복 더하기 <br /> (레크레이션)
+            <div>
+              행복 더하기 <br /> (레크레이션) <br />
+              <bold>2시 30분 ~ 4시 30분</bold>
+            </div>
           </div>
-          <div className={cn('item', 'HealingCrusade')}>신유집회</div>
-          <div className={cn('item', 'SungrakCinema')}>성락시네마</div>
+          <div className={cn('item', 'HealingCrusade')}>
+            <div>
+              신유집회 <br />
+              <bold>2시 20분 ~ 4시 30분</bold>
+            </div>
+          </div>
+          <div className={cn('item', 'SungrakCinema')}>
+            <div>
+              성락시네마 <br />
+              <bold>4시 ~ 6시</bold>
+            </div>
+          </div>
           <div className={cn('item', 'Rest3')}>휴식</div>
           <div className={cn('item', 'Dinner')}>저녁식사</div>
           <div className={cn('item', 'Rest4')}>휴식</div>
-          <div className={cn('item', 'EveningCrusade')}>저녁성회</div>
+          <div className={cn('item', 'EveningCrusade')}>
+            <div>
+              저녁성회 <br />
+              <bold>8시 ~ 10시 30분</bold>
+            </div>
+          </div>
 
           <div className={cn('blank1')} />
           <div className={cn('blank2')} />
