@@ -239,11 +239,11 @@ const Write = () => {
 
             <div className="mx-4 py-4 border-b">
               <Input
-                register={register("password", { required: false })}
+                register={register("password", { required: true })}
                 name="password"
                 type="text"
                 label="게시글 비번"
-                placeholder="게시글 삭제를 원하시면 입력해주세요."
+                placeholder="게시글 삭제를 위해서 입력해주세요."
               />
             </div>
 
