@@ -5,6 +5,7 @@ import "swiper/css";
 import SungrakInstaItem from "./SungrakInstaItem";
 import useSWR from "swr";
 import Link from "next/link";
+import Loading from "../../../components/Loading";
 
 const cn = classNames.bind(styles);
 
@@ -21,27 +22,31 @@ const SungrakInsta = () => {
         </Link>
       </div>
 
-      <Swiper
-        className={cn("Swiper")}
-        spaceBetween={10}
-        slidesPerView={2.1}
-        resistanceRatio={0}
-        pagination={false}
-      >
-        {data?.posts?.map((post) => (
-          <SwiperSlide key={post.id}>
-            <Link key={post.id} href={`/srinsta/${post.id}`}>
-              <a>
-                <SungrakInstaItem
-                  author={post?.nickName ? post?.nickName : "성락인"}
-                  preview={post.question}
-                  image={post?.image}
-                />
-              </a>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {!data ? (
+        <Loading />
+      ) : (
+        <Swiper
+          className={cn("Swiper")}
+          spaceBetween={10}
+          slidesPerView={2.1}
+          resistanceRatio={0}
+          pagination={false}
+        >
+          {data?.posts?.map((post) => (
+            <SwiperSlide key={post.id}>
+              <Link key={post.id} href={`/srinsta/${post.id}`}>
+                <a>
+                  <SungrakInstaItem
+                    author={post?.nickName ? post?.nickName : "성락인"}
+                    preview={post.question}
+                    image={post?.image}
+                  />
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </section>
   );
 };

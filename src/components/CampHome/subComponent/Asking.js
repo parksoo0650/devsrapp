@@ -5,6 +5,7 @@ import "swiper/css";
 import AskingItem from "./AskingItem";
 import Link from "next/link";
 import useSWR from "swr";
+import Loading from "../../../components/Loading";
 
 const cn = classNames.bind(styles);
 
@@ -20,28 +21,31 @@ const Asking = () => {
           </a>
         </Link>
       </div>
-
-      <Swiper
-        className={cn("Swiper")}
-        spaceBetween={20}
-        slidesPerView={1.5}
-        resistanceRatio={0}
-        pagination={false}
-      >
-        {data?.posts?.map((post) => (
-          <SwiperSlide key={post.id}>
-            <Link key={post.id} href={`/community/${post.id}`}>
-              <a>
-                <AskingItem
-                  author={post?.nickName ? post?.nickName : "성락인"}
-                  preview={post.question}
-                  image={post?.image}
-                />
-              </a>
-            </Link>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {!data ? (
+        <Loading />
+      ) : (
+        <Swiper
+          className={cn("Swiper")}
+          spaceBetween={20}
+          slidesPerView={1.5}
+          resistanceRatio={0}
+          pagination={false}
+        >
+          {data?.posts?.map((post) => (
+            <SwiperSlide key={post.id}>
+              <Link key={post.id} href={`/community/${post.id}`}>
+                <a>
+                  <AskingItem
+                    author={post?.nickName ? post?.nickName : "성락인"}
+                    preview={post.question}
+                    image={post?.image}
+                  />
+                </a>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </section>
   );
 };

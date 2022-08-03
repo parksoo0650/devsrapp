@@ -7,13 +7,52 @@ const Admin = () => {
     return (
         <Layout title="Admin">
             <div className="flex flex-col space-y-5 divide-y">
-                <Link href="/admin/Contents">
+                <Link href="/admin/Contents?kind=shorts">
                     <a>
                         <div className="flex px-4 cursor-pointer justify-between">
                             <div className="flex space-x-4">
                                 <div className="pt-2 flex flex-col">
                                     <h3 className="text-sm font-medium text-gray-900">
-                                        콘텐츠 관리자
+                                        1분 은혜 관리자
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
+                <Link href="/admin/Contents?kind=sermon">
+                    <a>
+                        <div className="flex px-4 cursor-pointer justify-between">
+                            <div className="flex space-x-4">
+                                <div className="pt-2 flex flex-col">
+                                    <h3 className="text-sm font-medium text-gray-900">
+                                        메인 설교 관리자
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
+                <Link href="/admin/Contents?kind=oncontents">
+                    <a>
+                        <div className="flex px-4 cursor-pointer justify-between">
+                            <div className="flex space-x-4">
+                                <div className="pt-2 flex flex-col">
+                                    <h3 className="text-sm font-medium text-gray-900">
+                                        메인 온콘텐츠 관리자
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
+                <Link href="/admin/Contents?kind=praise">
+                    <a>
+                        <div className="flex px-4 cursor-pointer justify-between">
+                            <div className="flex space-x-4">
+                                <div className="pt-2 flex flex-col">
+                                    <h3 className="text-sm font-medium text-gray-900">
+                                        메인 찬양 관리자
                                     </h3>
                                 </div>
                             </div>

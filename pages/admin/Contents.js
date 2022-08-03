@@ -3,10 +3,12 @@ import FloatingButton from "../../src/components/floating-button";
 import Link from "next/link";
 import useUser from "../../libs/client/useUser";
 import useSWR from "swr";
+import { useRouter } from "next/router";
 
 const Contents = () => {
+    const router = useRouter();
     const { user, isLoading } = useUser();
-    const { data } = useSWR("/api/contents?kind=shorts");
+    const { data } = useSWR(`/api/contents?kind=${router.query.kind}`);
     return (
         <Layout canGoBack title="콘텐츠 관리자">
             <div className="flex flex-col space-y-5 divide-y">
