@@ -176,40 +176,42 @@ const CommunityPostDetail = () => {
               </span>
             </div>
           </div>
-          <div className="px-4 my-2 space-y-2 text-gray-500">
+          <div className="px-4 text-gray-500 ">
             {data?.post.answers.map((answer) => (
               <div
                 key={answer.id}
-                className="flex items-start space-x-3 whitespace-pre-wrap"
+                className="py-2 flex items-center space-x-3 whitespace-pre-wrap border-b-[2px] border-dotted"
               >
                 <p className="text-gray-700 mt-2">{answer.answer} </p>
               </div>
             ))}
           </div>
-          <div
-            className="px-4 mt-4"
-            onClick={() => {
-              setIsAnswer(!isAnswer);
-            }}
-          >
-            <span className="flex space-x-2 items-center text-sm">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                ></path>
-              </svg>
-              <span>댓글 달기</span>
-            </span>
-          </div>
+          {data?.post?.id != 43 && (
+            <div
+              className="px-4 mt-4"
+              onClick={() => {
+                setIsAnswer(!isAnswer);
+              }}
+            >
+              <span className="flex space-x-2 items-center text-sm">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  ></path>
+                </svg>
+                <span>댓글 달기</span>
+              </span>
+            </div>
+          )}
           {!isAnswer ? null : (
             <form className="px-4" onSubmit={handleSubmit(onValid)}>
               <TextArea
