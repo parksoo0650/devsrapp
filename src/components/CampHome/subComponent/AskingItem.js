@@ -14,13 +14,13 @@ const AskingItem = ({ author, preview, image }) => {
           <div className={cn("author")}>{author}</div>
         </div>
 
-        {image && (
-          <div className={cn("image")}>
+        <div className={cn("image")}>
+          {image && (
             <img
               src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${image}/shorts`}
             />
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </article>
   );
