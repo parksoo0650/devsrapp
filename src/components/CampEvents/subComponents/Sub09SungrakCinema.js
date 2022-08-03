@@ -80,11 +80,17 @@ const Sub09AddOn = () => {
   );
 };
 
-const Sub09SungrakCinema = () => {
+const Sub09SungrakCinema = ({ option }) => {
+  const title = '09. 성락시네마';
+
+  if (option === 'no-title') {
+    title = '';
+  }
+
   return (
     <MarketFundamental
       addon={<Sub09AddOn />}
-      title='09. 성락시네마'
+      title={title}
       place='1관 - 리더센터 B1층 예수홀'
       placeAdditional='2관 - 리더센터 2층 마가홀'
       date='8. 3(수)'

@@ -1,10 +1,17 @@
 import CampHeader from '../CampHeader/CampHeader';
 import classNames from 'classnames/bind';
 import styles from './CampSchedule.module.scss';
+import { useRouter } from 'next/router';
 
 const cn = classNames.bind(styles);
 
 const CampSchedule = ({ onClick }) => {
+  const router = useRouter();
+
+  const onScheduleClick = (event) => {
+    router.push(`/2022-summer-camp/info/schedule/${event.target.id}`);
+  };
+
   return (
     <div className={cn('CampSchedule')}>
       <CampHeader onClick={onClick} title='여름수련회 프로그램' />
@@ -29,53 +36,95 @@ const CampSchedule = ({ onClick }) => {
 
         {/* 일정 표시 */}
         <div className={cn('ScheduleTable')}>
-          <div className={cn('item', 'DawnCrusade')}>
-            <div>
+          <div
+            className={cn('item', 'DawnCrusade')}
+            id='dawn-crusade'
+            onClick={onScheduleClick}
+          >
+            <div id='dawn-crusade' onClick={onScheduleClick}>
               새벽성회 <br />
-              <bold>5시 50분 ~ 7시</bold>
+              <bold id='dawn-crusade' onClick={onScheduleClick}>
+                5시 50분 ~ 7시
+              </bold>
             </div>
           </div>
           <div className={cn('item', 'Breakfast')}>아침식사</div>
           <div className={cn('item', 'Rest1')}>휴식</div>
-          <div className={cn('item', 'HappyLecture')}>
-            <div>
+          <div
+            className={cn('item', 'HappyLecture')}
+            id='happy-lecture'
+            onClick={onScheduleClick}
+          >
+            <div id='happy-lecture' onClick={onScheduleClick}>
               행복한 특강 <br />
-              <bold>10시 ~ 12시</bold>
+              <bold id='happy-lecture' onClick={onScheduleClick}>
+                10시 ~ 12시
+              </bold>
             </div>
           </div>
-          <div className={cn('item', 'LectureForEveryone')}>
-            <div>
+          <div
+            className={cn('item', 'LectureForEveryone')}
+            id='lecture-for-everyone'
+            onClick={onScheduleClick}
+          >
+            <div id='lecture-for-everyone' onClick={onScheduleClick}>
               전교인 특강 <br />
-              <bold>10시 ~ 12시</bold>
+              <bold id='lecture-for-everyone' onClick={onScheduleClick}>
+                10시 ~ 12시
+              </bold>
             </div>
           </div>
           <div className={cn('item', 'Lunch')}>점심식사</div>
           <div className={cn('item', 'Rest2')}>휴식</div>
-          <div className={cn('item', 'Recreation')}>
-            <div>
+          <div
+            className={cn('item', 'Recreation')}
+            id='recreation'
+            onClick={onScheduleClick}
+          >
+            <div id='recreation' onClick={onScheduleClick}>
               행복 더하기 <br /> (레크레이션) <br />
-              <bold>2시 30분 ~ 4시 30분</bold>
+              <bold id='recreation' onClick={onScheduleClick}>
+                2시 30분 ~ 4시 30분
+              </bold>
             </div>
           </div>
-          <div className={cn('item', 'HealingCrusade')}>
-            <div>
+          <div
+            className={cn('item', 'HealingCrusade')}
+            id='healing-crusade'
+            onClick={onScheduleClick}
+          >
+            <div id='healing-crusade' onClick={onScheduleClick}>
               신유집회 <br />
-              <bold>2시 20분 ~ 4시 30분</bold>
+              <bold id='healing-crusade' onClick={onScheduleClick}>
+                2시 20분 ~ 4시 30분
+              </bold>
             </div>
           </div>
-          <div className={cn('item', 'SungrakCinema')}>
-            <div>
+          <div
+            className={cn('item', 'SungrakCinema')}
+            id='sungrak-cinema'
+            onClick={onScheduleClick}
+          >
+            <div id='sungrak-cinema' onClick={onScheduleClick}>
               성락시네마 <br />
-              <bold>4시 ~ 6시</bold>
+              <bold id='sungrak-cinema' onClick={onScheduleClick}>
+                4시 ~ 6시
+              </bold>
             </div>
           </div>
           <div className={cn('item', 'Rest3')}>휴식</div>
           <div className={cn('item', 'Dinner')}>저녁식사</div>
           <div className={cn('item', 'Rest4')}>휴식</div>
-          <div className={cn('item', 'EveningCrusade')}>
-            <div>
+          <div
+            className={cn('item', 'EveningCrusade')}
+            id='evening-crusade'
+            onClick={onScheduleClick}
+          >
+            <div id='evening-crusade' onClick={onScheduleClick}>
               저녁성회 <br />
-              <bold>8시 ~ 10시 30분</bold>
+              <bold id='evening-crusade' onClick={onScheduleClick}>
+                8시 ~ 10시 30분
+              </bold>
             </div>
           </div>
 
