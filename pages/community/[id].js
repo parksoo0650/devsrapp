@@ -85,7 +85,7 @@ const CommunityPostDetail = () => {
   }, [deleteData]);
 
   return (
-    <EventLayout canGoBack>
+    <EventLayout canGoBack title="문의하기">
       <div className="pt-16">
         <span
           className={cls(
@@ -98,7 +98,7 @@ const CommunityPostDetail = () => {
           {kind[data?.post?.category]}
         </span>
         <div className=" border-t">
-          <div className="mt-2 px-4 text-gray-700 text-lg">
+          <div className="my-4 px-4 text-gray-700 text-base whitespace-pre-wrap">
             {data?.post?.question}
           </div>
           {data?.post?.image && (
