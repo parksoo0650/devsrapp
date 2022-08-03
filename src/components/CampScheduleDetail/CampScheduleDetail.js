@@ -9,6 +9,7 @@ import Sub07HappyLecture from '../CampEvents/subComponents/Sub07HappyLecture';
 import Sub08Recreation from '../CampEvents/subComponents/Sub08Recreation';
 import Sub09SungrakCinema from '../CampEvents/subComponents/Sub09SungrakCinema';
 import CampShuttleCard from '../CampShuttleCard/CampShuttleCard';
+import { useEffect, useState } from 'react';
 
 const cn = classNames.bind(styles);
 
@@ -139,6 +140,11 @@ const contents = {
 const CampScheduleDetail = () => {
   const router = useRouter();
   const id = router.query.id;
+  const schedule = contents[id];
+
+  const title = schedule?.title;
+  const info = schedule?.info;
+  const shuttle = schedule?.shuttle;
 
   const onClick = () => {
     router.push('/2022-summer-camp/info/schedule');
@@ -148,11 +154,11 @@ const CampScheduleDetail = () => {
     <div className={cn('CampScheduleDetail')}>
       <header>
         <button onClick={onClick} />
-        <h3>{contents[id].title}</h3>
+        <h3>{title}</h3>
       </header>
 
-      {contents[id].info}
-      {contents[id].shuttle}
+      {info}
+      {shuttle}
     </div>
   );
 };
