@@ -16,10 +16,6 @@ const Community = () => {
     <EventLayout hasTabBar title="문의하기" kind="q">
       <div className="space-y-4 pt-16">
 
-        <div className="px-4 text-gray-700 text-base font-bold">
-          문의하기 게시판은 8월 3일 부터 이용이 가능합니다.
-        </div>
-
         {data?.posts?.map((post) => (
           <Link key={post.id} href={`/community/${post.id}`}>
             <a className="flex cursor-pointer flex-col pt-4 items-start">

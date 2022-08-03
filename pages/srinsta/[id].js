@@ -58,7 +58,6 @@ const CommunityPostDetail = () => {
   const onValidDelete = (form) => {
     if (deleteLoading) return;
 
-    console.log(form.password);
     if (data?.post?.password && form.password === data?.post?.password) {
       sendDelete(form);
     } else {
@@ -252,7 +251,7 @@ const CommunityPostDetail = () => {
                     />
                   </div>
                   <div className="mb-2 text-red-500 text-sm font-bold ">비밀번호 분실시 삭제가 불가능합니다.</div>
-                  <Button text={answerLoading ? "Loading..." : "삭제하기"} />
+                  <Button text={deleteLoading ? "Loading..." : "삭제하기"} />
                 </form>
               )}
             </>
