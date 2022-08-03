@@ -176,16 +176,13 @@ const CommunityPostDetail = () => {
               </span>
             </div>
           </div>
-          <div className="px-4 my-5 space-y-5">
+          <div className="px-4 my-2 space-y-2 text-gray-500">
             {data?.post.answers.map((answer) => (
-              <div key={answer.id} className="flex items-start space-x-3">
-                <div>
-                  <span className="text-sm block font-medium text-gray-700"></span>
-                  <span className="text-xs text-gray-500 block ">
-                    {answer.createdAt}
-                  </span>
-                  <p className="text-gray-700 mt-2">{answer.answer} </p>
-                </div>
+              <div
+                key={answer.id}
+                className="flex items-start space-x-3 whitespace-pre-wrap"
+              >
+                <p className="text-gray-700 mt-2">{answer.answer} </p>
               </div>
             ))}
           </div>
