@@ -46,6 +46,14 @@ const CampCentral = () => {
 
       <ContactButton name='정용진 목사' tel='010 - 5589 - 3176' />
 
+      <span className={cn('item')}>
+        <div />
+        <p>누가팀 의무실(응급처치및 비상약)</p>
+      </span>
+
+      <ContactButton name='황혜원 팀장' tel='010 - 2661 - 0760' />
+      <ContactButton name='이한센 안수집사' tel='010 - 2030 - 8009' />
+
       <CampNavbar />
       <CampToggle />
     </div>

@@ -59,5 +59,12 @@
         background-image: url('../../../public/icons/ico_green_circle.svg');
       }
     }
+
+    // 응급 · 민원 · 불편 문의
+    &:nth-of-type(5) {
+      div {
+        background-image: url('../../../public/icons/ico_green_circle.svg');
+      }
+    }
   }
 }
