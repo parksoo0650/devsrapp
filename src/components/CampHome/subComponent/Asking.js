@@ -26,8 +26,8 @@ const Asking = () => {
       ) : (
         <Swiper
           className={cn("Swiper")}
-          spaceBetween={20}
-          slidesPerView={1.5}
+          spaceBetween={10}
+          slidesPerView={2.4}
           resistanceRatio={0}
           pagination={false}
         >
@@ -38,7 +38,7 @@ const Asking = () => {
                   <AskingItem
                     author={post?.nickName ? post?.nickName : "성락인"}
                     preview={post.question}
-                    image={post?.image}
+                    category={post?.category}
                   />
                 </a>
               </Link>

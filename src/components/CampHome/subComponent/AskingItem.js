@@ -3,10 +3,16 @@ import styles from "./AskingItem.module.scss";
 
 const cn = classNames.bind(styles);
 
-const AskingItem = ({ author, preview, image }) => {
+const AskingItem = ({ author, preview, category }) => {
+  const kind = {
+    questions: "수련회 질문",
+    lost: "분실/실종",
+    please: "도와주세요",
+  };
+
   return (
     <article className={cn("AskingItem")}>
-      <div className={cn("tag")}>궁금해요</div>
+      <div className={cn("tag")}>{kind[category]}</div>
 
       <div className={cn("flexBox")}>
         <div className={cn("textArea")}>
@@ -14,13 +20,13 @@ const AskingItem = ({ author, preview, image }) => {
           <div className={cn("author")}>{author}</div>
         </div>
 
-        <div className={cn("image")}>
+        {/* <div className={cn("image")}>
           {image && (
             <img
               src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${image}/shorts`}
             />
           )}
-        </div>
+        </div> */}
       </div>
     </article>
   );

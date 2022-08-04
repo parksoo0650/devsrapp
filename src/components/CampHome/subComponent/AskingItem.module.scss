@@ -4,7 +4,7 @@
   padding: 15px 10px 15px 15px;
   font-family: 'Noto Sans KR';
   font-style: normal;
-  width: 246px;
+  width: 185px;
 
   .tag {
     display: block;
@@ -35,6 +35,9 @@
         letter-spacing: -0.5px;
         padding: 4px 0;
         width: 150px;
+        height: 60px;
+        overflow: hidden;
+        align-items: flex-start;
       }
 
       .author {
