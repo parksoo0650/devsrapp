@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";ㅋ
+import React, { useState, useEffect } from "react";
 
 export default function Layout({ children }) {
     useEffect(() => {
