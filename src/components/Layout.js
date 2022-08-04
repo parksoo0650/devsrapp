@@ -9,12 +9,11 @@ export default function Layout({ children }) {
     const badge = new PWABadge();
 
     if (badge.isSupported()) {
-      // Hoora!, Supports the Badge feature
-      console.log("yes");
-      badge.syncSetBadge(1);
+      //   console.log("yes");
+      //   badge.syncSetBadge(1);
+      //   badge.syncClearBadge();
     } else {
-      // Does not supports
-      console.log("no");
+      //   console.log("no");
     }
   }, []);
 
