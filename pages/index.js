@@ -28,7 +28,7 @@ const Home = () => {
   const week = ["일", "월", "화", "수", "목", "금", "토"];
 
   const [isLoading, setIsLoading] = useState(true);
-  const [isLive, setIsLive] = useState(true);
+  const [isLive, setIsLive] = useState(false);
   const [weeks, setWeeks] = useState("");
   const [liveDatas, setLiveDatas] = useState({
     videoId: "",
