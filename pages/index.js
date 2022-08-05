@@ -28,7 +28,7 @@ const Home = () => {
   const week = ["일", "월", "화", "수", "목", "금", "토"];
 
   const [isLoading, setIsLoading] = useState(true);
-  const [isLive, setIsLive] = useState(false);
+  const [isLive, setIsLive] = useState(true);
   const [weeks, setWeeks] = useState("");
   const [liveDatas, setLiveDatas] = useState({
     videoId: "",
@@ -57,9 +57,9 @@ const Home = () => {
     videoIdStr = dataSermon?.contents[0]?.videoId;
     thumbnails = dataSermon?.contents[0]?.image;
 
-    if (week[date.getDay()] === "일" && hours > 7 && hours < 13) {
-      setIsLive(true);
-    }
+    // if (hours < 12) {
+    //   setIsLive(true);
+    // }
 
     setLiveDatas({
       videoId: videoIdStr,
@@ -130,11 +130,7 @@ const Home = () => {
                   <a href="#">{liveDatas.title}</a>
                 </div>
                 <div className="date">{liveDatas.publishedAt}</div>
-                {week[date.getDay()] === "수" &&
-                hours > 10 &&
-                hours < 13 ? null : (
-                  <div className="preacher">설교: 김성현 목사</div>
-                )}
+                {/* <div className="preacher">설교: 김성현 목사</div> */}
               </div>
             </div>
           </div>
