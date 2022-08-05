@@ -88,7 +88,7 @@ const Home = () => {
           >
             <img src="../images/logo.svg" alt="성락교회" />
           </h1>
-          {isLive && (
+          {(dataSermon?.contents[0]?.subKind=="live") && (
             <div className="live">
               라이브 <img src="/icons/ico_live.svg" alt="라이브" />
             </div>
