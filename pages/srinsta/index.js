@@ -10,7 +10,7 @@ import Loading from "../../src/components/Loading";
 const Community = () => {
   const { data } = useSWR(`/api/posts?ckind=insta`);
   return (
-    <EventLayout hasTabBar title="성락in스타" kind="s">
+    <EventLayout canGoBack hasTabBar title="성락in스타" kind="s">
       {!data ? (
         <div className="loading_box">
           <Loading />
@@ -63,7 +63,6 @@ const Community = () => {
           ))}
         </div>
       )}
-      <CampNavbar />
     </EventLayout>
   );
 };

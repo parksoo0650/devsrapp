@@ -18,7 +18,7 @@ export default function Layout({ title, canGoBack, children, kind }) {
       <div
         className={cls(
           !canGoBack ? "justify-between" : "justify-center",
-          "bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0  flex items-center fixed z-50"
+          "bg-white w-full max-w-2xl text-lg font-bold px-4 py-4 text-gray-800 top-0  flex items-center fixed z-50 "
         )}
       >
         {canGoBack ? (
@@ -42,7 +42,8 @@ export default function Layout({ title, canGoBack, children, kind }) {
 
         {title ? <span>{title}</span> : null}
 
-        { (!canGoBack && kind=="s") ? (
+        { (kind=="s") ? (
+          <div className="absolute right-2">
           <Link href={`/community/write?kind=${kind}`}>
             <a className="cursor-pointer flex items-center">
               <Image
@@ -54,6 +55,7 @@ export default function Layout({ title, canGoBack, children, kind }) {
               />
             </a>
           </Link>
+          </div>
         ) : null}
       </div>
       <div>{children}</div>
