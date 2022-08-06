@@ -57,9 +57,9 @@ const Home = () => {
     videoIdStr = dataSermon?.contents[0]?.videoId;
     thumbnails = dataSermon?.contents[0]?.image;
 
-    // if (hours < 12) {
-    //   setIsLive(true);
-    // }
+    if ( date.getDay() == 7 && (hours > 6 && hours < 13) ) {
+      setIsLive(true);
+    }
 
     setLiveDatas({
       videoId: videoIdStr,
@@ -89,6 +89,11 @@ const Home = () => {
             <img src="../images/logo.svg" alt="성락교회" />
           </h1>
           {(dataSermon?.contents[0]?.subKind=="live") && (
+            <div className="live">
+              라이브 <img src="/icons/ico_live.svg" alt="라이브" />
+            </div>
+          )}
+          {(isLive) && (
             <div className="live">
               라이브 <img src="/icons/ico_live.svg" alt="라이브" />
             </div>

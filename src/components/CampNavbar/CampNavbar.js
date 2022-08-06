@@ -38,24 +38,6 @@ export default function HomeBar() {
         </li>
 
         <li>
-          <Link href='/2022-summer-camp/info'>
-            <a>
-              <div className='ico'>
-                <img
-                  src={
-                    router.pathname == '/2022-summer-camp/info'
-                      ? '/icons/CampProgramActivated.svg'
-                      : '/icons/CampProgram.svg'
-                  }
-                  alt='수련회 안내'
-                />
-              </div>
-              <div className='menu'>수련회 안내</div>
-            </a>
-          </Link>
-        </li>
-
-        <li>
           <Link href='/srinsta'>
             <a>
               <div className='ico'>
@@ -74,40 +56,23 @@ export default function HomeBar() {
         </li>
 
         <li>
-          <Link href='/community'>
+          <Link href='/2022-summer-camp/info'>
             <a>
               <div className='ico'>
                 <img
                   src={
-                    contentCommunityPages.includes(router.pathname)
-                      ? '/icons/CampAskingActivated.svg'
-                      : '/icons/CampAsking.svg'
+                    router.pathname == '/2022-summer-camp/info'
+                      ? '/icons/CampProgramActivated.svg'
+                      : '/icons/CampProgram.svg'
                   }
-                  alt='문의하기'
+                  alt='수련회 안내'
                 />
               </div>
-              <div className='menu'>문의하기</div>
+              <div className='menu'>수련회 안내</div>
             </a>
           </Link>
         </li>
 
-        <li>
-          <Link href='/2022-summer-camp/central'>
-            <a>
-              <div className='ico'>
-                <img
-                  src={
-                    router.pathname === '/2022-summer-camp/central'
-                      ? '/icons/CampCentralActivated.svg'
-                      : '/icons/CampCentralOutline.svg'
-                  }
-                  alt='진행본부'
-                />
-              </div>
-              <div className='menu'>진행본부</div>
-            </a>
-          </Link>
-        </li>
       </ul>
 
       <style jsx>

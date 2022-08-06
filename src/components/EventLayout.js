@@ -42,7 +42,7 @@ export default function Layout({ title, canGoBack, children, kind }) {
 
         {title ? <span>{title}</span> : null}
 
-        { (!canGoBack && kind) ? (
+        { (!canGoBack && kind=="s") ? (
           <Link href={`/community/write?kind=${kind}`}>
             <a className="cursor-pointer flex items-center">
               <Image

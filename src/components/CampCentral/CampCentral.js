@@ -13,7 +13,7 @@ const CampCentral = () => {
         <h3>진행본부</h3>
       </div>
 
-      <div
+      {/* <div
         style={{
           height: '62px',
         }}
@@ -55,7 +55,7 @@ const CampCentral = () => {
       <ContactButton name='이한센 안수집사' tel='010 - 2030 - 8009' />
 
       <CampNavbar />
-      <CampToggle />
+      <CampToggle /> */}
     </div>
   );
 };
