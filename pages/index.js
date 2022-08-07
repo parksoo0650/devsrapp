@@ -57,7 +57,7 @@ const Home = () => {
     videoIdStr = dataSermon?.contents[0]?.videoId;
     thumbnails = dataSermon?.contents[0]?.image;
 
-    if ( date.getDay() == 7 && (hours > 6 && hours < 13) ) {
+    if (date.getDay() == 1 && hours > 6 && hours < 13) {
       setIsLive(true);
     }
 
@@ -88,15 +88,18 @@ const Home = () => {
           >
             <img src="../images/logo.svg" alt="성락교회" />
           </h1>
-          {(dataSermon?.contents[0]?.subKind=="live") && (
+          { isLive ? (
             <div className="live">
               라이브 <img src="/icons/ico_live.svg" alt="라이브" />
             </div>
-          )}
-          {(isLive) && (
-            <div className="live">
-              라이브 <img src="/icons/ico_live.svg" alt="라이브" />
-            </div>
+          ) : (
+            <>
+              { dataSermon?.contents[0]?.subKind == "live" && (
+                <div className="live">
+                  라이브 <img src="/icons/ico_live.svg" alt="라이브" />
+                </div>
+              )}
+            </>
           )}
         </div>
       </header>
@@ -198,7 +201,7 @@ const Home = () => {
                 let dayOfWeek = week[new Date(dateStr).getDay()];
 
                 if (dayOfWeek == weeks) {
-                  if (doc.subKind === "onm" && onmCnt==0) {
+                  if (doc.subKind === "onm" && onmCnt == 0) {
                     onmCnt = onmCnt + 1;
                     return (
                       <li
@@ -223,7 +226,7 @@ const Home = () => {
                       </li>
                     );
                   }
-                  if (doc.subKind === "onb" && onbCnt==0) {
+                  if (doc.subKind === "onb" && onbCnt == 0) {
                     return (
                       <li
                         key={doc.id}
