@@ -14,8 +14,8 @@ const CampHeader = ({ title, option }) => {
 
   useEffect(() => {
     if (option === 'invisible') {
-      const button = document.querySelector('button');
-      button.style.display = 'none';
+      // const button = document.querySelector('button');
+      // button.style.display = 'none';
     }
   });
 
