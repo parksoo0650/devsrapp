@@ -228,6 +228,7 @@ const Home = () => {
                     );
                   }
                   if (doc.subKind === "onb" && onbCnt == 0) {
+                    onbCnt = onbCnt + 1;
                     return (
                       <li
                         key={doc.id}
@@ -252,6 +253,7 @@ const Home = () => {
                     );
                   }
                   if (doc.subKind === "ont" && ontCnt == 0) {
+                    ontCnt = ontCnt + 1;
                     return (
                       <li
                         key={doc.id}
