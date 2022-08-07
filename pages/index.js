@@ -45,6 +45,7 @@ const Home = () => {
   let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
   let onmCnt = 0;
   let onbCnt = 0;
+  let ontCnt = 0;
 
   const getLiveData = async () => {
     const videoTitle = "";
@@ -234,6 +235,30 @@ const Home = () => {
                           router.push(
                             `/onbibledetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
                             "/onbibledetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
+                    );
+                  }
+                  if (doc.subKind === "ont" && ontCnt == 0) {
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/onthreedetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/onthreedetail"
                           );
                         }}
                       >

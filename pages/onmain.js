@@ -174,6 +174,9 @@ export default function Onmain() {
                   if (doc.snippet.title === "Private video") {
                     return false;
                   }
+                  if (i==0){
+                    return false;
+                  }
                   let splitListTitle = doc.snippet.title.split("|");
                   let ListTitle = splitListTitle[0];
                   let splitListDate = doc.snippet.publishedAt.split("T");

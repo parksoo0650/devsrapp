@@ -1,10 +1,20 @@
 import classNames from "classnames/bind";
 import styles from "./BannerAndNotice.module.scss";
 import Link from "next/link";
+import YouTube from "react-youtube";
 
 const cn = classNames.bind(styles);
 
 const BannerAndNotice = () => {
+  const opts = {
+    width: "320px",
+    height: "200px",
+    playerVars: {
+      autoplay: 1,
+      rel: 0,
+      modestbranding: 1,
+    },
+  };
   return (
     <>
       <div className={cn("MainBanner")}>
@@ -14,6 +24,14 @@ const BannerAndNotice = () => {
           사랑과 겸손으로 <br />
           행복한 성락인
         </h1>
+      </div>
+
+      <div className="movie_wrap">
+        <YouTube
+          videoId="kxIuwP6ljcs"
+          opts={opts}
+          containerClassName="iframe_wrap"
+        />
       </div>
 
       <div className={cn("Notice")}>
@@ -30,15 +48,13 @@ const BannerAndNotice = () => {
           3. 내일(6일)부터 주일(7일)까지, 초등부 "소망드림"이 진행됩니다. 기도와
           관심을 부탁드립니다.
         </h2>
-        <h2>
-          4. 넉넉지 않은 환경 속에서도 기쁨으로 함께해 주셔서 감사합니다. 
-        </h2>
+        <h2>4. 넉넉지 않은 환경 속에서도 기쁨으로 함께해 주셔서 감사합니다.</h2>
         {/* <h2>
           <Link href={`https://bit.ly/3vDHaUT`}>
             <a>수련회 설문 링크 바로가기</a>
           </Link>
         </h2> */}
-        
+
         {/* <p>1/5 전체보기</p> */}
       </div>
     </>
