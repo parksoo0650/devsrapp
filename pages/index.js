@@ -58,7 +58,7 @@ const Home = () => {
     videoIdStr = dataSermon?.contents[0]?.videoId;
     thumbnails = dataSermon?.contents[0]?.image;
 
-    if (date.getDay() == 1 && hours > 6 && hours < 13) {
+    if (date.getDay() == 0 && hours > 6 && hours < 13) {
       setIsLive(true);
     }
 
