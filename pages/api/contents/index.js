@@ -16,7 +16,7 @@ async function handler(req, res) {
         },
         orderBy: [
           {
-            publishedAt: "desc",
+            createdAt: "desc",
           },
         ],
       });
@@ -31,9 +31,10 @@ async function handler(req, res) {
         },
         orderBy: [
           {
-            publishedAt: "desc",
+            createdAt: "desc",
           },
         ],
+        take: 20,
       });
       res.json({
         ok: true,
