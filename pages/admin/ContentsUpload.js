@@ -85,7 +85,7 @@ const ContentsUpload = () => {
                     type="text"
                 />
                 <Input
-                    register={register("kind", { required: true })}
+                    register={register("kind", { required: true, value: router.query.kind })}
                     required
                     label="Kind"
                     name="kind"

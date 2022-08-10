@@ -24,7 +24,7 @@ const Contents = () => {
                         </a>
                     </Link>
                 ))}
-                <FloatingButton href="/admin/ContentsUpload">
+                <FloatingButton href={`/admin/ContentsUpload?kind=${router.query.kind}`}>
                     <svg
                         className="h-6 w-6"
                         xmlns="http://www.w3.org/2000/svg"

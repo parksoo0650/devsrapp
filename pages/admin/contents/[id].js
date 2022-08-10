@@ -25,7 +25,7 @@ const ContentsDetail = () => {
 
   useEffect(() => {
     if (deleteData && deleteData.ok) {
-      router.push(`/admin/Contents?kind=${router.query.kind}`);
+      router.push(`/admin`);
     }
   }, [deleteData]);
 
