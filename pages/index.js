@@ -12,7 +12,6 @@ import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 import Popup from "reactjs-popup";
 import CampToggle from "../src/components/CampToggle/CampToggle";
-import CampBanner from "../src/components/CampBanner/CampBanner";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -148,8 +147,6 @@ const Home = () => {
             <Loading />
           </div>
         )}
-
-        <CampBanner />
 
         <div className={liveDatas.videoId ? "section pt0" : "section pt25"}>
           <div className="title">주중 콘텐츠</div>

@@ -54,7 +54,9 @@ export default function Praisemain() {
     const splitDate = pData.snippet.publishedAt.split("T");
     const videoTitle = splitTitle[0];
     const videoDate = splitDate[0].split("-");
+
     setMainData({
+      id: pData.id,
       videoId: pData.snippet.resourceId.videoId,
       title: videoTitle,
       thumbnails: pData.snippet.thumbnails.medium.url,
@@ -184,7 +186,7 @@ export default function Praisemain() {
             <div className="section subbordert pt15">
               <ul className="sermon_list">
                 {listData.map((doc, i) => {
-                  if (i == 0) {
+                  if(mainData.id == doc.id){
                     return false;
                   }
                   if( doc.snippet.title == "Private video") {
