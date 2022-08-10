@@ -36,5 +36,4 @@ async function handler(req, res) {
 export default withHandler({
   methods: ["POST"],
   handler,
-  isPrivate: false,
 });

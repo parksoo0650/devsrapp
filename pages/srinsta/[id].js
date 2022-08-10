@@ -174,7 +174,7 @@ const CommunityPostDetail = () => {
               </div>
             ))}
           </div>
-          <div
+          {/* <div
             className="px-4 mt-4"
             onClick={() => {
               setIsAnswer(!isAnswer);
@@ -197,7 +197,7 @@ const CommunityPostDetail = () => {
               </svg>
               <span>댓글 달기</span>
             </span>
-          </div>
+          </div> */}
           {!isAnswer ? null : (
             <form className="px-4" onSubmit={handleSubmit(onValid)}>
               <TextArea
@@ -206,13 +206,13 @@ const CommunityPostDetail = () => {
                 required
                 register={register("answer", { required: true })}
               />
-              <Button text={answerLoading ? "Loading..." : "댓글 달기"} />
+              {/* <Button text={answerLoading ? "Loading..." : "댓글 달기"} /> */}
             </form>
           )}
 
           {data?.post?.password && (
             <>
-              <div
+              {/* <div
                 className="px-4 mt-4"
                 onClick={() => {
                   setIsDelete(!isDelete);
@@ -235,7 +235,7 @@ const CommunityPostDetail = () => {
                   </svg>
                   <span>게시글 삭제 하기</span>
                 </span>
-              </div>
+              </div> */}
               {!isDelete ? null : (
                 <form
                   className="px-4 py-2"
@@ -251,7 +251,7 @@ const CommunityPostDetail = () => {
                     />
                   </div>
                   <div className="mb-2 text-red-500 text-sm font-bold ">비밀번호 분실시 삭제가 불가능합니다.</div>
-                  <Button text={deleteLoading ? "Loading..." : "삭제하기"} />
+                  {/* <Button text={deleteLoading ? "Loading..." : "삭제하기"} /> */}
                 </form>
               )}
             </>

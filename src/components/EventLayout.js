@@ -22,7 +22,8 @@ export default function Layout({ title, canGoBack, children, kind }) {
         )}
       >
         {canGoBack ? (
-          <button onClick={onClick} className="absolute w-full px-2">
+          <div className="absolute px-2 w-full">
+          <button onClick={onClick} >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -38,13 +39,14 @@ export default function Layout({ title, canGoBack, children, kind }) {
               ></path>
             </svg>
           </button>
+          </div>
         ) : null}
 
         {title ? <span>{title}</span> : null}
 
         { (kind=="s") ? (
           <div className="absolute right-2">
-          <Link href={`/community/write?kind=${kind}`}>
+          {/* <Link href={`/community/write?kind=${kind}`}>
             <a className="cursor-pointer flex items-center">
               <Image
                 src={iconWrite}
@@ -54,7 +56,7 @@ export default function Layout({ title, canGoBack, children, kind }) {
                 height={28}
               />
             </a>
-          </Link>
+          </Link> */}
           </div>
         ) : null}
       </div>

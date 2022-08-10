@@ -260,7 +260,8 @@ const Write = () => {
             )}
             <div className="px-4 py-4">
               {coords?.coords[0]?.name ? (
-                <Button text={loading ? "Loading..." : "글쓰기"} />
+                <></>
+                // <Button text={loading ? "Loading..." : "글쓰기"} />
               ) : null}
             </div>
           </form>
