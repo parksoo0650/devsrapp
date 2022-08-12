@@ -72,6 +72,19 @@ const Admin = () => {
                         </div>
                     </a>
                 </Link>
+                <Link href="/admin/Contents?kind=camp22">
+                    <a>
+                        <div className="flex px-4 cursor-pointer justify-between">
+                            <div className="flex space-x-4">
+                                <div className="pt-2 flex flex-col">
+                                    <h3 className="text-sm font-medium text-gray-900">
+                                        2022 수련회영상 등록
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </Link>
             </div>
         </Layout>
     );

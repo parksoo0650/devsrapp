@@ -34,7 +34,7 @@ const BannerAndNotice = () => {
         />
       </div>
 
-      <div className={cn("Notice")}>
+      {/* <div className={cn("Notice")}>
         <h2>☆ 수련회 마감 광고 ☆</h2>
         <h2>
           1. 큰 은혜 주신 하나님께 아직 감사를 못하신 성도님은, 돌아오는 주일에
@@ -45,15 +45,7 @@ const BannerAndNotice = () => {
           주시길 바랍니다.
         </h2>
         <h2>3. 넉넉지 않은 환경 속에서도 기쁨으로 함께해 주셔서 감사합니다.</h2>
-
-        {/* <h2>
-          <Link href={`https://bit.ly/3vDHaUT`}>
-            <a>수련회 설문 링크 바로가기</a>
-          </Link>
-        </h2> */}
-
-        {/* <p>1/5 전체보기</p> */}
-      </div>
+      </div> */}
     </>
   );
 };

@@ -10,12 +10,16 @@ import Loading from "../../../components/Loading";
 const cn = classNames.bind(styles);
 
 const Asking = () => {
-  const { data } = useSWR(`/api/posts?ckind=notice`);
+  const { data } = useSWR(`/api/contents?kind=camp22`);
   return (
     <section className={cn("Asking")}>
       <div>
-        <h3>문의하기</h3>
-        <Link href={`/community`}>
+        <Link href={`/campvideo`}>
+          <a>
+            <h3>2022 여름수련회</h3>
+          </a>
+        </Link>
+        <Link href={`/campvideo`}>
           <a>
             <span>전체보기</span>
           </a>
@@ -27,18 +31,17 @@ const Asking = () => {
         <Swiper
           className={cn("Swiper")}
           spaceBetween={10}
-          slidesPerView={2.4}
+          slidesPerView={2.1}
           resistanceRatio={0}
           pagination={false}
         >
-          {data?.posts?.map((post) => (
-            <SwiperSlide key={post.id}>
-              <Link key={post.id} href={`/community/${post.id}`}>
+          {data?.contents?.map((content) => (
+            <SwiperSlide key={content.id}>
+              <Link key={content.id} href={`/campvideo/${content.id}`}>
                 <a>
                   <AskingItem
-                    author={post?.nickName ? post?.nickName : "성락인"}
-                    preview={post.question}
-                    category={post?.category}
+                    author={content?.name}
+                    image={content?.image}
                   />
                 </a>
               </Link>

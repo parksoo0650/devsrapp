@@ -3,6 +3,7 @@ import classNames from "classnames/bind";
 import styles from "./CampHome.module.scss";
 import BannerAndNotice from "./subComponent/BannerAndNotice";
 import SungrakInsta from "./subComponent/SungrakInsta";
+import Asking from "./subComponent/Asking";
 import CampToggle from "../CampToggle/CampToggle";
 
 const cn = classNames.bind(styles);
@@ -15,6 +16,10 @@ const CampHome = () => {
         {/* 배너 및 공지사항 */}
         <SectionContainer>
           <BannerAndNotice />
+        </SectionContainer>
+
+        <SectionContainer>
+          <Asking />
         </SectionContainer>
 
         {/* 성락 인스타 */}
