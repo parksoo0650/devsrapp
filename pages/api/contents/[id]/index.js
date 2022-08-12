@@ -17,5 +17,6 @@ export default withApiSession(
     withHandler({
         methods: ["GET"],
         handler,
+        isPrivate: false,
     })
 );
