@@ -42,14 +42,18 @@ export default function Praisemain() {
     } else if (praise === "p11") {
       apiData = await axios.get(API_URL_P11);
     }
+
     let pData = [];
     if (apiData.data.items[0].snippet.title !== "Private video") {
       pData = apiData.data.items[0];
     } else if (apiData.data.items[1].snippet.title !== "Private video") {
       pData = apiData.data.items[1];
-    } else {
+    } else if (apiData.data.items[2].snippet.title !== "Private video") {
       pData = apiData.data.items[2];
+    } else {
+      pData = apiData.data.items[3];
     }
+
     const splitTitle = pData.snippet.title.split("|");
     const splitDate = pData.snippet.publishedAt.split("T");
     const videoTitle = splitTitle[0];
