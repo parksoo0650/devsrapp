@@ -953,7 +953,7 @@ hr {
 }
 .pop_toast .sns_list {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-start;
 	padding: 0px 25px;
 }
 .pop_toast .sns_list li {
