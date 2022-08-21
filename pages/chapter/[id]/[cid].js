@@ -21,6 +21,11 @@ const Post = ({ items, bid, cid }) => {
     return <Loading />;
   }
 
+  useEffect(() => {
+    localStorage.setItem("bible", bid);
+    localStorage.setItem("chapter", cid);
+  }, [router]);
+
   return (
     <>
       <div className="container">
@@ -41,9 +46,7 @@ const Post = ({ items, bid, cid }) => {
                   <img src="/icons/ico_search.svg" alt="검색" />
                 </li>
               </ul>
-              <div
-                className={isActive ? "txt_control" : "txt_control hide"}
-              >
+              <div className={isActive ? "txt_control" : "txt_control hide"}>
                 <div className="tit">
                   <strong>텍스트 크기</strong>
                   <span>16pt</span>
@@ -60,10 +63,10 @@ const Post = ({ items, bid, cid }) => {
         </BookConsumer>
         <div className="shadow"></div>
         <style jsx>{`
-              .shadow {
-                display: ${isActive ? "block" : "none"};
-              }
-            `}</style>
+          .shadow {
+            display: ${isActive ? "block" : "none"};
+          }
+        `}</style>
         <Sheet
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
@@ -110,9 +113,7 @@ const Post = ({ items, bid, cid }) => {
                     {({ all_book }) => (
                       <ul
                         className={
-                          bibleBook == "구약"
-                            ? "book_list"
-                            : "book_list hide"
+                          bibleBook == "구약" ? "book_list" : "book_list hide"
                         }
                       >
                         {all_book.slice(0, 39).map((book, i) => (
@@ -136,9 +137,7 @@ const Post = ({ items, bid, cid }) => {
                     {({ all_book }) => (
                       <ul
                         className={
-                          bibleBook == "신약"
-                            ? "book_list"
-                            : "book_list hide"
+                          bibleBook == "신약" ? "book_list" : "book_list hide"
                         }
                       >
                         {all_book.slice(39, 67).map((book, i) => (
@@ -167,15 +166,12 @@ const Post = ({ items, bid, cid }) => {
                             : "chapter_list hide"
                         }
                       >
-                        {[...Array(book_cnt[isBible])].map((n, i) =>
-                        (
+                        {[...Array(book_cnt[isBible])].map((n, i) => (
                           <li
                             key={i}
-                            className={isChapter == (i + 1) ? "on" : ""}
+                            className={isChapter == i + 1 ? "on" : ""}
                             onClick={() => {
                               setIsChapter(i + 1);
-                              localStorage.setItem('bible', isBible);
-                              localStorage.setItem('chapter', i + 1);
                               setIsOpen(false);
                             }}
                           >
@@ -185,8 +181,7 @@ const Post = ({ items, bid, cid }) => {
                               </a>
                             </Link>
                           </li>
-                        )
-                        )}
+                        ))}
                       </ul>
                     )}
                   </BookConsumer>
@@ -205,16 +200,28 @@ const Post = ({ items, bid, cid }) => {
               </li>
             ))}
           </ul>
-          {cid > 1 &&
-          <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
+          {cid > 1 && (
+            <Link
+              href={`/chapter/${bid}/${parseInt(cid) - 1}`}
+            >
+              <a>
+                <img
+                  className="btn_left"
+                  src="/icons/ico_left.svg"
+                  alt="이전"
+                />
+              </a>
+            </Link>
+          )}
+          <Link
+            href={`/chapter/${bid}/${parseInt(cid) + 1}`}
+          >
             <a>
-              <img className="btn_left" src="/icons/ico_left.svg" alt="이전" />
-            </a>
-          </Link>
-          }
-          <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
-            <a>
-              <img className="btn_right" src="/icons/ico_right.svg" alt="다음" />
+              <img
+                className="btn_right"
+                src="/icons/ico_right.svg"
+                alt="다음"
+              />
             </a>
           </Link>
         </div>
@@ -234,8 +241,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const dev = process.env.NODE_ENV !== 'production';
-  const server = dev ? 'http://localhost:3000' : 'https://srapp.vercel.app';
+  const dev = process.env.NODE_ENV !== "production";
+  const server = dev ? "http://localhost:3000" : "https://srapp.vercel.app";
 
   const id = context.params.id;
   const cid = context.params.cid;
@@ -246,14 +253,14 @@ export async function getStaticProps(context) {
     headers: {
       "Content-Type": "application/json",
     },
-  })
+  });
   const json = await response.json();
 
   return {
     props: {
       items: json.bibles,
       bid: id,
-      cid: cid
+      cid: cid,
     },
   };
 }

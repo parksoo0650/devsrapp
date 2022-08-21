@@ -8,8 +8,12 @@ export default function HomeBar() {
     const [bottomPadding, setBottomPadding] = useState("");
     const pathNameSplit = router.pathname.split('/');
     const contentPages = ["/onmain", "/prayerMain", "/returnMain"];
+    const [lsBible, setLsBible] = useState("1");
+    const [lsChapter, setLsChapter] = useState("1");
 
     useEffect(() => {
+        setLsBible(localStorage.getItem("bible"));
+        setLsChapter(localStorage.getItem("chapter"));
         if(isIOS) {
             setBottomPadding("26px");
         }
@@ -39,7 +43,7 @@ export default function HomeBar() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/chapter/1/1">
+                    <Link href={`/chapter/${lsBible}/${lsChapter}`}>
                         <a>
                             <div className="ico">
                                 <img src={(pathNameSplit[1] == "chapter") ? "/icons/ico_bible.svg" : "/icons/ico_bible_off.svg"} alt="성경" />
