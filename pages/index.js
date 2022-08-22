@@ -44,6 +44,8 @@ const Home = () => {
     },
   };
   const onPlayerReady = (event) => {
+    event.target.mute();
+    event.target.setVolume(0);
     event.target.playVideo();
   }
 

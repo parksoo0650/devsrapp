@@ -17,6 +17,8 @@ export default function Praisedetail() {
         },
     };
     const onPlayerReady = (event) => {
+        event.target.mute();
+        event.target.setVolume(0);
         event.target.playVideo();
     }
 
