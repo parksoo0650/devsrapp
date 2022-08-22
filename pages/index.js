@@ -127,7 +127,7 @@ const Home = () => {
                   vid={liveDatas.videoId}
                 />
                 <div
-                  className="tit pr25"
+                  className="tit"
                   onClick={() => {
                     router.push(
                       `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`,
