@@ -27,16 +27,18 @@ export default function Sermonmain() {
     width: "320px",
     height: "200px",
     playerVars: {
-      volume: 0,
-      muted: true,
+      muted: 1,
       autoplay: 1,
-      rel: 0,
       modestbranding: 1,
+      loop: 1,
+      controls: 1,
     },
   };
 
   useEffect(() => {
     setTabKind("ord");
+    this.player.mute();
+    this.player.setVolume(0);
   }, [router]);
 
   return (
