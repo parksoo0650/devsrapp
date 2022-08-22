@@ -702,10 +702,10 @@ hr {
 	font-weight: 400;
 	line-height: 23px;
 	margin-bottom:3px;
-	overflow: hidden;
+	/* overflow: hidden;
 	text-overflow: ellipsis;
 	word-break: keep-all;
-	width: 88%;
+	width: 88%; */
 }
 .movie_wrap .info .date {
 	color: #A0A0A0;
