@@ -37,8 +37,6 @@ export default function Sermonmain() {
 
   useEffect(() => {
     setTabKind("ord");
-    this.player.mute();
-    this.player.setVolume(0);
   }, [router]);
 
   return (
