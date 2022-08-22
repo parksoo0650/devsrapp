@@ -32,11 +32,14 @@ export default function Sermonmain() {
       controls: 1,
     },
   };
+  const [youtubeTarget, setYoutubeTarget] = useState({});
+  const [isMute, setIsMute] = useState(true);
   const onPlayerReady = (event) => {
     event.target.mute();
     event.target.setVolume(0);
     event.target.playVideo();
-  }
+    setYoutubeTarget(event.target);
+  };
 
   useEffect(() => {
     setTabKind("ord");
@@ -53,6 +56,22 @@ export default function Sermonmain() {
       </div>
 
       <div className="movie_wrap">
+        {isMute && (
+          <div
+            onClick={() => {
+              youtubeTarget.unMute();
+              youtubeTarget.setVolume(100);
+              setIsMute(false);
+            }}
+            style={{ 
+              position: "absolute",
+              zIndex: "10",
+              padding: "15px",
+            }}
+          >
+            <img style={{ width: "50%" }} src="/images/btn_mute.png" alt="음소거" />
+          </div>
+        )}
         <YouTube
           videoId={router.query.vid}
           opts={opts}
@@ -71,7 +90,8 @@ export default function Sermonmain() {
           <div className="date">{router.query.vdate}</div>
         </div>
       </div>
-      {((kind == "def" || kind == "sun") && data?.weekly[0]) && (
+
+      {(kind == "def" || kind == "sun") && data?.weekly[0] && (
         <div className="section">
           <ul className="tab_area">
             <li

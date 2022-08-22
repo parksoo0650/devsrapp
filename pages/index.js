@@ -11,7 +11,6 @@ import Share from "../src/components/Share";
 import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 import Popup from "reactjs-popup";
-import CampToggle from "../src/components/CampToggle/CampToggle";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -393,11 +392,12 @@ const Home = () => {
               </div>
               <div className="txt">주보</div>
             </li>
-            {/* 
-            <li onClick={() => { router.push("/"); }}>
-              <div className="img"></div>
-              <div className="txt">교회소식</div>
-            </li> */}
+            <li onClick={() => { router.push("/2022-summer-camp"); }}>
+              <div className="img">
+              <img src="/icons/ico_quick_camp2.svg" alt="수련회" />
+              </div>
+              <div className="txt">2022 수련회</div>
+            </li>
             <li
               onClick={() => {
                 router.push("/offering");
@@ -520,7 +520,6 @@ const Home = () => {
         </div>
       </div>
       <HomeBar />
-      <CampToggle />
     </>
   );
 };
