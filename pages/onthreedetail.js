@@ -26,6 +26,11 @@ export default function Onmain() {
         event.target.mute();
         event.target.setVolume(0);
         event.target.playVideo();
+        setTimeout(() => {
+            event.target.unMute();
+            event.target.setVolume(100);
+            }, 5000);
+        }
     }
 
     return (
