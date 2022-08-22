@@ -35,6 +35,11 @@ export default function Sermonmain() {
     },
   };
 
+  const onPlayerReady = (event) => {
+    event.target.mute();
+    event.target.setVolume(0);
+  }
+
   useEffect(() => {
     setTabKind("ord");
   }, [router]);
@@ -54,6 +59,7 @@ export default function Sermonmain() {
           videoId={router.query.vid}
           opts={opts}
           containerClassName="iframe_wrap"
+          onReady={onPlayerReady}
         />
         <div className="info">
           <Share

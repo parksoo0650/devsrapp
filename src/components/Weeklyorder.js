@@ -1,6 +1,6 @@
 
 export default function Weeklyorder( {data} ) {
-    console.log(data);
+    // console.log(data);
     return (
         <ul className="order_wrap">
             <li>
