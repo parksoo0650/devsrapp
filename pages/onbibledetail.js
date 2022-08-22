@@ -25,8 +25,7 @@ export default function Onmain() {
         setTimeout(() => {
             event.target.unMute();
             event.target.setVolume(100);
-            }, 3000);
-        }
+        }, 3000);
     }
 
     return (
