@@ -13,9 +13,13 @@ export default function faith() {
         width: "320px",
         height: "700px",
         playerVars: {
-            autoplay: 0, rel: 0, modestbranding: 1
+            loop: 1,
+            controls: 1,
         },
     };
+    const onPlayerReady = (event) => {
+        event.target.playVideo();
+    }
 
     return (
         <>
@@ -55,7 +59,7 @@ export default function faith() {
                                                     <Share title={content.name} thum={`/images/kakao_shorts.jpg`} vid={content.videoId} type="white" />
                                                 </div>
                                                 <div className="content">
-                                                    <YouTube videoId={content.videoId} opts={opts} containerClassName="iframe_wrap" />
+                                                    <YouTube videoId={content.videoId} opts={opts} containerClassName="iframe_wrap" onReady={onPlayerReady} />
                                                 </div>
                                             </div>
                                         )}

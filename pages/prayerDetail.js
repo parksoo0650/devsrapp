@@ -12,9 +12,13 @@ export default function Praisedetail() {
         width: "320px",
         height: "200px",
         playerVars: {
-            autoplay: 1, rel: 0, modestbranding: 1
+            loop: 1,
+            controls: 1,
         },
     };
+    const onPlayerReady = (event) => {
+        event.target.playVideo();
+    }
 
     return (
         <div className="sub_container praise_detail">
@@ -24,7 +28,7 @@ export default function Praisedetail() {
             </div>
 
             <div className="movie_wrap">
-                <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" />
+                <YouTube videoId={router.query.vid} opts={opts} containerClassName="iframe_wrap" onReady={onPlayerReady} />
                 <div className="info">
                     <Share title={router.query.vtit} thum={`/images/kakao_${kind}.jpg`} vid={router.query.vid} />
                     <div className="tit">

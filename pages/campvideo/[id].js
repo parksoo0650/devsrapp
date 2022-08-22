@@ -14,13 +14,15 @@ const CommunityPostDetail = () => {
 
   const opts = {
     width: "320px",
-    height: "200px",
+    height: "700px",
     playerVars: {
-      autoplay: 1,
-      rel: 0,
-      modestbranding: 1,
+        loop: 1,
+        controls: 1,
     },
   };
+  const onPlayerReady = (event) => {
+      event.target.playVideo();
+  }
 
   return (
     <EventLayout canGoBack title="2022 여름수련회">
@@ -40,6 +42,7 @@ const CommunityPostDetail = () => {
                   videoId={data.contents.videoId}
                   opts={opts}
                   containerClassName="iframe_wrap"
+                  onReady={onPlayerReady}
                 />
               </div>
             )}

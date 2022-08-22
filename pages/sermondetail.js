@@ -23,21 +23,17 @@ export default function Sermonmain() {
   };
 
   const [tabKind, setTabKind] = useState("ord");
+
   const opts = {
     width: "320px",
     height: "200px",
     playerVars: {
-      muted: 1,
-      autoplay: 1,
-      modestbranding: 1,
       loop: 1,
       controls: 1,
     },
   };
-
   const onPlayerReady = (event) => {
-    event.target.mute();
-    event.target.setVolume(0);
+    event.target.playVideo();
   }
 
   useEffect(() => {

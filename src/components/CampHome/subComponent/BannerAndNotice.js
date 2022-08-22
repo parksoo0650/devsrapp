@@ -8,13 +8,15 @@ const cn = classNames.bind(styles);
 const BannerAndNotice = () => {
   const opts = {
     width: "320px",
-    height: "200px",
+    height: "700px",
     playerVars: {
-      autoplay: 1,
-      rel: 0,
-      modestbranding: 1,
+        loop: 1,
+        controls: 1,
     },
   };
+  const onPlayerReady = (event) => {
+      event.target.playVideo();
+  }
   return (
     <>
       <div className={cn("MainBanner")}>
@@ -31,6 +33,7 @@ const BannerAndNotice = () => {
           videoId="kxIuwP6ljcs"
           opts={opts}
           containerClassName="iframe_wrap"
+          onReady={onPlayerReady}
         />
       </div>
 

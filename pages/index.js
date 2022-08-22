@@ -38,8 +38,14 @@ const Home = () => {
   const opts = {
     width: "320px",
     height: "200px",
-    playerVars: { autoplay: 1, rel: 0, modestbranding: 1 },
+    playerVars: {
+      loop: 1,
+      controls: 1,
+    },
   };
+  const onPlayerReady = (event) => {
+    event.target.playVideo();
+  }
 
   let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
   let onmCnt = 0;
@@ -312,6 +318,7 @@ const Home = () => {
                           videoId={dataShorts?.contents[0]?.videoId}
                           opts={opts}
                           containerClassName="iframe_wrap"
+                          onReady={onPlayerReady}
                         />
                       </div>
                     </div>
