@@ -21,12 +21,13 @@ export default function Onmain() {
     },
   };
   const [youtubeTarget, setYoutubeTarget] = useState({});
-  const [isMute, setIsMute] = useState(true);
+  const [isMute, setIsMute] = useState(false);
   const onPlayerReady = (event) => {
     event.target.mute();
     event.target.setVolume(0);
     event.target.playVideo();
     setYoutubeTarget(event.target);
+    setIsMute(true);
   };
 
   return (
