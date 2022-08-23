@@ -2,6 +2,7 @@ import classNames from "classnames/bind";
 import styles from "./BannerAndNotice.module.scss";
 import Link from "next/link";
 import YouTube from "react-youtube";
+import React, { useState } from "react";
 
 const cn = classNames.bind(styles);
 

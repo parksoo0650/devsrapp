@@ -6,6 +6,7 @@ import Popup from "reactjs-popup";
 import HomeBar from "../src/components/HomeBar";
 import useSWR from "swr";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
 export default function faith() {
   const { data } = useSWR("/api/contents?kind=shorts");
