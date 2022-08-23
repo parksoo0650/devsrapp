@@ -16,15 +16,18 @@ const CommunityPostDetail = () => {
     width: "320px",
     height: "700px",
     playerVars: {
-        loop: 1,
-        controls: 1,
+      loop: 1,
+      controls: 1,
     },
   };
+  const [youtubeTarget, setYoutubeTarget] = useState({});
+  const [isMute, setIsMute] = useState(true);
   const onPlayerReady = (event) => {
-      event.target.mute();
-      event.target.setVolume(0);
-      event.target.playVideo();
-  }
+    event.target.mute();
+    event.target.setVolume(0);
+    event.target.playVideo();
+    setYoutubeTarget(event.target);
+  };
 
   return (
     <EventLayout canGoBack title="2022 여름수련회">
@@ -40,6 +43,26 @@ const CommunityPostDetail = () => {
             </div>
             {data?.contents?.videoId && (
               <div className="">
+                {isMute && (
+                  <div
+                    onClick={() => {
+                      youtubeTarget.unMute();
+                      youtubeTarget.setVolume(100);
+                      setIsMute(false);
+                    }}
+                    style={{
+                      position: "absolute",
+                      zIndex: "10",
+                      padding: "15px",
+                    }}
+                  >
+                    <img
+                      style={{ width: "50%" }}
+                      src="/images/btn_mute.png"
+                      alt="음소거"
+                    />
+                  </div>
+                )}
                 <YouTube
                   videoId={data.contents.videoId}
                   opts={opts}

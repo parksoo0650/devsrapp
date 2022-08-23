@@ -392,12 +392,6 @@ const Home = () => {
               </div>
               <div className="txt">주보</div>
             </li>
-            <li onClick={() => { router.push("/2022-summer-camp"); }}>
-              <div className="img">
-              <img src="/icons/ico_quick_camp2.svg" alt="수련회" />
-              </div>
-              <div className="txt">2022 수련회</div>
-            </li>
             <li
               onClick={() => {
                 router.push("/offering");
@@ -407,6 +401,12 @@ const Home = () => {
                 <img src="/icons/ico_quick_offering.svg" alt="헌금안내" />
               </div>
               <div className="txt">헌금안내</div>
+            </li>
+            <li onClick={() => { router.push("/2022-summer-camp"); }}>
+              <div className="img">
+              <img src="/icons/ico_quick_camp2.svg" alt="수련회" />
+              </div>
+              <div className="txt">2022 수련회</div>
             </li>
           </ul>
         </div>
