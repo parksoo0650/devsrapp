@@ -449,8 +449,8 @@ const Home = () => {
                         <a href="#">{doc.name}</a>
                       </div>
                       <div style={{ display: "flex", justifyContent: "space-between" }}>
-                        <div className="date">{doc.publishedAt}</div>
                         <div className="date" style={{ fontWeight: "bold" }}>{doc.description}</div>
+                        <div className="date">{doc.publishedAt}</div>
                       </div>
                     </div>
                   </div>
