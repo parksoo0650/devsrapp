@@ -448,7 +448,10 @@ const Home = () => {
                       <div className="tit">
                         <a href="#">{doc.name}</a>
                       </div>
-                      <div className="date">{doc.publishedAt}</div>
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <div className="date">{doc.publishedAt}</div>
+                        <div className="date" style={{ fontWeight: "bold" }}>{doc.description}</div>
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
