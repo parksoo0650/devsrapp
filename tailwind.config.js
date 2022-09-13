@@ -3,6 +3,7 @@ module.exports = {
     "./pages/admin/*.{js,jsx,ts,tsx}",
     "./pages/community/*.{js,jsx,ts,tsx}",
     "./pages/srinsta/*.{js,jsx,ts,tsx}",
+    "./pages/search.js",
     "./pages/campvideo/*.{js,jsx,ts,tsx}",
     "./pages/info.js",
     "./src/components/floating-button.js",

@@ -38,14 +38,25 @@ const Post = ({ items, bid, cid }) => {
               >
                 {book_name[bid]} {cid}장 <span className="arrow"></span>
               </div>
-              <ul className="tool_list">
-                {/* <li onClick={handleToggle}>
+              <Link href={`/search`}>
+                <a>
+                  <div className="tool_list">
+                    <img src="/icons/ico_search.svg" alt="검색" />
+                  </div>
+                </a>
+              </Link>
+              {/* <ul className="tool_list">
+                <li onClick={handleToggle}>
                   <img src="/icons/ico_setting.svg" alt="설정" />
-                </li> */}
-                <li>
-                  <img src="/icons/ico_search.svg" alt="검색" />
                 </li>
-              </ul>
+                <Link href={`/search`}>
+                  <a>
+                    <li>
+                      <img src="/icons/ico_search.svg" alt="검색" />
+                    </li>
+                  </a>
+                </Link>
+              </ul> */}
               <div className={isActive ? "txt_control" : "txt_control hide"}>
                 <div className="tit">
                   <strong>텍스트 크기</strong>
@@ -201,9 +212,7 @@ const Post = ({ items, bid, cid }) => {
             ))}
           </ul>
           {cid > 1 && (
-            <Link
-              href={`/chapter/${bid}/${parseInt(cid) - 1}`}
-            >
+            <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
               <a>
                 <img
                   className="btn_left"
@@ -213,9 +222,7 @@ const Post = ({ items, bid, cid }) => {
               </a>
             </Link>
           )}
-          <Link
-            href={`/chapter/${bid}/${parseInt(cid) + 1}`}
-          >
+          <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
             <a>
               <img
                 className="btn_right"

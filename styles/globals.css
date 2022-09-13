@@ -1586,6 +1586,8 @@ hr {
 	display: flex;
 	height: 100%;
 	align-items: center;
+	padding-right:10px;
+	padding-left:10px;
 }
 .top_area .tool_list img {
 	display: inline;
