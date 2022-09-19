@@ -1,7 +1,7 @@
 .BibleContainer {
   .Header {
     width: 100%;
-    padding: 20px 20px 0 ;
+    padding: 20px 20px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,6 +44,80 @@
       background-image: url('/icons/ico_search.svg');
       background-repeat: no-repeat;
       background-position: center;
+    }
+  }
+}
+
+.Modal {
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 40px;
+
+    .CloseButton {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-image: url('../../../public/icons/ico_close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .Title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .Empty {
+      display: block;
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
+
+.Tab {
+  display: flex;
+  margin: 10px 16px;
+  padding: 2px;
+  height: 32px;
+  background: #eeeeef;
+  border-radius: 8px;
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 113px;
+
+    &.on {
+      background: #ffffff;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+    }
+
+    // z-index 수정하려면 pseudo-parent 만들어야 함
+    &::after {
+      content: '';
+      background-color: rgba(60, 60, 67, 0.2);
+      position: relative;
+      bottom: 0;
+      left: 44px;
+      height: 16px;
+      width: 1px;
+    }
+
+    &:nth-child(3)::after {
+      content: none;
+    }
+
+    p {
+      font-size: 14px;
     }
   }
 }

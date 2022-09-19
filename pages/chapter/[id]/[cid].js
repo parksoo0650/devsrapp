@@ -46,9 +46,7 @@ const Post = ({ items, bid, cid }) => {
                 className={cn('top_title', 'txt_left', 'Dropdown')}
                 onClick={() => setIsOpen(true)}
               >
-                <div
-                  className={cn('DropdownText')}
-                >
+                <div className={cn('DropdownText')}>
                   {book_name[bid]} {cid}장{' '}
                 </div>
                 <span className={cn('DropdownArrow')} />
@@ -90,12 +88,14 @@ const Post = ({ items, bid, cid }) => {
             // end of top_area
           )}
         </BookConsumer>
+
         <div className='shadow'></div>
         <style jsx>{`
           .shadow {
             display: ${isActive ? 'block' : 'none'};
           }
         `}</style>
+
         <Sheet
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
@@ -104,38 +104,49 @@ const Post = ({ items, bid, cid }) => {
           <Sheet.Container>
             <Sheet.Header />
             <Sheet.Content>
-              <div className='layer_bible_read'>
-                <div className='title'>성경</div>
-                <button
-                  className='btn_close'
-                  onClick={() => setIsOpen(false)}
-                ></button>
-                <ul className='tab_area'>
+              <div className={cn('layer_bible_read', 'Modal')}>
+                <div className={cn('Header')}>
+                  <button
+                    className={cn('CloseButton')}
+                    onClick={() => setIsOpen(false)}
+                  />
+                  <div className={cn('Title')}>성경 구절 찾기</div>
+                  <div className={cn('Empty')} />
+                </div>
+
+                <ul className={cn('Tab')}>
                   <li
                     onClick={() => {
                       setBibleBook('구약');
                     }}
-                    className={bibleBook == '구약' ? 'on' : ''}
+                    className={bibleBook == '구약' ? cn('on') : ''}
                   >
-                    구약
+                    <span>
+                      <p>구약</p>
+                    </span>
                   </li>
                   <li
                     onClick={() => {
                       setBibleBook('신약');
                     }}
-                    className={bibleBook == '신약' ? 'on' : ''}
+                    className={bibleBook == '신약' ? cn('on') : ''}
                   >
-                    신약
+                    <span>
+                      <p>신약</p>
+                    </span>
                   </li>
                   <li
                     onClick={() => {
                       setBibleBook('장');
                     }}
-                    className={bibleBook == '장' ? 'on' : ''}
+                    className={bibleBook == '장' ? cn('on') : ''}
                   >
-                    장
+                    <span>
+                      <p>장</p>
+                    </span>
                   </li>
                 </ul>
+
                 <div className='tab_con'>
                   {/* 구약 */}
                   <BookConsumer>

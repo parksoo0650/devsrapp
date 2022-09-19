@@ -1703,7 +1703,7 @@ hr {
 /* 성경 말씀 찾기 팝업 */
 .layer_bible_read {
   position: relative;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
 }
 .layer_bible_read .title {
   padding: 15px 0 8px;
@@ -1713,20 +1713,20 @@ hr {
 }
 
 .layer_bible_read .btn_close {
-  display: inline-block;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 24px;
-  height: 24px;
+  /* display: inline-block; */
+  /* position: absolute; */
+  /* left: 15px; */
+  /* top: 15px; */
+  /* width: 24px; */
+  /* height: 24px; */
   background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .layer_bible_read .tab_area {
   display: flex;
-  margin: 10px 15px;
+  /* margin: 10px 15px;
   padding: 3px 4px;
   background-color: #fff;
-  border-radius: 40px;
+  border-radius: 40px; */
 }
 .layer_bible_read .tab_area li {
   display: inline-block;
@@ -1739,8 +1739,8 @@ hr {
   border-radius: 33px;
 }
 .layer_bible_read .tab_area li.on {
-  color: #fff;
-  background-color: #444;
+  /* color: #fff;
+  background-color: #444; */
 }
 
 .layer_bible_read .tab_con {
