@@ -60,7 +60,7 @@ export default function Search() {
           </div>
         </form>
 
-        {data.search.length==0 ? 
+        {data?.search.length==0 ? 
         <>
         <ul className="pt-4">
         <li className="my-4 flex justify-center items-center relative ">
