@@ -153,7 +153,9 @@ const Post = ({ items, bid, cid }) => {
                     {({ all_book }) => (
                       <ul
                         className={
-                          bibleBook == '구약' ? 'book_list' : 'book_list hide'
+                          bibleBook == '구약'
+                            ? cn('BookList')
+                            : 'book_list hide'
                         }
                       >
                         {all_book.slice(0, 39).map((book, i) => (
@@ -166,6 +168,7 @@ const Post = ({ items, bid, cid }) => {
                             }}
                           >
                             <span>{book}</span>
+                            <span className={cn('BookDropdownArrowDown')} />
                           </li>
                         ))}
                       </ul>
@@ -177,7 +180,9 @@ const Post = ({ items, bid, cid }) => {
                     {({ all_book }) => (
                       <ul
                         className={
-                          bibleBook == '신약' ? 'book_list' : 'book_list hide'
+                          bibleBook == '신약'
+                            ? cn('BookList')
+                            : 'book_list hide'
                         }
                       >
                         {all_book.slice(39, 67).map((book, i) => (
@@ -190,6 +195,7 @@ const Post = ({ items, bid, cid }) => {
                             }}
                           >
                             <span>{book}</span>
+                            <span className={cn('BookDropdownArrowDown')} />
                           </li>
                         ))}
                       </ul>
@@ -202,7 +208,7 @@ const Post = ({ items, bid, cid }) => {
                       <ul
                         className={
                           bibleBook == '장'
-                            ? 'chapter_list'
+                            ? cn('ChapterList')
                             : 'chapter_list hide'
                         }
                       >
