@@ -17,7 +17,7 @@ const Post = ({ items, bid, cid }) => {
   const [isActive, setActive] = useState(false);
   const [isChapter, setIsChapter] = useState(cid);
   const [isBible, setIsBible] = useState(bid);
-  const [bibleBook, setBibleBook] = useState('구약');
+  const [bibleBook, setBibleBook] = useState('전체');
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -117,6 +117,17 @@ const Post = ({ items, bid, cid }) => {
                 <ul className={cn('Tab')}>
                   <li
                     onClick={() => {
+                      setBibleBook('전체');
+                    }}
+                    className={bibleBook == '전체' ? cn('on') : ''}
+                  >
+                    <span>
+                      <p>전체</p>
+                    </span>
+                  </li>
+
+                  <li
+                    onClick={() => {
                       setBibleBook('구약');
                     }}
                     className={bibleBook == '구약' ? cn('on') : ''}
@@ -125,6 +136,7 @@ const Post = ({ items, bid, cid }) => {
                       <p>구약</p>
                     </span>
                   </li>
+
                   <li
                     onClick={() => {
                       setBibleBook('신약');
@@ -135,7 +147,8 @@ const Post = ({ items, bid, cid }) => {
                       <p>신약</p>
                     </span>
                   </li>
-                  <li
+
+                  {/* <li
                     onClick={() => {
                       setBibleBook('장');
                     }}
@@ -144,10 +157,37 @@ const Post = ({ items, bid, cid }) => {
                     <span>
                       <p>장</p>
                     </span>
-                  </li>
+                  </li> */}
                 </ul>
 
                 <div className='tab_con'>
+                  {/* 전체 */}
+                  <BookConsumer>
+                    {({ all_book }) => (
+                      <ul
+                        className={
+                          bibleBook == '전체'
+                            ? cn('BookList')
+                            : 'book_list hide'
+                        }
+                      >
+                        {all_book.map((book, i) => (
+                          <li
+                            key={i}
+                            className={isBible == i + 1 ? 'on' : ''}
+                            onClick={() => {
+                              setIsBible(i + 1);
+                              setBibleBook('장');
+                            }}
+                          >
+                            <span>{book}</span>
+                            <span className={cn('BookDropdownArrowDown')} />
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </BookConsumer>
+
                   {/* 구약 */}
                   <BookConsumer>
                     {({ all_book }) => (
