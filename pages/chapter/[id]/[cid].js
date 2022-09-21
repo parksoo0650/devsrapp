@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { BookConsumer } from '../../../src/components/bibleProvider';
 import Loading from '../../../src/components/Loading';
 import HomeBar from '../../../src/components/HomeBar';
 
 import styles from './Bible.module.scss';
 import classNames from 'classnames/bind';
+import BibleList from '../../../src/components/Bible/BibleList/BibleList';
+import BibleTabs from '../../../src/components/Bible/BibleTabs/BibleTabs';
+import BibleHeader from '../../../src/components/Bible/BibleHeader/BibleHeader';
 
 const cn = classNames.bind(styles);
 
@@ -34,60 +36,13 @@ const Post = ({ items, bid, cid }) => {
   return (
     <>
       <div className={cn('container', 'BibleContainer')}>
-        <BookConsumer>
-          {({ book_name }) => (
-            // 성경 페이지의 헤더(탑) 부분
-            <div className={cn('top_area', 'Header')}>
-              {/* 성경 환경 설정 (Settings)  */}
-              <div className={cn('Settings')} />
-
-              {/* 성경 이름과 장 표시 드롭다운 */}
-              <div
-                className={cn('top_title', 'txt_left', 'Dropdown')}
-                onClick={() => setIsOpen(true)}
-              >
-                <div className={cn('DropdownText')}>
-                  {book_name[bid]} {cid}장{' '}
-                </div>
-                <span className={cn('DropdownArrow')} />
-              </div>
-
-              {/* 검색 버튼 */}
-              <Link href={`/search`}>
-                <a>
-                  <div alt='검색' className={cn('Search')} />
-                </a>
-              </Link>
-
-              {/* <ul className='tool_list'>
-                <li onClick={handleToggle}>
-                  <img src='/icons/ico_setting.svg' alt='설정' />
-                </li>
-                <Link href={`/search`}>
-                  <a>
-                    <li>
-                      <img src='/icons/ico_search.svg' alt='검색' />
-                    </li>
-                  </a>
-                </Link>
-              </ul> */}
-
-              <div className={isActive ? 'txt_control' : 'txt_control hide'}>
-                <div className='tit'>
-                  <strong>텍스트 크기</strong>
-                  <span>16pt</span>
-                </div>
-                <ul className='size'>
-                  <li>가</li>
-                  <li>
-                    <strong>가</strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            // end of top_area
-          )}
-        </BookConsumer>
+        {/* 성경 헤더: 설정, 드롭다운, 검색 */}
+        <BibleHeader
+          setIsOpen={setIsOpen}
+          bid={bid}
+          cid={cid}
+          isActive={isActive}
+        />
 
         <div className='shadow'></div>
         <style jsx>{`
@@ -96,6 +51,7 @@ const Post = ({ items, bid, cid }) => {
           }
         `}</style>
 
+        {/* 드롭다운 누르면 나오는 모달창 */}
         <Sheet
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
@@ -114,169 +70,22 @@ const Post = ({ items, bid, cid }) => {
                   <div className={cn('Empty')} />
                 </div>
 
-                <ul className={cn('Tab')}>
-                  <li
-                    onClick={() => {
-                      setBibleBook('전체');
-                    }}
-                    className={bibleBook == '전체' ? cn('on') : ''}
-                  >
-                    <span>
-                      <p>전체</p>
-                    </span>
-                  </li>
+                {/* 전체, 구약, 신약 */}
+                <BibleTabs bibleBook={bibleBook} setBibleBook={setBibleBook} />
 
-                  <li
-                    onClick={() => {
-                      setBibleBook('구약');
-                    }}
-                    className={bibleBook == '구약' ? cn('on') : ''}
-                  >
-                    <span>
-                      <p>구약</p>
-                    </span>
-                  </li>
-
-                  <li
-                    onClick={() => {
-                      setBibleBook('신약');
-                    }}
-                    className={bibleBook == '신약' ? cn('on') : ''}
-                  >
-                    <span>
-                      <p>신약</p>
-                    </span>
-                  </li>
-
-                  {/* <li
-                    onClick={() => {
-                      setBibleBook('장');
-                    }}
-                    className={bibleBook == '장' ? cn('on') : ''}
-                  >
-                    <span>
-                      <p>장</p>
-                    </span>
-                  </li> */}
-                </ul>
-
-                <div className='tab_con'>
-                  {/* 전체 */}
-                  <BookConsumer>
-                    {({ all_book }) => (
-                      <ul
-                        className={
-                          bibleBook == '전체'
-                            ? cn('BookList')
-                            : 'book_list hide'
-                        }
-                      >
-                        {all_book.map((book, i) => (
-                          <li
-                            key={i}
-                            className={isBible == i + 1 ? 'on' : ''}
-                            onClick={() => {
-                              setIsBible(i + 1);
-                              setBibleBook('장');
-                            }}
-                          >
-                            <span>{book}</span>
-                            <span className={cn('BookDropdownArrowDown')} />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-
-                  {/* 구약 */}
-                  <BookConsumer>
-                    {({ all_book }) => (
-                      <ul
-                        className={
-                          bibleBook == '구약'
-                            ? cn('BookList')
-                            : 'book_list hide'
-                        }
-                      >
-                        {all_book.slice(0, 39).map((book, i) => (
-                          <li
-                            key={i}
-                            className={isBible == i + 1 ? 'on' : ''}
-                            onClick={() => {
-                              setIsBible(i + 1);
-                              setBibleBook('장');
-                            }}
-                          >
-                            <span>{book}</span>
-                            <span className={cn('BookDropdownArrowDown')} />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-
-                  {/* 신약 */}
-                  <BookConsumer>
-                    {({ all_book }) => (
-                      <ul
-                        className={
-                          bibleBook == '신약'
-                            ? cn('BookList')
-                            : 'book_list hide'
-                        }
-                      >
-                        {all_book.slice(39, 67).map((book, i) => (
-                          <li
-                            key={i}
-                            className={isBible == i + 40 ? 'on' : ''}
-                            onClick={() => {
-                              setIsBible(i + 40);
-                              setBibleBook('장');
-                            }}
-                          >
-                            <span>{book}</span>
-                            <span className={cn('BookDropdownArrowDown')} />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-
-                  {/* 장 */}
-                  <BookConsumer>
-                    {({ book_cnt }) => (
-                      <ul
-                        className={
-                          bibleBook == '장'
-                            ? cn('ChapterList')
-                            : 'chapter_list hide'
-                        }
-                      >
-                        {[...Array(book_cnt[isBible])].map((n, i) => (
-                          <li
-                            key={i}
-                            className={isChapter == i + 1 ? 'on' : ''}
-                            onClick={() => {
-                              setIsChapter(i + 1);
-                              setIsOpen(false);
-                            }}
-                          >
-                            <Link href={`/chapter/${isBible}/${i + 1}`}>
-                              <a>
-                                <span>{i + 1}</span>
-                              </a>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-                </div>
+                {/* 탭 밑에 표시되는 성경 리스트 */}
+                <BibleList
+                  bibleBook={bibleBook}
+                  isBible={isBible}
+                  setIsBible={setIsBible}
+                  setBibleBook={setBibleBook}
+                />
               </div>
             </Sheet.Content>
           </Sheet.Container>
           <Sheet.Backdrop />
         </Sheet>
+        {/* end of Modal(Sheet) */}
 
         <div className='section bible_con'>
           <ul className='verse_list'>
@@ -308,6 +117,7 @@ const Post = ({ items, bid, cid }) => {
           </Link>
         </div>
       </div>
+
       <HomeBar />
     </>
   );

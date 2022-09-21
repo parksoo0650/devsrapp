@@ -55,6 +55,7 @@
     justify-content: space-between;
     padding: 0 22px;
     height: 40px;
+    width: 100%;
 
     .CloseButton {
       display: block;
@@ -79,45 +80,45 @@
       height: 14px;
     }
   }
-}
 
-.Tab {
-  display: flex;
-  margin: 10px 16px;
-  padding: 2px;
-  height: 32px;
-  background: #eeeeef;
-  border-radius: 8px;
-
-  li {
+  .Tab {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 113px;
+    margin: 10px 16px;
+    padding: 2px;
+    height: 32px;
+    background: #eeeeef;
+    border-radius: 8px;
 
-    &.on {
-      background: #ffffff;
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      border-radius: 6px;
-    }
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 113px;
 
-    // z-index 수정하려면 pseudo-parent 만들어야 함
-    &::after {
-      content: '';
-      background-color: rgba(60, 60, 67, 0.2);
-      position: relative;
-      bottom: 0;
-      left: 44px;
-      height: 16px;
-      width: 1px;
-    }
+      &.on {
+        background: #ffffff;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+      }
 
-    &:nth-child(3)::after {
-      content: none;
-    }
+      // z-index 수정하려면 pseudo-parent 만들어야 함
+      &::after {
+        content: '';
+        background-color: rgba(60, 60, 67, 0.2);
+        position: relative;
+        bottom: 0;
+        left: 44px;
+        height: 16px;
+        width: 1px;
+      }
 
-    p {
-      font-size: 14px;
+      &:nth-child(3)::after {
+        content: none;
+      }
+
+      p {
+        font-size: 14px;
+      }
     }
   }
 }
