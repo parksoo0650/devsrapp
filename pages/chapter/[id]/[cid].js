@@ -33,6 +33,10 @@ const Post = ({ items, bid, cid }) => {
     localStorage.setItem('chapter', cid);
   }, [router]);
 
+  console.log(
+    `${bibleBook} / ${isBible}번째 성경의 ${isChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
+  );
+
   return (
     <>
       <div className={cn('container', 'BibleContainer')}>
@@ -75,10 +79,13 @@ const Post = ({ items, bid, cid }) => {
 
                 {/* 탭 밑에 표시되는 성경 리스트 */}
                 <BibleList
-                  bibleBook={bibleBook}
                   isBible={isBible}
                   setIsBible={setIsBible}
+                  bibleBook={bibleBook}
                   setBibleBook={setBibleBook}
+                  isChapter={isChapter}
+                  setIsChapter={setIsChapter}
+                  setIsOpen={setIsOpen}
                 />
               </div>
             </Sheet.Content>

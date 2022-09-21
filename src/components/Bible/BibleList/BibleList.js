@@ -3,23 +3,26 @@ import styles from '../../../../pages/chapter/[id]/Bible.module.scss';
 import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 import Link from 'next/link';
+import { useState } from 'react';
 
 const DEFAULT_INCREASE = 1;
 const NEW_TESTAMENT_INCREASE = 40;
 
 const BibleList = ({
-  bibleBook,
-  isBible,
+  isBible, // 성경의 권(Bible) 수: 창세기는 1, 출애굽기는 2...
   setIsBible,
+  bibleBook, // 전체, 구약, 신약, 장(Chapter)
   setBibleBook,
-  isChapter,
+  isChapter, // 선택한 장(Chapter) 수
   setIsChapter,
-  setIsOpen,
+  setIsOpen, // 모달창을 열면 true, 닫으면 false
 }) => {
   /**
    * 성경 리스트 BODY 템플릿.
    */
   const BibleListBody = ({ type, start, end, indexIncrease }) => {
+    const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+
     return (
       <BookConsumer>
         {({ all_book }) => (
@@ -30,7 +33,7 @@ const BibleList = ({
                 className={isBible == i + indexIncrease ? 'on' : ''}
                 onClick={() => {
                   setIsBible(i + indexIncrease);
-                  // setBibleBook('장');
+                  setBibleBook('장');
                 }}
               >
                 <span>{book}</span>
