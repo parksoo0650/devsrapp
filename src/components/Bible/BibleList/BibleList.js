@@ -4,20 +4,21 @@ import classNames from 'classnames/bind';
 const cn = classNames.bind(styles);
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 const DEFAULT_INCREASE = 1;
 const NEW_TESTAMENT_INCREASE = 40;
 
 const BibleList = ({
-  isBible, // 성경의 권(Bible) 수: 창세기는 1, 출애굽기는 2...
-  setIsBible,
-  bibleBook, // 전체, 구약, 신약, 장(Chapter)
-  setBibleBook,
-  isChapter, // 선택한 장(Chapter) 수
-  setIsChapter,
+  currentBook, // 성경의 권(Bible) 수: 창세기는 1, 출애굽기는 2...
+  setCurrentBook,
+  category, // 전체, 구약, 신약, 장
+  currentChapter, // 선택한 장(Chapter) 수
+  setCurrentChapter,
   setIsOpen, // 모달창을 열면 true, 닫으면 false
 }) => {
   const [openedDropdownIndex, setOpenedDropdownIndex] = useState(null);
+  const router = useRouter();
 
   /**
    * 성경 장수 선택 컴포넌트.
@@ -28,13 +29,17 @@ const BibleList = ({
         {[...Array(book_cnt[bookIndex])].map((n, i) => (
           <li
             key={i}
-            className={isChapter == i + 1 ? 'on' : ''}
+            className={
+              router.query.id == bookIndex && currentChapter == i + 1
+                ? cn('on')
+                : ''
+            }
             onClick={() => {
-              setIsChapter(i + 1);
+              setCurrentChapter(i + 1);
               setIsOpen(false);
             }}
           >
-            <Link href={`/chapter/${isBible}/${i + 1}`}>
+            <Link href={`/chapter/${currentBook}/${i + 1}`}>
               <a>
                 <span>{i + 1}</span>
               </a>
@@ -52,13 +57,13 @@ const BibleList = ({
     return (
       <BookConsumer>
         {({ all_book, book_cnt }) => (
-          <ul className={bibleBook == type ? cn('BookList') : 'book_list hide'}>
+          <ul className={category == type ? cn('BookList') : 'book_list hide'}>
             {all_book.slice(start, end).map((book, i) => (
               <li
                 key={i}
-                className={isBible == i + indexIncrease ? 'on' : ''}
+                // className={currentBook == i + indexIncrease ? '' : ''}
                 onClick={() => {
-                  setIsBible(i + indexIncrease);
+                  setCurrentBook(i + indexIncrease);
 
                   // 클릭한 드롭다운이 이미 열려있으면 닫고, 아니면 열기.
                   openedDropdownIndex == i + indexIncrease

@@ -17,9 +17,9 @@ const Post = ({ items, bid, cid }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [isChapter, setIsChapter] = useState(cid);
-  const [isBible, setIsBible] = useState(bid);
-  const [bibleBook, setBibleBook] = useState('전체');
+  const [currentChapter, setCurrentChapter] = useState(cid);
+  const [currentBook, setCurrentBook] = useState(bid);
+  const [category, setCategory] = useState('전체');
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -34,7 +34,7 @@ const Post = ({ items, bid, cid }) => {
   }, [router]);
 
   console.log(
-    `${bibleBook} / ${isBible}번째 성경의 ${isChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
+    `${category} / ${currentBook}번째 성경의 ${currentChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
   );
 
   return (
@@ -75,16 +75,16 @@ const Post = ({ items, bid, cid }) => {
                 </div>
 
                 {/* 전체, 구약, 신약 */}
-                <BibleTabs bibleBook={bibleBook} setBibleBook={setBibleBook} />
+                <BibleTabs category={category} setCategory={setCategory} />
 
                 {/* 탭 밑에 표시되는 성경 리스트 */}
                 <BibleList
-                  isBible={isBible}
-                  setIsBible={setIsBible}
-                  bibleBook={bibleBook}
-                  setBibleBook={setBibleBook}
-                  isChapter={isChapter}
-                  setIsChapter={setIsChapter}
+                  currentBook={currentBook}
+                  setCurrentBook={setCurrentBook}
+                  category={category}
+                  setCategory={setCategory}
+                  currentChapter={currentChapter}
+                  setCurrentChapter={setCurrentChapter}
                   setIsOpen={setIsOpen}
                 />
               </div>
