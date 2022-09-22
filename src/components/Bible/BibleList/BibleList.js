@@ -27,24 +27,24 @@ const BibleList = ({
     return (
       <div className={cn('ChapterList')}>
         {[...Array(book_cnt[bookIndex])].map((n, i) => (
-          <li
-            key={i}
-            className={
-              router.query.id == bookIndex && currentChapter == i + 1
-                ? cn('on')
-                : ''
-            }
-            onClick={() => {
-              setCurrentChapter(i + 1);
-              setIsOpen(false);
-            }}
-          >
-            <Link href={`/chapter/${currentBook}/${i + 1}`}>
-              <a>
+          <Link href={`/chapter/${currentBook}/${i + 1}`}>
+            <a>
+              <li
+                key={i}
+                className={
+                  router.query.id == bookIndex && currentChapter == i + 1
+                    ? cn('on')
+                    : ''
+                }
+                onClick={() => {
+                  setCurrentChapter(i + 1);
+                  setIsOpen(false);
+                }}
+              >
                 <span>{i + 1}</span>
-              </a>
-            </Link>
-          </li>
+              </li>
+            </a>
+          </Link>
         ))}
       </div>
     );
@@ -72,8 +72,20 @@ const BibleList = ({
                 }}
               >
                 <p className={cn('BookDropdown')}>
-                  <span>{book}</span>
-                  <span className={cn('BookDropdownArrowDown')} />
+                  <span
+                    className={
+                      openedDropdownIndex == i + indexIncrease ? cn('on') : null
+                    }
+                  >
+                    {book}
+                  </span>
+                  <span
+                    className={
+                      openedDropdownIndex == i + indexIncrease
+                        ? cn('BookDropdownArrowUp')
+                        : cn('BookDropdownArrowDown')
+                    }
+                  />
                 </p>
 
                 {/* 성경 장수 선택 컴포넌트 */}
