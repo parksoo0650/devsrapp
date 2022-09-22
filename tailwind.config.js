@@ -10,6 +10,7 @@ module.exports = {
     "./src/components/AdminLayout.js",
     "./src/components/EventLayout.js",
     "./src/components/button.js",
+    "./src/components/input.js",
     "./src/components/textarea.js",
     "./pages/faith.js",
     "./pages/weekly/*.{js,jsx,ts,tsx}"

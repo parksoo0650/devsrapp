@@ -10,6 +10,6 @@ export default function useUser() {
         if (data && !data.ok) {
             router.replace("/admin/Enter");
         }
-    }, [data, router]);
+    }, []);
     return { user: data?.profile, isLoading: !data && !error };
 }

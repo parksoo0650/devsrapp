@@ -7,8 +7,6 @@ async function handler(req, res) {
     query: { lastId },
   } = req;
 
-  console.log(lastId);
-
   if (keyword.length > 1) {
     const search = await client.bible.findMany({
       where: {

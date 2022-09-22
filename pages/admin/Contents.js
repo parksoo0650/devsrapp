@@ -9,8 +9,15 @@ const Contents = () => {
     const router = useRouter();
     const { user, isLoading } = useUser();
     const { data } = useSWR(`/api/contents?kind=${router.query.kind}`);
+    const strKind = {
+        shorts: "1분 은혜 관리자",
+        sermon: "메인 설교 관리자",
+        oncontents: "메인 온콘텐츠 관리자",
+        praise: "메인 찬양 관리자",
+        camp22: "2022 수련회영상 등록",
+    };
     return (
-        <Layout canGoBack title="콘텐츠 관리자">
+        <Layout canGoBack title={strKind[router.query.kind]}>
             <div className="flex flex-col space-y-5 divide-y">
                 {data?.contents?.map((content) => (
                     <Link key={content.id} href={`/admin/contents/${content.id}`}>
