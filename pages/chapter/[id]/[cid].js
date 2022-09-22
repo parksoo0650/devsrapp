@@ -1,18 +1,25 @@
-import React, { useState, useEffect } from "react";
-import Sheet from "react-modal-sheet";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import { BookConsumer } from "../../../src/components/bibleProvider";
-import Loading from "../../../src/components/Loading";
-import HomeBar from "../../../src/components/HomeBar";
+import React, { useState, useEffect } from 'react';
+import Sheet from 'react-modal-sheet';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Loading from '../../../src/components/Loading';
+import HomeBar from '../../../src/components/HomeBar';
+
+import styles from './Bible.module.scss';
+import classNames from 'classnames/bind';
+import BibleList from '../../../src/components/Bible/BibleList/BibleList';
+import BibleTabs from '../../../src/components/Bible/BibleTabs/BibleTabs';
+import BibleHeader from '../../../src/components/Bible/BibleHeader/BibleHeader';
+
+const cn = classNames.bind(styles);
 
 const Post = ({ items, bid, cid }) => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setActive] = useState(false);
-  const [isChapter, setIsChapter] = useState(cid);
-  const [isBible, setIsBible] = useState(bid);
-  const [bibleBook, setBibleBook] = useState("구약");
+  const [currentChapter, setCurrentChapter] = useState(cid);
+  const [currentBook, setCurrentBook] = useState(bid);
+  const [category, setCategory] = useState('전체');
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -22,62 +29,33 @@ const Post = ({ items, bid, cid }) => {
   }
 
   useEffect(() => {
-    localStorage.setItem("bible", bid);
-    localStorage.setItem("chapter", cid);
+    localStorage.setItem('bible', bid);
+    localStorage.setItem('chapter', cid);
   }, [router]);
+
+  console.log(
+    `${category} / ${currentBook}번째 성경의 ${currentChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
+  );
 
   return (
     <>
-      <div className="container">
-        <BookConsumer>
-          {({ book_name }) => (
-            <div className="top_area">
-              <div
-                className="top_title txt_left"
-                onClick={() => setIsOpen(true)}
-              >
-                {book_name[bid]} {cid}장 <span className="arrow"></span>
-              </div>
-              <Link href={`/search`}>
-                <a>
-                  <div className="tool_list">
-                    <img src="/icons/ico_search.svg" alt="검색" />
-                  </div>
-                </a>
-              </Link>
-              {/* <ul className="tool_list">
-                <li onClick={handleToggle}>
-                  <img src="/icons/ico_setting.svg" alt="설정" />
-                </li>
-                <Link href={`/search`}>
-                  <a>
-                    <li>
-                      <img src="/icons/ico_search.svg" alt="검색" />
-                    </li>
-                  </a>
-                </Link>
-              </ul> */}
-              <div className={isActive ? "txt_control" : "txt_control hide"}>
-                <div className="tit">
-                  <strong>텍스트 크기</strong>
-                  <span>16pt</span>
-                </div>
-                <ul className="size">
-                  <li>가</li>
-                  <li>
-                    <strong>가</strong>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
-        </BookConsumer>
-        <div className="shadow"></div>
+      <div className={cn('container', 'BibleContainer')}>
+        {/* 성경 헤더: 설정, 드롭다운, 검색 */}
+        <BibleHeader
+          setIsOpen={setIsOpen}
+          bid={bid}
+          cid={cid}
+          isActive={isActive}
+        />
+
+        <div className='shadow'></div>
         <style jsx>{`
           .shadow {
-            display: ${isActive ? "block" : "none"};
+            display: ${isActive ? 'block' : 'none'};
           }
         `}</style>
+
+        {/* 드롭다운 누르면 나오는 모달창 */}
         <Sheet
           isOpen={isOpen}
           onClose={() => setIsOpen(false)}
@@ -86,125 +64,38 @@ const Post = ({ items, bid, cid }) => {
           <Sheet.Container>
             <Sheet.Header />
             <Sheet.Content>
-              <div className="layer_bible_read">
-                <div className="title">성경</div>
-                <button
-                  className="btn_close"
-                  onClick={() => setIsOpen(false)}
-                ></button>
-                <ul className="tab_area">
-                  <li
-                    onClick={() => {
-                      setBibleBook("구약");
-                    }}
-                    className={bibleBook == "구약" ? "on" : ""}
-                  >
-                    구약
-                  </li>
-                  <li
-                    onClick={() => {
-                      setBibleBook("신약");
-                    }}
-                    className={bibleBook == "신약" ? "on" : ""}
-                  >
-                    신약
-                  </li>
-                  <li
-                    onClick={() => {
-                      setBibleBook("장");
-                    }}
-                    className={bibleBook == "장" ? "on" : ""}
-                  >
-                    장
-                  </li>
-                </ul>
-                <div className="tab_con">
-                  {/* 구약 */}
-                  <BookConsumer>
-                    {({ all_book }) => (
-                      <ul
-                        className={
-                          bibleBook == "구약" ? "book_list" : "book_list hide"
-                        }
-                      >
-                        {all_book.slice(0, 39).map((book, i) => (
-                          <li
-                            key={i}
-                            className={isBible == i + 1 ? "on" : ""}
-                            onClick={() => {
-                              setIsBible(i + 1);
-                              setBibleBook("장");
-                            }}
-                          >
-                            <span>{book}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-
-                  {/* 신약 */}
-                  <BookConsumer>
-                    {({ all_book }) => (
-                      <ul
-                        className={
-                          bibleBook == "신약" ? "book_list" : "book_list hide"
-                        }
-                      >
-                        {all_book.slice(39, 67).map((book, i) => (
-                          <li
-                            key={i}
-                            className={isBible == i + 40 ? "on" : ""}
-                            onClick={() => {
-                              setIsBible(i + 40);
-                              setBibleBook("장");
-                            }}
-                          >
-                            <span>{book}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
-
-                  {/* 장 */}
-                  <BookConsumer>
-                    {({ book_cnt }) => (
-                      <ul
-                        className={
-                          bibleBook == "장"
-                            ? "chapter_list"
-                            : "chapter_list hide"
-                        }
-                      >
-                        {[...Array(book_cnt[isBible])].map((n, i) => (
-                          <li
-                            key={i}
-                            className={isChapter == i + 1 ? "on" : ""}
-                            onClick={() => {
-                              setIsChapter(i + 1);
-                              setIsOpen(false);
-                            }}
-                          >
-                            <Link href={`/chapter/${isBible}/${i + 1}`}>
-                              <a>
-                                <span>{i + 1}</span>
-                              </a>
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </BookConsumer>
+              <div className={cn('layer_bible_read', 'Modal')}>
+                <div className={cn('Header')}>
+                  <button
+                    className={cn('CloseButton')}
+                    onClick={() => setIsOpen(false)}
+                  />
+                  <div className={cn('Title')}>성경 구절 찾기</div>
+                  <div className={cn('Empty')} />
                 </div>
+
+                {/* 전체, 구약, 신약 */}
+                <BibleTabs category={category} setCategory={setCategory} />
+
+                {/* 탭 밑에 표시되는 성경 리스트 */}
+                <BibleList
+                  currentBook={currentBook}
+                  setCurrentBook={setCurrentBook}
+                  category={category}
+                  setCategory={setCategory}
+                  currentChapter={currentChapter}
+                  setCurrentChapter={setCurrentChapter}
+                  setIsOpen={setIsOpen}
+                />
               </div>
             </Sheet.Content>
           </Sheet.Container>
           <Sheet.Backdrop />
         </Sheet>
+        {/* end of Modal(Sheet) */}
 
-        <div className="section bible_con">
-          <ul className="verse_list">
+        <div className='section bible_con'>
+          <ul className='verse_list'>
             {items.map((item, i) => (
               <li key={i}>
                 <strong>{item.verse}.</strong> {item.content}
@@ -215,9 +106,9 @@ const Post = ({ items, bid, cid }) => {
             <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
               <a>
                 <img
-                  className="btn_left"
-                  src="/icons/ico_left.svg"
-                  alt="이전"
+                  className='btn_left'
+                  src='/icons/ico_left.svg'
+                  alt='이전'
                 />
               </a>
             </Link>
@@ -225,14 +116,15 @@ const Post = ({ items, bid, cid }) => {
           <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
             <a>
               <img
-                className="btn_right"
-                src="/icons/ico_right.svg"
-                alt="다음"
+                className='btn_right'
+                src='/icons/ico_right.svg'
+                alt='다음'
               />
             </a>
           </Link>
         </div>
       </div>
+
       <HomeBar />
     </>
   );
@@ -248,17 +140,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const dev = process.env.NODE_ENV !== "production";
-  const server = dev ? "http://localhost:3000" : "https://srapp.vercel.app";
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? 'http://localhost:3000' : 'https://srapp.vercel.app';
 
   const id = context.params.id;
   const cid = context.params.cid;
 
   // const res = await fetch('http://localhost:3000/api/bible');
   const response = await fetch(`${server}/api/bible?b=${id}&c=${cid}`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   });
   const json = await response.json();
