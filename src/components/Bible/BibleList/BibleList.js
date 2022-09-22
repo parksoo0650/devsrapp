@@ -17,15 +17,41 @@ const BibleList = ({
   setIsChapter,
   setIsOpen, // 모달창을 열면 true, 닫으면 false
 }) => {
+  const [openedDropdownIndex, setOpenedDropdownIndex] = useState(null);
+
   /**
-   * 성경 리스트 BODY 템플릿.
+   * 성경 장수 선택 컴포넌트.
+   */
+  const BibleChapterSelect = ({ book_cnt, bookIndex }) => {
+    return (
+      <div className={cn('ChapterList')}>
+        {[...Array(book_cnt[bookIndex])].map((n, i) => (
+          <li
+            key={i}
+            className={isChapter == i + 1 ? 'on' : ''}
+            onClick={() => {
+              setIsChapter(i + 1);
+              setIsOpen(false);
+            }}
+          >
+            <Link href={`/chapter/${isBible}/${i + 1}`}>
+              <a>
+                <span>{i + 1}</span>
+              </a>
+            </Link>
+          </li>
+        ))}
+      </div>
+    );
+  };
+
+  /**
+   * 탭 밑 부분, BODY 템플릿.
    */
   const BibleListBody = ({ type, start, end, indexIncrease }) => {
-    const [isDropdownOpened, setIsDropdownOpened] = useState(false);
-
     return (
       <BookConsumer>
-        {({ all_book }) => (
+        {({ all_book, book_cnt }) => (
           <ul className={bibleBook == type ? cn('BookList') : 'book_list hide'}>
             {all_book.slice(start, end).map((book, i) => (
               <li
@@ -33,11 +59,25 @@ const BibleList = ({
                 className={isBible == i + indexIncrease ? 'on' : ''}
                 onClick={() => {
                   setIsBible(i + indexIncrease);
-                  setBibleBook('장');
+
+                  // 클릭한 드롭다운이 이미 열려있으면 닫고, 아니면 열기.
+                  openedDropdownIndex == i + indexIncrease
+                    ? setOpenedDropdownIndex(() => null)
+                    : setOpenedDropdownIndex(() => i + indexIncrease);
                 }}
               >
-                <span>{book}</span>
-                <span className={cn('BookDropdownArrowDown')} />
+                <p className={cn('BookDropdown')}>
+                  <span>{book}</span>
+                  <span className={cn('BookDropdownArrowDown')} />
+                </p>
+
+                {/* 성경 장수 선택 컴포넌트 */}
+                {openedDropdownIndex == i + indexIncrease ? (
+                  <BibleChapterSelect
+                    book_cnt={book_cnt}
+                    bookIndex={i + indexIncrease}
+                  />
+                ) : null}
               </li>
             ))}
           </ul>
@@ -46,6 +86,9 @@ const BibleList = ({
     );
   };
 
+  /**
+   * 탭 밑 부분, BODY 컴포넌트.
+   */
   return (
     <div className='tab_con'>
       {/* 전체 */}
@@ -71,34 +114,6 @@ const BibleList = ({
         end={66}
         indexIncrease={NEW_TESTAMENT_INCREASE}
       />
-
-      {/* 장 선택 */}
-      <BookConsumer>
-        {({ book_cnt }) => (
-          <ul
-            className={
-              bibleBook == '장' ? cn('ChapterList') : 'chapter_list hide'
-            }
-          >
-            {[...Array(book_cnt[isBible])].map((n, i) => (
-              <li
-                key={i}
-                className={isChapter == i + 1 ? 'on' : ''}
-                onClick={() => {
-                  setIsChapter(i + 1);
-                  setIsOpen(false);
-                }}
-              >
-                <Link href={`/chapter/${isBible}/${i + 1}`}>
-                  <a>
-                    <span>{i + 1}</span>
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </BookConsumer>
     </div>
   );
 };
