@@ -14,16 +14,30 @@ const ContentsUpload = () => {
   const date = new Date();
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
-  month = month >= 10 ? month : '0' + month;
+  month = month >= 10 ? month : "0" + month;
   let day = date.getDate();
-  day = day >= 10 ? day : '0' + day;
+  day = day >= 10 ? day : "0" + day;
+
+  const contentKind = ["oncontents", "praise", "sermon"];
 
   const strPraiseSubKind = {
     p11: "주일예배찬양",
     p15: "주일연합예배찬양",
     prc: "성가대",
     pro: "헌금송",
-};
+  };
+
+  const strSermonSubKind = {
+    def: "주일설교",
+    sun: "주일예배",
+    live: "라이브",
+  };
+
+  const strOncontentsSubKind = {
+    onm: "온라인특별 새벽기도회",
+    onb: "온성경",
+    ont: "온3분",
+  };
 
   const onValid = async ({
     name,
@@ -78,7 +92,7 @@ const ContentsUpload = () => {
   }, [image]);
 
   return (
-    <Layout canGoBack title="Upload Product">
+    <Layout canGoBack title="Upload Content">
       <form className="p-4 space-y-4" onSubmit={handleSubmit(onValid)}>
         <div>
           <label className="w-full cursor-pointer text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center border-2 border-dashed border-gray-300 h-48 rounded-md">
@@ -109,23 +123,140 @@ const ContentsUpload = () => {
             />
           </label>
         </div>
-        <Input
-          register={register("name", { required: true })}
-          required
-          label="Name"
-          name="name"
-          type="text"
-        />
-        <Input
-          register={register("kind", {
-            required: true,
-            value: router.query.kind,
-          })}
-          required
-          label="Kind"
-          name="kind"
-          type="text"
-        />
+
+        {router.query.kind == "sermon" && (
+          <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="def"
+                id="def"
+                required
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("description", strSermonSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="def"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                주일설교
+              </label>
+            </div>
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="sun"
+                id="sun"
+                required
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("description", strSermonSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="sun"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                주일예배
+              </label>
+            </div>
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="live"
+                id="live"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", "");
+                  setValue("description", strSermonSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="live"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                라이브
+              </label>
+            </div>
+          </div>
+        )}
+
+        {router.query.kind == "oncontents" && (
+          <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="onm"
+                id="onm"
+                required
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", strOncontentsSubKind[e.target.value]);
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="onm"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                온라인특별 새벽기도회
+              </label>
+            </div>
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="onb"
+                id="onb"
+                required
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", "");
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="onb"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                온성경
+              </label>
+            </div>
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="ont"
+                id="ont"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", "");
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="ont"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                온3분
+              </label>
+            </div>
+          </div>
+        )}
 
         {router.query.kind == "praise" && (
           <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
@@ -138,7 +269,9 @@ const ContentsUpload = () => {
                 id="p11"
                 required
                 className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={e => setValue("description", strPraiseSubKind[e.target.value])}
+                onChange={(e) =>
+                  setValue("description", strPraiseSubKind[e.target.value])
+                }
               />
               <label
                 htmlFor="p11"
@@ -156,7 +289,9 @@ const ContentsUpload = () => {
                 id="p15"
                 required
                 className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={e => setValue("description", strPraiseSubKind[e.target.value])}
+                onChange={(e) =>
+                  setValue("description", strPraiseSubKind[e.target.value])
+                }
               />
               <label
                 htmlFor="p15"
@@ -174,7 +309,9 @@ const ContentsUpload = () => {
                 id="prc"
                 required
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={e => setValue("description", strPraiseSubKind[e.target.value])}
+                onChange={(e) =>
+                  setValue("description", strPraiseSubKind[e.target.value])
+                }
               />
               <label
                 htmlFor="prc"
@@ -192,7 +329,9 @@ const ContentsUpload = () => {
                 id="pro"
                 required
                 className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={e => setValue("description", strPraiseSubKind[e.target.value])}
+                onChange={(e) =>
+                  setValue("description", strPraiseSubKind[e.target.value])
+                }
               />
               <label
                 htmlFor="pro"
@@ -204,7 +343,7 @@ const ContentsUpload = () => {
           </div>
         )}
 
-        {router.query.kind != "praise" && (
+        { !contentKind.includes(router.query.kind) && (
           <Input
             register={register("subKind")}
             required
@@ -215,12 +354,21 @@ const ContentsUpload = () => {
         )}
 
         <Input
+          register={register("name", { required: true })}
+          required
+          label="Name"
+          name="name"
+          type="text"
+        />
+
+        <Input
           register={register("videoId", { required: true })}
           required
           label="VideoId"
           name="videoId"
           type="text"
         />
+
         <Input
           register={register("publishedAt", {
             required: true,
@@ -231,12 +379,24 @@ const ContentsUpload = () => {
           name="publishedAt"
           type="text"
         />
+
         <TextArea
           register={register("description", { required: true })}
           label="Description"
           name="description"
           required
         />
+
+        <Input
+          register={register("kind", {
+            required: true,
+            value: router.query.kind,
+          })}
+          required
+          name="kind"
+          type="hidden"
+        />
+
         <Button text={loading ? "Loading..." : "Upload item"} />
       </form>
     </Layout>
