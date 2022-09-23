@@ -1,0 +1,192 @@
+.BibleContainer {
+  .Header {
+    width: 100%;
+    padding: 20px 20px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+
+    .Settings {
+      width: 20px;
+      height: 20px;
+      background-image: url('../../../public/icons/BibleSettings.svg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .Dropdown {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 161px;
+      height: 32px;
+      background: #eeeeef;
+      border-radius: 100px;
+
+      .DropdownText {
+        width: 112px;
+        text-align: center;
+      }
+
+      .DropdownArrow {
+        width: 9px;
+        height: 5px;
+        background-image: url('../../../public/icons/BibleDropdownArrow.svg');
+      }
+    }
+
+    .Search {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-image: url('/icons/ico_search.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.Modal {
+  .Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    height: 40px;
+    width: 100%;
+
+    .CloseButton {
+      display: block;
+      width: 16px;
+      height: 16px;
+      background-image: url('../../../public/icons/ico_close.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .Title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 18px;
+      text-align: center;
+    }
+
+    .Empty {
+      display: block;
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  .Tab {
+    display: flex;
+    margin: 10px 16px;
+    padding: 2px;
+    height: 32px;
+    background: #eeeeef;
+    border-radius: 8px;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 33.3333%;
+
+      &.on {
+        background: #ffffff;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        border-radius: 6px;
+      }
+
+      // z-index 수정하려면 pseudo-parent 만들어야 함
+      &::after {
+        content: '';
+        background-color: rgba(60, 60, 67, 0.2);
+        position: relative;
+        bottom: 0;
+        left: 40%;
+        height: 16px;
+        width: 1px;
+      }
+
+      &:nth-child(3)::after {
+        content: none;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+.BookList {
+  li {
+    padding: 0 5px;
+
+    .BookDropdown {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+
+      span {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+
+        &.on {
+          font-weight: 600;
+        }
+      }
+
+      .BookDropdownArrowUp {
+        width: 13px;
+        height: 7px;
+        background-image: url('../../../public/icons/BookDropdownArrowUp.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .BookDropdownArrowDown {
+        width: 13px;
+        height: 7px;
+        background-image: url('../../../public/icons/BookDropdownArrowDown.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+.ChapterList {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  padding: 10px 0 0;
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    opacity: 0.5;
+    border: 1px solid #3c3c43;
+    border-radius: 4px;
+    margin: 0 0 20px;
+
+    &.on {
+      color: #fff;
+      background-color: #333;
+    }
+  }
+}

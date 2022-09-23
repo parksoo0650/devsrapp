@@ -4,559 +4,601 @@
 	FONT
 ***********************************************************/
 @font-face {
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 100;
-	src: url("fonts/NotoSansKR-Thin.woff2") format('woff2'),
-	url("fonts/NotoSansKR-Thin.woff") format('woff'),
-	url("fonts/NotoSansKR-Thin.otf") format('opentype');
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 100;
+  src: url('fonts/NotoSansKR-Thin.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Thin.woff') format('woff'),
+    url('fonts/NotoSansKR-Thin.otf') format('opentype');
 }
 @font-face {
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 300;
-	src: url("fonts/NotoSansKR-Light.woff2") format('woff2'),
-	url("fonts/NotoSansKR-Light.woff") format('woff'),
-	url("fonts/NotoSansKR-Light.otf") format('opentype');
-} 
-@font-face {
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 400;
-	src: url("fonts/NotoSansKR-Regular.woff2") format('woff2'),
-	url("fonts/NotoSansKR-Regular.woff") format('woff'),
-	url("fonts/NotoSansKR-Regular.otf") format('opentype');
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/NotoSansKR-Light.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Light.woff') format('woff'),
+    url('fonts/NotoSansKR-Light.otf') format('opentype');
 }
- @font-face {
-	 font-family: 'Noto Sans KR';
-	 font-style: normal;
-	 font-weight: 500;
-	 src: url("fonts/NotoSansKR-Medium.woff2") format('woff2'),
-	 url("fonts/NotoSansKR-Medium.woff") format('woff'),
-	 url("fonts/NotoSansKR-Medium.otf") format('opentype');
-} 
 @font-face {
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 700;
-	src: url("fonts/NotoSansKR-Bold.woff2") format('woff2'),
-	url("fonts/NotoSansKR-Bold.woff") format('woff'),
-	url("fonts/NotoSansKR-Bold.otf") format('opentype');
-} 
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/NotoSansKR-Regular.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Regular.woff') format('woff'),
+    url('fonts/NotoSansKR-Regular.otf') format('opentype');
+}
 @font-face {
-	font-family: 'Noto Sans KR';
-	font-style: normal;
-	font-weight: 900;
-	src: url("fonts/NotoSansKR-Black.woff2") format('woff2'),
-	url("fonts/NotoSansKR-Black.woff") format('woff'),
-	url("fonts/NotoSansKR-Black.otf") format('opentype');
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/NotoSansKR-Medium.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Medium.woff') format('woff'),
+    url('fonts/NotoSansKR-Medium.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/NotoSansKR-Bold.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Bold.woff') format('woff'),
+    url('fonts/NotoSansKR-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 900;
+  src: url('fonts/NotoSansKR-Black.woff2') format('woff2'),
+    url('fonts/NotoSansKR-Black.woff') format('woff'),
+    url('fonts/NotoSansKR-Black.otf') format('opentype');
 }
 
 /**********************************************************
 	CSS RESET
 ***********************************************************/
-body, input, textarea, select, button, table {
-	margin: 0;
-	font-size: 13px;
-	font-family: Apple SD Gothic Neo,'Noto Sans KR', AppleGothicNeoSD, Microsoft NeoGothic, Arial, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움', Helvetica, Droid sans, sans-serif !important;
-	font-weight: 400;
-	color: #000;
-	letter-spacing: -0.02rem;
-	-webkit-font-smoothing: antialiased; 
-	-moz-osx-font-smoothing: grayscale;
+body,
+input,
+textarea,
+select,
+button,
+table {
+  margin: 0;
+  font-size: 13px;
+  font-family: Apple SD Gothic Neo, 'Noto Sans KR', AppleGothicNeoSD,
+    Microsoft NeoGothic, Arial, 'Malgun Gothic', '맑은 고딕', Dotum, '돋움',
+    Helvetica, Droid sans, sans-serif !important;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: -0.02rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-body, h1, h2, h3, h4, h5, dl, dt, dd, ul, li, ol, th, td, p, form, fieldset, legend, button, section {
-	margin: 0;
-	padding: 0;
-	font-size: 13px;
-	font-weight: 400;
-	box-sizing: border-box;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+dl,
+dt,
+dd,
+ul,
+li,
+ol,
+th,
+td,
+p,
+form,
+fieldset,
+legend,
+button,
+section {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 400;
+  box-sizing: border-box;
 }
-span, div {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+span,
+div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-img, fieldset {
-	border: 0 none;
+img,
+fieldset {
+  border: 0 none;
 }
-dl, ul, ol, li {
-	list-style: none outside none;
+dl,
+ul,
+ol,
+li {
+  list-style: none outside none;
 }
 button {
-	border: 0 none;
-	cursor: pointer;
-	display: block;
-	outline: 0;
+  border: 0 none;
+  cursor: pointer;
+  display: block;
+  outline: 0;
 }
-table, th, td {
-	border-collapse: collapse;
+table,
+th,
+td {
+  border-collapse: collapse;
 }
 label {
-	cursor: pointer;
+  cursor: pointer;
 }
 
-a, img, input {
-	outline: none;
+a,
+img,
+input {
+  outline: none;
 }
-input[type="image"] {
-	-webkit-appearance: none;
-	border-radius: 0;
+input[type='image'] {
+  -webkit-appearance: none;
+  border-radius: 0;
 }
-li img, td img {
-	vertical-align: middle;
+li img,
+td img {
+  vertical-align: middle;
 }
 a {
-	text-decoration: none;
-	color: #000;
+  text-decoration: none;
+  color: #000;
 }
-a:hover, a:active, a:focus {
-	color: #000;
-	text-decoration: none;
+a:hover,
+a:active,
+a:focus {
+  color: #000;
+  text-decoration: none;
 }
-table a:link, table a:visited {
-	color: #000;
+table a:link,
+table a:visited {
+  color: #000;
 }
-table a:hover, table a:active {
-	color: #000;
-	text-decoration: underline;
+table a:hover,
+table a:active {
+  color: #000;
+  text-decoration: underline;
 }
-address, caption, cite, code, dfn, em, var {
-	font-style: normal;
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var {
+  font-style: normal;
 }
 table {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 strong {
-	font-weight: 600;
+  font-weight: 600;
 }
-legend, caption {
-	display: none !important;
+legend,
+caption {
+  display: none !important;
 }
 
-#__next{
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hide {
-	display: none !important;
+  display: none !important;
 }
 
 .container {
-	margin-bottom: 82px;
+  margin-bottom: 82px;
 }
 .sub_container {
-	/* margin-top: 58px; */
-	padding-bottom: 82px;
-	flex: 1;
-	background: #F8F8F8;
+  /* margin-top: 58px; */
+  padding-bottom: 82px;
+  flex: 1;
+  background: #f8f8f8;
 }
-
-
 
 /**********************************************************
 	HEADER
 ***********************************************************/
 header {
-	left: 0;
-	top: 0;
-	z-index: 500;
-	width: 100%;
-	background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  background-color: #fff;
 }
 header.on {
-	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 header .inner {
-	position: relative;
-	padding: 10px;
+  position: relative;
+  padding: 10px;
 }
 header .logo {
-	display: inline-block;
-	width: 108px;
-	height: 31px;
+  display: inline-block;
+  width: 108px;
+  height: 31px;
 }
 header .logo img {
-	width: 100%;
+  width: 100%;
 }
 /*라이브*/
 header .live {
-    float: right;
-    margin-top: 7px;
-    margin-right: 5px;
-    width: 75px;
-    height: 26px;
-    background: #E73223;
-    color: #fff;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 300;
-    text-align: center;
-    letter-spacing: -0.05rem;
-    padding: 4px;
-    font-family: Apple SD Gothic Neo;
+  float: right;
+  margin-top: 7px;
+  margin-right: 5px;
+  width: 75px;
+  height: 26px;
+  background: #e73223;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: -0.05rem;
+  padding: 4px;
+  font-family: Apple SD Gothic Neo;
 }
-header .live img { 
-	display: inline;
-	vertical-align: middle; 
-	margin-top: -3px;
+header .live img {
+  display: inline;
+  vertical-align: middle;
+  margin-top: -3px;
 }
 
 /* 검색 */
 header .btn_search {
-	display: inline-block;
-	position: absolute;
-	right: 12px;
-	top: 17px;
+  display: inline-block;
+  position: absolute;
+  right: 12px;
+  top: 17px;
 }
 /* 알림 */
 header .alarm {
-	display: inline-block;
-	position: absolute;
-	right: 10px;
-	top: 10px;
-	width: 36px;
-	height: 36px;
-	background: url('/icons/ico_alarm.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 36px;
+  height: 36px;
+  background: url('/icons/ico_alarm.svg') no-repeat center center;
 }
 header .alarm.on:after {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	right: 9px;
-	top: 5px;
-	width: 4px;
-	height: 4px;
-	background-color: #ea7910;
-	border: 2px solid #fff;
-	border-radius: 50%;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 9px;
+  top: 5px;
+  width: 4px;
+  height: 4px;
+  background-color: #ea7910;
+  border: 2px solid #fff;
+  border-radius: 50%;
 }
 
 header .search_area {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	width: 100%;
-	background-color: #fff;
-	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-	box-sizing: border-box;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
 }
 header .search_area.on {
-	display: block;
+  display: block;
 }
 header .search_area .top {
-	position: relative;
-	padding: 15px 15px 9px 15px;
-	border-bottom: 1px solid #ebebeb;
+  position: relative;
+  padding: 15px 15px 9px 15px;
+  border-bottom: 1px solid #ebebeb;
 }
 header .search_area .btn_prev {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin-right: 6px;
-	background: url('/icons/ico_back.svg') no-repeat center center;
-	vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  background: url('/icons/ico_back.svg') no-repeat center center;
+  vertical-align: middle;
 }
 header .search_area input {
-	width: calc(100% - 67px);
-	padding: 0 18px;
-	line-height: 35px;
-	color: #8D8D8D;
-	font-size: 14px;
-	background-color: #ebebeb;
-	border: 0;
-	border-radius: 8px;
+  width: calc(100% - 67px);
+  padding: 0 18px;
+  line-height: 35px;
+  color: #8d8d8d;
+  font-size: 14px;
+  background-color: #ebebeb;
+  border: 0;
+  border-radius: 8px;
 }
 header .search_area .recent {
-	padding: 25px 15px 15px 15px;
+  padding: 25px 15px 15px 15px;
 }
 header .search_area .recent .title {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 15px;
-	font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 header .search_area .recent .title .btn_delete {
-	color: #444;
+  color: #444;
 }
 header .search_area .recent .list li {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	line-height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 36px;
 }
 header .search_area .recent .list li .btn_delete {
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	color: #ebebeb;
-	background: url('/icons/ico_close.svg') no-repeat center center;
-	opacity: 0.5;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: #ebebeb;
+  background: url('/icons/ico_close.svg') no-repeat center center;
+  opacity: 0.5;
 }
 
 /**********************************************************
 	HOME BAR
 ***********************************************************/
 #home_bar {
-	display: flex;
-	justify-content: space-between;
-	position: fixed;
-	left: 0;
-	width: 100%;
-	z-index: 500;
-	padding: 9px 0 9px 0;
-	background-color: #fff;
-	border-top: 1px solid #ebebeb;
-	bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+  padding: 9px 0 9px 0;
+  background-color: #fff;
+  border-top: 1px solid #ebebeb;
+  bottom: 0;
 }
 #home_bar li {
-	width: 20%;
-	text-align: center;
+  width: 20%;
+  text-align: center;
 }
 #home_bar li .ico {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
 }
 #home_bar li .menu {
-	margin-top: 8px;
-	font-size: 10px;
+  margin-top: 8px;
+  font-size: 10px;
 }
 #home_bar.on {
-	bottom: 0;
-	opacity: 1;
+  bottom: 0;
+  opacity: 1;
 }
 
 /**********************************************************
 	ALL MENU
 ***********************************************************/
 #all_menu {
-	flex: 1;
-	padding: 0 15px 15px 15px;
-	background-color: #F8F8F8;
+  flex: 1;
+  padding: 0 15px 15px 15px;
+  background-color: #f8f8f8;
 }
 
 #all_menu.on {
-	right: 0;
-	opacity: 1;
+  right: 0;
+  opacity: 1;
 }
 
 #all_menu .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 18px;
-	top: 18px;
-	width: 16px;
-	height: 16px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 16px;
+  height: 16px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 
 #all_menu .tip {
-	margin: 66px 0 15px 0;
-	font-size: 14px;
+  margin: 66px 0 15px 0;
+  font-size: 14px;
 }
 
 /* 빠른메뉴영역 */
 #all_menu .quick_list {
-	display: flex;
-	padding: 30px 0px 0px 0px;
+  display: flex;
+  padding: 30px 0px 0px 0px;
 }
 #all_menu .quick_list li {
-	margin-bottom: 22px;
-    text-align: center;
-    width: 25%;
-    float: left;
+  margin-bottom: 22px;
+  text-align: center;
+  width: 25%;
+  float: left;
 }
 #all_menu .quick_list li + li {
-	margin-left: 15px;
+  margin-left: 15px;
 }
 #all_menu .quick_list .img {
-    width: 66px;
-    height: 66px;
-    margin: 0 auto 6px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    position: relative;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 6px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: relative;
 }
-#all_menu .quick_list  .img img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(34%, 35%);
+#all_menu .quick_list .img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(34%, 35%);
 }
 #all_menu .quick_list li .txt {
-	margin-top: 8px;
-	font-size: 12px;
+  margin-top: 8px;
+  font-size: 12px;
 }
 
 /* 메뉴 리스트 */
 .menu_wrap {
-	padding: 0 15px;
-	margin: 0 -15px;
-	background-color: #fff;
+  padding: 0 15px;
+  margin: 0 -15px;
+  background-color: #fff;
 }
 .menu_wrap .menu_list {
-	margin-top: 30px;
-
+  margin-top: 30px;
 }
 .menu_wrap .menu_list > li {
-	position: relative;
-	padding: 20px 0px;
-    font-size: 16px;
-	font-weight: 500;
-	border-bottom: 1px solid #ebebeb;
+  position: relative;
+  padding: 20px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 1px solid #ebebeb;
 }
 .menu_wrap .menu_list > li:last-child {
-	border-bottom: 0px !important;
+  border-bottom: 0px !important;
 }
 .menu_wrap .menu_list .drop_iocn {
-	display: inline-block;
-	position: absolute;
-	top:10px;
-	right: 0;
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 0;
 }
 .menu_wrap .sub_menu {
-	padding: 20px 0px 0px;
+  padding: 20px 0px 0px;
 }
 .menu_wrap .sub_menu li {
-	font-size: 16px;
+  font-size: 16px;
 }
 .menu_wrap .sub_menu li + li {
-	margin-top: 22px;
+  margin-top: 22px;
 }
 
 .menu_wrap .foot_menu {
-	display: flex;
-	justify-content: space-between;
-	padding: 30px 35px;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 35px;
 }
 .menu_wrap .foot_menu li {
-	font-size: 16px;
+  font-size: 16px;
 }
 .menu_wrap .foot_menu li .ico_menu {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin: -3px 13px 0 0;
-	background-color: #c4c4c4;
-	vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: -3px 13px 0 0;
+  background-color: #c4c4c4;
+  vertical-align: middle;
 }
-
 
 /**********************************************************
 	FOOTER
 ***********************************************************/
 footer {
-	position: relative;
-	padding: 30px 15px;
-	background-color: #ebebeb;
-	margin-bottom: 82px;
+  position: relative;
+  padding: 30px 15px;
+  background-color: #ebebeb;
+  margin-bottom: 82px;
 }
 footer .f_logo {
-	width: 82px;
+  width: 82px;
 }
 footer .f_logo img {
-	width: 100%;
+  width: 100%;
 }
 footer address {
-	margin-top: 20px;
-	color: #777;
-	font-size: 12px;
-	font-weight: 500;
-	line-height: 20px;
+  margin-top: 20px;
+  color: #777;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
 }
 footer .address_eng {
-	margin-top: 5px;
-	color: #777;
-	font-size: 12px;
-	font-weight: 300;
+  margin-top: 5px;
+  color: #777;
+  font-size: 12px;
+  font-weight: 300;
 }
 footer .sns_list {
-	display: flex;
-	position: absolute;
-	right: 15px;
-	top: 30px;
+  display: flex;
+  position: absolute;
+  right: 15px;
+  top: 30px;
 }
 footer .sns_list li + li {
-	margin-left: 8px;
+  margin-left: 8px;
 }
 footer .sns_list li img {
-	width: 24px;
+  width: 24px;
 }
-
 
 /**********************************************************
 	SEARCH
 ***********************************************************/
 .search_wrap .search_area {
-	width: 100%;
-	background-color: #fff;
-	box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 .search_wrap .search_area .top {
-	padding: 15px 15px 9px 15px;
-	border-bottom: 1px solid #ebebeb;
+  padding: 15px 15px 9px 15px;
+  border-bottom: 1px solid #ebebeb;
 }
 .search_wrap .search_area .btn_prev {
-	display: inline-block;
-	width: 24px;
-	height: 24px;
-	margin-right: 6px;
-	background: url('/icons/ico_back.svg') no-repeat center center;
-	vertical-align: middle;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  background: url('/icons/ico_back.svg') no-repeat center center;
+  vertical-align: middle;
 }
 .search_wrap .search_area .btn_delete2 {
-	display: inline-block;
-	position: absolute;
-	right: 30px;
-	top: 24px;
-	z-index: 10;
-	width: 17px;
-	height: 17px;
-	background: url('/icons/ico_delete.svg') no-repeat center center;
-	vertical-align: middle;
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 24px;
+  z-index: 10;
+  width: 17px;
+  height: 17px;
+  background: url('/icons/ico_delete.svg') no-repeat center center;
+  vertical-align: middle;
 }
 .search_wrap .search_area input {
-	width: calc(100% - 67px);
-	padding: 0 18px;
-	line-height: 35px;
-	color: #8D8D8D;
-	font-size: 14px;
-	background-color: #ebebeb;
-	border: 0;
-	border-radius: 8px;
+  width: calc(100% - 67px);
+  padding: 0 18px;
+  line-height: 35px;
+  color: #8d8d8d;
+  font-size: 14px;
+  background-color: #ebebeb;
+  border: 0;
+  border-radius: 8px;
 }
 .search_wrap .search_area .recent {
-	padding: 25px 15px 15px 15px;
+  padding: 25px 15px 15px 15px;
 }
 .search_wrap .search_area .recent .title {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 15px;
-	font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 14px;
 }
 .search_wrap .search_area .recent .title .btn_delete {
-	color: #444;
+  color: #444;
 }
 .search_wrap .search_area .recent .list li {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	line-height: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 36px;
 }
 .search_wrap .search_area .recent .list li .btn_delete {
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	color: #ebebeb;
-	background: url('/icons/ico_close.svg') no-repeat center center;
-	opacity: 0.5;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  color: #ebebeb;
+  background: url('/icons/ico_close.svg') no-repeat center center;
+  opacity: 0.5;
 }
 
 /**********************************************************
@@ -567,101 +609,100 @@ footer .sns_list li img {
 	padding-top: 0px;
 } */
 .section {
-	padding: 30px 15px;
-	overflow: hidden;
-	background: #fff;
+  padding: 30px 15px;
+  overflow: hidden;
+  background: #fff;
 }
 .subborder {
-	border-bottom: 1px solid #EBEDEF;
-    margin-bottom: 6px;
-	padding: 18px 15px;
+  border-bottom: 1px solid #ebedef;
+  margin-bottom: 6px;
+  padding: 18px 15px;
 }
 .subbordert {
-	border-top: 1px solid #EBEDEF;
-
+  border-top: 1px solid #ebedef;
 }
 .section.bg_gray {
-	background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 .section .swiper {
-	overflow: visible;
+  overflow: visible;
 }
 .section .title {
-	position: relative;
-	margin-bottom: 15px;
-	color: #000;
-	font-size: 20px;
-	font-weight: 500;
-	display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  display: inline-block;
 }
 .section .title small {
-	font-size: 16px;
+  font-size: 16px;
 }
 .section .more {
-	float:right;
-	color:#A0A0A0;
-	font-size: 12px;
-	line-height: 29px;
-	font-weight: 400;
+  float: right;
+  color: #a0a0a0;
+  font-size: 12px;
+  line-height: 29px;
+  font-weight: 400;
 }
 .section .title .filter {
-	position: absolute;
-	right: 0;
-	top: 0;
-	padding-right: 23px;
-	color: #444;
-	font-size: 14px;
-	line-height: 29px;
-	font-weight: 500;
-	background: url('/icons/ico_filter.svg') no-repeat right center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 23px;
+  color: #444;
+  font-size: 14px;
+  line-height: 29px;
+  font-weight: 500;
+  background: url('/icons/ico_filter.svg') no-repeat right center;
 }
 
 /* 유투브 */
 .iframe_wrap {
-	position: relative;
-	padding-bottom: 56.2%;
+  position: relative;
+  padding-bottom: 56.2%;
 }
 .iframe_wrap iframe {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100% !important;
-	height: 100% !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 /* 버튼 */
 .btn_share {
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background: url('/icons/ico_go.svg') no-repeat center center;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url('/icons/ico_go.svg') no-repeat center center;
 }
 
 .btn_share_white {
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	background: url('/icons/btn_share_w.svg') no-repeat center center;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url('/icons/btn_share_w.svg') no-repeat center center;
 }
 
 .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 15px;
-    top: 13px;
-    z-index: 10;
-    width: 15px;
-    height: 15px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  z-index: 10;
+  width: 15px;
+  height: 15px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 
 /* 구분선 */
 hr {
-	height: 10px;
-	margin: 0;
-	background-color: #F9F9F9;
-	border: 0;
-	border-top: 1px solid #EBEBEB;
+  height: 10px;
+  margin: 0;
+  background-color: #f9f9f9;
+  border: 0;
+  border-top: 1px solid #ebebeb;
 }
 
 /**********************************************************
@@ -669,84 +710,84 @@ hr {
 ***********************************************************/
 /* 메인 슬라이드 */
 .main_swiper .swiper-slide img {
-	width: 100%;
+  width: 100%;
 }
 
 /* 실시간 라이브 */
 .movie_wrap {
-	border: 1px solid #EBEBEB;
-	border-radius: 8px;
-	overflow: hidden;
-	background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
 }
 .movie_wrap .movie_thumb {
-	height:135px;
-	overflow: hidden;
+  height: 135px;
+  overflow: hidden;
 }
 .movie_wrap .info {
-	position: relative;
-	padding: 12px 15px;
-	font-size: 16px;
+  position: relative;
+  padding: 12px 15px;
+  font-size: 16px;
 }
 .movie_wrap .info .btn_share {
-	position: absolute;
-	right: 15px;
-	top: 12px;
+  position: absolute;
+  right: 15px;
+  top: 12px;
 }
 .movie_wrap .info .tit {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-	/* height: 46px; */
-	font-size: 16px;
-	font-weight: 400;
-	line-height: 23px;
-	margin-bottom:3px;
-	padding-right: 25px;
-	/* overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  /* height: 46px; */
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-bottom: 3px;
+  padding-right: 25px;
+  /* overflow: hidden;
 	text-overflow: ellipsis;
 	word-break: keep-all;
 	width: 88%; */
 }
 .movie_wrap .info .date {
-	color: #A0A0A0;
-	font-size: 12px;
-	display: inline-block;
-	font-weight: 300;
-	letter-spacing: 0.2px;
+  color: #a0a0a0;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 .movie_wrap .info .preacher {
-	display: inline-block;
-	margin-left: 7px;
-	padding-left: 7px;
-	line-height: 10px;
-	color: #A0A0A0;
-	font-size: 12px;
-	font-weight: 300;
-	border-left: 1px solid #d6d6d6;
+  display: inline-block;
+  margin-left: 7px;
+  padding-left: 7px;
+  line-height: 10px;
+  color: #a0a0a0;
+  font-size: 12px;
+  font-weight: 300;
+  border-left: 1px solid #d6d6d6;
 }
 
 /* 요일별 컨텐츠 */
 
 .days_wrap {
-	background: #F8F8F8;
-	border-radius: 6px;
-	padding:13px 15px 5px 15px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  padding: 13px 15px 5px 15px;
 }
 .days_wrap .day_list {
-	display: flex;
-    justify-content: space-evenly;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #EBEDEF;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ebedef;
 }
 .days_wrap .day_list li {
-    padding: 0 12px;
-    line-height: 27px;
-    font-size: 12px;
-    color: #000;
-    font-weight: 400;
-    border-radius: 50px;
-    text-align: center;
+  padding: 0 12px;
+  line-height: 27px;
+  font-size: 12px;
+  color: #000;
+  font-weight: 400;
+  border-radius: 50px;
+  text-align: center;
 }
 /*
 .days_wrap .day_list li:first-child {
@@ -756,390 +797,387 @@ hr {
 	margin-left: 5px;
 } */
 .days_wrap .day_list li.on {
-	color: #fff;
-	background-color: #313131;
-	font-weight: 400;
+  color: #fff;
+  background-color: #313131;
+  font-weight: 400;
 }
 
 .days_wrap .con_list li {
-    display: flex;
-    margin: 12px 0px;
-
+  display: flex;
+  margin: 12px 0px;
 }
 .days_wrap .con_list li:last-child {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 .days_wrap .con_list li + li {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 .days_wrap .con_list li .movie {
-	width:140px;
-    height: 52px;
-    overflow: hidden;
-    border-radius: 4px;
-	margin-bottom: 10px;
+  width: 140px;
+  height: 52px;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 .days_wrap .con_list li .movie img {
-	max-width: 100%;
+  max-width: 100%;
 }
 .days_wrap .con_list li .info {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-left:15px;
-	border-bottom:1px solid #EBEDEF;
-	width: 100%;
-	padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+  border-bottom: 1px solid #ebedef;
+  width: 100%;
+  padding-bottom: 10px;
 }
 .days_wrap .con_list li:last-child .info {
-	border-bottom:0;
+  border-bottom: 0;
 }
 .days_wrap .con_list li .sat {
-	color: #A2A0A4;
-	font-size: 16px;
-	font-weight: 400;
-	display: flex;
-	flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  color: #a2a0a4;
+  font-size: 16px;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .days_wrap .con_list li .sat img {
-	padding-right: 15px;
+  padding-right: 15px;
 }
 .days_wrap .con_list li .info .tit {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-	font-size: 14px;
-	font-weight: 400;
-	text-overflow: ellipsis;
-	margin-bottom:3px;
-	/* white-space: nowrap; */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  font-size: 14px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  margin-bottom: 3px;
+  /* white-space: nowrap; */
 }
 .days_wrap .con_list li .info .tag_up {
-	display: inline-block;
-	height: 15px;
-	padding: 0 5px;
-	margin: -2px 0 0 2px;
-	color: #fff;
-	font-size: 10px;
-	line-height: 14px;
-	background-color: #ea7910;
-	border-radius: 2px;
-	vertical-align: middle;
+  display: inline-block;
+  height: 15px;
+  padding: 0 5px;
+  margin: -2px 0 0 2px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  background-color: #ea7910;
+  border-radius: 2px;
+  vertical-align: middle;
 }
 .days_wrap .con_list li .info .date {
-	color: #000;
-	font-size: 12px;
-	font-weight: 400;
+  color: #000;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 /* 빠른접근 */
 .quick_wrap {
-	background-color: #F8F8F8;
-	padding:40px 24px 22px 24px;
+  background-color: #f8f8f8;
+  padding: 40px 24px 22px 24px;
 }
 .quick_menu {
 }
 .quick_menu li {
-	margin-bottom: 22px;
-	text-align: center;
-	width: 25%;
-	float: left
+  margin-bottom: 22px;
+  text-align: center;
+  width: 25%;
+  float: left;
 }
 .quick_menu li .img {
-	width: 66px;
-    height: 66px;
-    margin: 0 auto 6px;
-    background-color: #ffffff;
-    border-radius: 20px;
-	position: relative;
+  width: 66px;
+  height: 66px;
+  margin: 0 auto 6px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: relative;
 }
 .quick_menu li .img img {
-	position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(34%, 35%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(34%, 35%);
 }
 .quick_menu li .txt {
-	font-size: 12px;
-	font-weight: 400;
-	text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
 }
 
 /* 은혜로운 연합 예배 찬양 */
 .slide_wrap .movie_wrap {
-	width: 240px;
+  width: 240px;
 }
 
 /* 성락교회 미래세대 */
 .future_generation {
-	display: flex;
-	overflow: auto;
+  display: flex;
+  overflow: auto;
 }
 .future_generation .swiper-slide {
-	width: 77px;
-	margin-bottom: 15px;
-	text-align: center;
+  width: 77px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 .future_generation .swiper-slide .img {
-	width: 77px;
-	height: 77px;
-	margin: 0 auto 8px;
-	background-color: #f5f5f5;
-	border: 1px solid #eaeaea;
-	border-radius: 20px;
-	overflow: hidden;
+  width: 77px;
+  height: 77px;
+  margin: 0 auto 8px;
+  background-color: #f5f5f5;
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  overflow: hidden;
 }
 .future_generation .swiper-slide .img img {
-	width: 100%;
+  width: 100%;
 }
 .future_generation .swiper-slide .txt {
-	font-size: 14px;
-	font-weight: 400;
-	text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
 }
 
 /**중간배너**/
 .mdbanner {
-	width:100%;
-	/* height:110px; */
-	overflow: hidden;
-	position: relative;
+  width: 100%;
+  /* height:110px; */
+  overflow: hidden;
+  position: relative;
 }
 .mdbanner img {
-	width:100%;
+  width: 100%;
 }
-.mdbanner .nav{
-    width: 27px;
-    height: 15px;
-    color: #fff;
-    text-align: center;
-    font-size: 12px;
-    background: #000000;
-    opacity: 0.6;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    border-radius: 4px;
-    font-weight: 200;
-    line-height: 14px;
-	letter-spacing: 1px;
+.mdbanner .nav {
+  width: 27px;
+  height: 15px;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  background: #000000;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 4px;
+  font-weight: 200;
+  line-height: 14px;
+  letter-spacing: 1px;
 }
 
 /**********************************************************
 	POPUP
 ***********************************************************/
 .pop_toast {
-	position: relative;
+  position: relative;
 }
 .pop_toast .btn_close {
-	display: inline-block;
-    position: absolute;
-    right: 15px;
-    top: 0;
-    /* float: right; */
-    width: 15px;
-    height: 15px;
-    background: url(/icons/ico_close.svg) no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  /* float: right; */
+  width: 15px;
+  height: 15px;
+  background: url(/icons/ico_close.svg) no-repeat center center;
 }
 .pop_toast .title {
-    padding: 16px 15px;
-    color: #000;
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    display: block;
-    text-align: center;
+  padding: 16px 15px;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  display: block;
+  text-align: center;
 }
 .pop_toast .sns_list {
-	display: flex;
-	justify-content: flex-start;
-	padding: 0px 25px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0px 25px;
 }
 .pop_toast .sns_list li {
-	text-align: center;
+  text-align: center;
 }
 .pop_toast .sns_list li img {
-	width: 66px;
+  width: 66px;
 }
 /* .pop_toast .sns_list li + li {
 	margin-left: 10px;
 } */
 .pop_toast .sns_list li .tit {
-	margin-top: 8px;
-	font-size: 12px;
+  margin-top: 8px;
+  font-size: 12px;
 }
-
 
 /**********************************************************
 	SUB COMMON
 ***********************************************************/
 .top_area {
-    position: relative;
-    z-index: 100;
-    display: block;
-    background-color: #fff;
+  position: relative;
+  z-index: 100;
+  display: block;
+  background-color: #fff;
 }
 .top_area .btn_prev {
-	display: inline-block;
-	position: absolute;
-    left: 22px;
-    top: 14px;
-    width: 14px;
-    height: 14px;
-	background: url('/icons/ico_back.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  left: 22px;
+  top: 14px;
+  width: 14px;
+  height: 14px;
+  background: url('/icons/ico_back.svg') no-repeat center center;
 }
 .top_area .top_title {
-	padding: 0 15px;
-	color: #000;
-	font-size: 14px;
-	font-weight: 400;
-	text-align: center;
-	height: 40px;
-    line-height: 40px;
+  padding: 0 15px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
 }
 
-.top_area .top_title img{
-	display: inline;
+.top_area .top_title img {
+  display: inline;
 }
 
 .top_area .tab_wrap {
-	position: relative;
-    height: 42px;
-    line-height: 42px;
-    display: block;
-	text-align: center;
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
 }
 
 .top_area .dropdown {
-	background: #F8F8F8;
-	position: relative;
-    height: 42px;
-    line-height: 42px;
-    display: block;
-	text-align: center;
+  background: #f8f8f8;
+  position: relative;
+  height: 42px;
+  line-height: 42px;
+  display: block;
+  text-align: center;
 }
-.top_area .dropdown li{
-	display:inline-block;
-	color:#A0A0A0;
-	font-weight:400;
-	padding: 0px 8px;
-	font-size:14px;
+.top_area .dropdown li {
+  display: inline-block;
+  color: #a0a0a0;
+  font-weight: 400;
+  padding: 0px 8px;
+  font-size: 14px;
 }
-.top_area .dropdown li.on{
-    color: #fff;
-    font-weight: 400;
-    border-radius: 50px;
-    background: #313131;
-    display: inline;
-    padding: 4px 10px;
-	font-size:14px;
+.top_area .dropdown li.on {
+  color: #fff;
+  font-weight: 400;
+  border-radius: 50px;
+  background: #313131;
+  display: inline;
+  padding: 4px 10px;
+  font-size: 14px;
 }
 .top_area .tab_wrap .tab_bar {
-	display: none;
+  display: none;
 }
 .top_area .tab_wrap .btn_more {
-	position: absolute;
-	right: 9px;
-	top: -8px;
-	height: 50px;
-	width: 33px;
-	background: url('/icons/ico_back.svg') no-repeat center center;
-	transform: rotate(-90deg) scale(0.9);
+  position: absolute;
+  right: 9px;
+  top: -8px;
+  height: 50px;
+  width: 33px;
+  background: url('/icons/ico_back.svg') no-repeat center center;
+  transform: rotate(-90deg) scale(0.9);
 }
 .top_area .tab_area li {
-	display: inline-block;
-	padding:0 10px;
-	color: #A0A0A0;
-	font-size: 14px;
-	font-weight: 400;
-	white-space: nowrap;
+  display: inline-block;
+  padding: 0 10px;
+  color: #a0a0a0;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 .top_area .tab_area li.on {
-	color: #000;
-	font-weight: 500;
+  color: #000;
+  font-weight: 500;
 }
 .top_area .tab_area li.on a {
-	color: #fff;
+  color: #fff;
 }
 
 .top_area .tab_wrap.active {
-	padding: 0;
+  padding: 0;
 }
 .shadow {
-	content: '';
-	display: block;
-	position: fixed;
-	left: 0;
-	top : 0;
-	bottom: 0;
-	z-index: 80;
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.25);
+  content: '';
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 80;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
 }
 .top_area .tab_wrap.active .btn_more {
-	display: none;
+  display: none;
 }
 .top_area .tab_wrap.active .tab_bar {
-	display: block;
-	padding: 0 20px 12px 20px;
-	font-size: 14px;
-	line-height: 33px;
+  display: block;
+  padding: 0 20px 12px 20px;
+  font-size: 14px;
+  line-height: 33px;
 }
 .top_area .tab_wrap.active .btn_close {
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 50px;
-	height: 33px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 33px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .top_area .tab_wrap.active .tab_area {
-	position: absolute;
-	left: 0;
-	top: 45px;
-	z-index: 90;
-	flex-wrap: wrap;
-	padding: 0 7px 15px 15px;
-	background-color: #fff;
-	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  left: 0;
+  top: 45px;
+  z-index: 90;
+  flex-wrap: wrap;
+  padding: 0 7px 15px 15px;
+  background-color: #fff;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
 }
 .top_area .tab_wrap.active .tab_area li {
-	margin: 0 8px 10px 0;
-	background-color: #f9f9f9;
+  margin: 0 8px 10px 0;
+  background-color: #f9f9f9;
 }
-
 
 .location_wrap {
-	position: relative;
+  position: relative;
 }
 .location_wrap .location {
-	padding: 10px 15px;
-	font-size: 12px;
-	border-bottom: 1px solid #ebebeb;
+  padding: 10px 15px;
+  font-size: 12px;
+  border-bottom: 1px solid #ebebeb;
 }
 .location_wrap .location .cate {
-	display: inline-block;
-	margin-right: 18px;
-	color: #999;
+  display: inline-block;
+  margin-right: 18px;
+  color: #999;
 }
 .location_wrap .menu_list {
-	display: none;
-	position: absolute;
-	left: 0;
-	top: 39px;
-	z-index: 100;
-	width: 100%;
-	padding: 15px;
-	background-color: #fff;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 39px;
+  z-index: 100;
+  width: 100%;
+  padding: 15px;
+  background-color: #fff;
 }
 .location_wrap .menu_list li {
-	line-height: 32px;
-	font-size: 16px;
+  line-height: 32px;
+  font-size: 16px;
 }
 .location_wrap .menu_list li.on a {
-	color: #E07511;
+  color: #e07511;
 }
 
 /**********************************************************
@@ -1147,1244 +1185,1236 @@ hr {
 ***********************************************************/
 /* 예배 메인 */
 .sermon_filter {
-	font-size:12px;
-	font-weight:400;
-	color:#A0A0A0;
-	margin-bottom:25px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #a0a0a0;
+  margin-bottom: 25px;
 }
-.sermon_filter li{
-	display:inline-block
+.sermon_filter li {
+  display: inline-block;
 }
-.sermon_filter li:after{
-	content: '';
-    display: inline-block;
-	width: 1px;
-	background:#d6d6d6;
-	height: 10px;
-    margin: 0px 7px;
+.sermon_filter li:after {
+  content: '';
+  display: inline-block;
+  width: 1px;
+  background: #d6d6d6;
+  height: 10px;
+  margin: 0px 7px;
 }
-.sermon_filter li:last-child:after{
-	content:none;
+.sermon_filter li:last-child:after {
+  content: none;
 }
-.sermon_filter li.on{
-	color:#000;
-	font-weight:500;
+.sermon_filter li.on {
+  color: #000;
+  font-weight: 500;
 }
 .sermon_list li {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: relative;
-	border-bottom: 1px solid #EBEDEF;
-	margin-top: 15px;
-    padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #ebedef;
+  margin-top: 15px;
+  padding-bottom: 15px;
 }
 .sermon_list li:after {
-	content: '';
-    display: inline-block;
-    position: absolute;
-    right: 7px;
-    top: 4px;
-    width: 85px;
-    height: 35px;
-    /* background: url(/icons/ico_play.svg) no-repeat center center; */
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 7px;
+  top: 4px;
+  width: 85px;
+  height: 35px;
+  /* background: url(/icons/ico_play.svg) no-repeat center center; */
 }
 .sermon_list li:last-child {
-	border-bottom:0px;
+  border-bottom: 0px;
 }
 .sermon_list .tit_box {
-	width: 70%;
+  width: 70%;
 }
 .sermon_list .weekly_tit_box {
-	width: 100%;
+  width: 100%;
 }
 .sermon_list .tit {
-	width: 100%;
-	font-size: 14px;
-    font-weight: 500;
-    line-height: 17px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .sermon_list .date {
-	display: inline-block;
-	margin-top: 5px;
-	color: #A0A0A0;
-	font-size: 12px;
-	font-weight: 300;
+  display: inline-block;
+  margin-top: 5px;
+  color: #a0a0a0;
+  font-size: 12px;
+  font-weight: 300;
 }
 .sermon_list .preacher {
-	display: inline-block;
-	margin-left: 7px;
-	padding-left: 7px;
-	line-height: 10px;
-	color: #A0A0A0;
-	font-size: 12px;
-	font-weight: 300;
-	border-left: 1px solid #d6d6d6;
+  display: inline-block;
+  margin-left: 7px;
+  padding-left: 7px;
+  line-height: 10px;
+  color: #a0a0a0;
+  font-size: 12px;
+  font-weight: 300;
+  border-left: 1px solid #d6d6d6;
 }
 
 /* 필터 */
 .layer_filter {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	z-index: 600;
-	background-color: #fff;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 600;
+  background-color: #fff;
 }
 .layer_filter.on {
-	display: block;
+  display: block;
 }
 .layer_filter .title {
-	padding: 18px 0;
-	margin: 0;
-	font-size: 16px;
-	text-align: center;
-	line-height: 24px;
-	background-color: #f9f9f9;
+  padding: 18px 0;
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  background-color: #f9f9f9;
 }
 .layer_filter .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 15px;
-	top: 15px;
-	z-index: 10;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 10;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .layer_filter .filter_list {
-	border-top: 1px solid #f9f9f9;
+  border-top: 1px solid #f9f9f9;
 }
 .layer_filter .filter_list li {
-	position: relative;
-	padding: 13px 20px;
-	font-size: 16px;
-	border-bottom: 1px solid #f9f9f9;
+  position: relative;
+  padding: 13px 20px;
+  font-size: 16px;
+  border-bottom: 1px solid #f9f9f9;
 }
 .layer_filter .filter_list li:after {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	right: 15px;
-	top: 11px;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_check_off.svg') no-repeat center center;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 11px;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_check_off.svg') no-repeat center center;
 }
 .layer_filter .filter_list li.on:after {
-	background: url('/icons/ico_check.svg') no-repeat center center;
+  background: url('/icons/ico_check.svg') no-repeat center center;
 }
 .layer_filter .btn_area {
-	display: flex;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 100%;
+  display: flex;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 .layer_filter .btn_area span {
-	height: 72px;
-	color: #fff;
-	font-size: 16px;
-	line-height: 72px;
-	text-align: center;
+  height: 72px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 72px;
+  text-align: center;
 }
 .layer_filter .btn_area .btn_reset {
-	width: 110px;
-	background-color: #444;
+  width: 110px;
+  background-color: #444;
 }
 .layer_filter .btn_area .btn_select {
-	width: calc(100% - 110px);
-	background-color: #000;
+  width: calc(100% - 110px);
+  background-color: #000;
 }
 
 /* 예배 상세 */
 .sermon_detail .movie_wrap {
-	border: 0;
-	border-radius: 0;
-	position: sticky;
-	top: 0;
+  border: 0;
+  border-radius: 0;
+  position: sticky;
+  top: 0;
 }
 .sermon_detail .movie_wrap .info {
-	padding:17px 15px 15px 15px;
+  padding: 17px 15px 15px 15px;
 }
 .sermon_detail .movie_wrap .info .date {
-	margin-top: 8px;
+  margin-top: 8px;
 }
 
 .sermon_detail .section {
-	padding: 0;
-	background-color: #f9f9f9;
-	border-top: 1px solid #ebebeb;
+  padding: 0;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ebebeb;
 }
 
 .sermon_detail .tab_area {
-	padding:5px 15px;
+  padding: 5px 15px;
 }
 .sermon_detail .tab_area li {
-	display: inline-block;
-	width: 20%;
-	line-height: 33px;
-	color:#A0A0A0;
-	font-size: 14px;
-	font-weight: 400;
-	white-space: nowrap;
-	border-radius: 33px;
-	text-align: center;
+  display: inline-block;
+  width: 20%;
+  line-height: 33px;
+  color: #a0a0a0;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  border-radius: 33px;
+  text-align: center;
 }
 .sermon_detail .tab_area li.on {
-	color: #000;
-	font-weight: 500;
+  color: #000;
+  font-weight: 500;
 }
 .sermon_detail .tab_area li.on a {
-	color: #000;
-	font-weight: 500;
+  color: #000;
+  font-weight: 500;
 }
 
 /* 예배순서 */
 .sermon_detail .order_wrap {
-	padding: 13px 20px 40px 20px;
-	background: #fff;
+  padding: 13px 20px 40px 20px;
+  background: #fff;
 }
 .sermon_detail .order_wrap li {
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	padding: 13px 0;
-	line-height: 24px;
-	font-size: 16px;
-	border-bottom: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 13px 0;
+  line-height: 24px;
+  font-size: 16px;
+  border-bottom: 1px solid #ebebeb;
 }
 .sermon_detail .order_wrap li span {
-	width: 90px;
-	word-break: keep-all;
+  width: 90px;
+  word-break: keep-all;
 }
 .sermon_detail .order_wrap li span:nth-child(2) {
-	flex: 1;
-	text-align: center;
+  flex: 1;
+  text-align: center;
 }
 .sermon_detail .order_wrap li span:nth-child(3) {
-	color: #999;
-	text-align: right;
+  color: #999;
+  text-align: right;
 }
 
 /* 설교요지 */
 .sermon_detail .gist_wrap {
-	padding: 20px 20px 40px 20px;
-	background: #fff;
+  padding: 20px 20px 40px 20px;
+  background: #fff;
 }
 .sermon_detail .gist_title {
-    position: relative;
-    padding-right: 80px;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 24px;
-    word-break: keep-all;
+  position: relative;
+  padding-right: 80px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 24px;
+  word-break: keep-all;
 }
 .sermon_detail .gist_title .textsize {
-	display: inline-block;
-	position: absolute;
-	right: 42px;
-	top: 0;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_text-size.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 42px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_text-size.svg') no-repeat center center;
 }
 .sermon_detail .gist_title .translation {
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_trans.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_trans.svg') no-repeat center center;
 }
 .sermon_detail .gist_wrap .main_bible {
-    padding: 8px 0 15px;
-    font-size: 12px;
-    line-height: 18px;
-    color: #A0A0A0;
+  padding: 8px 0 15px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #a0a0a0;
 }
 .sermon_detail .gist_wrap .gist {
-	font-size: 16px;
-	line-height: 26px;
-	word-break: keep-all;
+  font-size: 16px;
+  line-height: 26px;
+  word-break: keep-all;
 }
 .sermon_detail .gist_wrap .gist .bible {
-	position: relative;
-	color: #999;
-	white-space: nowrap;
-	text-decoration: underline;
+  position: relative;
+  color: #999;
+  white-space: nowrap;
+  text-decoration: underline;
 }
 .sermon_detail .gist_wrap .gist .important {
-	margin: 15px 0;
+  margin: 15px 0;
 }
 .sermon_detail .gist_wrap .gist .important li {
-	padding-left: 20px;
-	font-size: 16px;
-	line-height: 24px;
-	text-indent: -20px;
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 24px;
+  text-indent: -20px;
 }
 
 /* 설교요지 성경 클릭 시 나오는 레이어 팝업 */
 .layer_bible.on {
-	display: block;
+  display: block;
 }
 .layer_bible {
-	display: none;
-	position: absolute;
-	left: 15px;
-	z-index: 90;
-	width: 280px;
-	padding: 17px 7px 17px 17px;
-	background-color: #fff;
-	border: 1px solid #999;
-	border-radius: 8px;
-	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  display: none;
+  position: absolute;
+  left: 15px;
+  z-index: 90;
+  width: 280px;
+  padding: 17px 7px 17px 17px;
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 8px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 .layer_bible .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 17px;
-	top: 17px;
-	width: 20px;
-	height: 20px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
-	background-size: 15px 15px;
+  display: inline-block;
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  width: 20px;
+  height: 20px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
+  background-size: 15px 15px;
 }
 .layer_bible .verse_list {
-	max-height: 240px;
-	padding: 0 10px 0 0;
-	margin-top: 20px;
-	border: 0;
-	overflow-y: auto;
+  max-height: 240px;
+  padding: 0 10px 0 0;
+  margin-top: 20px;
+  border: 0;
+  overflow-y: auto;
 }
 .layer_bible .verse_list li {
-	color: #000;
-	white-space: normal;
-	word-break: break-all;
+  color: #000;
+  white-space: normal;
+  word-break: break-all;
 }
-
 
 /* 교회소식 */
 .notice_wrap {
-	padding: 20px 20px 40px 20px;
-	background:  #fff;
+  padding: 20px 20px 40px 20px;
+  background: #fff;
 }
 .notice_wrap .notice_title {
-	padding-bottom: 15px;
-    padding-right: 40px;
-    word-break: keep-all;
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 23px;
-    position: relative;
+  padding-bottom: 15px;
+  padding-right: 40px;
+  word-break: keep-all;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
+  position: relative;
 }
 .sermon_detail .notice_title .textsize {
-	display: inline-block;
-	position: absolute;
-	right: 0px;
-	top: 0;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_text-size.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_text-size.svg') no-repeat center center;
 }
 
 /* 숫자가 있는 리스트 */
 .notice_wrap ol.list {
-    counter-reset: notice_list; 
+  counter-reset: notice_list;
 }
 .notice_wrap ol.list li {
-	margin-bottom: 15px;
-    color: #444;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
 }
 .notice_wrap ol.list li .tit {
-	font-size: 16px;
-    font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 .notice_wrap ol.list li .tit:before {
-    counter-increment: notice_list;
-    content: counter(notice_list) ". ";
+  counter-increment: notice_list;
+  content: counter(notice_list) '. ';
 }
-
 
 /**********************************************************
 	PRAISE(찬양)
 ***********************************************************/
 /* 찬양 상세 */
 .praise_detail .movie_wrap {
-	border-radius: 0px;
+  border-radius: 0px;
 }
 .praise_detail .movie_wrap .info {
-	padding: 12px 15px 15px 15px;
+  padding: 12px 15px 15px 15px;
 }
 
 .praise_detail .subborder {
-	padding-bottom:0px;
+  padding-bottom: 0px;
 }
 
 .praise_detail .section {
-	padding: 0;
-	background-color: #fff;
-	border-top: 1px solid #ebebeb;
+  padding: 0;
+  background-color: #fff;
+  border-top: 1px solid #ebebeb;
 }
 
 .praise_detail .tab_area {
-	padding: 10px 15px;
-	border-bottom: 1px solid #ebebeb;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ebebeb;
 }
 .praise_detail .tab_area li {
-	display: inline-block;
-	padding: 0 15px;
-	line-height: 33px;
-	color: #000;
-	font-size: 14px;
-	font-weight: 500;
-	white-space: nowrap;
-	border-radius: 33px;
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 33px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 33px;
 }
 .praise_detail .tab_area li.on {
-	color: #fff;
-	background-color: #444;
+  color: #fff;
+  background-color: #444;
 }
 
 /* 찬양목록 */
 .praise_wrap {
-	padding: 20px 15px 20px 15px;
+  padding: 20px 15px 20px 15px;
 }
-
-
 
 /**********************************************************
 	BIBLE(성경)
 ***********************************************************/
 /* 말씀 상세 */
 .top_area .top_title .back {
-	display: inline-block;
-	height: 25px;
-	width: 25px;
-	margin-top: -2px;
-	background: url('/icons/ico_back.svg') no-repeat center center;
-	transform: rotate(-90deg) scale(0.75);
-	vertical-align: middle;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  margin-top: -2px;
+  background: url('/icons/ico_back.svg') no-repeat center center;
+  transform: rotate(-90deg) scale(0.75);
+  vertical-align: middle;
 }
 .top_area .top_title img {
-	vertical-align: middle;
-    margin-top: -3px;
+  vertical-align: middle;
+  margin-top: -3px;
 }
 .top_area .tool_list {
-	position: absolute;
-	right: 15px;
-	top: 0;
-	display: flex;
-	height: 100%;
-	align-items: center;
-	padding-right:10px;
-	padding-left:10px;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .top_area .tool_list img {
-	display: inline;
+  display: inline;
 }
 .top_area .tool_list li + li {
-	margin-left: 15px;
+  margin-left: 15px;
 }
 
 /* 텍스트 사이즈 수정 */
 .top_area .txt_control {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: absolute;
-	left: 0;
-	width: 100%;
-	padding: 20px 15px;
-	line-height: 34px;
-	background-color: #fff;
-	border-top: 1px solid #ebebeb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 20px 15px;
+  line-height: 34px;
+  background-color: #fff;
+  border-top: 1px solid #ebebeb;
 }
 .top_area .txt_control .tit strong {
-	font-size: 16px;
-	font-weight: 500;
+  font-size: 16px;
+  font-weight: 500;
 }
 .top_area .txt_control .tit span {
-	display: inline-block;
-	margin-left: 25px;
-	font-size: 15px;
+  display: inline-block;
+  margin-left: 25px;
+  font-size: 15px;
 }
 .top_area .txt_control .size {
-	line-height: 32px;
-	background: #F9F9F9;
-	border: 1px solid #EBEBEB;
-	border-radius: 4px;
+  line-height: 32px;
+  background: #f9f9f9;
+  border: 1px solid #ebebeb;
+  border-radius: 4px;
 }
 .top_area .txt_control .size li {
-	display: inline-block;
-	width: 73px;
-	text-align: center;
+  display: inline-block;
+  width: 73px;
+  text-align: center;
 }
 .top_area .txt_control .size li + li {
-	border-left: 1px solid #EBEBEB;
+  border-left: 1px solid #ebebeb;
 }
 
 .bible_con {
-	position: relative;
-	padding: 17px 15px 80px 15px;
-	border-top: 1px solid #ebebeb;
+  position: relative;
+  padding: 70px 15px 80px;
+  /* border-top: 1px solid #ebebeb; */
 }
 .bible_con .btn_left {
-	position: fixed;
-	left: 8px;
-	bottom: 100px;
-	z-index: 100;
-	/* width: 55px; */
-	/* height: 55px; */
-	/* background: url('/icons/ico_left.svg') no-repeat center center; */
+  position: fixed;
+  left: 8px;
+  bottom: 100px;
+  z-index: 100;
+  /* width: 55px; */
+  /* height: 55px; */
+  /* background: url('/icons/ico_left.svg') no-repeat center center; */
 }
 .bible_con .btn_right {
-	position: fixed;
-	right: 8px;
-	bottom: 100px;
-	z-index: 100;
-	/* width: 55px; */
-	/* height: 55px; */
-	/* background: url('/icons/ico_right.svg') no-repeat center center; */
+  position: fixed;
+  right: 8px;
+  bottom: 100px;
+  z-index: 100;
+  /* width: 55px; */
+  /* height: 55px; */
+  /* background: url('/icons/ico_right.svg') no-repeat center center; */
 }
 .verse_list li {
-	line-height: 26px;
-	font-size: 16px;
-	font-weight: 400;
-	word-break: keep-all;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 400;
+  word-break: keep-all;
 }
 .verse_list li + li {
-	margin-top: 9px;
+  margin-top: 9px;
 }
 
 /* 성경 말씀 찾기 팝업 */
 .layer_bible_read {
-	position: relative;
-	background-color: #f9f9f9;
+  position: relative;
+  /* background-color: #f9f9f9; */
 }
 .layer_bible_read .title {
-	padding: 15px 0 8px;
-	font-size: 16px;
-	text-align: center;
-	line-height: 24px;
+  padding: 15px 0 8px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
 }
 
 .layer_bible_read .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 15px;
-	top: 15px;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  /* display: inline-block; */
+  /* position: absolute; */
+  /* left: 15px; */
+  /* top: 15px; */
+  /* width: 24px; */
+  /* height: 24px; */
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .layer_bible_read .tab_area {
-	display: flex;
-	margin: 10px 15px;
-	padding: 3px 4px;
-	background-color: #fff;
-	border-radius: 40px;
+  display: flex;
+  /* margin: 10px 15px;
+  padding: 3px 4px;
+  background-color: #fff;
+  border-radius: 40px; */
 }
 .layer_bible_read .tab_area li {
-	display: inline-block;
-	width: 33.33%;
-	padding: 0 15px;
-	line-height: 33px;
-	color: #000;
-	font-size: 14px;
-	text-align: center;
-	border-radius: 33px;
+  display: inline-block;
+  width: 33.33%;
+  padding: 0 15px;
+  line-height: 33px;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 33px;
 }
 .layer_bible_read .tab_area li.on {
-	color: #fff;
-	background-color: #444;
+  /* color: #fff;
+  background-color: #444; */
 }
 
 .layer_bible_read .tab_con {
-	padding: 5px 15px;
-	max-height: calc(100% - 106px);
-	overflow-y: auto;
-	background-color: #fff;
+  padding: 5px 15px;
+  max-height: calc(100% - 106px);
+  overflow-y: auto;
+  background-color: #fff;
 }
 
 /* 책 선택 */
 .book_list {
-	display: flex;
-	flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .book_list li {
-	width: 50%;
-	padding: 9.5px 15px;
-	font-size: 16px;
-	line-height: 33px;
-	text-align: center;
-	word-break: keep-all;
+  width: 50%;
+  padding: 9.5px 15px;
+  font-size: 16px;
+  line-height: 33px;
+  text-align: center;
+  word-break: keep-all;
 }
 .book_list li.on {
-	background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 /* 장 선택 */
 .chapter_list {
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 .chapter_list li {
-	width: 20%;
-	margin-bottom: 20px;
-	text-align: center;
+  width: 20%;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .chapter_list li span {
-	display: inline-block;
-	padding: 0 11.5px;
-	line-height: 32px;
-	font-size: 16px;
-	border-radius: 32px;
+  display: inline-block;
+  padding: 0 11.5px;
+  line-height: 32px;
+  font-size: 16px;
+  border-radius: 32px;
 }
 .chapter_list li.on span {
-	color: #fff;
-	background-color: #000;
+  color: #fff;
+  background-color: #000;
 }
 
 /**********************************************************
 	HYMN(찬송가)
 ***********************************************************/
 .hymn_wrap .top_area .btn_change {
-	display: inline-block;
-	padding: 0 9px;
-	margin-left: 8px;
-	color: #fff;
-	font-size: 14px;
-	line-height: 24px;
-	background-color: #444;
-	border-radius: 24px;
+  display: inline-block;
+  padding: 0 9px;
+  margin-left: 8px;
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #444;
+  border-radius: 24px;
 }
 .hymn_con {
-	padding: 17px 15px;
-	border-top: 1px solid #ebebeb;
+  padding: 17px 15px;
+  border-top: 1px solid #ebebeb;
 }
 .hymn_con .list li {
-	line-height: 26px;
-	font-size: 16px;
-	font-weight: 500;
-	word-break: keep-all;
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: keep-all;
 }
 .hymn_con .list li + li {
-	margin-top: 9px;
+  margin-top: 9px;
 }
 
 /* 토스트 팝업 */
 .toast_hymn {
-	padding: 0 15px;
+  padding: 0 15px;
 }
 .toast_hymn .search_area {
-	position: relative;
-	padding-bottom: 6px;
+  position: relative;
+  padding-bottom: 6px;
 }
 .toast_hymn .search_area select {
-	height: 34px;
-	padding: 0 5px;
-	font-size: 14px;
+  height: 34px;
+  padding: 0 5px;
+  font-size: 14px;
 }
 .toast_hymn .search_area input {
-	width: calc(100% - 100px);
-	height: 31px;
-	margin-left: 7px;
-	font-size: 14px;
-	border: 0;
-	border-bottom: 1px solid #000;
+  width: calc(100% - 100px);
+  height: 31px;
+  margin-left: 7px;
+  font-size: 14px;
+  border: 0;
+  border-bottom: 1px solid #000;
 }
 .toast_hymn .search_area .btn_search {
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: 5px;
-	width: 25px;
-	height: 25px;
-	background: url('/icons/ico_search.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 25px;
+  height: 25px;
+  background: url('/icons/ico_search.svg') no-repeat center center;
 }
 .toast_hymn .tab_con {
-	padding-top: 10px;
-	max-height: 385px;
-	overflow-y: auto;
+  padding-top: 10px;
+  max-height: 385px;
+  overflow-y: auto;
 }
 .toast_hymn .hymn_list li {
-	padding: 0 5px;
-	font-size: 14px;
-	line-height: 40px;
-	border-bottom: 1px solid #ddd;
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: 40px;
+  border-bottom: 1px solid #ddd;
 }
 
 /**********************************************************
 	ON SERIES
 ***********************************************************/
 .onseries_wrap .top_area .tab_wrap {
-	padding-right: 15px;
+  padding-right: 15px;
 }
 .onseries_wrap .guide {
-	padding: 15px;
-	font-size: 14px;
-	line-height: 21px;
-	background-color: #f9f9f9;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 21px;
+  background-color: #f9f9f9;
 }
 
 /* 온특새 - 상세 */
 .onseries_detail .prayer_wrap {
-	padding: 30px 20px;
+  padding: 30px 20px;
 }
 .onseries_detail .prayer_list {
-    counter-reset: prayer_list; 
+  counter-reset: prayer_list;
 }
 .onseries_detail .prayer_list li {
-	color: #444;
-	font-size: 16px;
-	line-height: 26px;
-	font-weight: 400;
+  color: #444;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
 }
 .onseries_detail .prayer_list li:before {
-    counter-increment: prayer_list;
-    content: counter(prayer_list) ". ";
+  counter-increment: prayer_list;
+  content: counter(prayer_list) '. ';
 }
 
 /* 온3분 메인 - 슬라이드 */
 .onseries_wrap .three_swiper {
-	padding: 0 26px;
+  padding: 0 26px;
 }
 .onseries_wrap .three_swiper .swiper-pagination {
-	position: absolute;
-	right: 10px;
-	bottom: 10px;
-	z-index: 100;
-	padding: 0 5px;
-	color: #fff;
-	font-size: 11px;
-	line-height: 19px;
-	background-color: #000;
-	border-radius: 4px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 100;
+  padding: 0 5px;
+  color: #fff;
+  font-size: 11px;
+  line-height: 19px;
+  background-color: #000;
+  border-radius: 4px;
 }
 .onseries_wrap .three_swiper .swiper-slide {
-	border-radius: 8px;
-	overflow: hidden;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .onseries_wrap .three_swiper .swiper-slide img {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 
 /* 온3분 - 상세 - 설교요지 */
 .onseries_detail .gist_wrap {
-	padding: 20px 20px 40px 20px;
+  padding: 20px 20px 40px 20px;
 }
 .onseries_detail .gist_wrap .gist_title {
-	position: relative;
-	padding-right: 30px;
-	font-size: 20px;
-	font-weight: 600;
-	line-height: 23px;
+  position: relative;
+  padding-right: 30px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 23px;
 }
 .onseries_detail .gist_wrap .gist_title .translation {
-	display: inline-block;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_trans.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_trans.svg') no-repeat center center;
 }
 .onseries_detail .gist_wrap .main_bible {
-	padding: 8px 0 15px;
-	margin-bottom: 15px;
-	font-size: 16px;
-	line-height: 18px;
-	border-bottom: 2px solid #000;
+  padding: 8px 0 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 18px;
+  border-bottom: 2px solid #000;
 }
 .onseries_detail .gist_wrap .gist {
-	font-size: 16px;
-	line-height: 26px;
-	word-break: keep-all;
+  font-size: 16px;
+  line-height: 26px;
+  word-break: keep-all;
 }
 /* 선교센터 블로그 바로가기 */
 .onseries_detail .gist_wrap .btn_mission {
-	height: 57px;
-	margin-top: 40px;
-	color: #fff;
-	font-size: 16px;
-	line-height: 57px;
-	text-align: center;
-	background-color: #5AB94D;
-	border-radius: 8px;
+  height: 57px;
+  margin-top: 40px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 57px;
+  text-align: center;
+  background-color: #5ab94d;
+  border-radius: 8px;
 }
 .onseries_detail .gist_wrap .btn_mission:before {
-	content: 'N';
-	display: inline-block;
-	margin: 2px 5px 0 0;
-	font-size: 20px;
-	font-weight: 600;
-	color: #fff;
-	vertical-align: middle;
+  content: 'N';
+  display: inline-block;
+  margin: 2px 5px 0 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  vertical-align: middle;
 }
 /* 선교센터 PR */
 .onseries_detail .gist_wrap .txt_mission {
-	margin-top: 15px;
-	color: #999;
-	font-size: 14px;
-	line-height: 22px;
-	text-align: center;
+  margin-top: 15px;
+  color: #999;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
 }
 
 .onseries_detail .three_swiper {
-	padding: 15px 0 25px;
+  padding: 15px 0 25px;
 }
 .onseries_detail .three_swiper .swiper-slide {
-	border-radius: 8px;
-	overflow: hidden;
+  border-radius: 8px;
+  overflow: hidden;
 }
 .onseries_detail .three_swiper .swiper-slide img {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }
 
 /* 온성경 - 상세 */
 .onseries_detail .section {
-	padding: 0;
-	background-color: #f9f9f9;
-	border-top: 1px solid #ebebeb;
+  padding: 0;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ebebeb;
 }
 
 .onseries_detail .tab_area {
-	padding: 10px 15px;
-	border-bottom: 1px solid #ebebeb;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ebebeb;
 }
 .onseries_detail .tab_area li {
-	display: inline-block;
-	padding: 0 15px;
-	line-height: 33px;
-	color: #000;
-	font-size: 14px;
-	font-weight: 500;
-	white-space: nowrap;
-	border-radius: 33px;
+  display: inline-block;
+  padding: 0 15px;
+  line-height: 33px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  border-radius: 33px;
 }
 .onseries_detail .tab_area li.on {
-	color: #fff;
-	background-color: #444;
+  color: #fff;
+  background-color: #444;
 }
 
 .onseries_detail .movie_wrap {
-	border: 0;
-	border-radius: 0;
+  border: 0;
+  border-radius: 0;
 }
 .onseries_detail .movie_wrap .info {
-	padding: 12px 15px 30px 15px;
+  padding: 12px 15px 30px 15px;
 }
 
 /* 온성경 순서 */
 .onseries_detail .order_wrap {
-	position: relative;
-	padding: 30px 20px;
+  position: relative;
+  padding: 30px 20px;
 }
 .onseries_detail .order_wrap::before {
-	content: '';
-	display: block;
-	position: absolute;
-	left: 25px;
-	top: 38px;
-	bottom: 38px;
-	border-left: 1px solid #ddd;
+  content: '';
+  display: block;
+  position: absolute;
+  left: 25px;
+  top: 38px;
+  bottom: 38px;
+  border-left: 1px solid #ddd;
 }
 .onseries_detail .order_wrap li {
-	position: relative;
-	padding-left: 26px;
-	font-size: 20px;
-	font-weight: 600;
+  position: relative;
+  padding-left: 26px;
+  font-size: 20px;
+  font-weight: 600;
 }
 .onseries_detail .order_wrap li:before {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	left: 0;
-	top: 5px;
-	width: 11px;
-	height: 11px;
-	background-color: #ddd;
-	border-radius: 11px;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 11px;
+  height: 11px;
+  background-color: #ddd;
+  border-radius: 11px;
 }
 .onseries_detail .order_wrap li + li {
-	margin-top: 30px;
+  margin-top: 30px;
 }
 /* 온성경 말씀 */
 .onseries_detail .bible_wrap .top_area {
-	background-color: #f9f9f9;
+  background-color: #f9f9f9;
 }
 .onseries_detail .bible_wrap .bible_con {
-	border: 0;
+  border: 0;
 }
 
 /**********************************************************
 	JUBO(주보)
 ***********************************************************/
 .jubo_wrap .top_area .info {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 15px;
-	font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  font-size: 14px;
 }
 .jubo_wrap .top_area .info .issue {
-	padding-right: 25px;
-	background: url('/icons/ico_list.svg') no-repeat right 15px;
+  padding-right: 25px;
+  background: url('/icons/ico_list.svg') no-repeat right 15px;
 }
 .jubo_wrap .visual {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	min-height: 180px;
-	padding: 20px;
-	text-align: center;
-	background: url('/images/bg_jubo.png') no-repeat center top;
-	background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  padding: 20px;
+  text-align: center;
+  background: url('/images/bg_jubo.png') no-repeat center top;
+  background-size: cover;
 }
 .jubo_wrap .visual .title {
-	color: #000;
-	font-size: 22px;
-	font-weight: 600;
+  color: #000;
+  font-size: 22px;
+  font-weight: 600;
 }
 .jubo_wrap .visual .eng {
-	margin: 5px 0 15px;
-	color: #999;
-	font-size: 16px;
-	font-weight: 300;
+  margin: 5px 0 15px;
+  color: #999;
+  font-size: 16px;
+  font-weight: 300;
 }
 .jubo_wrap .visual .bible {
-	color: #000;
-	font-size: 14px;
-	font-weight: 400;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .jubo_wrap.sermon_detail .tab_con {
-	background-color: #fff;
+  background-color: #fff;
 }
-
 
 /* 주보 리스트 */
 .layer_jubo {
-	display: none;
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	z-index: 100;
-	background-color: #fff;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
 }
 .layer_jubo.on {
-	display: block;
+  display: block;
 }
 .layer_jubo .title {
-	padding: 18px 0;
-	margin: 0;
-	font-size: 16px;
-	text-align: center;
-	line-height: 24px;
-	background-color: #f9f9f9;
+  padding: 18px 0;
+  margin: 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 24px;
+  background-color: #f9f9f9;
 }
 .layer_jubo .btn_close {
-	display: inline-block;
-	position: absolute;
-	right: 15px;
-	top: 15px;
-	z-index: 10;
-	width: 24px;
-	height: 24px;
-	background: url('/icons/ico_close.svg') no-repeat center center;
+  display: inline-block;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 10;
+  width: 24px;
+  height: 24px;
+  background: url('/icons/ico_close.svg') no-repeat center center;
 }
 .layer_jubo .jubo_list li {
-	position: relative;
-	padding: 20px 15px;
-	font-size: 16px;
-	line-height: initial;
-	border-bottom: 1px solid #EBEBEB;
+  position: relative;
+  padding: 20px 15px;
+  font-size: 16px;
+  line-height: initial;
+  border-bottom: 1px solid #ebebeb;
 }
 .layer_jubo .jubo_list li .info2 {
-	margin-bottom: 8px;
-	font-size: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
 }
 .layer_jubo .jubo_list li .info2 span {
-	display: inline-block;
-	margin: 0 3px;
-	font-size: 10px;
-	color: #999;
+  display: inline-block;
+  margin: 0 3px;
+  font-size: 10px;
+  color: #999;
 }
 
 /**********************************************************
 	FAITH 1분은혜
 ***********************************************************/
 .faith_wrap .faithmovie li {
-	display: inline-block;
-	width: 48.566%;
-	margin-bottom: 20px;
+  display: inline-block;
+  width: 48.566%;
+  margin-bottom: 20px;
 }
 .faith_wrap .faithmovie li:nth-child(odd) {
-	margin-right:9px;
+  margin-right: 9px;
 }
 .faithmovie li .moviebox {
-	position: relative;
-	margin-bottom: 12px;
-	/* min-height: 360px; */
+  position: relative;
+  margin-bottom: 12px;
+  /* min-height: 360px; */
 }
 .faithmovie li .moviebox img {
-	width:100%;
+  width: 100%;
 }
 .faithmovie li .tit {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    height: 46px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 23px;
-    margin-bottom: 3px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: keep-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 46px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-bottom: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: keep-all;
 }
 .faithmovie li .date {
-	color: #A0A0A0;
-    font-size: 12px;
-    display: inline-block;
-    font-weight: 300;
-    letter-spacing: 0.2px;
+  color: #a0a0a0;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: 300;
+  letter-spacing: 0.2px;
 }
 
 /**********************************************************
 	OFFERING(헌금)
 ***********************************************************/
 .offering_wrap .section {
-	padding: 5px 15px 40px 15px;
+  padding: 5px 15px 40px 15px;
 }
 
 .offering_wrap .tab_area {
-	width: 100%;
-	border-bottom: 1px solid #eee;
-	text-align: center;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  text-align: center;
 }
 .offering_wrap .tab_area li {
-	display: inline-block;
-	line-height: 48px;
-	font-size: 14px;
-	font-weight: 400;
-	text-align: center;
-	padding: 0px 25px;
+  display: inline-block;
+  line-height: 48px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  padding: 0px 25px;
 }
 .offering_wrap .tab_area li.on {
-	color: #000;
-	font-weight: 500;
+  color: #000;
+  font-weight: 500;
 }
 
 .offering_wrap .namehowto {
-	padding: 11px 15px;
-	position: relative;
+  padding: 11px 15px;
+  position: relative;
 }
 
 .offering_wrap .arrowdown {
-    position: absolute;
-    right: 15px;
-    top: 0px;
+  position: absolute;
+  right: 15px;
+  top: 0px;
 }
 
 .offering_wrap .sender_example {
-	text-align: center;
-	margin:10px 0px;
+  text-align: center;
+  margin: 10px 0px;
 }
 .offering_wrap .sender_example p {
-	font-size:12px;
-	color:#A0A0A0;
-	text-align:left;
-	word-break: keep-all;
-	padding:12px 20px;
-	font-weight: 400;
+  font-size: 12px;
+  color: #a0a0a0;
+  text-align: left;
+  word-break: keep-all;
+  padding: 12px 20px;
+  font-weight: 400;
 }
 
 /* 국내 */
 .offering_wrap .bank_list li {
-	border-bottom:1px solid #EBEDEF;
-	padding:16px 0px;
+  border-bottom: 1px solid #ebedef;
+  padding: 16px 0px;
 }
 
 .offering_wrap .bank_list li > div {
-	position: relative;
+  position: relative;
 }
 .offering_wrap .bank_list li .bank {
-	color: #4AB853;
-	font-weight: 600;
-	font-size:12px;
+  color: #4ab853;
+  font-weight: 600;
+  font-size: 12px;
 }
 
 .offering_wrap .bank_list li .account {
-    font-weight: 400;
-    font-size: 16px;
+  font-weight: 400;
+  font-size: 16px;
 }
 .offering_wrap .bank_list li .name {
-	color:#A0A0A0;
-	font-size:12px;
-	font-weight:400;
+  color: #a0a0a0;
+  font-size: 12px;
+  font-weight: 400;
 }
 .offering_wrap .bank_list li .btn_copy {
-	display: inline-block;
-    position: absolute;
-    width: 83px;
-    height: 34px;
-    background: url(/icons/ico_copy.svg) no-repeat center center;
-    right: 0px;
-    top: 25%;
+  display: inline-block;
+  position: absolute;
+  width: 83px;
+  height: 34px;
+  background: url(/icons/ico_copy.svg) no-repeat center center;
+  right: 0px;
+  top: 25%;
 }
 
 .offering_wrap .bank_guide {
-	margin: 30px 0 20px 0;
-	padding: 15px;
-	font-size: 14px;
-	line-height: 24px;
-	background-color: #f3f3f3;
+  margin: 30px 0 20px 0;
+  padding: 15px;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #f3f3f3;
 }
 .offering_wrap .offering_guide li {
-	color: #444;
-	font-size: 14px;
-	line-height: 22px;
+  color: #444;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 /* 해외 */
 .offering_wrap .overseas_wrap .bank_list .info {
-	display: block;
-	margin: 0;
-	line-height: 22px;
+  display: block;
+  margin: 0;
+  line-height: 22px;
 }
-
 
 /**********************************************************
 	SETTING
 ***********************************************************/
 .setting_wrap .tab_area {
-	display: flex;
+  display: flex;
 }
 .setting_wrap .tab_area li {
-	width: 50%;
-	line-height: 48px;
-	font-size: 16px;
-	text-align: center;
-	border-bottom: 1px solid #eee;
+  width: 50%;
+  line-height: 48px;
+  font-size: 16px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
 }
 .setting_wrap .tab_area li.on {
-	border-bottom: 2px solid #EA7910;
+  border-bottom: 2px solid #ea7910;
 }
 .setting_wrap .title {
-	position: relative;
-	margin-bottom: 0;
+  position: relative;
+  margin-bottom: 0;
 }
 .setting_wrap .sub_txt {
-	color: #999;
-	font-size: 16px;
+  color: #999;
+  font-size: 16px;
 }
 
 .alarm_list li {
-	position: relative;
-	padding: 28px 15px 20px 53px;
-	font-size: 16px;
+  position: relative;
+  padding: 28px 15px 20px 53px;
+  font-size: 16px;
 }
 .alarm_list li .ico {
-	display: inline-block;
-	position: absolute;
-	top: 29px;
-	left: 15px;
-	width: 24px;
-	height: 24px;
-	background-color: #c4c4c4;
+  display: inline-block;
+  position: absolute;
+  top: 29px;
+  left: 15px;
+  width: 24px;
+  height: 24px;
+  background-color: #c4c4c4;
 }
 .alarm_list li.new .ico:after {
-	content: '';
-	display: inline-block;
-	position: absolute;
-	right: -8px;
-	top: -8px;
-	width: 5px;
-	height: 5px;
-	background-color: #ea7910;
-	border-radius: 50%;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  right: -8px;
+  top: -8px;
+  width: 5px;
+  height: 5px;
+  background-color: #ea7910;
+  border-radius: 50%;
 }
 .alarm_list li + li {
-	border-bottom: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
 }
 .alarm_list li .date {
-	color: #aaa;
-	font-size: 14px;
+  color: #aaa;
+  font-size: 14px;
 }
-
 
 .setting_wrap .option_list {
-	display: flex;
-	flex-wrap: wrap;
-	margin-top: 20px;
-	border-left: 1px solid #ebebeb;
-	border-top: 1px solid #ebebeb;
-	border-radius: 4px;
-	overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  border-left: 1px solid #ebebeb;
+  border-top: 1px solid #ebebeb;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .setting_wrap .option_list li {
-	width: 50%;
-	font-size: 16px;
-	line-height: 46px;
-	text-align: center;
-	border-right: 1px solid #ebebeb;
-	border-bottom: 1px solid #ebebeb;
+  width: 50%;
+  font-size: 16px;
+  line-height: 46px;
+  text-align: center;
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
 }
 .setting_wrap .option_list li.on {
-	color: #fff;
-	background-color: #EA7910;
-	border-color: #EA7910;
+  color: #fff;
+  background-color: #ea7910;
+  border-color: #ea7910;
 }
 .setting_wrap .option_list li.disabled {
-	color: #999;
-	background-color: #f9f9f9;
+  color: #999;
+  background-color: #f9f9f9;
 }
-
 
 /**********************************************************
 	SWITCH
 ***********************************************************/
 .switch {
-	position: absolute;
-	right: 0;
-	top: 9px;
-	width: 24px;
-	height: 12px;
-	background-color: #bbb;
-	border-radius: 12px;
+  position: absolute;
+  right: 0;
+  top: 9px;
+  width: 24px;
+  height: 12px;
+  background-color: #bbb;
+  border-radius: 12px;
 }
 .switch span {
-	display: inline-block;
-	position: absolute;
-	top: -3px;
-	left: -5px;
-	width: 18px;
-	height: 18px;
-	background: #fff;
-	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
-	border-radius: 50%;
-	transition: 0.4s;
+  display: inline-block;
+  position: absolute;
+  top: -3px;
+  left: -5px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  transition: 0.4s;
 }
 .switch.on {
-	background-color: #EA7910;
+  background-color: #ea7910;
 }
 .switch.on span {
-	left: 10px;
+  left: 10px;
 }
 
 /**********************************************************
@@ -2392,76 +2422,76 @@ hr {
 ***********************************************************/
 /* padding */
 .pt0 {
-	padding-top: 0 !important;
+  padding-top: 0 !important;
 }
 .pt10 {
-	padding-top: 10px !important;
+  padding-top: 10px !important;
 }
 .pt15 {
-	padding-top: 15px !important;
+  padding-top: 15px !important;
 }
 .pt30 {
-	padding-top: 30px !important;
+  padding-top: 30px !important;
 }
 
 .pr25 {
-	padding-right: 25px !important;
+  padding-right: 25px !important;
 }
 
 .pb30 {
-	padding-bottom: 30px !important;
+  padding-bottom: 30px !important;
 }
 
 /* align */
 .txt_center {
-	text-align: center !important;
+  text-align: center !important;
 }
 .txt_left {
-	text-align: left !important;
+  text-align: left !important;
 }
 .txt_right {
-	text-align: right !important;
+  text-align: right !important;
 }
 
 .loading_box {
-	min-height: 300px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .popup-content {
-	width: 100%;
-	height: 100%;
-	background:black;
+  width: 100%;
+  height: 100%;
+  background: black;
 }
 .popup-content .modal .close {
-	/* color: white; */
-	/* font-size: 28px; */
-	/* padding-left: 15px; */
+  /* color: white; */
+  /* font-size: 28px; */
+  /* padding-left: 15px; */
 }
 .popup-content .modal .header {
-	padding: 5px 10px 0px 10px;
-	color: white;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	/* font-size: 28px; */
-	/* padding-left: 15px; */
+  padding: 5px 10px 0px 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* font-size: 28px; */
+  /* padding-left: 15px; */
 }
 .popup-overlay {
-	z-index: 1000;
-	background:black;
-	position:absolute;
-	top:0px;
-	right:0px;
-	bottom:0px;
-	left:0px;
+  z-index: 1000;
+  background: black;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
 }
 .popup-content .iframe_wrap iframe {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 100% !important;
-	min-height: 700px !important;
-	/* height: 100% !important; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100% !important;
+  min-height: 700px !important;
+  /* height: 100% !important; */
 }
