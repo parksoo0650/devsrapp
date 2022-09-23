@@ -27,9 +27,9 @@ const BibleList = ({
     return (
       <div className={cn('ChapterList')}>
         {[...Array(book_cnt[bookIndex])].map((n, i) => (
-          <Link href={`/chapter/${currentBook}/${i + 1}`}>
+          <Link href={`/chapter/${currentBook}/${i + 1}`} key={i}>
             <a>
-              <li
+              <p
                 key={i}
                 className={
                   router.query.id == bookIndex && currentChapter == i + 1
@@ -42,7 +42,7 @@ const BibleList = ({
                 }}
               >
                 <span>{i + 1}</span>
-              </li>
+              </p>
             </a>
           </Link>
         ))}

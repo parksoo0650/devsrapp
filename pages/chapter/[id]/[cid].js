@@ -20,6 +20,12 @@ const Post = ({ items, bid, cid }) => {
   const [currentChapter, setCurrentChapter] = useState(cid);
   const [currentBook, setCurrentBook] = useState(bid);
   const [category, setCategory] = useState('전체');
+
+  useEffect(() => {
+    localStorage.setItem('bible', bid);
+    localStorage.setItem('chapter', cid);
+  }, [router]);
+
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -27,11 +33,6 @@ const Post = ({ items, bid, cid }) => {
   if (router.isFallback) {
     return <Loading />;
   }
-
-  useEffect(() => {
-    localStorage.setItem('bible', bid);
-    localStorage.setItem('chapter', cid);
-  }, [router]);
 
   console.log(
     `${category} / ${currentBook}번째 성경의 ${currentChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
