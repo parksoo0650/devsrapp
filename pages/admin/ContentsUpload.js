@@ -13,8 +13,10 @@ const ContentsUpload = () => {
   const [uploadContents, { loading, data }] = useMutation("/api/contents");
   const date = new Date();
   const year = date.getFullYear();
-  const month = date.getMonth() + 1;
-  const day = date.getDate();
+  let month = date.getMonth() + 1;
+  month = month >= 10 ? month : '0' + month;
+  let day = date.getDate();
+  day = day >= 10 ? day : '0' + day;
 
   const strPraiseSubKind = {
     p11: "주일예배찬양",
