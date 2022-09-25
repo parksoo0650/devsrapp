@@ -18,7 +18,11 @@ const ContentsUpload = () => {
   let day = date.getDate();
   day = day >= 10 ? day : "0" + day;
 
-  const contentKind = ["oncontents", "praise", "sermon"];
+  const contentKind = ["oncontents", "praise", "sermon", "shorts"];
+
+  const strShortsSubKind = {
+    min: "1분은혜",
+  };
 
   const strPraiseSubKind = {
     p11: "주일예배찬양",
@@ -347,7 +351,6 @@ const ContentsUpload = () => {
                 금요기도회
               </label>
             </div>
-
           </div>
         )}
 
@@ -436,14 +439,29 @@ const ContentsUpload = () => {
           </div>
         )}
 
-        { !contentKind.includes(router.query.kind) && (
-          <Input
-            register={register("subKind")}
-            required
-            label="SubKind"
-            name="subKind"
-            type="text"
-          />
+        {router.query.kind == "shorts" && (
+          <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="min"
+                id="min"
+                required
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) =>
+                  setValue("description", strShortsSubKind[e.target.value])
+                }
+              />
+              <label
+                htmlFor="min"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                1분은혜
+              </label>
+            </div>
+          </div>
         )}
 
         <Input
