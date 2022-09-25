@@ -39,7 +39,7 @@ const Admin = () => {
                             <div className="flex space-x-4">
                                 <div className="pt-2 flex flex-col">
                                     <h3 className="text-sm font-medium text-gray-900">
-                                        메인 온콘텐츠 관리자
+                                        메인 온콘텐츠 관리자 (주중콘텐츠)
                                     </h3>
                                 </div>
                             </div>

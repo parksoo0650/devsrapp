@@ -37,6 +37,10 @@ const ContentsUpload = () => {
     onm: "온라인특별 새벽기도회",
     onb: "온성경",
     ont: "온3분",
+    tue: "환언특강",
+    wed1: "수요예배",
+    wed2: "수요저녁예배 및 기도회",
+    fri: "금요기도회",
   };
 
   const onValid = async ({
@@ -221,7 +225,7 @@ const ContentsUpload = () => {
                 value="onb"
                 id="onb"
                 required
-                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 onChange={(e) => {
                   setValue("name", "");
                   setValue("description", strOncontentsSubKind[e.target.value]);
@@ -242,7 +246,7 @@ const ContentsUpload = () => {
                 value="ont"
                 id="ont"
                 required
-                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 onChange={(e) => {
                   setValue("name", "");
                   setValue("description", strOncontentsSubKind[e.target.value]);
@@ -255,6 +259,95 @@ const ContentsUpload = () => {
                 온3분
               </label>
             </div>
+
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="tue"
+                id="tue"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", strOncontentsSubKind[e.target.value]);
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="tue"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                환언특강
+              </label>
+            </div>
+
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="wed1"
+                id="wed1"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", strOncontentsSubKind[e.target.value]);
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="wed1"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                수요예배
+              </label>
+            </div>
+
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="wed2"
+                id="wed2"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", strOncontentsSubKind[e.target.value]);
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="wed2"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                수요저녁예배 및 기도회
+              </label>
+            </div>
+
+            <div className="flex items-center py-2">
+              <input
+                {...register("subKind")}
+                type="radio"
+                name="subKind"
+                value="fri"
+                id="fri"
+                required
+                className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                onChange={(e) => {
+                  setValue("name", strOncontentsSubKind[e.target.value]);
+                  setValue("description", strOncontentsSubKind[e.target.value]);
+                }}
+              />
+              <label
+                htmlFor="fri"
+                className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                금요기도회
+              </label>
+            </div>
+
           </div>
         )}
 

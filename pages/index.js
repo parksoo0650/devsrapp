@@ -33,6 +33,7 @@ const Home = () => {
     title: "",
     thumbnails: "",
     publishedAt: "",
+    subKind: "",
   });
   const opts = {
     width: "320px",
@@ -52,17 +53,23 @@ const Home = () => {
   let onmCnt = 0;
   let onbCnt = 0;
   let ontCnt = 0;
+  let tueCnt = 0;
+  let wed1Cnt = 0;
+  let wed2Cnt = 0;
+  let friCnt = 0;
 
   const getLiveData = async () => {
     const videoTitle = "";
     const videoDateStr = "";
     const thumbnails = "";
     const videoIdStr = "";
+    const subKind = "";
 
     videoTitle = dataSermon?.contents[0]?.name;
     videoDateStr = dataSermon?.contents[0]?.publishedAt;
     videoIdStr = dataSermon?.contents[0]?.videoId;
     thumbnails = dataSermon?.contents[0]?.image;
+    subKind = dataSermon?.contents[0]?.subKind;
 
     if (date.getDay() == 0 && hours > 6 && hours < 13) {
       setIsLive(true);
@@ -73,6 +80,7 @@ const Home = () => {
       title: videoTitle,
       thumbnails: thumbnails,
       publishedAt: videoDateStr,
+      subKind: subKind,
     });
 
     setIsLoading(false);
@@ -117,7 +125,7 @@ const Home = () => {
               <div
                 onClick={() => {
                   router.push(
-                    `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`,
+                    `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}&kind=${liveDatas.subKind}`,
                     "/sermondetail"
                   );
                 }}
@@ -272,6 +280,106 @@ const Home = () => {
                           <img
                             style={{ width: "100%" }}
                             src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
+                    );
+                  }
+                  if (doc.subKind === "tue" && tueCnt == 0) {
+                    tueCnt = tueCnt + 1;
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/returnDetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/returnDetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`/images/tue.jpeg`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
+                    );
+                  }
+                  if (doc.subKind === "fri" && friCnt == 0) {
+                    friCnt = friCnt + 1;
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/prayerDetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=${doc.subKind}`,
+                            "/prayerDetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`/images/fri.jpeg`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
+                    );
+                  }
+                  if (doc.subKind === "wed1" && wed1Cnt == 0) {
+                    wed1Cnt = wed1Cnt + 1;
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/sermondetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=wed`,
+                            "/sermondetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`/images/wed1.jpeg`}
+                          />
+                        </div>
+                        <div className="info">
+                          <div className="tit">{doc.name}</div>
+                          <div className="date">{doc.publishedAt}</div>
+                        </div>
+                      </li>
+                    );
+                  }
+                  if (doc.subKind === "wed2" && wed2Cnt == 0) {
+                    wed2Cnt = wed2Cnt + 1;
+                    return (
+                      <li
+                        key={doc.id}
+                        onClick={() => {
+                          router.push(
+                            `/prayerDetail?vid=${doc.videoId}&vtit=${doc.name}&vdate=${doc.publishedAt}&kind=wed`,
+                            "/prayerDetail"
+                          );
+                        }}
+                      >
+                        <div className="movie">
+                          <img
+                            style={{ width: "100%" }}
+                            src={`/images/wed2.jpeg`}
                           />
                         </div>
                         <div className="info">
