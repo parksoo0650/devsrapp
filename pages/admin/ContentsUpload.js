@@ -136,9 +136,9 @@ const ContentsUpload = () => {
           <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="def"
                 id="def"
                 required
@@ -156,9 +156,9 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="sun"
                 id="sun"
                 required
@@ -176,9 +176,9 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="live"
                 id="live"
                 required
@@ -202,9 +202,9 @@ const ContentsUpload = () => {
           <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="onm"
                 id="onm"
                 required
@@ -212,6 +212,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", strOncontentsSubKind[e.target.value]);
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "onm");
                 }}
               />
               <label
@@ -223,9 +224,9 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="onb"
                 id="onb"
                 required
@@ -233,6 +234,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", "");
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "onb");
                 }}
               />
               <label
@@ -244,9 +246,9 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="ont"
                 id="ont"
                 required
@@ -254,6 +256,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", "");
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "ont");
                 }}
               />
               <label
@@ -266,9 +269,9 @@ const ContentsUpload = () => {
 
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="tue"
                 id="tue"
                 required
@@ -276,6 +279,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", strOncontentsSubKind[e.target.value]);
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "tue");
                 }}
               />
               <label
@@ -288,9 +292,9 @@ const ContentsUpload = () => {
 
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="wed1"
                 id="wed1"
                 required
@@ -298,6 +302,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", strOncontentsSubKind[e.target.value]);
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "wed1");
                 }}
               />
               <label
@@ -310,9 +315,9 @@ const ContentsUpload = () => {
 
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="wed2"
                 id="wed2"
                 required
@@ -320,6 +325,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", strOncontentsSubKind[e.target.value]);
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "wed2");
                 }}
               />
               <label
@@ -332,9 +338,9 @@ const ContentsUpload = () => {
 
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="fri"
                 id="fri"
                 required
@@ -342,6 +348,7 @@ const ContentsUpload = () => {
                 onChange={(e) => {
                   setValue("name", strOncontentsSubKind[e.target.value]);
                   setValue("description", strOncontentsSubKind[e.target.value]);
+                  setValue("subKind", "fri");
                 }}
               />
               <label
@@ -358,16 +365,17 @@ const ContentsUpload = () => {
           <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="p11"
                 id="p11"
                 required
                 className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={(e) =>
-                  setValue("description", strPraiseSubKind[e.target.value])
-                }
+                onChange={(e) => {
+                  setValue("description", strPraiseSubKind[e.target.value]);
+                  setValue("subKind", "p11");
+                }}
               />
               <label
                 htmlFor="p11"
@@ -378,16 +386,17 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="p15"
                 id="p15"
                 required
                 className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={(e) =>
-                  setValue("description", strPraiseSubKind[e.target.value])
-                }
+                onChange={(e) => {
+                  setValue("description", strPraiseSubKind[e.target.value]);
+                  setValue("subKind", "p15");
+                }}
               />
               <label
                 htmlFor="p15"
@@ -398,16 +407,17 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="prc"
                 id="prc"
                 required
                 className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={(e) =>
-                  setValue("description", strPraiseSubKind[e.target.value])
-                }
+                onChange={(e) => {
+                  setValue("description", strPraiseSubKind[e.target.value]);
+                  setValue("subKind", "prc");
+                }}
               />
               <label
                 htmlFor="prc"
@@ -418,16 +428,17 @@ const ContentsUpload = () => {
             </div>
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="pro"
                 id="pro"
                 required
                 className="w-4 h-4 text-red-600 bg-gray-100 border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={(e) =>
-                  setValue("description", strPraiseSubKind[e.target.value])
-                }
+                onChange={(e) => {
+                  setValue("description", strPraiseSubKind[e.target.value]);
+                  setValue("subKind", "pro");
+                }}
               />
               <label
                 htmlFor="pro"
@@ -443,16 +454,17 @@ const ContentsUpload = () => {
           <div className="flex flex-col items-start justify-center py-4 text-base border-b border-t">
             <div className="flex items-center py-2">
               <input
-                {...register("subKind")}
+                {...register("subKindChk")}
                 type="radio"
-                name="subKind"
+                name="subKindChk"
                 value="min"
                 id="min"
                 required
                 className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                onChange={(e) =>
-                  setValue("description", strShortsSubKind[e.target.value])
-                }
+                onChange={(e) => {
+                  setValue("description", strShortsSubKind[e.target.value]);
+                  setValue("subKind", "min");
+                }}
               />
               <label
                 htmlFor="min"
@@ -506,6 +518,15 @@ const ContentsUpload = () => {
           required
           name="kind"
           type="hidden"
+        />
+
+        <Input
+          register={register("subKind", {
+            required: true,
+          })}
+          required
+          name="subKind"
+          type="text"
         />
 
         <Button text={loading ? "Loading..." : "Upload item"} />
