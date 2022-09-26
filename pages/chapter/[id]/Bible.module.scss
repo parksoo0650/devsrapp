@@ -190,3 +190,41 @@
     }
   }
 }
+
+.Swiper {
+  .SlideLeft {
+    display: flex;
+    justify-content: center;
+
+    div {
+      width: 26px;
+      height: 30px;
+      background: #eeeeef;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+
+  .SlideRight {
+    display: flex;
+    justify-content: center;
+
+    div {
+      width: 26px;
+      height: 30px;
+      background: #eeeeef;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}

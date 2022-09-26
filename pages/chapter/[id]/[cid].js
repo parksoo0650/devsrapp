@@ -4,12 +4,13 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Loading from '../../../src/components/Loading';
 import HomeBar from '../../../src/components/HomeBar';
-
 import styles from './Bible.module.scss';
 import classNames from 'classnames/bind';
 import BibleList from '../../../src/components/Bible/BibleList/BibleList';
 import BibleTabs from '../../../src/components/Bible/BibleTabs/BibleTabs';
 import BibleHeader from '../../../src/components/Bible/BibleHeader/BibleHeader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const cn = classNames.bind(styles);
 
@@ -96,13 +97,46 @@ const Post = ({ items, bid, cid }) => {
         {/* end of Modal(Sheet) */}
 
         <div className='section bible_con'>
-          <ul className='verse_list'>
-            {items.map((item, i) => (
-              <li key={i}>
-                <strong>{item.verse}.</strong> {item.content}
-              </li>
-            ))}
-          </ul>
+          {/* 성경 본문 표시 */}
+          <Swiper
+            className={cn('Swiper')}
+            slidesPerView='auto'
+            initialSlide={2}
+          >
+            <SwiperSlide
+              className={cn('SlideLeft')}
+              // style={{
+              //   position: 'fixed',
+              //   top: '37vh',
+              //   left: '-45px',
+              // }}
+            >
+              <div>{parseInt(cid) - 1}</div>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <ul className='verse_list'>
+                {items.map((item, i) => (
+                  <li key={i}>
+                    <strong>{item.verse}.</strong> {item.content}
+                  </li>
+                ))}
+              </ul>
+            </SwiperSlide>
+
+            <SwiperSlide
+              className={cn('SlideRight')}
+              // style={{
+              //   position: 'absolute',
+              //   top: '37vh',
+              //   right: '-45px',
+              // }}
+            >
+              <div>{parseInt(cid) + 1}</div>
+            </SwiperSlide>
+          </Swiper>
+
+          {/* 이전 장, 다음 장 버튼 */}
           {cid > 1 && (
             <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
               <a>
@@ -123,6 +157,7 @@ const Post = ({ items, bid, cid }) => {
               />
             </a>
           </Link>
+          {/* end of floating buttons */}
         </div>
       </div>
 
