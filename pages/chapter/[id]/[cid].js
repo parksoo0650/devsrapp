@@ -21,11 +21,18 @@ const Post = ({ items, bid, cid }) => {
   const [currentChapter, setCurrentChapter] = useState(cid);
   const [currentBook, setCurrentBook] = useState(bid);
   const [category, setCategory] = useState('전체');
+  const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('bible', bid);
     localStorage.setItem('chapter', cid);
   }, [router]);
+
+  useEffect(() => {
+    if (swiper) {
+      swiper.snapGrid = [...swiper.slidesGrid];
+    }
+  });
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -100,9 +107,20 @@ const Post = ({ items, bid, cid }) => {
           {/* 성경 본문 표시 */}
           <Swiper
             className={cn('Swiper')}
-            // slidesPerView={1}
             slidesPerView='auto'
             initialSlide={2}
+            onSlideChange={() => {
+              /**
+               * 왼쪽 슬라이드 인덱스는 0, 오른쪽 슬라이드 인덱스는 2
+               * 좌우로 어느쪽으로 당기든지, 다시 가운데(인덱스 1)로 돌아옴
+               */
+              swiper?.activeIndex == 0
+                ? router.push(`/chapter/${bid}/${parseInt(cid) - 1}`)
+                : swiper?.activeIndex == 2
+                ? router.push(`/chapter/${bid}/${parseInt(cid) + 1}`)
+                : null;
+              swiper.slideTo(1);
+            }}
           >
             <SwiperSlide className={cn('SlideLeft')}>
               <div>{parseInt(cid) - 1}</div>
