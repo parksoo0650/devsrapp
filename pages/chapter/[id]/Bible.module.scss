@@ -210,6 +210,12 @@
     }
   }
 
+  .VerseList {
+    max-height: calc(100vh - 160px);
+    overflow-y: scroll;
+    padding: 0 0 80px;
+  }
+
   .SlideRight {
     display: flex;
     justify-content: center;

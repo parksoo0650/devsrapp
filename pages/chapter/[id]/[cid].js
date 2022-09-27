@@ -100,22 +100,16 @@ const Post = ({ items, bid, cid }) => {
           {/* 성경 본문 표시 */}
           <Swiper
             className={cn('Swiper')}
-            slidesPerView='auto'
+            slidesPerView={1}
             initialSlide={2}
+            //
           >
-            <SwiperSlide
-              className={cn('SlideLeft')}
-              // style={{
-              //   position: 'fixed',
-              //   top: '37vh',
-              //   left: '-45px',
-              // }}
-            >
+            <SwiperSlide className={cn('SlideLeft')}>
               <div>{parseInt(cid) - 1}</div>
             </SwiperSlide>
 
             <SwiperSlide>
-              <ul className='verse_list'>
+              <ul className={cn('verse_list', 'VerseList')}>
                 {items.map((item, i) => (
                   <li key={i}>
                     <strong>{item.verse}.</strong> {item.content}
@@ -124,14 +118,7 @@ const Post = ({ items, bid, cid }) => {
               </ul>
             </SwiperSlide>
 
-            <SwiperSlide
-              className={cn('SlideRight')}
-              // style={{
-              //   position: 'absolute',
-              //   top: '37vh',
-              //   right: '-45px',
-              // }}
-            >
+            <SwiperSlide className={cn('SlideRight')}>
               <div>{parseInt(cid) + 1}</div>
             </SwiperSlide>
           </Swiper>
