@@ -100,9 +100,9 @@ const Post = ({ items, bid, cid }) => {
           {/* 성경 본문 표시 */}
           <Swiper
             className={cn('Swiper')}
-            slidesPerView={1}
+            // slidesPerView={1}
+            slidesPerView='auto'
             initialSlide={2}
-            //
           >
             <SwiperSlide className={cn('SlideLeft')}>
               <div>{parseInt(cid) - 1}</div>
