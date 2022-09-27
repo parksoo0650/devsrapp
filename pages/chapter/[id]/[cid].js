@@ -119,7 +119,7 @@ const Post = ({ items, bid, cid }) => {
                 : swiper?.activeIndex == 2
                 ? router.push(`/chapter/${bid}/${parseInt(cid) + 1}`)
                 : null;
-              swiper.slideTo(1);
+              swiper?.slideTo(1);
             }}
           >
             <SwiperSlide className={cn('SlideLeft')}>
