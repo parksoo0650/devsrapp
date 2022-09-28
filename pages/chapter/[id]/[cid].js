@@ -29,10 +29,8 @@ const Post = ({ items, bid, cid }) => {
   }, [router]);
 
   useEffect(() => {
-    if (swiper) {
-      swiper.snapGrid = [...swiper.slidesGrid];
-    }
-  });
+      swiper?.snapGrid = [...swiper?.slidesGrid];
+  }, [swiper]);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -108,12 +106,15 @@ const Post = ({ items, bid, cid }) => {
           <Swiper
             className={cn('Swiper')}
             slidesPerView='auto'
-            initialSlide={2}
+            initialSlide={1}
+            onSwiper={setSwiper}
             onSlideChange={() => {
               /**
                * 왼쪽 슬라이드 인덱스는 0, 오른쪽 슬라이드 인덱스는 2
                * 좌우로 어느쪽으로 당기든지, 다시 가운데(인덱스 1)로 돌아옴
                */
+              console.log(`slide to ${swiper?.activeIndex}`);
+
               swiper?.activeIndex == 0
                 ? router.push(`/chapter/${bid}/${parseInt(cid) - 1}`)
                 : swiper?.activeIndex == 2
