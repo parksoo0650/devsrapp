@@ -29,6 +29,7 @@ const Post = ({ items, bid, cid }) => {
   }, [router]);
 
   useEffect(() => {
+    // 마지막 슬라이드 인덱스 비활성화 방지
     if (swiper) swiper.snapGrid = swiper.slidesGrid.slice(0);
   }, [swiper]);
 
@@ -41,7 +42,11 @@ const Post = ({ items, bid, cid }) => {
   }
 
   console.log(
-    `${category} / ${currentBook}번째 성경의 ${currentChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
+    `모달창 열림(${isOpen}), ${category}, ${currentBook}번째 성경의 ${currentChapter}번째 장 선택`
+  );
+
+  console.log(
+    `snapGrid: ${swiper?.snapGrid} / slidesGrid: ${swiper?.slidesGrid}`
   );
 
   return (
@@ -109,6 +114,8 @@ const Post = ({ items, bid, cid }) => {
             initialSlide={1}
             onSwiper={setSwiper}
             onSlideChange={() => {
+              // 마지막 슬라이드 인덱스 비활성화 방지
+              if (swiper?.snapGrid) swiper?.snapGrid = [...swiper?.slidesGrid];
               console.log(`slide to ${swiper?.activeIndex}`);
 
               /**
