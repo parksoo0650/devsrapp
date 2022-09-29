@@ -33,6 +33,53 @@ const Post = ({ items, bid, cid }) => {
     if (swiper) swiper.snapGrid = swiper.slidesGrid.slice(0);
   }, [swiper]);
 
+  // 각 성경의 마지막 페이지 수, lastPage[bid] 로 접근.
+  const lastPage = [
+    0, 50, 40, 27, 36, 34, 24, 21, 4, 31, 24, 22, 25, 29, 36, 10, 13, 10, 42,
+    150, 31, 12, 8, 66, 52, 5, 48, 12, 14, 3, 9, 1, 4, 7, 3, 3, 3, 2, 14, 4, 28,
+    16, 24, 21, 28, 16, 16, 13, 6, 6, 4, 4, 5, 3, 6, 4, 3, 1, 13, 5, 5, 3, 5, 1,
+    1, 1, 22,
+  ];
+
+  const bookId = parseInt(bid);
+  const chapterId = parseInt(cid);
+
+  const movePrevChapter = () => {
+    if (chapterId == 1) {
+      if (bookId == 1) return;
+      router.push(`/chapter/${bookId - 1}/${lastPage[bookId - 1]}`);
+    } else {
+      router.push(`/chapter/${bookId}/${chapterId - 1}`);
+    }
+  };
+
+  const moveNextChapter = () => {
+    if (chapterId == lastPage[bookId]) {
+      if (bookId == 66) return;
+      router.push(`/chapter/${bookId + 1}/1`);
+    } else {
+      router.push(`/chapter/${bookId}/${chapterId + 1}`);
+    }
+  };
+
+  const getPrevChapter = () => {
+    if (chapterId == 1) {
+      if (bookId == 1) return 0;
+      else return lastPage[bookId - 1];
+    } else {
+      return chapterId - 1;
+    }
+  };
+
+  const getNextChapter = () => {
+    if (chapterId == lastPage[bookId]) {
+      if (bookId == 66) return 0;
+      else return 1;
+    } else {
+      return chapterId + 1;
+    }
+  };
+
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -40,10 +87,6 @@ const Post = ({ items, bid, cid }) => {
   if (router.isFallback) {
     return <Loading />;
   }
-
-  console.log(
-    `모달창 열림(${isOpen}), ${category}, ${currentBook}번째 성경의 ${currentChapter}번째 장 선택`
-  );
 
   console.log(
     `snapGrid: ${swiper?.snapGrid} / slidesGrid: ${swiper?.slidesGrid}`
@@ -115,24 +158,23 @@ const Post = ({ items, bid, cid }) => {
             onSwiper={setSwiper}
             onSlideChange={() => {
               // 마지막 슬라이드 인덱스 비활성화 방지
-              if (swiper?.snapGrid) swiper?.snapGrid = [...swiper?.slidesGrid];
+              if (swiper?.snapGrid) swiper.snapGrid = [...swiper.slidesGrid];
               console.log(`slide to ${swiper?.activeIndex}`);
 
               /**
                * 왼쪽 슬라이드 인덱스는 0, 오른쪽 슬라이드 인덱스는 2
                * 좌우로 어느쪽으로 당기든지, 다시 가운데(인덱스 1)로 돌아옴
                */
-
               swiper?.activeIndex == 0
-                ? router.push(`/chapter/${bid}/${parseInt(cid) - 1}`)
+                ? movePrevChapter()
                 : swiper?.activeIndex == 2
-                ? router.push(`/chapter/${bid}/${parseInt(cid) + 1}`)
+                ? moveNextChapter()
                 : null;
               swiper?.slideTo(1);
             }}
           >
             <SwiperSlide className={cn('SlideLeft')}>
-              <div>{parseInt(cid) - 1}</div>
+              {bid == 1 && cid == 1 ? null : <div>{getPrevChapter()}</div>}
             </SwiperSlide>
 
             <SwiperSlide>
@@ -146,7 +188,7 @@ const Post = ({ items, bid, cid }) => {
             </SwiperSlide>
 
             <SwiperSlide className={cn('SlideRight')}>
-              <div>{parseInt(cid) + 1}</div>
+              {bid == 66 && cid == 22 ? null : <div>{getNextChapter()}</div>}
             </SwiperSlide>
           </Swiper>
 
