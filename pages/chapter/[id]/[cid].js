@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Loading from '../../../src/components/Loading';
 import HomeBar from '../../../src/components/HomeBar';
 import styles from './Bible.module.scss';
@@ -193,26 +193,22 @@ const Post = ({ items, bid, cid }) => {
           </Swiper>
 
           {/* 이전 장, 다음 장 버튼 */}
-          {cid > 1 && (
-            <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
-              <a>
-                <img
-                  className='btn_left'
-                  src='/icons/ico_left.svg'
-                  alt='이전'
-                />
-              </a>
-            </Link>
+          {bid == 1 && cid == 1 ? null : (
+            <img
+              className='btn_left'
+              src='/icons/ico_left.svg'
+              alt='이전'
+              onClick={() => movePrevChapter()}
+            />
           )}
-          <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
-            <a>
-              <img
-                className='btn_right'
-                src='/icons/ico_right.svg'
-                alt='다음'
-              />
-            </a>
-          </Link>
+          {bid == 66 && cid == 22 ? null : (
+            <img
+              className='btn_right'
+              src='/icons/ico_right.svg'
+              alt='다음'
+              onClick={() => moveNextChapter()}
+            />
+          )}
           {/* end of floating buttons */}
         </div>
       </div>
