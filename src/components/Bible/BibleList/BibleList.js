@@ -10,12 +10,13 @@ const DEFAULT_INCREASE = 1;
 const NEW_TESTAMENT_INCREASE = 40;
 
 const BibleList = ({
-  currentBook, // 성경의 권(Bible) 수: 창세기는 1, 출애굽기는 2...
+  currentBook, // [주의] bid와 일치하지 않음.
   setCurrentBook,
   category, // 전체, 구약, 신약, 장
-  currentChapter, // 선택한 장(Chapter) 수
   setCurrentChapter,
   setIsOpen, // 모달창을 열면 true, 닫으면 false
+  bid,
+  cid,
 }) => {
   const [openedDropdownIndex, setOpenedDropdownIndex] = useState(null);
   const router = useRouter();
@@ -32,9 +33,7 @@ const BibleList = ({
               <p
                 key={i}
                 className={
-                  router.query.id == bookIndex && currentChapter == i + 1
-                    ? cn('on')
-                    : ''
+                  router.query.id == bookIndex && cid == i + 1 ? cn('on') : ''
                 }
                 onClick={() => {
                   setCurrentChapter(i + 1);

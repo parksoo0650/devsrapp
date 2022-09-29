@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+// import Link from 'next/link';
 import Loading from '../../../src/components/Loading';
 import HomeBar from '../../../src/components/HomeBar';
-
 import styles from './Bible.module.scss';
 import classNames from 'classnames/bind';
 import BibleList from '../../../src/components/Bible/BibleList/BibleList';
 import BibleTabs from '../../../src/components/Bible/BibleTabs/BibleTabs';
 import BibleHeader from '../../../src/components/Bible/BibleHeader/BibleHeader';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const cn = classNames.bind(styles);
 
@@ -20,11 +21,64 @@ const Post = ({ items, bid, cid }) => {
   const [currentChapter, setCurrentChapter] = useState(cid);
   const [currentBook, setCurrentBook] = useState(bid);
   const [category, setCategory] = useState('전체');
+  const [swiper, setSwiper] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('bible', bid);
     localStorage.setItem('chapter', cid);
   }, [router]);
+
+  useEffect(() => {
+    // 마지막 슬라이드 인덱스 비활성화 방지
+    if (swiper) swiper.snapGrid = swiper.slidesGrid.slice(0);
+  }, [swiper]);
+
+  // 각 성경의 마지막 페이지 수, lastPage[bid] 로 접근.
+  const lastPage = [
+    0, 50, 40, 27, 36, 34, 24, 21, 4, 31, 24, 22, 25, 29, 36, 10, 13, 10, 42,
+    150, 31, 12, 8, 66, 52, 5, 48, 12, 14, 3, 9, 1, 4, 7, 3, 3, 3, 2, 14, 4, 28,
+    16, 24, 21, 28, 16, 16, 13, 6, 6, 4, 4, 5, 3, 6, 4, 3, 1, 13, 5, 5, 3, 5, 1,
+    1, 1, 22,
+  ];
+
+  const bookId = parseInt(bid);
+  const chapterId = parseInt(cid);
+
+  const movePrevChapter = () => {
+    if (chapterId == 1) {
+      if (bookId == 1) return;
+      router.push(`/chapter/${bookId - 1}/${lastPage[bookId - 1]}`);
+    } else {
+      router.push(`/chapter/${bookId}/${chapterId - 1}`);
+    }
+  };
+
+  const moveNextChapter = () => {
+    if (chapterId == lastPage[bookId]) {
+      if (bookId == 66) return;
+      router.push(`/chapter/${bookId + 1}/1`);
+    } else {
+      router.push(`/chapter/${bookId}/${chapterId + 1}`);
+    }
+  };
+
+  const getPrevChapter = () => {
+    if (chapterId == 1) {
+      if (bookId == 1) return 0;
+      else return lastPage[bookId - 1];
+    } else {
+      return chapterId - 1;
+    }
+  };
+
+  const getNextChapter = () => {
+    if (chapterId == lastPage[bookId]) {
+      if (bookId == 66) return 0;
+      else return 1;
+    } else {
+      return chapterId + 1;
+    }
+  };
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -35,7 +89,11 @@ const Post = ({ items, bid, cid }) => {
   }
 
   console.log(
-    `${category} / ${currentBook}번째 성경의 ${currentChapter}번째 장 / 모달창 열림(${isOpen}), isActive(${isActive})`
+    `snapGrid: ${swiper?.snapGrid} / slidesGrid: ${swiper?.slidesGrid}`
+  );
+
+  console.log(
+    `Modal(${isOpen}), Category(${category}), Current(${currentBook} : ${currentChapter}), ID(${bid} : ${cid})`
   );
 
   return (
@@ -84,9 +142,9 @@ const Post = ({ items, bid, cid }) => {
                   setCurrentBook={setCurrentBook}
                   category={category}
                   setCategory={setCategory}
-                  currentChapter={currentChapter}
                   setCurrentChapter={setCurrentChapter}
                   setIsOpen={setIsOpen}
+                  cid={cid}
                 />
               </div>
             </Sheet.Content>
@@ -96,33 +154,66 @@ const Post = ({ items, bid, cid }) => {
         {/* end of Modal(Sheet) */}
 
         <div className='section bible_con'>
-          <ul className='verse_list'>
-            {items.map((item, i) => (
-              <li key={i}>
-                <strong>{item.verse}.</strong> {item.content}
-              </li>
-            ))}
-          </ul>
-          {cid > 1 && (
-            <Link href={`/chapter/${bid}/${parseInt(cid) - 1}`}>
-              <a>
-                <img
-                  className='btn_left'
-                  src='/icons/ico_left.svg'
-                  alt='이전'
-                />
-              </a>
-            </Link>
+          {/* 성경 본문 표시 */}
+          <Swiper
+            className={cn('Swiper')}
+            slidesPerView='auto'
+            initialSlide={1}
+            onSwiper={setSwiper}
+            onSlideChange={() => {
+              // 마지막 슬라이드 인덱스 비활성화 방지
+              if (swiper?.snapGrid) swiper.snapGrid = [...swiper.slidesGrid];
+              console.log(`slide to ${swiper?.activeIndex}`);
+
+              /**
+               * 왼쪽 슬라이드 인덱스는 0, 오른쪽 슬라이드 인덱스는 2
+               * 좌우로 어느쪽으로 당기든지, 다시 가운데(인덱스 1)로 돌아옴
+               */
+              swiper?.activeIndex == 0
+                ? movePrevChapter()
+                : swiper?.activeIndex == 2
+                ? moveNextChapter()
+                : null;
+              swiper?.slideTo(1);
+            }}
+          >
+            <SwiperSlide className={cn('SlideLeft')}>
+              {bid == 1 && cid == 1 ? null : <div>{getPrevChapter()}</div>}
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <ul className={cn('verse_list', 'VerseList')}>
+                {items.map((item, i) => (
+                  <li key={i}>
+                    <strong>{item.verse}.</strong> {item.content}
+                  </li>
+                ))}
+              </ul>
+            </SwiperSlide>
+
+            <SwiperSlide className={cn('SlideRight')}>
+              {bid == 66 && cid == 22 ? null : <div>{getNextChapter()}</div>}
+            </SwiperSlide>
+          </Swiper>
+
+          {/* 이전 장, 다음 장 버튼 */}
+          {bid == 1 && cid == 1 ? null : (
+            <img
+              className='btn_left'
+              src='/icons/ico_left.svg'
+              alt='이전'
+              onClick={() => movePrevChapter()}
+            />
           )}
-          <Link href={`/chapter/${bid}/${parseInt(cid) + 1}`}>
-            <a>
-              <img
-                className='btn_right'
-                src='/icons/ico_right.svg'
-                alt='다음'
-              />
-            </a>
-          </Link>
+          {bid == 66 && cid == 22 ? null : (
+            <img
+              className='btn_right'
+              src='/icons/ico_right.svg'
+              alt='다음'
+              onClick={() => moveNextChapter()}
+            />
+          )}
+          {/* end of floating buttons */}
         </div>
       </div>
 

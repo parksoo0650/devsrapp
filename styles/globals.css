@@ -1669,7 +1669,7 @@ hr {
 
 .bible_con {
   position: relative;
-  padding: 70px 15px 80px;
+  padding: 70px 15px 0px;
   /* border-top: 1px solid #ebebeb; */
 }
 .bible_con .btn_left {

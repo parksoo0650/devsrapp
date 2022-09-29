@@ -190,3 +190,55 @@
     }
   }
 }
+
+.Swiper {
+  .SlideLeft {
+    display: flex;
+    justify-content: center;
+    width: 41px !important;
+
+    div {
+      width: 26px;
+      height: 30px;
+      background: #eeeeef;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      margin-right: 15px;
+      position: absolute;
+      top: calc((100vh - 240px) / 2);
+    }
+  }
+
+  .VerseList {
+    max-height: calc(100vh - 160px);
+    overflow-y: scroll;
+    padding: 0 0 80px;
+  }
+
+  .SlideRight {
+    display: flex;
+    justify-content: center;
+    width: 41px !important;
+
+    div {
+      width: 26px;
+      height: 30px;
+      background: #eeeeef;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+      margin-left: 15px;
+      position: absolute;
+      top: calc((100vh - 240px) / 2);
+    }
+  }
+}
