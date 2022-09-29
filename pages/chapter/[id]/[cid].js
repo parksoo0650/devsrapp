@@ -92,6 +92,10 @@ const Post = ({ items, bid, cid }) => {
     `snapGrid: ${swiper?.snapGrid} / slidesGrid: ${swiper?.slidesGrid}`
   );
 
+  console.log(
+    `Modal(${isOpen}), Category(${category}), Current(${currentBook} : ${currentChapter}), ID(${bid} : ${cid})`
+  );
+
   return (
     <>
       <div className={cn('container', 'BibleContainer')}>
@@ -138,9 +142,9 @@ const Post = ({ items, bid, cid }) => {
                   setCurrentBook={setCurrentBook}
                   category={category}
                   setCategory={setCategory}
-                  currentChapter={currentChapter}
                   setCurrentChapter={setCurrentChapter}
                   setIsOpen={setIsOpen}
+                  cid={cid}
                 />
               </div>
             </Sheet.Content>
