@@ -3,14 +3,13 @@ import React, { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
-import Loading from '../src/components/Loading';
-import Share from '../src/components/Share';
 import HomeBar from '../src/components/HomeBar';
 import useSWR from 'swr';
-import Department from '../src/components/Home/Department/Department';
-import Praise from '../src/components/Home/Praise/Praise';
-import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
+import SermonThisWeek from '../src/components/Home/SermonThisWeek/SermonThisWeek';
 import WeekdayContent from '../src/components/Home/WeekdayContent/WeekdayContent';
+import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
+import Praise from '../src/components/Home/Praise/Praise';
+import Department from '../src/components/Home/Department/Department';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -98,49 +97,8 @@ const Home = () => {
       </header>
 
       <div className='container'>
-        {dataSermon?.contents[0] ? (
-          <div className='section pt0'>
-            <div className='movie_wrap'>
-              <div
-                onClick={() => {
-                  router.push(
-                    `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}&kind=${liveDatas.subKind}`,
-                    '/sermondetail'
-                  );
-                }}
-              >
-                <img
-                  style={{ width: '100%' }}
-                  src={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${liveDatas?.thumbnails}/public`}
-                />
-              </div>
-              <div className='info'>
-                <Share
-                  title={liveDatas.title}
-                  thum='/images/kakao_def_new.jpg'
-                  vid={liveDatas.videoId}
-                />
-                <div
-                  className='tit'
-                  onClick={() => {
-                    router.push(
-                      `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}`,
-                      '/sermondetail'
-                    );
-                  }}
-                >
-                  <a href='#'>{liveDatas.title}</a>
-                </div>
-                <div className='date'>{liveDatas.publishedAt}</div>
-                {/* <div className="preacher">설교: 김성현 목사</div> */}
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className='loading_box'>
-            <Loading />
-          </div>
-        )}
+        {/* 이번 주 설교 */}
+        <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} />
 
         {/* 주중 콘텐츠 */}
         <WeekdayContent
