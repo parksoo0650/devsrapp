@@ -1,10 +1,10 @@
-import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import HomeBar from '../src/components/HomeBar';
 import useSWR from 'swr';
+import AppHeader from '../src/components/Home/AppHeader/AppHeader';
 import SermonThisWeek from '../src/components/Home/SermonThisWeek/SermonThisWeek';
 import WeekdayContent from '../src/components/Home/WeekdayContent/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
@@ -13,8 +13,7 @@ import Department from '../src/components/Home/Department/Department';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-const Home = () => {
-  const router = useRouter();
+export default function Home() {
   const { data: dataSermon } = useSWR('/api/contents?kind=sermon');
   const { data: dataOncontents } = useSWR('/api/contents?kind=oncontents');
 
@@ -70,31 +69,8 @@ const Home = () => {
 
   return (
     <>
-      <header>
-        <div className='inner'>
-          <h1
-            className='logo'
-            onClick={() => {
-              router.push('/');
-            }}
-          >
-            <img src='../images/logo.svg' alt='성락교회' />
-          </h1>
-          {isLive ? (
-            <div className='live'>
-              라이브 <img src='/icons/ico_live.svg' alt='라이브' />
-            </div>
-          ) : (
-            <>
-              {dataSermon?.contents[0]?.subKind == 'live' && (
-                <div className='live'>
-                  라이브 <img src='/icons/ico_live.svg' alt='라이브' />
-                </div>
-              )}
-            </>
-          )}
-        </div>
-      </header>
+      {/* 좌측 상단 성락교회 로고 (헤더) */}
+      <AppHeader isLive={isLive} dataSermon={dataSermon} />
 
       <div className='container'>
         {/* 이번 주 설교 */}
@@ -128,6 +104,4 @@ const Home = () => {
       <HomeBar />
     </>
   );
-};
-
-export default Home;
+}
