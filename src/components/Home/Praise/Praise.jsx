@@ -10,6 +10,7 @@ import useSWR from 'swr';
 const cn = classNames.bind(styles);
 
 const Praise = () => {
+  const router = useRouter();
   const { data: dataPraise } = useSWR('/api/contents?kind=praise');
 
   return (
