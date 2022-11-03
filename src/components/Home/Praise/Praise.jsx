@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import axios from 'axios';
 import styles from './Praise.module.scss';
 import classNames from 'classnames/bind';
 import useSWR from 'swr';

@@ -1,6 +1,5 @@
 import DepartmentItem from '../DepartmentItem/DepartmentItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import styles from './Department.module.scss';
 import classNames from 'classnames/bind';
 
