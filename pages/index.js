@@ -11,6 +11,7 @@ import useSWR from 'swr';
 import Popup from 'reactjs-popup';
 import Department from '../src/components/Home/Department/Department';
 import Praise from '../src/components/Home/Praise/Praise';
+import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -437,91 +438,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className='section quick_wrap'>
-          <ul className='quick_menu'>
-            <li
-              onClick={() => {
-                router.push('/sermonmain');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_sermon_new.svg' alt='예배' />
-              </div>
-              <div className='txt'>예배</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/praisemain');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_quick_praise_new.svg' alt='찬양' />
-              </div>
-              <div className='txt'>찬양</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/returnMain');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_return.svg' alt='환언특강' />
-              </div>
-              <div className='txt'>환언특강</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/onmain');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_quick_onseries.svg' alt='온시리즈' />
-              </div>
-              <div className='txt'>온시리즈</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/faith');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_shorts.svg' alt='1분은혜' />
-              </div>
-              <div className='txt'>1분은혜</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/weekly');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_quick_weekly2.svg' alt='주보' />
-              </div>
-              <div className='txt'>주보</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/offering');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_quick_offering.svg' alt='헌금안내' />
-              </div>
-              <div className='txt'>헌금안내</div>
-            </li>
-            <li
-              onClick={() => {
-                router.push('/2022-summer-camp');
-              }}
-            >
-              <div className='img'>
-                <img src='/icons/ico_quick_camp2.svg' alt='수련회' />
-              </div>
-              <div className='txt'>2022 수련회</div>
-            </li>
-          </ul>
-        </div>
+        {/* 퀵 메뉴 7개 */}
+        <QuickMenu />
 
+        {/* 교회 표어 */}
         <div className='mdbanner'>
           <img src='/icons/md_banner2.png' />
         </div>
