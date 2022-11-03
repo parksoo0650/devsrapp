@@ -1,0 +1,22 @@
+.day_list {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ebedef;
+
+  li {
+    padding: 0 12px;
+    line-height: 27px;
+    font-size: 12px;
+    color: #000;
+    font-weight: 400;
+    border-radius: 50px;
+    text-align: center;
+
+    &.on {
+      color: #fff;
+      background-color: #313131;
+      font-weight: 400;
+    }
+  }
+}
