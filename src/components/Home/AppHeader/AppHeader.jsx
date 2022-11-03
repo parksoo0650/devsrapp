@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export default function AppHeader() {
+export default function AppHeader({ isLive, dataSermon }) {
   const router = useRouter();
 
   return (
