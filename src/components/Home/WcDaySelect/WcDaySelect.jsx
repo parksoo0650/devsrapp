@@ -5,7 +5,7 @@ const cn = classNames.bind(styles);
 
 export default function WcDaySelect({ weeks, setWeeks }) {
   return (
-    <ul className={cn('day_list')}>
+    <ul className='bg-blue-400'>
       <li
         onClick={() => setWeeks('월')}
         className={weeks == '월' ? cn('on') : ''}

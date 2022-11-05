@@ -85,6 +85,7 @@ export default function MyApp({ Component, pageProps }) {
           media='(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)'
         />
         <script src='https://developers.kakao.com/sdk/js/kakao.min.js'></script>
+        {/* <script src='https://cdn.tailwindcss.com'></script> */}
       </Head>
       <BookProvider>
         <Layout>
