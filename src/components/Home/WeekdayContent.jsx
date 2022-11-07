@@ -1,16 +1,11 @@
-import WcDaySelect from './WcDaySelect';
-import WcConList from './WcConList/WcConList';
+import WeekdaySelectTab from './WeekdaySelectTab';
+import WeekdayContentBody from './WeekdayContentBody';
 
-export default function WeekdayContent({
-  liveDatas,
-  weeks,
-  setWeeks,
-  dataOncontents,
-}) {
+export default function WeekdayContent({ weeks, setWeeks, dataOncontents }) {
   return (
     <div className='px-[30px]'>
-      <WcDaySelect weeks={weeks} setWeeks={setWeeks} />
-      <WcConList weeks={weeks} dataOncontents={dataOncontents} />
+      <WeekdaySelectTab weeks={weeks} setWeeks={setWeeks} />
+      <WeekdayContentBody weeks={weeks} dataOncontents={dataOncontents} />
     </div>
   );
 }

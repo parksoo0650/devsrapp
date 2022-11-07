@@ -1,4 +1,4 @@
-export default function WcDaySelect({ weeks, setWeeks }) {
+export default function WeekdaySelectTab({ weeks, setWeeks }) {
   const weekday = ['월', '화', '수', '목', '금'];
 
   return (
