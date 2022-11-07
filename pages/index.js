@@ -6,7 +6,7 @@ import HomeBar from '../src/components/HomeBar';
 import useSWR from 'swr';
 import AppHeader from '../src/components/Home/AppHeader/AppHeader';
 import SermonThisWeek from '../src/components/Home/SermonThisWeek/SermonThisWeek';
-import WeekdayContent from '../src/components/Home/WeekdayContent/WeekdayContent';
+import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
 import Praise from '../src/components/Home/Praise/Praise';
 import Department from '../src/components/Home/Department/DepartmentTemp';
@@ -70,35 +70,45 @@ export default function Home() {
   return (
     <>
       {/* 좌측 상단 성락교회 로고 (헤더) */}
-      <AppHeader isLive={isLive} dataSermon={dataSermon} />
+      {/* <AppHeader isLive={isLive} dataSermon={dataSermon} /> */}
 
-      <div className='container'>
-        {/* 이번 주 설교 */}
-        <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} />
+      {/* 53주년 배너 */}
+      <img
+        className='h-[500px] bg-no-repeat bg-contain bg-center'
+        src='images/banner_53.png'
+      />
 
-        {/* 주중 콘텐츠 */}
-        <WeekdayContent
-          liveDatas={liveDatas}
-          weeks={weeks}
-          setWeeks={setWeeks}
-          dataOncontents={dataOncontents}
-        />
+      {/* 주중 콘텐츠 */}
+      <WeekdayContent
+        liveDatas={liveDatas}
+        weeks={weeks}
+        setWeeks={setWeeks}
+        dataOncontents={dataOncontents}
+      />
 
-        {/* 퀵 메뉴 7개 */}
-        <QuickMenu />
+      {/* 이번 주 설교 */}
+      <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} />
 
-        {/* 교회 표어 */}
-        <div className='mdbanner'>
-          <img src='/icons/md_banner2.png' />
-        </div>
+      {/* 퀵 메뉴 7개 */}
+      <QuickMenu />
 
-        {/* 은혜로운 찬양 */}
-        <Praise />
-
-        {/* 성락교회 미래세대 */}
-        <Department />
+      {/* 교회 표어 */}
+      <div className='mdbanner'>
+        <img src='/icons/md_banner2.png' />
       </div>
-      {/* end of container */}
+
+      {/* 은혜로운 찬양 */}
+      <Praise />
+
+      {/* 성락교회 미래세대 */}
+      <Department />
+
+      {/* blank */}
+      <div
+        style={{
+          height: '82px',
+        }}
+      />
 
       {/* 하단 메뉴 바 */}
       <HomeBar />
