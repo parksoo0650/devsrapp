@@ -19,7 +19,7 @@ export default function WeekdayContentItem({ doc, type, imageSrc }) {
 
       <div className=''>
         <div className='text-lg font-semibold pt-4'>{doc.name}</div>
-        <div className='text-xs font-normal pb-[50px]'>{doc.publishedAt}</div>
+        <div className='text-xs font-normal'>{doc.publishedAt}</div>
       </div>
     </li>
   );

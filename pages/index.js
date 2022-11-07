@@ -5,7 +5,7 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import HomeBar from '../src/components/HomeBar';
 import useSWR from 'swr';
 import AppHeader from '../src/components/Home/AppHeader/AppHeader';
-import SermonThisWeek from '../src/components/Home/SermonThisWeek/SermonThisWeek';
+import SermonThisWeek from '../src/components/Home/SermonThisWeek';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu/QuickMenu';
 import Praise from '../src/components/Home/Praise/Praise';

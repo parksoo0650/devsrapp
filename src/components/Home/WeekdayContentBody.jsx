@@ -168,7 +168,9 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
                   <img src='/images/shorts_main.jpg' />
                 </div>
                 <div className=''>
-                  <div className=''>{dataShorts?.contents[0]?.name}</div>
+                  <div className='text-lg font-semibold pt-4'>
+                    {dataShorts?.contents[0]?.name}
+                  </div>
                   <div className=''></div>
                 </div>
               </li>
