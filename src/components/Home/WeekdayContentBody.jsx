@@ -36,7 +36,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
   let friCnt = 0;
 
   return (
-    <Swiper spaceBetween={15} slidesPerView={1.264}>
+    <Swiper spaceBetween={15} slidesPerView={1.264} className='px-[30px]'>
       {dataOncontents?.contents.map((doc, i) => {
         let dateStr = doc.publishedAt.replace(/\./g, '-');
         let dayOfWeek = week[new Date(dateStr).getDay()];

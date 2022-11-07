@@ -2,7 +2,7 @@ export default function WeekdaySelectTab({ weeks, setWeeks }) {
   const weekday = ['월', '화', '수', '목', '금'];
 
   return (
-    <ul className='flex pt-[50px] pb-[30px] justify-between'>
+    <ul className='flex pt-[50px] px-[30px] pb-[30px] justify-between'>
       {weekday.map((day, index) => (
         <li
           key={index}
