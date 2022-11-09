@@ -1,4 +1,4 @@
-import QuickMenuItem from './QuickMenuItem/QuickMenuItem';
+import QuickMenuItem from './QuickMenuItem';
 
 const QuickMenu = () => {
   return (
