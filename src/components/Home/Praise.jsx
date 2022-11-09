@@ -37,7 +37,7 @@ const Praise = () => {
                 </div>
 
                 <a
-                  className='block pt-4 text-lg font-bold text-[#313131] '
+                  className='block pt-4 text-lg font-bold text-[#313131]'
                   href='#'
                 >
                   {doc.name}

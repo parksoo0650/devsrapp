@@ -1,16 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './DepartmentItem.module.scss';
-import classNames from 'classnames/bind';
-
-const cn = classNames.bind(styles);
 
 const DepartmentItem = ({ href, imgSrc, title }) => {
   return (
     <Link href={href}>
       <a>
         {/* 이미지 소스 % 대체 텍스트 */}
-        <div className={cn('img')}>
+        <div className='img'>
           <Image
             src={imgSrc}
             alt={title}
@@ -21,7 +17,7 @@ const DepartmentItem = ({ href, imgSrc, title }) => {
         </div>
 
         {/* 부서 이름 */}
-        <div className={cn('txt')}>{title}</div>
+        <div className='txt'>{title}</div>
       </a>
     </Link>
   );

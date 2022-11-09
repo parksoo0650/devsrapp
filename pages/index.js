@@ -9,7 +9,7 @@ import SermonThisWeek from '../src/components/Home/SermonThisWeek';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
-import Department from '../src/components/Home/Department/DepartmentTemp';
+import Department from '../src/components/Home/Department';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
