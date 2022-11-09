@@ -19,7 +19,7 @@ const QuickMenuItem = ({ pathname, imgSrc, title }) => {
       </div>
 
       {/* 메뉴 제목 */}
-      <div className=''>{title}</div>
+      <div className='text-xs text-center'>{title}</div>
     </li>
   );
 };
