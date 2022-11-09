@@ -1,12 +1,8 @@
-import QuickMenuItem from '../QuickMenuItem/QuickMenuItem';
-import classNames from 'classnames/bind';
-import styles from './QuickMenu.module.scss';
-
-const cn = classNames.bind(styles);
+import QuickMenuItem from './QuickMenuItem/QuickMenuItem';
 
 const QuickMenu = () => {
   return (
-    <div className={cn('section', 'QuickMenu')}>
+    <div className='bg-[#f8f8f8] pt-[40px] px-[24px] pb-[22px]'>
       {/* <div className='title'>빠른접근</div> */}
 
       <ul>
