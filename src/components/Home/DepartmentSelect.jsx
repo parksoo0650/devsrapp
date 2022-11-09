@@ -14,7 +14,7 @@ export default function DepartmentSelect() {
   return (
     <Swiper
       className='w-full'
-      // spaceBetween={15}
+      spaceBetween={15}
       slidesPerView='auto'
       // resistance={false}
     >
