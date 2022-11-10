@@ -9,8 +9,3 @@ export default function WeekdayContent({ weeks, setWeeks, dataOncontents }) {
     </div>
   );
 }
-
-/**
- * <div className='title'>주중 콘텐츠</div>
- * liveDatas.videoId ? 'section pt0' : 'section pt25'
- */

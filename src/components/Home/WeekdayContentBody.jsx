@@ -171,7 +171,9 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
                   <div className='text-lg font-semibold pt-4'>
                     {dataShorts?.contents[0]?.name}
                   </div>
-                  <div className=''></div>
+                  <div className='text-xs font-normal'>
+                    {dataShorts?.contents[0]?.publishedAt}
+                  </div>
                 </div>
               </li>
             }
