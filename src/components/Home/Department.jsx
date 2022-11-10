@@ -1,6 +1,10 @@
+import DepartmentBody from './DepartmentBody';
 import DepartmentSelect from './DepartmentSelect';
+import { useState } from 'react';
 
 export default function Department() {
+  const [department, setDepartment] = useState('전체');
+
   return (
     <>
       <div className='text-[22px] font-semibold pt-[40px] px-[30px] pb-[24px]'>
@@ -8,7 +12,10 @@ export default function Department() {
       </div>
 
       {/* 부서 선택 메뉴 */}
-      <DepartmentSelect />
+      <DepartmentSelect department={department} setDepartment={setDepartment} />
+
+      {/* 부서 콘텐츠 내용 */}
+      <DepartmentBody department={department} />
     </>
   );
 }
