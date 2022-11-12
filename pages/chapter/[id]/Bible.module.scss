@@ -215,9 +215,21 @@
   }
 
   .VerseList {
-    max-height: calc(100vh - 160px);
+    max-height: calc(100vh - 150px);
+    overflow-x: hidden;
     overflow-y: scroll;
     padding: 0 15px 80px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100vw;
+      height: 10vh;
+      position: absolute;
+      bottom: 0;
+      z-index: 500;
+      background: linear-gradient(to bottom, transparent, white);
+    }
   }
 
   .SlideRight {
