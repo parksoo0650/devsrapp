@@ -208,7 +208,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 26px;
-      margin-right: 15px;
+      // margin-right: 15px;
       position: absolute;
       top: calc((100vh - 240px) / 2);
     }
@@ -217,7 +217,7 @@
   .VerseList {
     max-height: calc(100vh - 160px);
     overflow-y: scroll;
-    padding: 0 0 80px;
+    padding: 0 15px 80px;
   }
 
   .SlideRight {
@@ -236,7 +236,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 26px;
-      margin-left: 15px;
+      // margin-left: 15px;
       position: absolute;
       top: calc((100vh - 240px) / 2);
     }
