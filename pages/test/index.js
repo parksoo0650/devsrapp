@@ -1,5 +1,6 @@
 import Select from '../../temp/Select';
 import useData from './useData';
+import DateUtil from '../../src/utils/DateUtil';
 
 export default function test() {
   const { options } = useData();
@@ -7,7 +8,7 @@ export default function test() {
 
   return (
     <>
-      <div>temp</div>
+      <button onClick={() => console.log(DateUtil.week)}>DateUtil 콘솔</button>
       {/* <Select label='' trigger='' value='' onChange='' options={options} /> */}
     </>
   );
