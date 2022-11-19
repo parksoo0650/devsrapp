@@ -19,11 +19,9 @@ export default function Home() {
 
   const date = new Date();
   const hours = new Date().getHours();
-  const week = ['일', '월', '화', '수', '목', '금', '토'];
 
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
-  const [weeks, setWeeks] = useState('');
   const [liveDatas, setLiveDatas] = useState({
     videoId: '',
     title: '',
@@ -31,8 +29,6 @@ export default function Home() {
     publishedAt: '',
     subKind: '',
   });
-
-  let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
 
   const getLiveData = async () => {
     const videoTitle = '';
@@ -63,7 +59,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setWeeks(week[onDay]);
     getLiveData();
   }, [dataSermon, dataOncontents]);
 
@@ -79,12 +74,7 @@ export default function Home() {
       />
 
       {/* 주중 콘텐츠 */}
-      <WeekdayContent
-        liveDatas={liveDatas}
-        weeks={weeks}
-        setWeeks={setWeeks}
-        dataOncontents={dataOncontents}
-      />
+      <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
 
       {/* 이번 주 설교 */}
       <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} />
