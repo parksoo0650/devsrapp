@@ -4,7 +4,7 @@ import useSWR from 'swr';
 export default function DepartmentBody({ department }) {
 
   const { data: dataFeed } = useSWR('/api/contents?kind=feed');
-  console.log(dataFeed);
+  console.log(department);
 
   return (
     <>
@@ -14,13 +14,25 @@ export default function DepartmentBody({ department }) {
       </span>
 
       {dataFeed?.contents.map((doc, i) => {
-        return(
-          <DepartmentContent 
-            key={doc.id}
-            doc={doc}
-            imageSrc={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
-          />
-        );
+        if(department == "전체"){
+          if(i > 1) return;
+          return(
+            <DepartmentContent 
+              key={doc.id}
+              doc={doc}
+              imageSrc={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
+            />
+          );
+        }
+        if(doc.subKind == department){
+          return(
+            <DepartmentContent
+              key={doc.id}
+              doc={doc}
+              imageSrc={`https://imagedelivery.net/dnbl58MgrkUrjmB9YWa_dA/${doc.image}/public`}
+            />
+          );
+        }
       })}
 
     </>
