@@ -29,11 +29,14 @@ export default function HomeBar() {
 
   return (
     <>
-      <ul className={`pb-[${bottomPadding}]`}>
-        <li>
+      <ul
+        className={`pb-[${bottomPadding}] fixed bottom-0 flex items-center justify-around 
+        bg-white z-50 w-full h-[72px] py-[9px] border-t border-[#ebebeb]`}
+      >
+        <li className='w-1/5 flex items-center justify-center'>
           <Link href='/'>
-            <a>
-              <div className='ico'>
+            <a className='block w-full'>
+              <div className='ico w-full h-[24px] flex justify-center'>
                 <img
                   src={
                     router.pathname == '/'
@@ -43,14 +46,15 @@ export default function HomeBar() {
                   alt='홈'
                 />
               </div>
-              <div className='menu'>홈</div>
+              <div className='text-[10px] mt-3.5 text-center'>홈</div>
             </a>
           </Link>
         </li>
-        <li>
+
+        <li className='w-1/5 flex items-center justify-center'>
           <Link href='/sermonmain'>
-            <a>
-              <div className='ico'>
+            <a className='block w-full'>
+              <div className='ico w-full h-[24px] flex justify-center'>
                 <img
                   src={
                     router.pathname == '/sermonmain'
@@ -60,14 +64,15 @@ export default function HomeBar() {
                   alt='예배'
                 />
               </div>
-              <div className='menu'>예배</div>
+              <div className='text-[10px] mt-3.5 text-center'>예배</div>
             </a>
           </Link>
         </li>
-        <li>
+
+        <li className='w-1/5 flex items-center justify-center'>
           <Link href={`/chapter/${lsBible}/${lsChapter}`}>
-            <a>
-              <div className='ico'>
+            <a className='block w-full'>
+              <div className='ico w-full h-[24px] flex justify-center'>
                 <img
                   src={
                     pathNameSplit[1] == 'chapter'
@@ -77,14 +82,15 @@ export default function HomeBar() {
                   alt='성경'
                 />
               </div>
-              <div className='menu'>성경</div>
+              <div className='text-[10px] mt-3.5 text-center'>성경</div>
             </a>
           </Link>
         </li>
-        <li>
+
+        <li className='w-1/5 flex items-center justify-center'>
           <Link href='/onmain'>
-            <a>
-              <div className='ico'>
+            <a className='block w-full'>
+              <div className='ico w-full h-[24px] flex justify-center'>
                 <img
                   src={
                     contentPages.includes(router.pathname)
@@ -94,14 +100,15 @@ export default function HomeBar() {
                   alt='피드'
                 />
               </div>
-              <div className='menu'>피드</div>
+              <div className='text-[10px] mt-3.5 text-center'>피드</div>
             </a>
           </Link>
         </li>
-        <li>
+
+        <li className='w-1/5 flex items-center justify-center'>
           <Link href='/SiteMap'>
-            <a>
-              <div className='ico'>
+            <a className='block w-full'>
+              <div className='ico w-full h-[24px] flex justify-center'>
                 <img
                   src={
                     router.pathname == '/SiteMap'
@@ -111,7 +118,7 @@ export default function HomeBar() {
                   alt='전체보기'
                 />
               </div>
-              <div className='menu'>전체보기</div>
+              <div className='text-[10px] mt-3.5 text-center'>전체보기</div>
             </a>
           </Link>
         </li>
