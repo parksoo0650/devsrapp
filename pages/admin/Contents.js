@@ -15,6 +15,7 @@ const Contents = () => {
         oncontents: "메인 온콘텐츠 관리자",
         praise: "메인 찬양 관리자",
         camp22: "2022 수련회영상 등록",
+        feed: "피드 관리자"
     };
     return (
         <Layout canGoBack title={strKind[router.query.kind]}>

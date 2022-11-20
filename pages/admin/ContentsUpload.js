@@ -18,7 +18,7 @@ const ContentsUpload = () => {
   let day = date.getDate();
   day = day >= 10 ? day : "0" + day;
 
-  const contentKind = ["oncontents", "praise", "sermon", "shorts"];
+  const contentKind = ["oncontents", "praise", "sermon", "shorts", "feed"];
 
   const strShortsSubKind = {
     min: "1분은혜",
