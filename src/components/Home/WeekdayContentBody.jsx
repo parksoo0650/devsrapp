@@ -48,7 +48,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'onm' && onmCnt == 0) {
             onmCnt = onmCnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='onprayerdetail'
@@ -64,7 +64,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'onb' && onbCnt == 0) {
             onbCnt = onbCnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='onbibledetail'
@@ -80,7 +80,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'ont' && ontCnt == 0) {
             ontCnt = ontCnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='onthreedetail'
@@ -96,7 +96,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'tue' && tueCnt == 0) {
             tueCnt = tueCnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='returnDetail'
@@ -112,7 +112,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'fri' && friCnt == 0) {
             friCnt = friCnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='prayerDetail'
@@ -128,7 +128,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'wed1' && wed1Cnt == 0) {
             wed1Cnt = wed1Cnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='sermondetail'
@@ -144,7 +144,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           if (doc.subKind === 'wed2' && wed2Cnt == 0) {
             wed2Cnt = wed2Cnt + 1;
             return (
-              <SwiperSlide>
+              <SwiperSlide key={doc.id}>
                 <WeekdayContentItem
                   doc={doc}
                   type='prayerDetail'

@@ -14,7 +14,7 @@ export default function WeekdayContentItem({ doc, type, imageSrc }) {
       }}
     >
       <div className='bg-[#d9d9d9]'>
-        <img src={imageSrc} />
+        <img src={imageSrc} alt="weekItem Image" />
       </div>
 
       <div className=''>
