@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { isIOS } from 'react-device-detect';
+import Navbar from './Navbar';
 
 export default function HomeBar() {
   const router = useRouter();
@@ -29,100 +30,56 @@ export default function HomeBar() {
 
   return (
     <>
-      <ul
+      <section
         className={`pb-[${bottomPadding}] fixed bottom-0 flex items-center justify-around 
         bg-white z-50 w-full h-[72px] py-[9px] border-t border-[#ebebeb]`}
       >
-        <li className='w-1/5 flex items-center justify-center'>
-          <Link href='/'>
-            <a className='block w-full'>
-              <div className='ico w-full h-[24px] flex justify-center'>
-                <img
-                  src={
-                    router.pathname == '/'
-                      ? '/icons/ico_home.svg'
-                      : '/icons/ico_home_off.svg'
-                  }
-                  alt='홈'
-                />
-              </div>
-              <div className='text-[10px] mt-3.5 text-center'>홈</div>
-            </a>
-          </Link>
-        </li>
-
-        <li className='w-1/5 flex items-center justify-center'>
-          <Link href='/sermonmain'>
-            <a className='block w-full'>
-              <div className='ico w-full h-[24px] flex justify-center'>
-                <img
-                  src={
-                    router.pathname == '/sermonmain'
-                      ? '/icons/ico_sermonnew_on.svg'
-                      : '/icons/ico_sermonnew_off.svg'
-                  }
-                  alt='예배'
-                />
-              </div>
-              <div className='text-[10px] mt-3.5 text-center'>예배</div>
-            </a>
-          </Link>
-        </li>
-
-        <li className='w-1/5 flex items-center justify-center'>
-          <Link href={`/chapter/${lsBible}/${lsChapter}`}>
-            <a className='block w-full'>
-              <div className='ico w-full h-[24px] flex justify-center'>
-                <img
-                  src={
-                    pathNameSplit[1] == 'chapter'
-                      ? '/icons/ico_bible.svg'
-                      : '/icons/ico_bible_off.svg'
-                  }
-                  alt='성경'
-                />
-              </div>
-              <div className='text-[10px] mt-3.5 text-center'>성경</div>
-            </a>
-          </Link>
-        </li>
-
-        <li className='w-1/5 flex items-center justify-center'>
-          <Link href='/onmain'>
-            <a className='block w-full'>
-              <div className='ico w-full h-[24px] flex justify-center'>
-                <img
-                  src={
-                    contentPages.includes(router.pathname)
-                      ? '/icons/ico_content.svg'
-                      : '/icons/ico_content_off.svg'
-                  }
-                  alt='피드'
-                />
-              </div>
-              <div className='text-[10px] mt-3.5 text-center'>피드</div>
-            </a>
-          </Link>
-        </li>
-
-        <li className='w-1/5 flex items-center justify-center'>
-          <Link href='/SiteMap'>
-            <a className='block w-full'>
-              <div className='ico w-full h-[24px] flex justify-center'>
-                <img
-                  src={
-                    router.pathname == '/SiteMap'
-                      ? '/icons/ico_menu.svg'
-                      : '/icons/ico_menu_off.svg'
-                  }
-                  alt='전체보기'
-                />
-              </div>
-              <div className='text-[10px] mt-3.5 text-center'>전체보기</div>
-            </a>
-          </Link>
-        </li>
-      </ul>
+        <Navbar.Tab
+          text='홈'
+          path='/'
+          icon={
+            router.pathname == '/'
+              ? '/icons/ico_home.svg'
+              : '/icons/ico_home_off.svg'
+          }
+        />
+        <Navbar.Tab
+          text='예배'
+          path='/sermonmain'
+          icon={
+            router.pathname == '/sermonmain'
+              ? '/icons/ico_sermonnew_on.svg'
+              : '/icons/ico_sermonnew_off.svg'
+          }
+        />
+        <Navbar.Tab
+          text='성경'
+          path={`/chapter/${lsBible}/${lsChapter}`}
+          icon={
+            pathNameSplit[1] == 'chapter'
+              ? '/icons/ico_bible.svg'
+              : '/icons/ico_bible_off.svg'
+          }
+        />
+        <Navbar.Tab
+          text='피드'
+          path='/onmain'
+          icon={
+            contentPages.includes(router.pathname)
+              ? '/icons/ico_content.svg'
+              : '/icons/ico_content_off.svg'
+          }
+        />
+        <Navbar.Tab
+          text='전체보기'
+          path='/SiteMap'
+          icon={
+            router.pathname == '/SiteMap'
+              ? '/icons/ico_menu.svg'
+              : '/icons/ico_menu_off.svg'
+          }
+        />
+      </section>
     </>
   );
 }
