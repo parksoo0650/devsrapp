@@ -36,7 +36,7 @@ Feed.Content = ({ date, title, tags, department }) => {
       {tags.map((tag) => (
         <span
           className='inline-block text-[#444444] text-[14px] 
-          px-[10px] py-[4px] mr-[10px] border border-[#d4d4d4] rounded'
+          px-[10px] pt-[4px] pb-[2px] mr-[10px] border border-[#d4d4d4] rounded'
         >
           #{tag}
         </span>
