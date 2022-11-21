@@ -9,7 +9,7 @@ export default function HomeBar() {
   const [chapter, setChapter] = useState('1');
   const [bottomPadding, setBottomPadding] = useState('');
   const pathNameSplit = router.pathname.split('/');
-  const contentPages = ['/onmain', '/prayerMain', '/returnMain'];
+  const contentPages = ['/feed', '/onmain', '/prayerMain', '/returnMain'];
 
   useEffect(() => {
     setBible(() => localStorage.getItem('bible') || '1');
@@ -53,7 +53,7 @@ export default function HomeBar() {
         />
         <Navbar.Tab
           text='피드'
-          path='/onmain'
+          path='/feed'
           icon={
             contentPages.includes(router.pathname)
               ? '/icons/ico_content.svg'
