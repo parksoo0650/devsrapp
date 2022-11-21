@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { isIOS } from 'react-device-detect';
@@ -6,26 +5,17 @@ import Navbar from './Navbar';
 
 export default function HomeBar() {
   const router = useRouter();
+  const [bible, setBible] = useState('1');
+  const [chapter, setChapter] = useState('1');
   const [bottomPadding, setBottomPadding] = useState('');
   const pathNameSplit = router.pathname.split('/');
   const contentPages = ['/onmain', '/prayerMain', '/returnMain'];
-  const [lsBible, setLsBible] = useState('1');
-  const [lsChapter, setLsChapter] = useState('1');
 
   useEffect(() => {
-    if (localStorage.getItem('bible')) {
-      setLsBible(localStorage.getItem('bible'));
-    } else {
-      setLsBible('1');
-    }
-    if (localStorage.getItem('chapter')) {
-      setLsChapter(localStorage.getItem('chapter'));
-    } else {
-      setLsChapter('1');
-    }
-    if (isIOS) {
-      setBottomPadding('26px');
-    }
+    setBible(() => localStorage.getItem('bible') || '1');
+    setChapter(() => localStorage.getItem('chapter') || '1');
+
+    isIOS && setBottomPadding('26px');
   }, []);
 
   return (
@@ -54,7 +44,7 @@ export default function HomeBar() {
         />
         <Navbar.Tab
           text='성경'
-          path={`/chapter/${lsBible}/${lsChapter}`}
+          path={`/chapter/${bible}/${chapter}`}
           icon={
             pathNameSplit[1] == 'chapter'
               ? '/icons/ico_bible.svg'
