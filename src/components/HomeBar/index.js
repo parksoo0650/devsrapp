@@ -1,27 +1,23 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { isIOS } from 'react-device-detect';
 import Navbar from './Navbar';
 
 export default function HomeBar() {
   const router = useRouter();
   const [bible, setBible] = useState('1');
   const [chapter, setChapter] = useState('1');
-  const [bottomPadding, setBottomPadding] = useState('');
   const pathNameSplit = router.pathname.split('/');
   const contentPages = ['/feed', '/onmain', '/prayerMain', '/returnMain'];
 
   useEffect(() => {
     setBible(() => localStorage.getItem('bible') || '1');
     setChapter(() => localStorage.getItem('chapter') || '1');
-
-    isIOS && setBottomPadding('26px');
   }, []);
 
   return (
     <>
       <section
-        className={`pb-[${bottomPadding}] fixed bottom-0 flex items-center justify-around 
+        className={`fixed bottom-0 flex items-center justify-around 
         bg-white z-50 w-full h-[72px] py-[9px] border-t border-[#ebebeb]`}
       >
         <Navbar.Tab
