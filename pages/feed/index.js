@@ -1,5 +1,5 @@
-import Feed from '../src/components/Feed';
-import HomeBar from '../src/components/HomeBar';
+import Feed from '../../src/components/Feed';
+import HomeBar from '../../src/components/HomeBar';
 
 const tempData = [
   {
@@ -53,6 +53,7 @@ export default function feed() {
 
           <Feed.Content
             key={index}
+            index={index}
             date={currentContent.date}
             title={currentContent.title}
             tags={currentContent.tags}

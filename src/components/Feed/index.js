@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 /**
  * 피드 최상단 태그.
  */
@@ -25,13 +27,17 @@ Feed.Date = ({ date }) => {
 /**
  * 피드 콘텐츠.
  */
-Feed.Content = ({ date, title, tags, department }) => {
+Feed.Content = ({ index, date, title, tags, department }) => {
   return (
     <div className='px-5'>
-      {/* 영상 썸네일로 교체해야 합니다. */}
-      <div className='w-full h-[188px] bg-black mb-[14px]' />
+      <Link href={`/feed/${index}`}>
+        <a>
+          {/* 영상 썸네일로 교체해야 합니다. */}
+          <div className='w-full h-[188px] bg-black mb-[14px]' />
 
-      <span className='block text-base mb-3'>{title}</span>
+          <span className='block text-base mb-3'>{title}</span>
+        </a>
+      </Link>
 
       {tags.map((tag) => (
         <span
