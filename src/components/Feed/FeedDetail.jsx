@@ -1,19 +1,38 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
-export default function feedDetail() {
+export default function FeedDetail({
+  date,
+  title,
+  tags,
+  department,
+  handleDetailHidden,
+}) {
   const [toastShow, setToastShow] = useState(false);
-  const router = useRouter();
-  const tags = ['노스킵', '어린이부', '헌신'];
+
+  /**
+   * 상세 페이지를 열었을 때, 외부 피드 페이지 스크롤 방지.
+   */
+  useEffect(() => {
+    document.body.style.cssText = `
+      position: fixed; 
+      top: -${window.scrollY}px;
+      overflow-y: scroll;
+      width: 100%;`;
+    return () => {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = '';
+      window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+    };
+  }, []);
 
   return (
-    <section>
+    <section className='fixed top-0 bg-white w-full h-screen z-50'>
       {/* 헤더: X 버튼 + 행사 영상 */}
       <div className='h-[40px] flex items-center justify-between px-[22px]'>
         <img
           className='w-[16px] h-[16px]'
           src='/icons/ico_close.svg'
-          onClick={() => router.push('/feed')}
+          onClick={() => handleDetailHidden(true)}
         />
         <h3 className='text-base font-[500]'>행사 영상</h3>
         <div id='blank' className='w-[14px] h-[14px]' />
@@ -26,8 +45,7 @@ export default function feedDetail() {
       <div className='px-5'>
         <div className='flex items-start justify-between'>
           <span className='block text-base mb-3 w-[280px] break-keep'>
-            2022 교회와 함께! 성락인과 함께! 헌신 참여 챌린지 - 「No Skip송」
-            #shorts
+            {title}
           </span>
 
           {/* 링크 복사 버튼 */}
@@ -52,7 +70,7 @@ export default function feedDetail() {
         ))}
 
         <span className='block py-3 mb-7 text-xs'>
-          2022.11.02 ﹒ 성락교회 어린이부
+          {date} ﹒ {department}
         </span>
       </div>
 
