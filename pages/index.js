@@ -77,7 +77,7 @@ export default function Home() {
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
 
       {/* 이번 주 설교 */}
-      <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} />
+      {/* <SermonThisWeek liveDatas={liveDatas} dataSermon={dataSermon} /> */}
 
       {/* 퀵 메뉴 7개 */}
       <QuickMenu />
