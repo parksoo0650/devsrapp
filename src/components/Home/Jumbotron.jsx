@@ -32,10 +32,20 @@ export default function Jumbotron({ liveDatas }) {
 
   SwiperCore.use([Autoplay]);
 
-  const title = liveDatas.title;
-  console.log(title);
-  // const titleKr = (title || '').split('(')[0];
-  // const scripture = (title || '').split('(')[1].split(')')[1].trim();
+  /**
+   * 왜 split 도중 undefined가 될까, 주일예배 탭도 마찬가지..
+   * 우선 모든 split str에 대하여 undefined 방지. 대신 빈 str 할당.
+   */
+  const title = liveDatas.title || '';
+  console.log('[title]', title);
+  const titleKr = title.split('(')[0];
+  console.log('[titleKr]', titleKr);
+  const temp = title.split('(')[1] || '';
+  console.log('[temp]', temp);
+  const temp2 = temp.split(')')[1] || '';
+  console.log('[temp2]', temp2);
+  const scripture = temp2.trim();
+  console.log('[scripture]', scripture);
 
   return (
     <Swiper
@@ -86,11 +96,11 @@ export default function Jumbotron({ liveDatas }) {
               className='text-white font-[500] text-[32px] mb-[18px]
               tracking-[-0.5px] break-keep max-w-xs leading-10'
             >
-              {/* {titleKr} */}
+              {titleKr}
             </p>
 
             <p className='text-white text-[14px] leading-6'>
-              {/* {scripture} <br /> */}
+              {scripture} <br />
               김성현 감독님
             </p>
           </div>
