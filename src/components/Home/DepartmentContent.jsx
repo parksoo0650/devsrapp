@@ -3,7 +3,7 @@ export default function DepartmentContent({ doc, imageSrc }) {
     <li key={doc.id} onClick={() => {}} className='px-[30px] mb-7'>
       {/* <img src='' /> */}
 
-      <div className='w-full h-[176px] bg-slate-200'>
+      <div className='w-full bg-slate-200'>
         <img src={imageSrc} alt="feed image" />
       </div>
 
@@ -11,7 +11,7 @@ export default function DepartmentContent({ doc, imageSrc }) {
         {doc.name}
       </h3>
 
-      <div className='pt-3 text-xs'>2022.00.00</div>
+      <div className='pt-3 text-xs'>{doc.publishedAt}</div>
     </li>
   );
 }
