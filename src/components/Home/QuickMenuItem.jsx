@@ -12,7 +12,11 @@ const QuickMenuItem = ({ pathname, imgSrc, title }) => {
       {/* 메뉴 아이콘 이미지 소스 & 대체 텍스트 */}
       <div className='w-[66px] h-[66px] mx-auto mb-[6px] bg-white rounded-[20px] relative'>
         <img
-          className='absolute translate-x-[34%] translate-y-[35%]'
+          className={
+            imgSrc == '/icons/ico_quick_prayer.png'
+              ? ''
+              : 'absolute translate-x-[34%] translate-y-[35%]'
+          }
           src={imgSrc}
           alt={title}
         />

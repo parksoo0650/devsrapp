@@ -51,10 +51,16 @@ const QuickMenu = () => {
         />
 
         <QuickMenuItem
+          pathname='/prayer'
+          imgSrc='/icons/ico_quick_prayer.png'
+          title='기도제목'
+        />
+
+        {/* <QuickMenuItem
           pathname='/2022-summer-camp'
           imgSrc='/icons/ico_quick_camp2.svg'
           title='2022 수련회'
-        />
+        /> */}
       </ul>
       {/* end of quick_menu */}
     </div>
