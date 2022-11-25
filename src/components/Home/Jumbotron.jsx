@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { useRouter } from 'next/router';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 
 export default function Jumbotron({ liveDatas }) {
+  const router = useRouter();
+
   const [jumbotronSize, setJumbotronSize] = useState({
     width: null,
     height: null,
@@ -30,8 +33,9 @@ export default function Jumbotron({ liveDatas }) {
   SwiperCore.use([Autoplay]);
 
   const title = liveDatas.title;
-  const titleKr = title.split('(')[0];
-  const scripture = title.split('(')[1].split(')')[1].trim();
+  console.log(title);
+  // const titleKr = (title || '').split('(')[0];
+  // const scripture = (title || '').split('(')[1].split(')')[1].trim();
 
   return (
     <Swiper
@@ -63,6 +67,12 @@ export default function Jumbotron({ liveDatas }) {
           bg-no-repeat bg-cover bg-center
           bg-[url('images/jumbotron_sermon.png')]
           pl-[64px]`}
+          onClick={() => {
+            router.push(
+              `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}&kind=${liveDatas.subKind}`,
+              '/sermondetail'
+            );
+          }}
         >
           <div className='absolute top-72'>
             <p
@@ -76,11 +86,11 @@ export default function Jumbotron({ liveDatas }) {
               className='text-white font-[500] text-[32px] mb-[18px]
               tracking-[-0.5px] break-keep max-w-xs leading-10'
             >
-              {titleKr}
+              {/* {titleKr} */}
             </p>
 
             <p className='text-white text-[14px] leading-6'>
-              {scripture} <br />
+              {/* {scripture} <br /> */}
               김성현 감독님
             </p>
           </div>
