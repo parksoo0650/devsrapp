@@ -5,12 +5,14 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import useSWR from 'swr';
 // import AppHeader from '../src/components/Home/AppHeader/AppHeader';
 // import SermonThisWeek from '../src/components/Home/SermonThisWeek';
+import Jumbotron from '../src/components/Home/Jumbotron';
+import Programme53 from './Programme53';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
-import Jumbotron from '../src/components/Home/Jumbotron';
+import router from 'next/router';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -70,6 +72,11 @@ export default function Home() {
 
       {/* 대형 슬라이드 */}
       <Jumbotron liveDatas={liveDatas} />
+
+      {/* 53주년 예배순서 바로가기 */}
+      <div onClick={() => router.push('/Programme53')}>
+        <img src='/images/banner_53_quick.png' />
+      </div>
 
       {/* 주중 콘텐츠 */}
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
