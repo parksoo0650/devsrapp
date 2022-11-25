@@ -10,6 +10,7 @@ import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
+import Jumbotron from '../src/components/Home/Jumbotron';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -67,11 +68,8 @@ export default function Home() {
       {/* 좌측 상단 성락교회 로고 (헤더) */}
       {/* <AppHeader isLive={isLive} dataSermon={dataSermon} /> */}
 
-      {/* 53주년 배너 */}
-      <img
-        className='h-[500px] bg-no-repeat bg-contain bg-center'
-        src='images/banner_53.png'
-      />
+      {/* 대형 슬라이드 */}
+      <Jumbotron />
 
       {/* 주중 콘텐츠 */}
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
