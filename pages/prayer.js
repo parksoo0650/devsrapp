@@ -33,7 +33,7 @@ export default function prayer() {
       </header>
 
       {/* blank */}
-      <div className='h-[52px]' />
+      <div className='h-8' />
 
       <PrayerCard
         title='01 교회 재건과 전도를 위한 기도'
