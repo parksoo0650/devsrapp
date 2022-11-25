@@ -4,7 +4,7 @@ import 'swiper/css/pagination';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import useSWR from 'swr';
 // import AppHeader from '../src/components/Home/AppHeader/AppHeader';
-import SermonThisWeek from '../src/components/Home/SermonThisWeek';
+// import SermonThisWeek from '../src/components/Home/SermonThisWeek';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
@@ -69,7 +69,7 @@ export default function Home() {
       {/* <AppHeader isLive={isLive} dataSermon={dataSermon} /> */}
 
       {/* 대형 슬라이드 */}
-      <Jumbotron />
+      <Jumbotron liveDatas={liveDatas} />
 
       {/* 주중 콘텐츠 */}
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
