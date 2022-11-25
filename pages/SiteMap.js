@@ -1,291 +1,120 @@
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
-import HomeBar from "../src/components/HomeBar";
+import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+import HomeBar from '../src/components/HomeBar';
+import SiteMapDropdown from '../src/components/SiteMapDropdown/SiteMapDropdown';
+
+const siteMap = {
+  worship: {
+    id: 1,
+    title: '예배',
+    pathname: '/sermonmain',
+    subCategory: [
+      { title: '주일설교', query: { kind: 'def' } },
+      { title: '1,3부 예배', query: { kind: 'sun' } },
+      { title: '수요예배', query: { kind: 'wed' } },
+    ],
+  },
+  praise: {
+    id: 2,
+    title: '찬양',
+    pathname: '/praisemain',
+    subCategory: [
+      { title: '주일 예배 찬양', query: { kind: 'p11' } },
+      { title: '주일 연합 예배 찬양', query: { kind: 'p15' } },
+      { title: '성가대', query: { kind: 'prc' } },
+      { title: '헌금송', query: { kind: 'pro' } },
+    ],
+  },
+  bible: {
+    title: '성경',
+  },
+  contents: {
+    id: 3,
+    title: '콘텐츠',
+    pathname: '/onmain',
+    subCategory: [
+      { title: '온시리즈', query: '/onmain' },
+      { title: '환언특강', query: '/returnMain' },
+      { title: '주중 기도회', query: '/prayerMain' },
+      { title: '1분 은혜', query: '/faith' },
+    ],
+  },
+  videos: { title: '행사 영상' },
+  camp2022: { title: '2022 수련회', pathname: '/2022-summer-camp' },
+};
 
 export default function SiteMap() {
-  const [toggle1, setToggle1] = useState(false);
-  const [toggle2, setToggle2] = useState(false);
-  const [toggle3, setToggle3] = useState(false);
-  const [lsBible, setLsBible] = useState("1");
-  const [lsChapter, setLsChapter] = useState("1");
+  const [state, setState] = useState(0);
+  const [lsBible, setLsBible] = useState('1');
+  const [lsChapter, setLsChapter] = useState('1');
 
-  const menuClose = () => {
-    let allMenu = document.getElementById("all_menu");
-    allMenu.className = "";
+  const handleDropdown = (id) => {
+    state == id ? setState(() => 0) : setState(() => id);
   };
 
   useEffect(() => {
-    if (localStorage.getItem("bible")) {
-      setLsBible(localStorage.getItem("bible"));
+    if (localStorage.getItem('bible')) {
+      setLsBible(localStorage.getItem('bible'));
     } else {
-      setLsBible("1");
+      setLsBible('1');
     }
-    if (localStorage.getItem("chapter")) {
-      setLsChapter(localStorage.getItem("chapter"));
+    if (localStorage.getItem('chapter')) {
+      setLsChapter(localStorage.getItem('chapter'));
     } else {
-      setLsChapter("1");
+      setLsChapter('1');
     }
   }, []);
 
   return (
     <>
-      <div id="all_menu" className="on">
-        <ul className="quick_list">
-          <li>
-            <Link href={`/sermonmain`}>
-              <a>
-                <div className="img">
-                  <img src="/icons/ico_sermon_new.svg" alt="예배" />
-                </div>
-                <div className="txt">예배</div>
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/praisemain`}>
-              <a onClick={menuClose}>
-                <div className="img">
-                  <img src="/icons/ico_quick_praise_new.svg" alt="예배" />
-                </div>
-                <div className="txt">찬양</div>
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/chapter/${lsBible}/${lsChapter}`}>
-              <a onClick={menuClose}>
-                <div className="img">
-                  <img src="/icons/ico_quick_bible1.svg" alt="예배" />
-                </div>
-                <div className="txt">성경</div>
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href={`/returnMain`}>
-              <a onClick={menuClose}>
-                <div className="img">
-                  <img src="/icons/ico_return.svg" alt="환언특강" />
-                </div>
-                <div className="txt">환언특강</div>
-              </a>
-            </Link>
-          </li>
-        </ul>
+      <div>
+        {/* blank */}
+        <div className='h-3' />
 
-        <div className="menu_wrap">
-          <ul className="menu_list">
-            <li
-              onClick={() => {
-                setToggle2(false);
-                setToggle3(false);
-                setToggle1(!toggle1);
-              }}
-            >
-              <span>예배</span>
-              <img
-                className="drop_iocn"
-                src={
-                  toggle1
-                    ? "/icons/ico_drop_up.svg"
-                    : "/icons/ico_drop_down.svg"
-                }
-                alt="drop"
-              />
-              {toggle1 ? (
-                <ul className="sub_menu">
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/sermonmain",
-                        query: { kind: "def" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        주일설교
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/sermonmain",
-                        query: { kind: "sun" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        1,3부 예배
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/sermonmain",
-                        query: { kind: "wed" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        수요예배
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              ) : null}
-            </li>
-            <li
-              onClick={() => {
-                setToggle1(false);
-                setToggle3(false);
-                setToggle2(!toggle2);
-              }}
-            >
-              <span>찬양</span>
-              <img
-                className="drop_iocn"
-                src={
-                  toggle2
-                    ? "/icons/ico_drop_up.svg"
-                    : "/icons/ico_drop_down.svg"
-                }
-                alt="drop"
-              />
-              {toggle2 ? (
-                <ul className="sub_menu">
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/praisemain",
-                        query: { kind: "p11" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        주일예배찬양
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/praisemain",
-                        query: { kind: "p15" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        주일연합예배찬양
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/praisemain",
-                        query: { kind: "prc" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        성가대
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/praisemain",
-                        query: { kind: "pro" },
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        헌금송
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              ) : null}
-            </li>
-            <li>
-              <Link href={`/chapter/${lsBible}/${lsChapter}`}>
-                <a onClick={menuClose} style={{ display: "block" }}>
-                  성경
-                </a>
-              </Link>
-            </li>
-            <li
-              onClick={() => {
-                setToggle1(false);
-                setToggle2(false);
-                setToggle3(!toggle3);
-              }}
-            >
-              <span>콘텐츠</span>
-              <img
-                className="drop_iocn"
-                src={
-                  toggle3
-                    ? "/icons/ico_drop_up.svg"
-                    : "/icons/ico_drop_down.svg"
-                }
-                alt="drop"
-              />
-              {toggle3 ? (
-                <ul className="sub_menu">
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/onmain",
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        온시리즈
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/returnMain",
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        환언특강
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/prayerMain",
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        주중 기도회
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href={{
-                        pathname: "/faith",
-                      }}
-                    >
-                      <a onClick={menuClose} style={{ display: "block" }}>
-                        1분 은혜
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              ) : null}
-            </li>
-            <li>
-              <Link href="/offering">
-                <a onClick={menuClose} style={{ display: "block" }}>
-                  헌금안내
-                </a>
-              </Link>
-            </li>
-          </ul>
-        </div>
+        <SiteMapDropdown
+          content={siteMap.worship}
+          isOpen={state == 1}
+          handleDropdown={handleDropdown}
+        />
+
+        <SiteMapDropdown
+          content={siteMap.praise}
+          isOpen={state == 2}
+          handleDropdown={handleDropdown}
+        />
+
+        <SiteMapDropdown
+          content={siteMap.bible}
+          isOpen={true}
+          handleDropdown={handleDropdown}
+          bibleUrl={`/chapter/${lsBible}/${lsChapter}`}
+        />
+
+        <SiteMapDropdown
+          content={siteMap.contents}
+          isOpen={state == 3}
+          handleDropdown={handleDropdown}
+          isContents={true}
+        />
+
+        <SiteMapDropdown
+          content={siteMap.videos}
+          isOpen={true}
+          handleDropdown={handleDropdown}
+          videosUrl='/'
+        />
+
+        <SiteMapDropdown
+          content={siteMap.camp2022}
+          isOpen={true}
+          handleDropdown={handleDropdown}
+          campUrl='/2022-summer-camp'
+        />
+
+        {/* blank */}
+        <div className='h-[80px]' />
       </div>
+
       <HomeBar />
     </>
   );
