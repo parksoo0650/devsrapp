@@ -54,7 +54,10 @@ export default function Jumbotron({ liveDatas }) {
       slidesPerView={1}
       pagination={{ clickable: true }}
       loop={true}
-      autoplay={{ delay: 5000 }}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
       onSlideChange={() => {
         const activatedDot = document.querySelectorAll(
           '.swiper-pagination-bullet-active'
