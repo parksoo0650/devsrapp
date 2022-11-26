@@ -75,7 +75,7 @@ export default function FeedDetail({
           >
             <img
               style={{ width: '50%' }}
-              src='/images/btn_mute.png'
+              src='/images/btn_mute_2.png'
               alt='음소거'
             />
           </div>
