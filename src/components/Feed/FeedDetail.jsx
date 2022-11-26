@@ -1,13 +1,33 @@
 import { useEffect, useState } from 'react';
+import YouTube from "react-youtube";
 
 export default function FeedDetail({
   date,
   title,
   tags,
   department,
+  videoId,
   handleDetailHidden,
 }) {
   const [toastShow, setToastShow] = useState(false);
+
+  const opts = {
+    width: "320px",
+    height: "200px",
+    playerVars: {
+      loop: 1,
+      controls: 1,
+    },
+  };
+  const [youtubeTarget, setYoutubeTarget] = useState({});
+  const [isMute, setIsMute] = useState(false);
+  const onPlayerReady = (event) => {
+    event.target.mute();
+    event.target.setVolume(0);
+    event.target.playVideo();
+    setYoutubeTarget(event.target);
+    setIsMute(true);
+  };
 
   /**
    * 상세 페이지를 열었을 때, 외부 피드 페이지 스크롤 방지.
@@ -39,7 +59,30 @@ export default function FeedDetail({
       </div>
 
       {/* 영상 */}
-      <div className='w-full h-[210px] bg-[#c4c4c4] mb-[14px]' />
+      <div className='w-full h-[210px] bg-[#c4c4c4] mb-[14px]'>
+        {isMute && (
+          <div
+            onClick={() => {
+              youtubeTarget.unMute();
+              youtubeTarget.setVolume(100);
+              setIsMute(false);
+            }}
+            style={{ 
+              position: "absolute",
+              zIndex: "10",
+              padding: "15px",
+            }}
+          >
+            <img style={{ width: "50%" }} src="/images/btn_mute.png" alt="음소거" />
+          </div>
+        )}
+        <YouTube
+          videoId={videoId}
+          opts={opts}
+          containerClassName="iframe_wrap"
+          onReady={onPlayerReady}
+        />
+      </div>
 
       {/* 하단 영상 정보 */}
       <div className='px-5'>
@@ -57,11 +100,13 @@ export default function FeedDetail({
               setToastShow(() => true);
               setTimeout(() => setToastShow(() => false), 3000);
             }}
+            alt = "copy link"
           />
         </div>
 
-        {tags.map((tag) => (
+        {tags.map((tag, i) => (
           <span
+            key = {i}
             className='inline-block text-[#444444] text-[14px] 
             px-[10px] pt-[4px] pb-[2px] mr-[10px] border border-[#d4d4d4] rounded'
           >

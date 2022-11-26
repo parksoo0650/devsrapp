@@ -34,7 +34,7 @@ async function handler(req, res) {
             createdAt: "desc",
           },
         ],
-        take: 20,
+        take: 200,
       });
       res.json({
         ok: true,
