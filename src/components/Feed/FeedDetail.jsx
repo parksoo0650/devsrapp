@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import YouTube from "react-youtube";
+import YouTube from 'react-youtube';
 
 export default function FeedDetail({
   date,
@@ -12,8 +12,8 @@ export default function FeedDetail({
   const [toastShow, setToastShow] = useState(false);
 
   const opts = {
-    width: "320px",
-    height: "200px",
+    width: '320px',
+    height: '200px',
     playerVars: {
       loop: 1,
       controls: 1,
@@ -67,26 +67,30 @@ export default function FeedDetail({
               youtubeTarget.setVolume(100);
               setIsMute(false);
             }}
-            style={{ 
-              position: "absolute",
-              zIndex: "10",
-              padding: "15px",
+            style={{
+              position: 'absolute',
+              zIndex: '10',
+              padding: '15px',
             }}
           >
-            <img style={{ width: "50%" }} src="/images/btn_mute.png" alt="음소거" />
+            <img
+              style={{ width: '50%' }}
+              src='/images/btn_mute.png'
+              alt='음소거'
+            />
           </div>
         )}
         <YouTube
           videoId={videoId}
           opts={opts}
-          containerClassName="iframe_wrap"
+          containerClassName='iframe_wrap'
           onReady={onPlayerReady}
         />
       </div>
 
       {/* 하단 영상 정보 */}
       <div className='px-5'>
-        <div className='flex items-start justify-between'>
+        <div className='flex items-start justify-between pt-4'>
           <span className='block text-base mb-3 w-[280px] break-keep'>
             {title}
           </span>
@@ -96,19 +100,20 @@ export default function FeedDetail({
             className='w-[30px] h-[30px]'
             src='/icons/ico_share_2.svg'
             onClick={() => {
-              navigator.clipboard.writeText('복사할 링크를 이곳에 입력하세요.');
+              navigator.clipboard.writeText(window.location.href);
               setToastShow(() => true);
               setTimeout(() => setToastShow(() => false), 3000);
             }}
-            alt = "copy link"
+            alt='copy link'
           />
         </div>
 
         {tags.map((tag, i) => (
           <span
-            key = {i}
+            key={i}
             className='inline-block text-[#444444] text-[14px] 
-            px-[10px] pt-[4px] pb-[2px] mr-[10px] border border-[#d4d4d4] rounded'
+            px-[10px] pt-[4px] pb-[2px] mr-[10px] mb-2
+            border border-[#d4d4d4] rounded'
           >
             #{tag}
           </span>
@@ -123,7 +128,7 @@ export default function FeedDetail({
       {toastShow && (
         <div className='flex justify-center'>
           <span
-            className='flex items-center justify-between fixed bottom-14 text-[14px] 
+            className='flex items-center justify-between fixed bottom-24 text-[14px] 
             px-[14px] w-[320px] h-[43px] text-white bg-[#313131] rounded drop-shadow-lg'
           >
             링크가 복사되었습니다!

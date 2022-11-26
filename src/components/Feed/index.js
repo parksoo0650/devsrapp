@@ -38,7 +38,7 @@ Feed.Content = ({ date, title, tags, department, imageSrc, videoId }) => {
         <a onClick={() => setDetailHidden(false)}>
           {/* 영상 썸네일로 교체해야 합니다. */}
           <div className='w-full bg-black mb-[14px]'>
-            <img src={imageSrc} alt="feed image" />
+            <img src={imageSrc} alt='feed image' />
           </div>
 
           <span className='block text-base mb-3'>{title}</span>
@@ -48,7 +48,8 @@ Feed.Content = ({ date, title, tags, department, imageSrc, videoId }) => {
           <span
             key={i}
             className='inline-block text-[#444444] text-[14px] 
-            px-[10px] pt-[4px] pb-[2px] mr-[10px] border border-[#d4d4d4] rounded'
+            px-[10px] pt-[4px] pb-[2px] mr-[10px] mb-2
+            border border-[#d4d4d4] rounded'
           >
             #{tag}
           </span>
