@@ -4,6 +4,7 @@ export default function PrayerCard({
   content2,
   content3,
   content4,
+  content5,
 }) {
   return (
     <div className='px-5'>
@@ -11,7 +12,7 @@ export default function PrayerCard({
 
       <p className='pb-7 leading-7 text-base'>
         · {content1} <br />· {content2} <br />· {content3} <br />· {content4}
-        <br />
+        <br />· {content5}
       </p>
     </div>
   );
