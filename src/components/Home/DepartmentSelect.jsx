@@ -27,8 +27,8 @@ export default function DepartmentSelect({ department, setDepartment }) {
           <span
             className={
               department == _department
-                ? 'font-semibold text-base text-black'
-                : 'font-semibold text-base text-[#a0a0a0]'
+                ? 'block pb-2 font-semibold text-base text-black border-b-2 border-black'
+                : 'block pb-2 font-semibold text-base text-[#a0a0a0]'
             }
           >
             {_department}
