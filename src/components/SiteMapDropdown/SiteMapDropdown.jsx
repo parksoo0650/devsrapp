@@ -23,7 +23,7 @@ export default function SiteMapDropdown({
       className='border-b border-[#ebebeb] mx-[30px] pb-4'
     >
       <div className='flex items-center justify-between pt-5 pb-3'>
-        <h3 className='font-bold text-[22px] h-[30px]'>{title}</h3>
+        <h3 className='font-semibold text-[22px] h-[30px]'>{title}</h3>
 
         {subCategory && (
           <img
