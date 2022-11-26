@@ -12,6 +12,7 @@ import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
 import router from 'next/router';
+import Modal from '../src/components/Modal/Modal';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -22,6 +23,7 @@ export default function Home() {
   const date = new Date();
   const hours = new Date().getHours();
 
+  const [modalOpened, setModalOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [liveDatas, setLiveDatas] = useState({
@@ -64,6 +66,17 @@ export default function Home() {
     getLiveData();
   }, [dataSermon, dataOncontents]);
 
+  useEffect(() => {
+    localStorage.getItem('MODAL_ALREADY_OPENED')
+      ? setModalOpened(false)
+      : setModalOpened(true);
+  }, []);
+
+  function handleModalBackground() {
+    setModalOpened(!modalOpened);
+    localStorage.setItem('MODAL_ALREADY_OPENED', 'yes');
+  }
+
   return (
     <>
       {/* 좌측 상단 성락교회 로고 (헤더) */}
@@ -103,6 +116,9 @@ export default function Home() {
           height: '82px',
         }}
       />
+
+      {/* 53주년 팝업 */}
+      {modalOpened && <Modal handleModalBackground={handleModalBackground} />}
 
       {/* 하단 메뉴 바 */}
       <HomeBar />
