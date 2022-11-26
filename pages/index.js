@@ -6,7 +6,6 @@ import useSWR from 'swr';
 // import AppHeader from '../src/components/Home/AppHeader/AppHeader';
 // import SermonThisWeek from '../src/components/Home/SermonThisWeek';
 import Jumbotron from '../src/components/Home/Jumbotron';
-import Programme53 from './Programme53';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
