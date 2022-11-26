@@ -23,7 +23,7 @@ export default function Home() {
   const date = new Date();
   const hours = new Date().getHours();
 
-  const [modalOpened, setModalOpened] = useState(false);
+  const [modalOpened, setModalOpened] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [liveDatas, setLiveDatas] = useState({
@@ -66,16 +66,16 @@ export default function Home() {
     getLiveData();
   }, [dataSermon, dataOncontents]);
 
-  useEffect(() => {
-    localStorage.getItem('MODAL_ALREADY_OPENED')
-      ? setModalOpened(false)
-      : setModalOpened(true);
-  }, []);
+  // useEffect(() => {
+  //   localStorage.getItem('MODAL_ALREADY_OPENED')
+  //     ? setModalOpened(false)
+  //     : setModalOpened(true);
+  // }, []);
 
-  function handleModalBackground() {
-    setModalOpened(!modalOpened);
-    localStorage.setItem('MODAL_ALREADY_OPENED', 'yes');
-  }
+  // function handleModalBackground() {
+  //   setModalOpened(!modalOpened);
+  //   localStorage.setItem('MODAL_ALREADY_OPENED', 'yes');
+  // }
 
   return (
     <>
@@ -118,7 +118,7 @@ export default function Home() {
       />
 
       {/* 53주년 팝업 */}
-      {modalOpened && <Modal handleModalBackground={handleModalBackground} />}
+      {modalOpened && <Modal setModalOpened={setModalOpened} />}
 
       {/* 하단 메뉴 바 */}
       <HomeBar />

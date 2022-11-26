@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-export default function Modal({ handleModalBackground }) {
+export default function Modal({ setModalOpened }) {
   useEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
@@ -20,7 +20,7 @@ export default function Modal({ handleModalBackground }) {
     <div>
       <div
         className='absolute top-0 w-screen h-screen bg-black/70 z-[100]'
-        onClick={() => handleModalBackground()}
+        onClick={() => setModalOpened(false)}
       />
 
       <div
@@ -29,8 +29,14 @@ export default function Modal({ handleModalBackground }) {
       >
         <div
           className='w-full px-5 pb-[34px]'
-          onClick={() => setTimeout(handleModalBackground, 500)}
+          onClick={() => setTimeout(setModalOpened(false), 500)}
         >
+          <img
+            className='absolute top-5 left-3 z-50'
+            src='/icons/ico_close.svg'
+            onClick={() => setModalOpened(false)}
+          />
+
           <Link href='/Programme53'>
             <a className='inline-block w-full bg-black text-white font-[500] text-[14px] py-4 text-center'>
               53주년 교회창립 예배 순서 바로가기
