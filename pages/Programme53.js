@@ -6,7 +6,7 @@ export default function Programme53() {
   return (
     <>
       <img
-        className='fixed top-3 left-3 z-50'
+        className='fixed top-10 left-3 z-50'
         src='/icons/ico_close.svg'
         onClick={() => router.push('/')}
       />
