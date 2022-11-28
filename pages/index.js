@@ -12,7 +12,7 @@ import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
 import router from 'next/router';
-import Modal from '../src/components/Modal/Modal';
+// import Modal from '../src/components/Modal/Modal';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -23,7 +23,6 @@ export default function Home() {
   const date = new Date();
   const hours = new Date().getHours();
 
-  const [modalOpened, setModalOpened] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
   const [liveDatas, setLiveDatas] = useState({
@@ -66,17 +65,6 @@ export default function Home() {
     getLiveData();
   }, [dataSermon, dataOncontents]);
 
-  // useEffect(() => {
-  //   localStorage.getItem('MODAL_ALREADY_OPENED')
-  //     ? setModalOpened(false)
-  //     : setModalOpened(true);
-  // }, []);
-
-  // function handleModalBackground() {
-  //   setModalOpened(!modalOpened);
-  //   localStorage.setItem('MODAL_ALREADY_OPENED', 'yes');
-  // }
-
   return (
     <>
       {/* 좌측 상단 성락교회 로고 (헤더) */}
@@ -86,9 +74,9 @@ export default function Home() {
       <Jumbotron liveDatas={liveDatas} />
 
       {/* 53주년 예배순서 바로가기 */}
-      <div onClick={() => router.push('/Programme53')}>
+      {/* <div onClick={() => router.push('/Programme53')}>
         <img src='/images/banner_53_quick.png' />
-      </div>
+      </div> */}
 
       {/* 주중 콘텐츠 */}
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
@@ -116,9 +104,6 @@ export default function Home() {
           height: '82px',
         }}
       />
-
-      {/* 53주년 팝업 */}
-      {modalOpened && <Modal setModalOpened={setModalOpened} />}
 
       {/* 하단 메뉴 바 */}
       <HomeBar />
