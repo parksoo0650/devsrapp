@@ -99,8 +99,7 @@ export default function Jumbotron({ liveDatas }) {
               className='text-white font-[500] text-[32px] mb-[18px] max-h-[80px]
               tracking-[-0.5px] break-keep max-w-xs leading-10 text-ellipsis overflow-hidden'
             >
-              {/* {titleKr} */}
-              예수와 하나님은 하나이시다
+              {titleKr}
             </p>
 
             <p className='text-white text-[14px] leading-6'>
