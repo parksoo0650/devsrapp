@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 
@@ -65,14 +66,6 @@ export default function Jumbotron({ liveDatas }) {
         // activatedDot[0]?.style.backgroundColor = '#979797';
       }}
     >
-      {/* 53주년 배너 */}
-      <SwiperSlide>
-        <img
-          className='w-full bg-no-repeat bg-cover bg-center'
-          src='images/banner_53.png'
-        />
-      </SwiperSlide>
-
       {/* 주일 설교 */}
       <SwiperSlide className={`h-[${jumbotronSize.height}px]`}>
         <div
@@ -108,6 +101,18 @@ export default function Jumbotron({ liveDatas }) {
             </p>
           </div>
         </div>
+      </SwiperSlide>
+
+      {/* 53주년 배너 */}
+      <SwiperSlide>
+        <Link href='https://youtu.be/CzBmd0QkSeM'>
+          <a>
+            <img
+              className='w-full bg-no-repeat bg-cover bg-center'
+              src='images/banner_53.png'
+            />
+          </a>
+        </Link>
       </SwiperSlide>
     </Swiper>
   );
