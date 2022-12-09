@@ -65,11 +65,11 @@ export default function Jumbotron({ liveDatas }) {
         // activatedDot[0]?.style.backgroundColor = '#979797';
       }}
     >
-      {/* 53주년 배너 */}
+      {/* 크리스마스 배너 */}
       <SwiperSlide>
         <img
           className='w-full bg-no-repeat bg-cover bg-center'
-          src='images/banner_53.png'
+          src='images/jumbotron_christmas.png'
         />
       </SwiperSlide>
 
