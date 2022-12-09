@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 
@@ -79,7 +80,7 @@ export default function Jumbotron({ liveDatas }) {
           className={`w-full h-full
           bg-no-repeat bg-cover bg-center
           bg-[url('images/jumbotron_sermon.png')]
-          pl-[64px]`}
+          px-8`}
           onClick={() => {
             router.push(
               `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}&kind=${liveDatas.subKind}`,
@@ -96,8 +97,8 @@ export default function Jumbotron({ liveDatas }) {
             </p>
 
             <p
-              className='text-white font-[500] text-[32px] mb-[18px]
-              tracking-[-0.5px] break-keep max-w-xs leading-10'
+              className='text-white font-[500] text-[32px] mb-[18px] max-h-[80px]
+              tracking-[-0.5px] break-keep max-w-xs leading-10 text-ellipsis overflow-hidden'
             >
               {titleKr}
             </p>
@@ -108,6 +109,18 @@ export default function Jumbotron({ liveDatas }) {
             </p>
           </div>
         </div>
+      </SwiperSlide>
+
+      {/* 53주년 배너 */}
+      <SwiperSlide>
+        <Link href='https://youtu.be/CzBmd0QkSeM'>
+          <a>
+            <img
+              className='w-full bg-no-repeat bg-cover bg-center'
+              src='images/banner_53.png'
+            />
+          </a>
+        </Link>
       </SwiperSlide>
     </Swiper>
   );
