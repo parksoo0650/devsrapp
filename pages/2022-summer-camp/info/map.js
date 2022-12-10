@@ -1,4 +1,4 @@
-import CampMap from '../../../src/components/CampMap/CampMap';
+import CampMap from '../../../src/components/Camp/CampMap/CampMap';
 
 const Map = () => {
   return <CampMap />;

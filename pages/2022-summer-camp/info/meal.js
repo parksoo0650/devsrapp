@@ -1,4 +1,4 @@
-import CampMeal from '../../../src/components/CampMeal/CampMeal';
+import CampMeal from '../../../src/components/Camp/CampMeal/CampMeal';
 
 const Meal = () => {
   return <CampMeal />;

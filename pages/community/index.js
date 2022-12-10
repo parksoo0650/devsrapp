@@ -3,7 +3,7 @@ import EventLayout from "../../src/components/EventLayout";
 import useSWR from "swr";
 import { cls } from "../../libs/utils";
 import Image from "next/image";
-import CampNavbar from "../../src/components/CampNavbar/CampNavbar";
+import CampNavbar from "../../src/components/Camp/CampNavbar/CampNavbar";
 import Loading from "../../src/components/Loading";
 
 const Community = () => {

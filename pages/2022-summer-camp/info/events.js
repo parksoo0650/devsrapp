@@ -1,4 +1,4 @@
-import CampEvents from '../../../src/components/CampEvents/CampEvents';
+import CampEvents from '../../../src/components/Camp/CampEvents/CampEvents';
 
 const Events = () => {
   return <CampEvents />;

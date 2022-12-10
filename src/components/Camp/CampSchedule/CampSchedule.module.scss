@@ -1,0 +1,278 @@
+.CampSchedule {
+  text-align: end;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  position: relative;
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 44px;
+    padding: 0 16px;
+    margin-bottom: 14px;
+
+    // 공유 버튼
+    button {
+      width: 20px;
+      height: 16px;
+      background-image: url('../../../../public/icons/ico_go.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+
+    // 날짜 표시
+    ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100%;
+      align-items: center;
+
+      // 각각의 날짜
+      li {
+        display: inline-block;
+        width: 106px;
+        text-align: center;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: -0.5px;
+      }
+    }
+  }
+
+  .flexBox {
+    display: flex;
+    padding: 0 16px;
+    justify-content: space-between;
+
+    .ScheduleTable {
+      display: inline-grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(33, 18px);
+      width: 318px;
+
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: -0.5px;
+
+      .item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        bold {
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 18px;
+          text-align: center;
+          letter-spacing: -0.5px;
+          color: #ffffff;
+          opacity: 0.7;
+        }
+      }
+
+      // 새벽성회
+      .DawnCrusade {
+        grid-column: 2 / 4;
+        grid-row: 1 / 3;
+        background: #43bfc7;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+
+        span {
+          font-weight: 500;
+          font-size: 10px;
+          line-height: 18px;
+          text-align: center;
+          letter-spacing: -0.5px;
+          color: #ffffff;
+          opacity: 0.7;
+          padding-left: 8px;
+        }
+      }
+
+      // 아침식사
+      .Breakfast {
+        grid-column: 2 / 4;
+        grid-row: 3 / 7;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 휴식
+      .Rest1 {
+        grid-column: 2 / 4;
+        grid-row: 7 / 9;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 행복한 특강
+      .HappyLecture {
+        grid-column: 2 / 3;
+        grid-row: 9 / 13;
+        background: #f9725f;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // 전교인 특강
+      .LectureForEveryone {
+        grid-column: 3 / 4;
+        grid-row: 9 / 13;
+        background: #9473f0;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // 점심식사
+      .Lunch {
+        grid-column: 2 / 4;
+        grid-row: 13 / 16;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 휴식
+      .Rest2 {
+        grid-column: 2 / 4;
+        grid-row: 16 / 18;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 행복 더하기 (레크레이션)
+      .Recreation {
+        grid-column: 2 / 3;
+        grid-row: 18 / 22;
+        background: #6288fc;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // 신유집회
+      .HealingCrusade {
+        grid-column: 3 / 4;
+        grid-row: 18 / 22;
+        background: #3db991;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // 성락시네마
+      .SungrakCinema {
+        grid-column: 1 / 2;
+        grid-row: 21 / 25;
+        background: #f79a0f;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // 휴식
+      .Rest3 {
+        grid-column: 2 / 4;
+        grid-row: 22 / 25;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 저녁식사
+      .Dinner {
+        grid-column: 1 / 4;
+        grid-row: 25 / 28;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 휴식
+      .Rest4 {
+        grid-column: 1 / 4;
+        grid-row: 28 / 29;
+        background: #f8f8f8;
+        border-top: 1px solid #ebedef;
+      }
+
+      // 저녁성회
+      .EveningCrusade {
+        grid-column: 1 / 4;
+        grid-row: 29 / 34;
+        background: #fd649c;
+        color: #ffffff;
+        border-top: 1px solid #ebedef;
+        font-weight: 500;
+      }
+
+      // blank
+
+      .blank1 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 1 / 3;
+      }
+
+      .blank2 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 3 / 7;
+      }
+
+      .blank3 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 7 / 9;
+      }
+
+      .blank4 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 9 / 13;
+      }
+
+      .blank5 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 13 / 16;
+      }
+
+      .blank6 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 16 / 18;
+      }
+
+      .blank7 {
+        grid-column: 1 / 2;
+        border-top: 1px solid #ebedef;
+        grid-row: 18 / 22;
+      }
+    }
+  }
+
+  .Timetable {
+    // display: grid;
+    // grid-template-rows: repeat(36px, 17);
+    position: absolute;
+    top: 89px;
+    left: 18px;
+
+    p {
+      display: block;
+      padding-bottom: 18px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 18px;
+      letter-spacing: -0.5px;
+      color: #272727;
+    }
+  }
+}

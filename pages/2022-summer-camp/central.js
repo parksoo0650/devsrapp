@@ -1,4 +1,4 @@
-import CampCentral from '../../src/components/CampCentral/CampCentral';
+import CampCentral from '../../src/components/Camp/CampCentral/CampCentral';
 
 const Central = () => {
   return <CampCentral />;

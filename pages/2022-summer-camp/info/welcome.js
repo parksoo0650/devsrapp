@@ -1,4 +1,4 @@
-import CampWelcome from '../../../src/components/CampWelcome/CampWelcome';
+import CampWelcome from '../../../src/components/Camp/CampWelcome/CampWelcome';
 
 const Welcome = () => {
   return <CampWelcome />;

@@ -1,4 +1,4 @@
-import CampRoom from '../../../src/components/CampRoom/CampRoom';
+import CampRoom from '../../../src/components/Camp/CampRoom/CampRoom';
 
 const Room = () => {
   return <CampRoom />;

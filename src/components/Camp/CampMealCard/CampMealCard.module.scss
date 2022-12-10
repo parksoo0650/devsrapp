@@ -1,0 +1,48 @@
+.CampMealCard {
+  // margin: 15px 0 0;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  text-align: start;
+  height: 302px;
+
+  // 첫째날, 둘째날, 셋째날 텍스트
+  h2 {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: -0.5px;
+    margin: 0 0 12px;
+  }
+
+  // 중식, 석식 텍스트
+  h4 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin: 0 0 4px;
+  }
+
+  // 시간 표시 텍스트
+  span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+    color: #737373;
+    padding: 0;
+  }
+
+  // 메뉴 리스트
+  ul {
+    padding: 10px 0 20px;
+
+    li {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+    }
+  }
+}

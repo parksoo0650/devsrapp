@@ -1,0 +1,107 @@
+.Fundamental {
+  padding: 15px 15px 13px;
+  margin-bottom: 6px;
+  background-color: white;
+  // border-top: 1px solid #ebedef;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+
+  h3 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #000000;
+    padding: 0 0 12px;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    padding: 0 0 8px;
+
+    div {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+    }
+
+    // 장소
+    &:nth-of-type(1) {
+      div {
+        background-image: url('../../../../../public/icons/ico_place.svg');
+      }
+    }
+
+    // 일자
+    &:nth-of-type(2) {
+      div {
+        background-image: url('../../../../../public/icons/ico_date.svg');
+      }
+    }
+
+    // 시간
+    &:nth-of-type(3) {
+      div {
+        background-image: url('../../../../../public/icons/ico_time.svg');
+      }
+    }
+  }
+
+  pre {
+    margin: 8px 0 0px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+
+    li {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background-color: black;
+        border-radius: 50%;
+        width: 4px;
+        height: 4px;
+        margin: 0 6px;
+      }
+    }
+  }
+
+  // 04. 상담ㆍ축사
+  .timeAdditional {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    padding-left: 57px;
+    position: relative;
+    bottom: 6px;
+  }
+
+  // 06. 전교인특강
+  .infoAdditional {
+    div {
+      background-image: url('../../../../../public/icons/ico_topic.svg');
+    }
+  }
+}

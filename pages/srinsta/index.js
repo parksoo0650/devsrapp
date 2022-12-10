@@ -4,7 +4,7 @@ import useSWR from "swr";
 import Image from "next/image";
 import iconLike from "../../public/icons/event/icon_like.png";
 import iconAnswer from "../../public/icons/event/icon_answer.png";
-import CampNavbar from "../../src/components/CampNavbar/CampNavbar";
+import CampNavbar from "../../src/components/Camp/CampNavbar/CampNavbar";
 import Loading from "../../src/components/Loading";
 
 const Community = () => {

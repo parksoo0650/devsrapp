@@ -1,4 +1,4 @@
-import CampSchedule from '../../../../src/components/CampSchedule/CampSchedule';
+import CampSchedule from '../../../../src/components/Camp/CampSchedule/CampSchedule';
 
 const Schedule = () => {
   return <CampSchedule />;

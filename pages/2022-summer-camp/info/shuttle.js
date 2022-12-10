@@ -1,4 +1,4 @@
-import CampShuttle from '../../../src/components/CampShuttle/CampShuttle';
+import CampShuttle from '../../../src/components/Camp/CampShuttle/CampShuttle';
 
 const Shuttle = () => {
   return <CampShuttle />;

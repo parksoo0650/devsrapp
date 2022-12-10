@@ -1,0 +1,91 @@
+.MainBanner {
+  background-image: url('../../../../../public/images/CampBanner.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  padding: 32px 20px;
+  margin: 0 0 15px;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+
+  span {
+    display: block;
+    margin: 0 0 8px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.5px;
+    color: #478621;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+  }
+}
+
+.Notice {
+  background: #f8f8f8;
+  border: 1px solid #ebedef;
+  border-radius: 8px;
+  padding: 14px 20px 12px;
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  position: relative;
+  margin-top: 14px;
+
+  h2 {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+    margin: 0 0 8px;
+    text-indent: -1em;
+  }
+
+  h2:nth-child(1) {
+    color: #BF1079;
+    font-size: 15px;
+    font-weight: bold;
+    // text-indent: 0em;
+  }
+
+  h2:nth-child(6) {
+    color: #BF1079;
+    font-size: 15px;
+    font-weight: bold;
+    text-indent: 0em;
+    text-decoration: underline;
+  }
+
+  span {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    width: 69px;
+    height: 18px;
+    background: #000000;
+    opacity: 0.7;
+    border-radius: 8px;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 10px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 16px;
+    bottom: 10px;
+  }
+}

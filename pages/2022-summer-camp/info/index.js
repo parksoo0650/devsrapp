@@ -1,4 +1,4 @@
-import CampInfo from '../../../src/components/CampInfo/CampInfo';
+import CampInfo from '../../../src/components/Camp/CampInfo/CampInfo';
 
 const InfoIndex = () => {
   return <CampInfo />;

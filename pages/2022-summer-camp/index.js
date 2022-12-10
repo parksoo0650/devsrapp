@@ -1,5 +1,5 @@
 // 2022-summer-camp
-import CampHome from '../../src/components/CampHome/CampHome';
+import CampHome from '../../src/components/Camp/CampHome/CampHome';
 
 const CampIndexPage = () => {
   return <CampHome />;
