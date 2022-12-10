@@ -7,18 +7,20 @@ export default function HomeBar() {
   const router = useRouter();
   const [bible, setBible] = useState('1');
   const [chapter, setChapter] = useState('1');
+  const [bottomPadding, setBottomPadding] = useState('9px');
   const pathNameSplit = router.pathname.split('/');
   const contentPages = ['/feed', '/onmain', '/prayerMain', '/returnMain'];
 
   useEffect(() => {
     setBible(() => localStorage.getItem('bible') || '1');
     setChapter(() => localStorage.getItem('chapter') || '1');
+    if (isIOS) setBottomPadding('26px');
   }, []);
 
   return (
     <section
       className={`fixed bottom-0 flex items-center justify-around border-t border-[#ebebeb]
-        bg-white z-50 w-full pt-[9px] pb-[${isIOS ? '26px' : '9px'}]`}
+        bg-white z-50 w-full pt-[9px] pb-[${bottomPadding}]`}
     >
       <Navbar.Tab
         text='홈'
