@@ -3,16 +3,13 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import SwiperCore, { Autoplay, Pagination, Navigation } from 'swiper';
 import useSWR from 'swr';
-// import AppHeader from '../src/components/Home/AppHeader/AppHeader';
-// import SermonThisWeek from '../src/components/Home/SermonThisWeek';
 import Jumbotron from '../src/components/Home/Jumbotron';
 import WeekdayContent from '../src/components/Home/WeekdayContent';
 import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
-import router from 'next/router';
-// import Modal from '../src/components/Modal/Modal';
+import ClickToMovePage from '../src/components/molecule/ClickToMovePage';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -72,6 +69,19 @@ export default function Home() {
 
       {/* 대형 슬라이드 */}
       <Jumbotron liveDatas={liveDatas} />
+
+      <ClickToMovePage
+        route='/'
+        content={
+          <div className='flex items-center justify-between px-7 h-16 bg-[#d38730]'>
+            <span className='text-base font-medium text-white'>
+              교회를 위한 기도제목 바로가기
+            </span>
+
+            <div className='w-4 h-4 bg-[url("/icons/right_arrow_white.svg")] bg-no-repeat bg-contain bg-center' />
+          </div>
+        }
+      />
 
       {/* 53주년 예배순서 바로가기 */}
       {/* <div onClick={() => router.push('/Programme53')}>
