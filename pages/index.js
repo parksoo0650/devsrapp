@@ -68,7 +68,7 @@ export default function Home() {
       {/* <AppHeader isLive={isLive} dataSermon={dataSermon} /> */}
 
       {/* 대형 슬라이드 */}
-      <Jumbotron liveDatas={liveDatas} />
+      <Jumbotron liveDatas={liveDatas} isLive={isLive} />
 
       <ClickToMovePage
         route='/prayer'

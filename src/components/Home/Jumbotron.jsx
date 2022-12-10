@@ -5,7 +5,7 @@ import Link from 'next/link';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 
-export default function Jumbotron({ liveDatas }) {
+export default function Jumbotron({ liveDatas, isLive }) {
   const router = useRouter();
 
   const [jumbotronSize, setJumbotronSize] = useState({
@@ -81,12 +81,21 @@ export default function Jumbotron({ liveDatas }) {
           }}
         >
           <div className='absolute top-72'>
-            <p
-              className='text-xs text-white px-[11px] py-[5.5px] mb-3
+            {isLive ? (
+              <p
+                className='text-xs text-white px-[11px] py-[5.5px] mb-3
+              inline-block rounded-[100px] bg-[#D43030]/70 '
+              >
+                에배실황
+              </p>
+            ) : (
+              <p
+                className='text-xs text-white px-[11px] py-[5.5px] mb-3
               inline-block rounded-[100px] bg-[#D48830]/70 '
-            >
-              주일설교
-            </p>
+              >
+                주일예배
+              </p>
+            )}
 
             <p
               className='text-white font-[500] text-[32px] mb-[18px] max-h-[80px]
