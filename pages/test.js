@@ -15,6 +15,11 @@ export default function test() {
           </div>
         }
       />
+
+      <ClickToMovePage
+        route='/Programme53'
+        content={<img src='/images/banner_53_quick.png' />}
+      />
     </>
   );
 }

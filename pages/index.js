@@ -83,11 +83,6 @@ export default function Home() {
         }
       />
 
-      {/* 53주년 예배순서 바로가기 */}
-      {/* <div onClick={() => router.push('/Programme53')}>
-        <img src='/images/banner_53_quick.png' />
-      </div> */}
-
       {/* 주중 콘텐츠 */}
       <WeekdayContent liveDatas={liveDatas} dataOncontents={dataOncontents} />
 
