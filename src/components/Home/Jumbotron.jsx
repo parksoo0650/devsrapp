@@ -66,14 +66,6 @@ export default function Jumbotron({ liveDatas }) {
         // activatedDot[0]?.style.backgroundColor = '#979797';
       }}
     >
-      {/* 크리스마스 배너 */}
-      <SwiperSlide>
-        <img
-          className='w-full bg-no-repeat bg-cover bg-center'
-          src='images/jumbotron_christmas.png'
-        />
-      </SwiperSlide>
-
       {/* 주일 설교 */}
       <SwiperSlide className={`h-[${jumbotronSize.height}px]`}>
         <div
@@ -111,8 +103,16 @@ export default function Jumbotron({ liveDatas }) {
         </div>
       </SwiperSlide>
 
-      {/* 53주년 배너 */}
+      {/* 크리스마스 배너 */}
       <SwiperSlide>
+        <img
+          className='w-full bg-no-repeat bg-cover bg-center'
+          src='images/jumbotron_christmas.png'
+        />
+      </SwiperSlide>
+
+      {/* 53주년 배너 */}
+      {/* <SwiperSlide>
         <Link href='https://youtu.be/CzBmd0QkSeM'>
           <a>
             <img
@@ -121,7 +121,7 @@ export default function Jumbotron({ liveDatas }) {
             />
           </a>
         </Link>
-      </SwiperSlide>
+      </SwiperSlide> */}
     </Swiper>
   );
 }
