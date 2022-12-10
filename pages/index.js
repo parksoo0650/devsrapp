@@ -71,7 +71,7 @@ export default function Home() {
       <Jumbotron liveDatas={liveDatas} />
 
       <ClickToMovePage
-        route='/'
+        route='/prayer'
         content={
           <div className='flex items-center justify-between px-7 h-16 bg-[#d38730]'>
             <span className='text-base font-medium text-white'>

@@ -4,7 +4,7 @@ export default function test() {
   return (
     <>
       <ClickToMovePage
-        route='/'
+        route='/prayer'
         content={
           <div className='flex items-center justify-between px-7 py-5 bg-[#d38730]'>
             <span className='text-base font-medium text-white'>
