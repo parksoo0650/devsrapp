@@ -22,13 +22,9 @@ export default function Jumbotron({ liveDatas, isLive }) {
 
     // Swiper dot settings.
     const dots = document.querySelectorAll('.swiper-pagination');
-    // dots[0]?.style.display = 'flex';
-    // dots[0]?.style.justifyContent = 'center';
-
     const activatedDot = document.querySelectorAll(
       '.swiper-pagination-bullet-active'
     );
-    // activatedDot[0]?.style.backgroundColor = '#979797';
   }, []);
 
   SwiperCore.use([Autoplay]);
@@ -37,16 +33,28 @@ export default function Jumbotron({ liveDatas, isLive }) {
    * 왜 split 도중 undefined가 될까, 주일예배 탭도 마찬가지..
    * 우선 모든 split str에 대하여 undefined 방지. 대신 빈 str 할당.
    */
-  const title = liveDatas.title || '';
-  console.log('[title]', title);
-  const titleKr = title.split('(')[0];
-  console.log('[titleKr]', titleKr);
-  const temp = title.split('(')[1] || '';
-  console.log('[temp]', temp);
-  const temp2 = temp.split(')')[1] || '';
-  console.log('[temp2]', temp2);
-  const scripture = temp2.trim();
-  console.log('[scripture]', scripture);
+  let title = '';
+  let titleKr = '';
+  let temp = '';
+  let temp2 = '';
+  let scripture = '';
+
+  if (isLive) {
+    title = liveDatas.title || '';
+    titleKr = title.split('(')[0];
+    temp = title.split('(')[1] || '';
+    scripture = temp.split(')')[0] || '';
+
+    console.log('String 처리:', temp, temp2, scripture);
+  } else {
+    title = liveDatas.title || '';
+    titleKr = title.split('(')[0];
+    temp = title.split('(')[1] || '';
+    temp2 = temp.split(')')[1] || '';
+    scripture = temp2.trim();
+
+    console.log('String 처리:', title, titleKr, temp, temp2, scripture);
+  }
 
   return (
     <Swiper
