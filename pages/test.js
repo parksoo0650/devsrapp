@@ -1,25 +1,32 @@
-import ClickToMovePage from '../src/components/molecule/ClickToMovePage';
+import ActionBar from '../src/components/molecule/ActionBar';
+import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
+import ClickToMovePage from '../src/components/atom/ClickToMovePage';
+import ListRow from '../src/components/molecule/ListRow';
 
 export default function test() {
+  const contents = [];
+
+  for (let index = 0; index < 8; index++) {
+    contents.push(
+      <div key={index}>
+        <ListRow.V1
+          title='교회를 위한 기도제목 바로가기'
+          backgroundColor='#d38730'
+        />
+
+        <ClickToMovePage
+          route='/Programme53'
+          content={<img src='/images/banner_53_quick.png' />}
+        />
+      </div>
+    );
+  }
+
   return (
     <>
-      <ClickToMovePage
-        route='/prayer'
-        content={
-          <div className='flex items-center justify-between px-7 py-5 bg-[#d38730]'>
-            <span className='text-base font-medium text-white'>
-              교회를 위한 기도제목 바로가기
-            </span>
+      <ActionBar title='테스트 페이지' left={<ClickToMoveBack route='/' />} />
 
-            <div className='w-4 h-4 bg-[url("/icons/right_arrow_white.svg")] bg-no-repeat bg-contain bg-center' />
-          </div>
-        }
-      />
-
-      <ClickToMovePage
-        route='/Programme53'
-        content={<img src='/images/banner_53_quick.png' />}
-      />
+      {contents}
     </>
   );
 }
