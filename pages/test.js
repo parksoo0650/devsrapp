@@ -6,7 +6,7 @@ import ListRow from '../src/components/molecule/ListRow';
 export default function test() {
   const contents = [];
 
-  for (let index = 0; index < 8; index++) {
+  for (let index = 0; index < 5; index++) {
     contents.push(
       <div key={index}>
         <ListRow.V1
@@ -24,7 +24,11 @@ export default function test() {
 
   return (
     <>
-      <ActionBar title='테스트 페이지' left={<ClickToMoveBack route='/' />} />
+      <ActionBar
+        center='테스트 페이지'
+        left={<ClickToMoveBack route='/' />}
+        height='16'
+      />
 
       {contents}
     </>
