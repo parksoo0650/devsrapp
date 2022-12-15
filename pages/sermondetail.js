@@ -1,10 +1,12 @@
-import { useRouter } from "next/router";
-import React, { useState, useEffect } from "react";
-import YouTube from "react-youtube";
-import Share from "../src/components/Share";
-import useSWR from "swr";
-import Weeklyorder from "../src/components/Weeklyorder";
-import Weeklysummary from "../src/components/Weeklysummary";
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
+import YouTube from 'react-youtube';
+import Share from '../src/components/Share';
+import useSWR from 'swr';
+import Weeklyorder from '../src/components/Weeklyorder';
+import Weeklysummary from '../src/components/Weeklysummary';
+import ActionBar from '../src/components/molecule/ActionBar';
+import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
 
 export default function Sermonmain() {
   const router = useRouter();
@@ -12,21 +14,21 @@ export default function Sermonmain() {
     router.query.vdate ? `/api/weekly/date?pdate=${router.query.vdate}` : null
   );
 
-  let kind = "";
-  router.query.kind ? (kind = router.query.kind) : (kind = "def");
+  let kind = '';
+  router.query.kind ? (kind = router.query.kind) : (kind = 'def');
   const ser_kind = {
-    def: "주일설교",
-    sun: "1,3부 예배",
-    tue: "환언특강",
-    wed: "수요예배",
-    fri: "금요기도회",
+    def: '주일설교',
+    sun: '1,3부 예배',
+    tue: '환언특강',
+    wed: '수요예배',
+    fri: '금요기도회',
   };
 
-  const [tabKind, setTabKind] = useState("ord");
+  const [tabKind, setTabKind] = useState('ord');
 
   const opts = {
-    width: "320px",
-    height: "200px",
+    width: '320px',
+    height: '200px',
     playerVars: {
       loop: 1,
       controls: 1,
@@ -43,20 +45,17 @@ export default function Sermonmain() {
   };
 
   useEffect(() => {
-    setTabKind("ord");
+    setTabKind('ord');
   }, [router]);
 
   return (
-    <div className="sub_container sermon_detail">
-      <div className="top_area">
-        <span
-          className="btn_prev"
-          onClick={() => router.push(`/sermonmain?kind=${kind}`)}
-        ></span>
-        <div className="top_title">{ser_kind[kind]}</div>
-      </div>
+    <div className='sub_container sermon_detail'>
+      <ActionBar
+        center={ser_kind[kind]}
+        left={<ClickToMoveBack route={`/sermonmain?kind=${kind}`} />}
+      />
 
-      <div className="movie_wrap">
+      <div className='movie_wrap'>
         {isMute && (
           <div
             onClick={() => {
@@ -64,61 +63,65 @@ export default function Sermonmain() {
               youtubeTarget.setVolume(100);
               setIsMute(false);
             }}
-            style={{ 
-              position: "absolute",
-              zIndex: "10",
-              padding: "15px",
+            style={{
+              position: 'absolute',
+              zIndex: '10',
+              padding: '15px',
             }}
           >
-            <img style={{ width: "50%" }} src="/images/btn_mute.png" alt="음소거" />
+            <img
+              style={{ width: '50%' }}
+              src='/images/btn_mute.png'
+              alt='음소거'
+            />
           </div>
         )}
         <YouTube
           videoId={router.query.vid}
           opts={opts}
-          containerClassName="iframe_wrap"
+          containerClassName='iframe_wrap'
           onReady={onPlayerReady}
         />
-        <div className="info">
+        <div className='info'>
           <Share
             title={router.query.vtit}
-            thum="/images/kakao_def_new.jpg"
+            thum='/images/kakao_def_new.jpg'
             vid={router.query.vid}
           />
-          <div className="tit">
-            <a href="#">{router.query.vtit}</a>
+          <div className='tit'>
+            <a href='#'>{router.query.vtit}</a>
           </div>
-          <div className="date">{router.query.vdate}</div>
+          <div className='date'>{router.query.vdate}</div>
         </div>
       </div>
 
-      {(kind == "def" || kind == "sun") && data?.weekly[0] && (
-        <div className="section">
-          <ul className="tab_area">
+      {(kind == 'def' || kind == 'sun') && data?.weekly[0] && (
+        <div className='section'>
+          <ul className='tab_area'>
             <li
               onClick={() => {
-                if (tabKind != "ord") {
-                  setTabKind("ord");
+                if (tabKind != 'ord') {
+                  setTabKind('ord');
                 }
               }}
-              className={tabKind == "ord" ? "on" : ""}
+              className={tabKind == 'ord' ? 'on' : ''}
             >
               예배순서
             </li>
             <li
               onClick={() => {
-                if (tabKind != "ser") {
-                  setTabKind("ser");
+                if (tabKind != 'ser') {
+                  setTabKind('ser');
                 }
               }}
-              className={tabKind == "ser" ? "on" : ""}
+              className={tabKind == 'ser' ? 'on' : ''}
             >
               설교요지
             </li>
           </ul>
-          <div className="tab_con">
-            {tabKind == "ord" && <Weeklyorder data={data?.weekly[0]} />}
-            {tabKind == "ser" && <Weeklysummary data={data?.weekly[0]} />}
+          <div className='tab_con'>
+            {tabKind == 'ord' && <Weeklyorder data={data?.weekly[0]} />}
+            {tabKind == 'ser' && <Weeklysummary data={data?.weekly[0]} />}
           </div>
         </div>
       )}

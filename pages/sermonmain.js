@@ -5,6 +5,8 @@ import YouTube from 'react-youtube';
 import Share from '../src/components/Share';
 import Loading from '../src/components/Loading';
 import HomeBar from '../src/components/HomeBar';
+import ActionBar from '../src/components/molecule/ActionBar';
+import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
 
 export default function Sermonmain() {
   const router = useRouter();
@@ -110,8 +112,8 @@ export default function Sermonmain() {
     <>
       <div className='sub_container'>
         <div className='top_area'>
-          <span className='btn_prev' onClick={() => router.push('/')}></span>
-          <div className='top_title'>예배</div>
+          <ActionBar center='예배' left={<ClickToMoveBack route='/' />} />
+
           <div className='tab_wrap'>
             <ul className='tab_area'>
               <li
