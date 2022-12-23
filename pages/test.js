@@ -2,9 +2,15 @@ import ActionBar from '../src/components/molecule/ActionBar';
 import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
 import ClickToMovePage from '../src/components/atom/ClickToMovePage';
 import ListRow from '../src/components/molecule/ListRow';
+import useSWR from 'swr';
 
 export default function test() {
   const contents = [];
+  const { data: sermonData } = useSWR('/api/contents?kind=sermon');
+  const { data: onContentsData } = useSWR('/api/contents?kind=oncontents');
+
+  console.log('sermonData', sermonData);
+  console.log('onContentsData', onContentsData);
 
   for (let index = 0; index < 5; index++) {
     contents.push(
