@@ -9,7 +9,7 @@ import QuickMenu from '../src/components/Home/QuickMenu';
 import Praise from '../src/components/Home/Praise';
 import Department from '../src/components/Home/Department';
 import HomeBar from '../src/components/HomeBar';
-import ClickToMovePage from '../src/components/molecule/ClickToMovePage';
+import ListRow from '../src/components/molecule/ListRow';
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
@@ -70,17 +70,9 @@ export default function Home() {
       {/* 대형 슬라이드 */}
       <Jumbotron liveDatas={liveDatas} isLive={isLive} />
 
-      <ClickToMovePage
-        route='/prayer'
-        content={
-          <div className='flex items-center justify-between px-7 h-16 bg-[#d38730]'>
-            <span className='text-base font-medium text-white'>
-              교회를 위한 기도제목 바로가기
-            </span>
-
-            <div className='w-4 h-4 bg-[url("/icons/right_arrow_white.svg")] bg-no-repeat bg-contain bg-center' />
-          </div>
-        }
+      <ListRow.V1
+        title='교회를 위한 기도제목 바로가기'
+        backgroundColor='#d38730'
       />
 
       {/* 주중 콘텐츠 */}
@@ -94,7 +86,7 @@ export default function Home() {
 
       {/* 교회 표어 */}
       <div className='mdbanner'>
-        <img src='/icons/md_banner2.png' />
+        <img src='/images/banner_23.jpg' />
       </div>
 
       {/* 은혜로운 찬양 */}
