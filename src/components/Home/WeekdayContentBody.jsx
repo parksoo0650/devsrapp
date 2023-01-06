@@ -30,8 +30,6 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
   let onmCnt = 0;
   let onbCnt = 0;
   let ontCnt = 0;
-  let tueCnt = 0;
-  let wed1Cnt = 0;
   let wed2Cnt = 0;
   let friCnt = 0;
 
@@ -91,22 +89,6 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
           }
 
           /**
-           * 환언특강.
-           */
-          if (doc.subKind === 'tue' && tueCnt == 0) {
-            tueCnt = tueCnt + 1;
-            return (
-              <SwiperSlide key={doc.id}>
-                <WeekdayContentItem
-                  doc={doc}
-                  type='returnDetail'
-                  imageSrc='/images/tue.jpeg'
-                />
-              </SwiperSlide>
-            );
-          }
-
-          /**
            * 금요기도회.
            */
           if (doc.subKind === 'fri' && friCnt == 0) {
@@ -117,22 +99,6 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
                   doc={doc}
                   type='prayerDetail'
                   imageSrc='/images/fri.jpeg'
-                />
-              </SwiperSlide>
-            );
-          }
-
-          /**
-           * 수요예배.
-           */
-          if (doc.subKind === 'wed1' && wed1Cnt == 0) {
-            wed1Cnt = wed1Cnt + 1;
-            return (
-              <SwiperSlide key={doc.id}>
-                <WeekdayContentItem
-                  doc={doc}
-                  type='sermondetail'
-                  imageSrc='/images/wed1.jpeg'
                 />
               </SwiperSlide>
             );
