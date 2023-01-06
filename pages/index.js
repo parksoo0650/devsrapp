@@ -86,7 +86,7 @@ export default function Home() {
 
       {/* 교회 표어 */}
       <div className='mdbanner'>
-        <img src='/icons/md_banner2.png' />
+        <img src='/images/banner_23.jpg' />
       </div>
 
       {/* 은혜로운 찬양 */}
