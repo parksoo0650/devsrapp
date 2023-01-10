@@ -1,13 +1,15 @@
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import YouTube from "react-youtube";
-import Share from "../src/components/Share";
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import YouTube from 'react-youtube';
+import Share from '../src/components/Share';
+import ActionBar from '../src/components/molecule/ActionBar';
+import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
 
 export default function Praisedetail() {
   const router = useRouter();
   const opts = {
-    width: "320px",
-    height: "200px",
+    width: '320px',
+    height: '200px',
     playerVars: {
       loop: 1,
       controls: 1,
@@ -24,16 +26,13 @@ export default function Praisedetail() {
   };
 
   return (
-    <div className="sub_container praise_detail">
-      <div className="top_area">
-        <span
-          className="btn_prev"
-          onClick={() => router.push(`/returnMain`)}
-        ></span>
-        <div className="top_title">환언특강</div>
-      </div>
+    <div className='sub_container praise_detail'>
+      <ActionBar
+        center='환언특강'
+        left={<ClickToMoveBack route='/returnMain' />}
+      />
 
-      <div className="movie_wrap">
+      <div className='movie_wrap'>
         {isMute && (
           <div
             onClick={() => {
@@ -42,34 +41,34 @@ export default function Praisedetail() {
               setIsMute(false);
             }}
             style={{
-              position: "absolute",
-              zIndex: "10",
-              padding: "15px",
+              position: 'absolute',
+              zIndex: '10',
+              padding: '15px',
             }}
           >
             <img
-              style={{ width: "50%" }}
-              src="/images/btn_mute.png"
-              alt="음소거"
+              style={{ width: '50%' }}
+              src='/images/btn_mute.png'
+              alt='음소거'
             />
           </div>
         )}
         <YouTube
           videoId={router.query.vid}
           opts={opts}
-          containerClassName="iframe_wrap"
+          containerClassName='iframe_wrap'
           onReady={onPlayerReady}
         />
-        <div className="info">
+        <div className='info'>
           <Share
             title={router.query.vtit}
-            thum="/images/kakao_tue.jpg"
+            thum='/images/kakao_tue.jpg'
             vid={router.query.vid}
           />
-          <div className="tit">
-            <a href="#">{router.query.vtit}</a>
+          <div className='tit'>
+            <a href='#'>{router.query.vtit}</a>
           </div>
-          <div className="date">{router.query.vdate}</div>
+          <div className='date'>{router.query.vdate}</div>
         </div>
       </div>
     </div>
