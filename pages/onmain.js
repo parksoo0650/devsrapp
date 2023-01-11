@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import YouTube from 'react-youtube';
-import Share from '../src/components/Share';
 import Loading from '../src/components/Loading';
 import ContentTab from '../src/components/ContentTab';
 import HomeBar from '../src/components/HomeBar';
@@ -131,10 +129,10 @@ export default function Onmain() {
           </div>
         ) : (
           <>
-            <Card.V1
+            <Card.Rounded
               route={`/onprayerdetail?vid=${mainData.videoId}&vtit=${mainData.title}&vdate=${mainData.publishedAt}`}
               data={mainData}
-              series={series}
+              thumbnails={`/images/kakao_${series}_new.jpg`}
             />
 
             <div className='section subbordert pt15'>
