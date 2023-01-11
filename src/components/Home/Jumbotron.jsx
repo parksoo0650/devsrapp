@@ -104,7 +104,7 @@ export default function Jumbotron({ liveDatas, isLive }) {
 
             {titleKr ? (
               <p
-                className='text-white font-bold text-[32px] mb-3 max-h-[80px]
+                className='text-white font-extrabold text-[32px] mb-3 max-h-[80px]
                 tracking-[-0.5px] break-keep max-w-xs leading-10 text-ellipsis overflow-hidden'
               >
                 {titleKr}
@@ -114,7 +114,7 @@ export default function Jumbotron({ liveDatas, isLive }) {
             )}
 
             {scripture ? (
-              <p className='text-[#eeeeee] text-[14px] leading-6 font-semibold'>
+              <p className='text-[#eeeeee] text-[14px] leading-6 font-bold'>
                 {scripture} <br />
                 김성현 감독님
               </p>
