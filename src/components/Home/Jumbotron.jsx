@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
+import Skeleton from '../molecule/Skeleton';
 
 export default function Jumbotron({ liveDatas, isLive }) {
   const router = useRouter();
@@ -89,33 +89,38 @@ export default function Jumbotron({ liveDatas, isLive }) {
           }}
         >
           <div className='absolute top-72'>
-            {isLive ? (
+            {titleKr ? (
               <p
-                className='text-xs text-white px-[11px] py-[5.5px] mb-3
-              inline-block rounded-[100px] bg-[#D43030]/70 '
+                className={`text-xs text-white px-[11px] py-[5.5px] mb-3
+                inline-block rounded-[100px] font-semibold ${
+                  isLive ? 'bg-[#D43030]/70' : 'bg-[#D48830]/70'
+                }`}
               >
-                에배실황
+                <span>{isLive ? '예배실황' : '주일예배'}</span>
               </p>
             ) : (
-              <p
-                className='text-xs text-white px-[11px] py-[5.5px] mb-3
-              inline-block rounded-[100px] bg-[#D48830]/70 '
-              >
-                주일예배
-              </p>
+              <Skeleton.Badge />
             )}
 
-            <p
-              className='text-white font-[500] text-[32px] mb-[18px] max-h-[80px]
-              tracking-[-0.5px] break-keep max-w-xs leading-10 text-ellipsis overflow-hidden'
-            >
-              {titleKr}
-            </p>
+            {titleKr ? (
+              <p
+                className='text-white font-bold text-[32px] mb-3 max-h-[80px]
+                tracking-[-0.5px] break-keep max-w-xs leading-10 text-ellipsis overflow-hidden'
+              >
+                {titleKr}
+              </p>
+            ) : (
+              <Skeleton.Title2 />
+            )}
 
-            <p className='text-white text-[14px] leading-6'>
-              {scripture} <br />
-              김성현 감독님
-            </p>
+            {scripture ? (
+              <p className='text-[#eeeeee] text-[14px] leading-6 font-semibold'>
+                {scripture} <br />
+                김성현 감독님
+              </p>
+            ) : (
+              <Skeleton.Description />
+            )}
           </div>
         </div>
       </SwiperSlide>
