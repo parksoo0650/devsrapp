@@ -10,18 +10,18 @@ import Share from '../Share';
  */
 Card.Rounded = ({ route, data, thumbnail, preacher }) => {
   return (
-    <div className='m-4 rounded-lg border border-[#ebebeb]'>
+    <div className='m-4 rounded-lg border border-[#ebebeb] drop-shadow-lg'>
       <ClickToMovePage
         route={route}
         content={
           <img
             src={data?.thumbnails}
-            className='w-screen bg-cover bg-center bg-no-repeat rounded-lg'
+            className='w-screen bg-cover bg-center bg-no-repeat rounded-t-lg'
           />
         }
       />
 
-      <div className='flex justify-between bg-white px-4 py-3 rounded-lg'>
+      <div className='flex justify-between bg-white px-4 py-3 rounded-b-lg'>
         <ClickToMovePage
           route={route}
           content={

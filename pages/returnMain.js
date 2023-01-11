@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import YouTube from 'react-youtube';
-import Share from '../src/components/Share';
-import Loading from '../src/components/Loading';
 import ContentTab from '../src/components/ContentTab';
 import HomeBar from '../src/components/HomeBar';
 import Card from '../src/components/molecule/Card';
+import Skeleton from '../src/components/molecule/Skeleton';
 
 export default function Sermonmain() {
   const router = useRouter();
@@ -45,16 +43,6 @@ export default function Sermonmain() {
     getData();
   }, []);
 
-  const opts = {
-    width: '320px',
-    height: '200px',
-    playerVars: {
-      autoplay: 1,
-      rel: 0,
-      modestbranding: 1,
-    },
-  };
-
   return (
     <>
       <div className='sub_container'>
@@ -63,9 +51,7 @@ export default function Sermonmain() {
         </div>
 
         {isLoading === true ? (
-          <div className='loading_box'>
-            <Loading />
-          </div>
+          <Skeleton.Contents />
         ) : (
           <>
             <Card.Rounded

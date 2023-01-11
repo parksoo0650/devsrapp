@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import YouTube from 'react-youtube';
-import Share from '../src/components/Share';
-import Loading from '../src/components/Loading';
 import ContentTab from '../src/components/ContentTab';
 import HomeBar from '../src/components/HomeBar';
 import Card from '../src/components/molecule/Card';
+import Skeleton from '../src/components/molecule/Skeleton';
 
 export default function Sermonmain() {
   const router = useRouter();
@@ -44,16 +42,16 @@ export default function Sermonmain() {
     let splitTitle = '';
     let splitDate = '';
     if (sermon === 'wed') {
-      if (apiData.data.items[0].snippet.title.includes('수요저녁예배')) {
-        splitTitle = apiData.data.items[0].snippet.title.split('|');
-        splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+      if (apiData?.data?.items[0].snippet.title.includes('수요저녁예배')) {
+        splitTitle = apiData?.data?.items[0].snippet.title.split('|');
+        splitDate = apiData?.data?.items[0].snippet.publishedAt.split('T');
       } else {
-        splitTitle = apiData.data.items[1].snippet.title.split('|');
-        splitDate = apiData.data.items[1].snippet.publishedAt.split('T');
+        splitTitle = apiData?.data?.items[1].snippet.title.split('|');
+        splitDate = apiData?.data?.items[1].snippet.publishedAt.split('T');
       }
     } else {
-      splitTitle = apiData.data.items[0].snippet.title.split('|');
-      splitDate = apiData.data.items[0].snippet.publishedAt.split('T');
+      splitTitle = apiData?.data?.items[0].snippet.title.split('|');
+      splitDate = apiData?.data?.items[0].snippet.publishedAt.split('T');
     }
     const videoTitle = splitTitle[0];
     const videoDate = splitDate[0].split('-');
@@ -76,16 +74,6 @@ export default function Sermonmain() {
   useEffect(() => {
     setSermon(kind);
   }, [router]);
-
-  const opts = {
-    width: '320px',
-    height: '200px',
-    playerVars: {
-      autoplay: 1,
-      rel: 0,
-      modestbranding: 1,
-    },
-  };
 
   return (
     <>
@@ -132,9 +120,7 @@ export default function Sermonmain() {
         </div>
 
         {isLoading === true ? (
-          <div className='loading_box'>
-            <Loading />
-          </div>
+          <Skeleton.Contents />
         ) : (
           <>
             <Card.Rounded
