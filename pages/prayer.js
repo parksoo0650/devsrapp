@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import PrayerCard from '../src/components/Prayer/PrayerCard';
+import ActionBar from '../src/components/molecule/ActionBar';
+import ClickToMoveBack from '../src/components/atom/ClickToMoveBack';
 
 export default function prayer() {
   const router = useRouter();
@@ -8,38 +10,31 @@ export default function prayer() {
 
   return (
     <section>
-      <header className='fixed h-10 px-[22px] flex items-center justify-between'>
-        <img
-          className='w-5 h-5'
-          src='/icons/ico_close.svg'
-          onClick={() => router.push('/')}
-        />
-
-        <h3 className='text-base'>기도제목</h3>
-
-        <div className='w-5 h-5'>
-          <img
-            className='w-5 h-5 absolute right-[60px]'
-            src='/icons/ico_share_3.svg'
-            onClick={() => {
-              navigator.clipboard.writeText(window.location.href);
-              setToastShow(() => true);
-              setTimeout(() => setToastShow(() => false), 3000);
-            }}
-          />
-
-          <a href='/images/sungrak_prayer.bmp' download='성락인의 기도제목'>
+      <ActionBar
+        center='기도제목'
+        left={<ClickToMoveBack route='/' />}
+        right={
+          <div className='w-5 h-5'>
             <img
-              className='w-5 h-5'
-              src='/icons/ico_download.svg'
-              onClick={() => {}}
+              className='w-5 h-5 absolute right-[60px]'
+              src='/icons/ico_share_3.svg'
+              onClick={() => {
+                navigator.clipboard.writeText(window.location.href);
+                setToastShow(() => true);
+                setTimeout(() => setToastShow(() => false), 3000);
+              }}
             />
-          </a>
-        </div>
-      </header>
 
-      {/* blank */}
-      <div className='h-14' />
+            <a href='/images/sungrak_prayer.bmp' download='성락인의 기도제목'>
+              <img
+                className='w-5 h-5'
+                src='/icons/ico_download.svg'
+                onClick={() => {}}
+              />
+            </a>
+          </div>
+        }
+      />
 
       <PrayerCard
         title='임시감독선임 신청 기각을 위한 기도제목'
