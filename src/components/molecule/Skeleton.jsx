@@ -14,7 +14,6 @@ _Skeleton.Title2 = () => {
         height={30}
         sx={{ bgcolor: 'rgba(255, 255, 255, 0.3)' }}
       />
-      <br />
       <Skeleton
         className='inline-block mb-2'
         variant='rounded'
@@ -34,16 +33,15 @@ _Skeleton.Description = () => {
   return (
     <div className='block'>
       <Skeleton
-        className='inline-block mt-4'
+        className='block mt-4'
         variant='rounded'
         animation='wave'
         width={100}
         height={16}
         sx={{ bgcolor: 'rgba(255, 255, 255, 0.3)' }}
       />
-      <br />
       <Skeleton
-        className='inline-block'
+        className='block mt-2'
         variant='rounded'
         animation='wave'
         width={100}
