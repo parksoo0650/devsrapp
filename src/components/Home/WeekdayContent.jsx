@@ -1,23 +1,22 @@
 import { useState, useEffect } from 'react';
+import useSWR from 'swr';
 import WeekdaySelectTab from './WeekdaySelectTab';
 import WeekdayContentBody from './WeekdayContentBody';
 import DateUtil from '../../utils/DateUtil';
 
-export default function WeekdayContent({ dataOncontents }) {
+export default function WeekdayContent() {
   const [weeks, setWeeks] = useState('');
 
-  const date = new Date();
-
-  let onDay = date.getDay() == 0 || date.getDay() == 6 ? 1 : date.getDay();
+  const { data } = useSWR('/api/contents?kind=oncontents');
 
   useEffect(() => {
-    setWeeks(DateUtil.week[onDay]);
-  }, [dataOncontents]);
+    setWeeks(DateUtil.week[DateUtil.onlineContentsDay]);
+  }, [data]);
 
   return (
     <div>
       <WeekdaySelectTab weeks={weeks} setWeeks={setWeeks} />
-      <WeekdayContentBody weeks={weeks} dataOncontents={dataOncontents} />
+      <WeekdayContentBody weeks={weeks} data={data} />
     </div>
   );
 }
