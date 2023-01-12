@@ -1,29 +1,32 @@
-/**
- * 홈 점보트론 설교 데이터 파싱. 제목, 본문.
- */
-ParsingUtil.parseSermonData = (data, isLive) => {
-  // let _title = '';
+import DateUtil from './DateUtil';
+
+ParsingUtil.parseSermonData = (data) => {
+  const fullName = data?.contents[0]?.name;
+  const publishedAt = data?.contents[0]?.publishedAt;
+  const videoId = data?.contents[0]?.videoId;
+  const thumbnail = data?.contents[0]?.image;
+  const category = data?.contents[0]?.subKind;
+
   let title = '';
-  // let temp = '';
-  // let temp2 = '';
   let scripture = '';
 
-  if (isLive) {
-    // _title = data.title || '';
-    // title = _title.split('(')[0];
-    // temp = _title.split('(')[1] || '';
-    // scripture = temp.split(')')[0] || '';
-
-    title = data?.title?.split('(')[0];
-    scripture = data?.title?.split('(')[1]?.split(')')[0];
+  if (DateUtil.isLive) {
+    title = fullName?.split('(')[0];
+    scripture = fullName?.split('(')[1]?.split(')')[0];
   } else {
-    // 한글 제목(English Title)요한복음 17:1~8
-
-    title = data?.title?.split('(')[0];
-    scripture = data?.title?.split(')')[1]?.trim();
+    title = fullName?.split('(')[0];
+    scripture = fullName?.split(')')[1]?.trim();
   }
 
-  return { title, scripture };
+  return {
+    fullName,
+    publishedAt,
+    videoId,
+    thumbnail,
+    category,
+    title,
+    scripture,
+  };
 };
 
 export default function ParsingUtil() {}
