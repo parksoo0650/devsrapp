@@ -7,7 +7,7 @@ import WeekdayContentItem from './WeekdayContentItem';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-export default function WeekdayContentBody({ weeks, dataOncontents }) {
+export default function WeekdayContentBody({ weeks, data }) {
   const { data: dataShorts } = useSWR('/api/contents?kind=shorts');
 
   const week = ['일', '월', '화', '수', '목', '금', '토'];
@@ -35,7 +35,7 @@ export default function WeekdayContentBody({ weeks, dataOncontents }) {
 
   return (
     <Swiper spaceBetween={15} slidesPerView={1.3} className='px-[30px]'>
-      {dataOncontents?.contents.map((doc, i) => {
+      {data?.contents.map((doc, i) => {
         let dateStr = doc.publishedAt.replace(/\./g, '-');
         let dayOfWeek = week[new Date(dateStr).getDay()];
 

@@ -1,19 +1,21 @@
 import { Skeleton } from '@mui/material';
 
-_Skeleton.Title2 = () => {
+/**
+ * 홈 점보트론 설교 제목.
+ */
+_Skeleton.Title = () => {
   return (
     <div className='block'>
       <Skeleton
-        className='inline-block'
+        className='inline-block mt-2'
         variant='rounded'
         animation='wave'
         width={160}
         height={30}
         sx={{ bgcolor: 'rgba(255, 255, 255, 0.3)' }}
       />
-      <br />
       <Skeleton
-        className='inline-block mt-2'
+        className='inline-block my-2'
         variant='rounded'
         animation='wave'
         width={240}
@@ -24,20 +26,22 @@ _Skeleton.Title2 = () => {
   );
 };
 
+/**
+ * 홈 점보트론 설교 본문 및 설교자.
+ */
 _Skeleton.Description = () => {
   return (
     <div className='block'>
       <Skeleton
-        className='inline-block mt-4'
+        className='block mt-6'
         variant='rounded'
         animation='wave'
         width={100}
         height={16}
         sx={{ bgcolor: 'rgba(255, 255, 255, 0.3)' }}
       />
-      <br />
       <Skeleton
-        className='inline-block mt-2'
+        className='block mt-2'
         variant='rounded'
         animation='wave'
         width={100}
@@ -48,6 +52,9 @@ _Skeleton.Description = () => {
   );
 };
 
+/**
+ * 홈 점보트론 뱃지.
+ */
 _Skeleton.Badge = () => {
   return (
     <Skeleton
@@ -61,6 +68,9 @@ _Skeleton.Badge = () => {
   );
 };
 
+/**
+ * 콘텐츠.
+ */
 _Skeleton.Contents = () => {
   return (
     <div className='text-left pt-4 px-4'>
