@@ -1,5 +1,8 @@
 import { Skeleton } from '@mui/material';
 
+/**
+ * 홈 점보트론 설교 제목.
+ */
 _Skeleton.Title2 = () => {
   return (
     <div className='block'>
@@ -13,7 +16,7 @@ _Skeleton.Title2 = () => {
       />
       <br />
       <Skeleton
-        className='inline-block mt-2'
+        className='inline-block mb-2'
         variant='rounded'
         animation='wave'
         width={240}
@@ -24,6 +27,9 @@ _Skeleton.Title2 = () => {
   );
 };
 
+/**
+ * 홈 점보트론 설교 본문 및 설교자.
+ */
 _Skeleton.Description = () => {
   return (
     <div className='block'>
@@ -37,7 +43,7 @@ _Skeleton.Description = () => {
       />
       <br />
       <Skeleton
-        className='inline-block mt-2'
+        className='inline-block'
         variant='rounded'
         animation='wave'
         width={100}
@@ -48,6 +54,9 @@ _Skeleton.Description = () => {
   );
 };
 
+/**
+ * 홈 점보트론 뱃지.
+ */
 _Skeleton.Badge = () => {
   return (
     <Skeleton
@@ -61,6 +70,9 @@ _Skeleton.Badge = () => {
   );
 };
 
+/**
+ * 콘텐츠.
+ */
 _Skeleton.Contents = () => {
   return (
     <div className='text-left pt-4 px-4'>
