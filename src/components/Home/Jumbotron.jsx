@@ -110,7 +110,7 @@ export default function Jumbotron({ liveDatas, isLive }) {
                 {titleKr}
               </p>
             ) : (
-              <Skeleton.Title2 />
+              <Skeleton.Title />
             )}
 
             {scripture ? (

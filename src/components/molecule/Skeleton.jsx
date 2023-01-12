@@ -3,11 +3,11 @@ import { Skeleton } from '@mui/material';
 /**
  * 홈 점보트론 설교 제목.
  */
-_Skeleton.Title2 = () => {
+_Skeleton.Title = () => {
   return (
     <div className='block'>
       <Skeleton
-        className='inline-block'
+        className='inline-block mt-2'
         variant='rounded'
         animation='wave'
         width={160}
@@ -15,7 +15,7 @@ _Skeleton.Title2 = () => {
         sx={{ bgcolor: 'rgba(255, 255, 255, 0.3)' }}
       />
       <Skeleton
-        className='inline-block mb-2'
+        className='inline-block my-2'
         variant='rounded'
         animation='wave'
         width={240}
@@ -33,7 +33,7 @@ _Skeleton.Description = () => {
   return (
     <div className='block'>
       <Skeleton
-        className='block mt-4'
+        className='block mt-6'
         variant='rounded'
         animation='wave'
         width={100}
