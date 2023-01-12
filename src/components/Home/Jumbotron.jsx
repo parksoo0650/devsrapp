@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useRouter } from 'next/router';
 import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
+import 'swiper/css/pagination';
+import useSWR from 'swr';
 import Skeleton from '../molecule/Skeleton';
 import ParsingUtil from '../../utils/ParsingUtil';
-import 'swiper/css/pagination';
+import DateUtil from '../../utils/DateUtil';
 
-export default function Jumbotron({ liveDatas, isLive }) {
+export default function Jumbotron() {
   const router = useRouter();
 
   const [height, setHeight] = useState(null);
@@ -14,8 +16,11 @@ export default function Jumbotron({ liveDatas, isLive }) {
     setHeight(() => window.innerWidth * 1.333325);
   }, []);
 
+  const { data } = useSWR('/api/contents?kind=sermon');
+  const { fullName, publishedAt, videoId, category, title, scripture } =
+    ParsingUtil.parseSermonData(data);
+
   SwiperCore.use([Autoplay]);
-  const { title, scripture } = ParsingUtil.parseSermonData(liveDatas, isLive);
 
   return (
     <Swiper
@@ -36,7 +41,7 @@ export default function Jumbotron({ liveDatas, isLive }) {
           bg-[url('images/jumbotron_sermon.png')] px-8`}
           onClick={() => {
             router.push(
-              `/sermondetail?vid=${liveDatas.videoId}&vtit=${liveDatas.title}&vdate=${liveDatas.publishedAt}&kind=${liveDatas.subKind}`,
+              `/sermondetail?vid=${videoId}&vtit=${fullName}&vdate=${publishedAt}&kind=${category}`,
               '/sermondetail'
             );
           }}
@@ -47,10 +52,10 @@ export default function Jumbotron({ liveDatas, isLive }) {
               <p
                 className={`text-xs text-white px-[11px] py-[5.5px] mb-3
                 inline-block rounded-[100px] font-semibold ${
-                  isLive ? 'bg-[#D43030]/70' : 'bg-[#D48830]/70'
+                  DateUtil.isLive ? 'bg-[#D43030]/70' : 'bg-[#D48830]/70'
                 }`}
               >
-                <span>{isLive ? '예배실황' : '주일예배'}</span>
+                <span>{DateUtil.isLive ? '예배실황' : '주일예배'}</span>
               </p>
             ) : (
               <Skeleton.Badge />
