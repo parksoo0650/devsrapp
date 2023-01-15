@@ -15,7 +15,8 @@ ParsingUtil.parseSermonData = (data) => {
     scripture = fullName?.split('(')[1]?.split(')')[0];
   } else {
     title = fullName?.split('(')[0];
-    scripture = fullName?.split(')')[1]?.trim();
+    scripture =
+      fullName?.split(')')[1]?.trim() || fullName?.split('(')[1]?.split(')')[0];
   }
 
   return {
