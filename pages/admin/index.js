@@ -71,7 +71,7 @@ const Admin = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='w-8 h-8 rounded-full bg-teal-100'
-                        src='icons/admin_sermon.png'
+                        src='/icons/admin_sermon.png'
                         alt='설교'
                       />
                     </div>
@@ -93,7 +93,7 @@ const Admin = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='w-8 h-8 rounded-full'
-                        src='icons/admin_contents.png'
+                        src='/icons/admin_contents.png'
                         alt='ON-콘텐츠'
                       />
                     </div>
@@ -115,7 +115,7 @@ const Admin = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='w-8 h-8 rounded-full bg-red-200'
-                        src='icons/admin_praise.png'
+                        src='/icons/admin_praise.png'
                         alt='찬양'
                       />
                     </div>
@@ -137,7 +137,7 @@ const Admin = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='w-8 h-8 rounded-full'
-                        src='icons/admin_weekly.png'
+                        src='/icons/admin_weekly.png'
                         alt='주보'
                       />
                     </div>
@@ -159,7 +159,7 @@ const Admin = () => {
                     <div className='flex-shrink-0'>
                       <img
                         className='w-8 h-8 rounded-full'
-                        src='icons/admin_feed.png'
+                        src='/icons/admin_feed.png'
                         alt='피드'
                       />
                     </div>
