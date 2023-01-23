@@ -184,10 +184,6 @@ const Admin = () => {
         </a>
         . All Rights Reserved.
       </span>
-
-      <span className='block text-sm text-gray-500 sm:text-center dark:text-gray-400 m-4'>
-        아바타 대신 아이콘을, 오른쪽에는 콘텐츠의 개수를 표시할 예정.
-      </span>
     </>
   );
 };
