@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import useMutation from '../../libs/client/useMutation';
-import Input from '../../src/components/input';
 
 export default function Enter() {
   /**
