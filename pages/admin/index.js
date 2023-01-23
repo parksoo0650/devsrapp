@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import useUser from '../../libs/client/useUser';
-import ActionBar from '../../src/components/molecule/ActionBar';
 
 /**
  * 어드민 패널 첫 화면.
@@ -9,8 +8,17 @@ const Admin = () => {
   const { user, isLoading } = useUser();
 
   return (
-    <>
-      <ActionBar center='ADMIN PANEL' />
+    <section className='h-screen bg-slate-100'>
+      <h1 className='mt-10 mx-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white'>
+        Hi,{' '}
+        <span className='underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600'>
+          Administrator
+        </span>
+        .
+      </h1>
+      <p className='mt-4 mx-4 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400'>
+        Manage the contents to be displayed in SRAPP.
+      </p>
 
       <div className='max-w-2xl mx-4 pt-4'>
         <div className='p-4 max-w-md bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700'>
@@ -184,7 +192,7 @@ const Admin = () => {
         </a>
         . All Rights Reserved.
       </span>
-    </>
+    </section>
   );
 };
 
