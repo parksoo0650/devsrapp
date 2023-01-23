@@ -75,7 +75,7 @@ const Contents = () => {
                   <p className='text-base font-medium text-gray-900  dark:text-white'>
                     {content.name}
                   </p>
-                  <p class='text-sm text-gray-500 truncate dark:text-gray-400'>
+                  <p className='text-sm text-gray-500 truncate dark:text-gray-400'>
                     {content.publishedAt}
                   </p>
                 </div>

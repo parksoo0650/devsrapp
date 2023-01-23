@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import useSWR from 'swr';
 import useUser from '../../libs/client/useUser';
 
 /**
@@ -6,6 +7,12 @@ import useUser from '../../libs/client/useUser';
  */
 const Admin = () => {
   const { user, isLoading } = useUser();
+
+  const { data: g } = useSWR('/api/contents?kind=shorts');
+  const { data: s } = useSWR('/api/contents?kind=sermon');
+  const { data: o } = useSWR('/api/contents?kind=oncontents');
+  const { data: p } = useSWR('/api/contents?kind=praise');
+  const { data: f } = useSWR('/api/contents?kind=feed');
 
   return (
     <section className='h-screen bg-slate-100'>
@@ -25,7 +32,7 @@ const Admin = () => {
           {/* List Header */}
           <div className='flex justify-between items-center mb-4'>
             <h3 className='text-xl font-bold leading-none text-gray-900 dark:text-white'>
-              Upload Contents
+              Contents
             </h3>
             <a
               href='https://www.youtube.com/@SUNGRAKCHURCH'
@@ -59,7 +66,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      320
+                      {g?.contents?.length}
                     </div>
                   </div>
                 </li>
@@ -81,7 +88,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      3467
+                      {s?.contents?.length}
                     </div>
                   </div>
                 </li>
@@ -103,7 +110,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      67
+                      {o?.contents?.length}
                     </div>
                   </div>
                 </li>
@@ -125,7 +132,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      367
+                      {p?.contents?.length}
                     </div>
                   </div>
                 </li>
@@ -147,7 +154,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      367
+                      ?
                     </div>
                   </div>
                 </li>
@@ -169,7 +176,7 @@ const Admin = () => {
                       </p>
                     </div>
                     <div className='inline-flex items-center text-base font-semibold text-gray-900 dark:text-white'>
-                      2367
+                      {f?.contents?.length}
                     </div>
                   </div>
                 </li>
