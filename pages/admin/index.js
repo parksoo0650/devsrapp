@@ -172,7 +172,7 @@ const Admin = () => {
         </div>
       </div>
 
-      {/* copyright */}
+      {/* Copyright */}
       <span className='block text-sm text-gray-500 sm:text-center dark:text-gray-400 mx-4 mt-8'>
         © {new Date().getFullYear()}{' '}
         <a
