@@ -7,6 +7,9 @@ async function handler(req, res) {
    * GET 방식인 경우.
    */
   if (req.method === 'GET') {
+    /**
+     * 권(volume): 내림차순, 호(weekNo): 내림차순 정렬.
+     */
     const weekly = await client.weekly.findMany({
       orderBy: [{ volume: 'desc' }, { weekNo: 'desc' }],
     });
