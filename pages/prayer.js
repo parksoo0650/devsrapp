@@ -12,7 +12,7 @@ export default function prayer() {
    * 성락인의 기도제목 페이지.
    */
   return (
-    <main className='bg-[#eeeeee]'>
+    <main className='bg-[#fafafa]'>
       <TopBar />
       <Contents />
       <Footer />
