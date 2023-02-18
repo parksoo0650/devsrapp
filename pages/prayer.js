@@ -67,7 +67,7 @@ export default function prayer() {
    */
   function DownloadButton() {
     return (
-      <a href='/images/sungrak_prayer.bmp' download='성락인의 기도제목'>
+      <a href='/images/prayer_230218.jpeg' download='성락인의 기도제목'>
         <img className='w-5 h-5' src='/icons/ico_download.svg' />
       </a>
     );
@@ -92,7 +92,7 @@ export default function prayer() {
    */
   function Footer() {
     return (
-      <div className='p-4'>
+      <div className='pt-4 px-4 pb-10'>
         <div className=''>
           <p className='text-right text-sm text-[#333333] font-semibold'>
             새벽특별기도회 및 가정릴레이기도회 기도제목
@@ -111,7 +111,7 @@ export default function prayer() {
   function Card({ children }) {
     // border border-gray-200 rounded-lg shadow
     return (
-      <div className='m-4 px-4 pb-2 bg-white border border-gray-200 rounded-lg drop-shadow-lg'>
+      <div className='m-4 px-4 pb-2 bg-white border border-gray-100 rounded-lg drop-shadow-lg'>
         {children}
       </div>
     );
