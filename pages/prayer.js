@@ -12,7 +12,7 @@ export default function prayer() {
    * 성락인의 기도제목 페이지.
    */
   return (
-    <main className='bg-[#fafafa]'>
+    <main className='bg-[#f6f6f6]'>
       <TopBar />
       <Contents />
       <Footer />
@@ -111,7 +111,7 @@ export default function prayer() {
   function Card({ children }) {
     // border border-gray-200 rounded-lg shadow
     return (
-      <div className='m-4 px-4 pb-2 bg-white border border-gray-100 rounded-lg drop-shadow-lg'>
+      <div className='m-4 px-4 pb-4 bg-white border border-gray-100 rounded-lg drop-shadow-lg'>
         {children}
       </div>
     );
@@ -121,7 +121,7 @@ export default function prayer() {
    * 제목.
    */
   function Heading({ children }) {
-    return <div className='text-lg font-bold pt-6 px-4'>{children}</div>;
+    return <div className='text-xl font-bold pt-6 px-4'>{children}</div>;
   }
 
   /**
@@ -129,7 +129,7 @@ export default function prayer() {
    */
   function SubHeading({ children }) {
     return (
-      <div className='text-base font-bold pt-4 text-[#d38730]'>{children}</div>
+      <div className='text-lg font-bold pt-4 text-[#d38730]'>{children}</div>
     );
   }
 
