@@ -1,4 +1,5 @@
 import Icon from '@/components/Icon';
+import { useRouter } from 'next/router';
 
 export default function TopBar({ left1, left2, right1, right2 }) {
     return (
@@ -25,3 +26,16 @@ export default function TopBar({ left1, left2, right1, right2 }) {
 TopBar.Home = () => <TopBar left1={<div className="pl-[14px]"><Icon.CiLogo /></div>}
                             right1={<Icon.Alarm />}
                             right2={<Icon.Search />} />;
+
+TopBar.PrayerTitle = () => {
+
+    const router = useRouter();
+
+    return (
+        <TopBar left1={<button className="pt-1.5"
+                               onClick={() => router.push('/')}><Icon.Back /></button>}
+                left2="기도제목"
+                right1={<Icon.Copy />}
+                right2={<Icon.Download />} />
+    );
+};

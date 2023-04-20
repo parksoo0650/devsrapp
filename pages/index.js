@@ -19,7 +19,7 @@ export default function Home() {
             <ListRow.V1
                 title="교회를 위한 기도제목 바로가기"
                 backgroundColor="#88629B"
-                route="/prayer"
+                route="/PrayerTitle"
             />
 
             {/* 주중 콘텐츠 */}
