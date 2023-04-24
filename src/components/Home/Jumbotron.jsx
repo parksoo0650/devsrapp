@@ -149,7 +149,7 @@ export default function Jumbotron() {
             modules={[Pagination, Navigation, Autoplay]}
             slidesPerView={1}
             pagination={{ clickable: true }}
-            loop={true}
+            loop={false}                                            // 슬라이드가 1개인 경우 false. 2개 이상은 true.
             onSlideChange={initBulletStyle}
             autoplay={{
                 delay: 5000,
