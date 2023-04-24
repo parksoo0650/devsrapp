@@ -12,12 +12,14 @@ import DateUtil from '../../utils/DateUtil';
  * 어플 메인 대형 스크린.
  */
 export default function Jumbotron() {
+
     const router = useRouter();
 
     /**
      * 점보트론 높이 설정.
      */
     const [height, setHeight] = useState(null);
+
     useEffect(() => {
         setHeight(() => window.innerWidth * 1.333325);
         initBulletStyle();
@@ -160,20 +162,20 @@ export default function Jumbotron() {
             </SwiperSlide>
 
             {/* 2023 고난주간 */}
-            <SwiperSlide>
-                <img
-                    className="w-full bg-no-repeat bg-cover bg-center"
-                    src="images/banner_2023_4.jpeg"
-                />
-            </SwiperSlide>
+            {/*<SwiperSlide>*/}
+            {/*    <img*/}
+            {/*        className="w-full bg-no-repeat bg-cover bg-center"*/}
+            {/*        src="images/banner_2023_4.jpeg"*/}
+            {/*    />*/}
+            {/*</SwiperSlide>*/}
 
             {/* 2023 부활절 */}
-            <SwiperSlide>
-                <img
-                    className="w-full bg-no-repeat bg-cover bg-center"
-                    src="images/banner_2023_r.jpg"
-                />
-            </SwiperSlide>
+            {/*<SwiperSlide>*/}
+            {/*    <img*/}
+            {/*        className="w-full bg-no-repeat bg-cover bg-center"*/}
+            {/*        src="images/banner_2023_r.jpg"*/}
+            {/*    />*/}
+            {/*</SwiperSlide>*/}
         </Swiper>
     );
 }
