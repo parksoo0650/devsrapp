@@ -12,6 +12,6 @@ Icon.CiLogo = () => <Image src={'/images/ci_sungrak.svg'} width={124} height={37
 
 Icon.Back = () => <Image src={'/icons/icon_back.svg'} width={48} height={48} />;
 
-Icon.Copy = () => <Image src={'/icons/icon_copy.svg'} width={48} height={48} />;
+Icon.Copy = ({ onClick }) => <Image src={'/icons/icon_copy.svg'} width={48} height={48} onClick={onClick} />;
 
 Icon.Download = () => <Image src={'/icons/icon_download.svg'} width={48} height={48} />;
