@@ -1,8 +1,9 @@
-import Icon from '@/components/Icon';
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import Icon from '@/components/Icon'
+import { useRouter } from 'next/router'
+import { useState } from 'react'
 
-export default function TopBar({ left1, left2, right1, right2 }) {
+const TopBar = ({ left1, left2, right1, right2 }) => {
+
     return (
         <>
             <section className="fixed w-full z-50 bg-white">
@@ -21,7 +22,7 @@ export default function TopBar({ left1, left2, right1, right2 }) {
             {/* blank */}
             <div className="h-16" />
         </>
-    );
+    )
 }
 
 /**
@@ -32,21 +33,21 @@ TopBar.Home = () => {
         <TopBar left1={<div className="pl-[14px]"><Icon.CiLogo /></div>}
                 right1={<Icon.Alarm />}
                 right2={<Icon.Search />} />
-    );
-};
+    )
+}
 
 /**
  * 교회를 위한 기도제목.
  */
 TopBar.PrayerTitle = () => {
 
-    const router = useRouter();
-    const [toastShow, setToastShow] = useState(false);
+    const router = useRouter()
+    const [toastShow, setToastShow] = useState(false)
 
     function Toast() {
 
-        const SPAN_STYLE = 'flex items-center justify-between fixed bottom-24 ' +
-            'children-[14px] px-[14px] w-[320px] h-[43px] children-white bg-[#313131] rounded drop-shadow-lg';
+        const SPAN_STYLE = 'flex items-center justify-between fixed bottom-24 text-white ' +
+            'children-[14px] px-[14px] w-[320px] h-[43px] children-white bg-[#313131] rounded drop-shadow-lg'
 
         return (
             <div className="flex justify-center">
@@ -56,13 +57,16 @@ TopBar.PrayerTitle = () => {
                          alt="copy link" />
                 </span>
             </div>
-        );
+        )
     }
 
-    function handleClick() {
-        // navigator.clipboard.writechildren(window.location.href);
-        // setToastShow(true);
-        // setTimeout(() => setToastShow(false), 3000);
+    /**
+     * 복사 버튼 클릭 시.
+     */
+    const handleCopyButton = () => {
+        navigator.clipboard.writeText(window.location.href)
+        setToastShow(true)
+        setTimeout(() => setToastShow(false), 3000)
     }
 
     return (
@@ -70,9 +74,12 @@ TopBar.PrayerTitle = () => {
             <TopBar left1={<button className="pt-1.5"
                                    onClick={() => router.push('/')}><Icon.Back /></button>}
                     left2="기도제목"
-                    right1={<Icon.Copy onClick={handleClick} />}
-                    right2={<Icon.Download />} />
+                    right1={<button onClick={handleCopyButton}><Icon.Copy /></button>}
+                    right2={<a href="/images/prayer_4.png"
+                               download="성락인의 기도제목"><Icon.Download /></a>} />
             {toastShow && <Toast />}
         </>
-    );
-};
+    )
+}
+
+export default TopBar
