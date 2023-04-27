@@ -67,7 +67,7 @@ export default function prayer() {
    */
   function DownloadButton() {
     return (
-      <a href='/images/prayer_230218.jpeg' download='성락인의 기도제목'>
+      <a href='/images/prayer_4.png' download='성락인의 기도제목'>
         <img className='w-5 h-5' src='/icons/ico_download.svg' />
       </a>
     );
@@ -241,8 +241,3 @@ export default function prayer() {
   }
 }
 
-/**
- * 반복되는 아이템을 print 하는 함수 ?
- *
- * ItemArray.map((item) => <Item text={item.text} />)
- */

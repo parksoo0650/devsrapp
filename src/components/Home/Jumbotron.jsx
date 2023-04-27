@@ -1,63 +1,63 @@
-import { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { useRouter } from 'next/router';
-import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper';
-import 'swiper/css/pagination';
-import useSWR from 'swr';
-import Skeleton from '../molecule/Skeleton';
-import ParsingUtil from '../../utils/ParsingUtil';
-import DateUtil from '../../utils/DateUtil';
+import { useEffect, useState } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { useRouter } from 'next/router'
+import SwiperCore, { Pagination, Navigation, Autoplay } from 'swiper'
+import 'swiper/css/pagination'
+import useSWR from 'swr'
+import Skeleton from '../molecule/Skeleton'
+import ParsingUtil from '../../utils/ParsingUtil'
+import DateUtil from '../../utils/DateUtil'
 
 /**
  * 어플 메인 대형 스크린.
  */
 export default function Jumbotron() {
 
-    const router = useRouter();
+    const router = useRouter()
 
     /**
      * 점보트론 높이 설정.
      */
-    const [height, setHeight] = useState(null);
+    const [height, setHeight] = useState(null)
 
     useEffect(() => {
-        setHeight(() => window.innerWidth * 1.333325);
-        initBulletStyle();
-    }, []);
+        setHeight(() => window.innerWidth * 1.333325)
+        initBulletStyle()
+    }, [])
 
     /**
      * 스와이퍼 불렛 스타일 초기화.
      */
     function initBulletStyle() {
-        const bullets = document.querySelectorAll('.swiper-pagination-bullet');
+        const bullets = document.querySelectorAll('.swiper-pagination-bullet')
 
         bullets.forEach(bullet => {
-            bullet.style.backgroundColor = 'white';
-            bullet.style.opacity = '0.7';
-            bullet.style.width = '8px';
-            bullet.style.transition = 'all 0.3s ease';
-        });
+            bullet.style.backgroundColor = 'white'
+            bullet.style.opacity = '0.7'
+            bullet.style.width = '8px'
+            bullet.style.transition = 'all 0.3s ease'
+        })
 
-        const activeBullet = document.querySelector('.swiper-pagination-bullet-active');
+        const activeBullet = document.querySelector('.swiper-pagination-bullet-active')
         if (activeBullet) {
-            activeBullet.style.backgroundColor = 'white';
-            activeBullet.style.opacity = '1';
-            activeBullet.style.width = '20px';
-            activeBullet.style.borderRadius = '10px';
+            activeBullet.style.backgroundColor = 'white'
+            activeBullet.style.opacity = '1'
+            activeBullet.style.width = '20px'
+            activeBullet.style.borderRadius = '10px'
         }
     }
 
     /**
      * 설교 데이터를 가져와서 파싱.
      */
-    const { data } = useSWR('/api/contents?kind=sermon');
+    const { data } = useSWR('/api/contents?kind=sermon')
     const { fullName, publishedAt, videoId, category, title, scripture } =
-        ParsingUtil.parseSermonData(data);
+        ParsingUtil.parseSermonData(data)
 
     /**
      * 스와이퍼 자동 넘김 설정.
      */
-    SwiperCore.use([Autoplay]);
+    SwiperCore.use([Autoplay])
 
     /**
      * 주일 설교.
@@ -70,7 +70,7 @@ export default function Jumbotron() {
                     router.push(
                         `/sermondetail?vid=${videoId}&vtit=${fullName}&vdate=${publishedAt}&kind=${category}`,
                         '/sermondetail'
-                    );
+                    )
                 }}
             >
                 <div className="absolute top-72">
@@ -79,7 +79,7 @@ export default function Jumbotron() {
                     <SermonScriptureAndPreacher />
                 </div>
             </div>
-        );
+        )
     }
 
     /**
@@ -100,7 +100,7 @@ export default function Jumbotron() {
                     <Skeleton.Badge />
                 )}
             </>
-        );
+        )
     }
 
     /**
@@ -117,7 +117,7 @@ export default function Jumbotron() {
                     <Skeleton.Title />
                 )}
             </>
-        );
+        )
     }
 
     /**
@@ -135,7 +135,7 @@ export default function Jumbotron() {
                     <Skeleton.Description />
                 )}
             </>
-        );
+        )
     }
 
     /**
@@ -149,7 +149,7 @@ export default function Jumbotron() {
             modules={[Pagination, Navigation, Autoplay]}
             slidesPerView={1}
             pagination={{ clickable: true }}
-            loop={false}                                            // 슬라이드가 1개인 경우 false. 2개 이상은 true.
+            loop={true}                                            // 슬라이드가 1개인 경우 false. 2개 이상은 true.
             onSlideChange={initBulletStyle}
             autoplay={{
                 delay: 5000,
@@ -161,13 +161,11 @@ export default function Jumbotron() {
                 <SundaySermon />
             </SwiperSlide>
 
-            {/* 2023 고난주간 */}
-            {/*<SwiperSlide>*/}
-            {/*    <img*/}
-            {/*        className="w-full bg-no-repeat bg-cover bg-center"*/}
-            {/*        src="images/banner_2023_4.jpeg"*/}
-            {/*    />*/}
-            {/*</SwiperSlide>*/}
+            {/* 어린이청소년부 여름수련회 워크숍 */}
+            <SwiperSlide><img
+                className="w-full bg-no-repeat bg-cover bg-center"
+                src="images/banner_4.jpg" />
+            </SwiperSlide>
 
             {/* 2023 부활절 */}
             {/*<SwiperSlide>*/}
@@ -177,5 +175,5 @@ export default function Jumbotron() {
             {/*    />*/}
             {/*</SwiperSlide>*/}
         </Swiper>
-    );
+    )
 }
