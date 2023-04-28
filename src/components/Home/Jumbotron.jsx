@@ -164,7 +164,7 @@ export default function Jumbotron() {
             {/* 어린이청소년부 여름수련회 워크숍 */}
             <SwiperSlide><img
                 className="w-full bg-no-repeat bg-cover bg-center"
-                src="images/banner_4.jpg" />
+                src="images/banner_5.jpg" />
             </SwiperSlide>
 
             {/* 2023 부활절 */}
