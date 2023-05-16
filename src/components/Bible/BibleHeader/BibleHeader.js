@@ -10,6 +10,7 @@ const SettingsModal = ({ isActive, setActive, textSize, setTextSize }) => {
 
     const TEXT_SIZE_DOWN = 0
     const TEXT_SIZE_UP = 1
+    const MAX_SIZE = 8
 
     const handleTextSize = (option) => {
         if (option === TEXT_SIZE_DOWN) {
@@ -19,7 +20,7 @@ const SettingsModal = ({ isActive, setActive, textSize, setTextSize }) => {
                 return null
             }
         } else if (option === TEXT_SIZE_UP) {
-            if (textSize < 6) {
+            if (textSize < MAX_SIZE) {
                 setTextSize(textSize + 1)
             } else {
                 return null
@@ -36,7 +37,8 @@ const SettingsModal = ({ isActive, setActive, textSize, setTextSize }) => {
                         <strong className="text-base font-normal">텍스트 크기</strong>
                         <span className="ml-6 text-base font-medium inline-block">
                             {textSize === 0 ? '12px' : textSize === 1 ? '14px' : textSize === 2 ? '16px' : textSize === 3
-                                ? '18px' : textSize === 4 ? '20px' : textSize === 5 ? '24px' : textSize === 6 ? '30px' : null}
+                                ? '18px' : textSize === 4 ? '20px' : textSize === 5 ? '24px' : textSize === 6 ? '30px' :
+                                    textSize === 7 ? '36px' : textSize === 8 ? '48px' : null}
                         </span>
                     </div>
                     <ul className="bg-[#f9f9f9] border border-[#ebebeb] rounded flex items-center">

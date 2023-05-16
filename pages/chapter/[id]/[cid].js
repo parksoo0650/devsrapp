@@ -23,7 +23,7 @@ const Post = ({ items, bid, cid }) => {
     const [category, setCategory] = useState('전체')
     const [swiper, setSwiper] = useState(null)
 
-    const bibleTextSize = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl']
+    const bibleTextSize = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl', 'text-3xl', 'text-4xl', 'text-5xl']
     const [textSize, setTextSize] = useState(2)
 
     useEffect(() => {
