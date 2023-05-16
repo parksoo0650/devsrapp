@@ -1,16 +1,17 @@
-import Jumbotron from '../src/components/Home/Jumbotron';
-import ListRow from '../src/components/molecule/ListRow';
-import WeekdayContent from '../src/components/Home/WeekdayContent';
-import QuickMenu from '../src/components/Home/QuickMenu';
-import Praise from '../src/components/Home/Praise';
-import Department from '../src/components/Home/Department';
-import HomeBar from '../src/components/HomeBar';
-import TopBar from '@/components/TopBar';
+import Jumbotron from '../src/components/Home/Jumbotron'
+import ListRow from '../src/components/molecule/ListRow'
+import WeekdayContent from '../src/components/Home/WeekdayContent'
+import QuickMenu from '../src/components/Home/QuickMenu'
+import Praise from '../src/components/Home/Praise'
+import Department from '../src/components/Home/Department'
+import HomeBar from '../src/components/HomeBar'
+import TopBar from '@/components/TopBar'
 
 export default function Home() {
     return (
         <>
-            <TopBar.Home />
+            {/* 상단 바 : 기능 추가 전까지 숨김. */}
+            {/* <TopBar.Home /> */}
 
             {/* 대형 슬라이드 */}
             <Jumbotron />
@@ -49,5 +50,5 @@ export default function Home() {
             {/* 하단 메뉴 바 */}
             <HomeBar />
         </>
-    );
+    )
 }
