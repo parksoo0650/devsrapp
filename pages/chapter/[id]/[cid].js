@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 
 const cn = classNames.bind(styles)
+const TEXT_SIZE = 'localStorage.bible.TEXT_SIZE'
 
 const Post = ({ items, bid, cid }) => {
     const router = useRouter()
@@ -29,7 +30,13 @@ const Post = ({ items, bid, cid }) => {
     useEffect(() => {
         localStorage.setItem('bible', bid)
         localStorage.setItem('chapter', cid)
+        const size = localStorage.getItem(TEXT_SIZE)                        // route 변경 시 사용자 지정 textSize 가져오기.
+        setTextSize(Number(size))                                           // 해당 textSize 설정.
     }, [router])
+
+    useEffect(() => {
+        localStorage.setItem(TEXT_SIZE, textSize.toString())                // 로컬 스토리지에 사용자 지정 textSize 저장.
+    }, [textSize])
 
     useEffect(() => {
         // 마지막 슬라이드 인덱스 비활성화 방지
@@ -48,8 +55,8 @@ const Post = ({ items, bid, cid }) => {
     const chapterId = parseInt(cid)
 
     const movePrevChapter = () => {
-        if (chapterId == 1) {
-            if (bookId == 1) return
+        if (chapterId === 1) {
+            if (bookId === 1) return
             router.push(`/chapter/${bookId - 1}/${lastPage[bookId - 1]}`)
         } else {
             router.push(`/chapter/${bookId}/${chapterId - 1}`)
@@ -57,8 +64,8 @@ const Post = ({ items, bid, cid }) => {
     }
 
     const moveNextChapter = () => {
-        if (chapterId == lastPage[bookId]) {
-            if (bookId == 66) return
+        if (chapterId === lastPage[bookId]) {
+            if (bookId === 66) return
             router.push(`/chapter/${bookId + 1}/1`)
         } else {
             router.push(`/chapter/${bookId}/${chapterId + 1}`)
@@ -66,8 +73,8 @@ const Post = ({ items, bid, cid }) => {
     }
 
     const getPrevChapter = () => {
-        if (chapterId == 1) {
-            if (bookId == 1) return 0
+        if (chapterId === 1) {
+            if (bookId === 1) return 0
             else return lastPage[bookId - 1]
         } else {
             return chapterId - 1
@@ -75,8 +82,8 @@ const Post = ({ items, bid, cid }) => {
     }
 
     const getNextChapter = () => {
-        if (chapterId == lastPage[bookId]) {
-            if (bookId == 66) return 0
+        if (chapterId === lastPage[bookId]) {
+            if (bookId === 66) return 0
             else return 1
         } else {
             return chapterId + 1
@@ -175,16 +182,16 @@ const Post = ({ items, bid, cid }) => {
                              * 왼쪽 슬라이드 인덱스는 0, 오른쪽 슬라이드 인덱스는 2
                              * 좌우로 어느쪽으로 당기든지, 다시 가운데(인덱스 1)로 돌아옴
                              */
-                            swiper?.activeIndex == 0
+                            swiper?.activeIndex === 0
                                 ? movePrevChapter()
-                                : swiper?.activeIndex == 2
+                                : swiper?.activeIndex === 2
                                     ? moveNextChapter()
                                     : null
                             swiper?.slideTo(1)
                         }}
                     >
                         <SwiperSlide className={cn('SlideLeft')}>
-                            {bid == 1 && cid == 1 ? null : <div>{getPrevChapter()}</div>}
+                            {bid === 1 && cid === 1 ? null : <div>{getPrevChapter()}</div>}
                         </SwiperSlide>
 
                         <SwiperSlide>
@@ -200,12 +207,12 @@ const Post = ({ items, bid, cid }) => {
                         </SwiperSlide>
 
                         <SwiperSlide className={cn('SlideRight')}>
-                            {bid == 66 && cid == 22 ? null : <div>{getNextChapter()}</div>}
+                            {bid === 66 && cid === 22 ? null : <div>{getNextChapter()}</div>}
                         </SwiperSlide>
                     </Swiper>
 
                     {/* 이전 장, 다음 장 버튼 */}
-                    {bid == 1 && cid == 1 ? null : (
+                    {bid === 1 && cid === 1 ? null : (
                         <img
                             className="btn_left"
                             src="/icons/ico_left.svg"
@@ -213,7 +220,7 @@ const Post = ({ items, bid, cid }) => {
                             onClick={() => movePrevChapter()}
                         />
                     )}
-                    {bid == 66 && cid == 22 ? null : (
+                    {bid === 66 && cid === 22 ? null : (
                         <img
                             className="btn_right"
                             src="/icons/ico_right.svg"
