@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Sheet from 'react-modal-sheet'
+import { animateScroll as scroll } from 'react-scroll'
 import { useRouter } from 'next/router'
-// import Link from 'next/link';
 import Loading from '../../../src/components/Loading'
 import HomeBar from '../../../src/components/HomeBar'
 import styles from './Bible.module.scss'
@@ -30,8 +30,18 @@ const Post = ({ items, bid, cid }) => {
     useEffect(() => {
         localStorage.setItem('bible', bid)
         localStorage.setItem('chapter', cid)
-        const size = localStorage.getItem(TEXT_SIZE)                        // route 변경 시 사용자 지정 textSize 가져오기.
-        setTextSize(Number(size))                                           // 해당 textSize 설정.
+        if (localStorage.getItem(TEXT_SIZE)) {
+            const size = localStorage.getItem(TEXT_SIZE)                    // route 변경 시 사용자 지정 textSize 가져오기.
+            setTextSize(Number(size))                                       // 해당 textSize 설정.
+        }
+        const handleRouteChange = () => {
+            console.log('handleRouteChange.')
+            window.scrollTo(0, 0)
+        }
+        router.events.on('routeChangeComplete', handleRouteChange)
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange)
+        }
     }, [router])
 
     useEffect(() => {
@@ -272,3 +282,16 @@ export async function getStaticProps(context) {
 }
 
 export default Post
+
+
+/**
+ * const ScrollToTop = () => {
+ *     const router = useRouter()
+ *     useEffect(() => {
+ *         const handleRouteChange = () => scroll.scrollToTop()
+ *         router.events.on('routeChangeComplete', handleRouteChange)
+ *         return () => router.events.off('routeChangeComplete', handleRouteChange)
+ *     }, [router])
+ *     return null
+ * }
+ */
