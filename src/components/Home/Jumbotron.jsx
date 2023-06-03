@@ -103,22 +103,28 @@ export default function Jumbotron() {
                 disableOnInteraction: false,
             }}
         >
+            {/* 메인 배너 */}
+            <SwiperSlide><img
+                className="w-full bg-no-repeat bg-cover bg-center"
+                src="images/banner_9.jpeg" />
+            </SwiperSlide>
+
             {/* 주일 설교 */}
             <SwiperSlide className={`h-[${height}px]`}>
                 <SundaySermon />
             </SwiperSlide>
 
             {/* 어린이청소년부 여름수련회 워크숍 */}
-            <SwiperSlide><img
-                className="w-full bg-no-repeat bg-cover bg-center"
-                src="images/banner_5.jpg" />
-            </SwiperSlide>
+            {/*<SwiperSlide><img*/}
+            {/*    className="w-full bg-no-repeat bg-cover bg-center"*/}
+            {/*    src="images/banner_5.jpg" />*/}
+            {/*</SwiperSlide>*/}
 
             {/* 전교인 특별기도회 */}
-            <SwiperSlide><img
-                className="w-full bg-no-repeat bg-cover bg-center"
-                src="images/banner_6.jpg" />
-            </SwiperSlide>
+            {/*<SwiperSlide><img*/}
+            {/*    className="w-full bg-no-repeat bg-cover bg-center"*/}
+            {/*    src="images/banner_6.jpg" />*/}
+            {/*</SwiperSlide>*/}
 
             {/* 무화과 카페 */}
             <SwiperSlide><img
@@ -127,10 +133,10 @@ export default function Jumbotron() {
             </SwiperSlide>
 
             {/* 2023 맥추절 */}
-            <SwiperSlide><img
-                className="w-full bg-no-repeat bg-cover bg-center"
-                src="images/banner_8.jpg" />
-            </SwiperSlide>
+            {/*<SwiperSlide><img*/}
+            {/*    className="w-full bg-no-repeat bg-cover bg-center"*/}
+            {/*    src="images/banner_8.jpg" />*/}
+            {/*</SwiperSlide>*/}
 
         </Swiper>
     )
