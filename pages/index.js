@@ -24,15 +24,15 @@ export default function Home() {
             />
 
             {/* 주중 콘텐츠 */}
-            <WeekdayContent />
+            {/*<WeekdayContent />*/}
 
             {/* 퀵 메뉴 7개 */}
             <QuickMenu />
 
             {/* 교회 표어 */}
-            <div className="mdbanner">
-                <img src="/images/banner_23.jpg" />
-            </div>
+            {/*<div className="mdbanner">*/}
+            {/*    <img src="/images/banner_23.jpg" />*/}
+            {/*</div>*/}
 
             {/* 은혜로운 찬양 */}
             <Praise />
