@@ -24,7 +24,7 @@ export default function PrayerTitlePage() {
     return (
         <>
             <TopBar.PrayerTitle />
-            <div className="pt-2.5 px-5 pb-5 font-normal text-base text-gray-700">[2023년 6월 12일]{' '}
+            <div className="pt-2.5 px-5 pb-5 font-normal text-base text-gray-700">[2023년 6월 18일]{' '}
                 <span className="text-gray-500">업데이트</span></div>
             <div className="h-14 w-full flex items-center text-center">
                 <div onClick={handleTabClick} id="prayer-title"
@@ -101,19 +101,19 @@ export default function PrayerTitlePage() {
                                 5. 교회 이미지가 좋아지며, 선한 영향력을 끼쳐 전도의 결실을 맺도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                6. 원수의 방해에도 사무처리회를 개최할 수 있도록 인도하신 하나님께 감사하며 영광을 돌리도록
+                                6. 악한 심령을 깨닫고 주님 앞에 회개하여 처음 사랑을 회복하도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                7. 사무처리회를 통해 교회회복을 위한 기도에 응답하시는 하나님께 감사할 수 있도록
+                                7. 자만과 교만을 버리고 회개에 합당한 열매를 맺도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                8. 온 성도들이 한마음으로 하나 되어 사무처리회 현장에 적극 참여하여 승리의 주역이 되도록
+                                8. 사무처리회 성공을 통하여 분열사태가 속히 종식되도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                9. 사무처리회 성공을 통해 교회 분열의 아픔을 이겨낸 승리와 감사의 기쁨이 충만하도록
+                                9. 사무처리회 성공을 통하여 교회의 재정적인 어려움이 해결되도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                10. 감독님의 권위를 회복하심에 감사하고 감독님을 중심으로 교회 재건을 속히 이룩할 수 있도록
+                                10. 온 성도가 소망으로 하나되어 분열의 아픔과 어려움을 이기도록
                             </li>
                         </ol>
                     </div>
@@ -136,19 +136,19 @@ export default function PrayerTitlePage() {
                                 5. 사무처리회 성공을 위해 날마다 간절히 기도하는 성락인 되도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                6. 사무처리회 현장 참여를 위해 성도들을 찾아가 적극 독려할 수 있도록
+                                6. 사무처리회 성공을 위한 목장 및 목장사역이 될 수 있도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                7. 사무처리회 당일 원수의 방해로 참여치 못할 다른 일정이 생기지 않도록
+                                7. 모든 성도가 사무처리회에 참여해야 하는 이유를 알고 현장투표에 적극 참여하도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                8. 사무처리회 현장 참여를 위한 카풀 운영이 잘 이루어지도록
+                                8. 사무처리회 현장 참석이 불가능한 성도들은 위임장을 반드시 작성하여 제출하도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                9. 성락인 모두가 참석하는 사무처리회를 통해 교회의 승리를 선포하는 기회가 되도록
+                                9. 성락인 모두 하나되어 교회와 감독님의 든든한 조력자로 협력하도록
                             </li>
                             <li className={STYLE_LIST_ITEM}>
-                                10. 교회와 감독님의 권위가 회복되고 교회 재정에 어려움이 해결되는 실질적인 승리의 전환점이 되도록
+                                10. 분열측 성도들이 거짓이 아닌 진실 앞에 결단하여 사무처리회에 참석하도록
                             </li>
                         </ol>
                     </div>
