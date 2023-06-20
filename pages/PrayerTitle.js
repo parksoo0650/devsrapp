@@ -241,11 +241,11 @@ export default function PrayerTitlePage() {
                                     </div>
                                     <div className="w-full divide-y divide-gray-200">
                                         <div className="flex items-center justify-between py-4 pr-4">
-                                            <div className="text-base">14:30-14:35 (5분)</div>
+                                            <div className="text-base">15:30-15:35 (5분)</div>
                                             <div className="text-base font-semibold">찬양</div>
                                         </div>
                                         <div className="flex items-center justify-between py-4 pr-4">
-                                            <div className="text-base">14:35-15:10 (35분)</div>
+                                            <div className="text-base">15:35-16:10 (35분)</div>
                                             <div className="text-base font-semibold">합심기도1</div>
                                         </div>
                                     </div>
@@ -256,7 +256,7 @@ export default function PrayerTitlePage() {
                                     </div>
                                     <div className="w-full">
                                         <div className="flex items-center justify-between py-4 pr-4">
-                                            <div className="text-base">15:10-15:50 (40분)</div>
+                                            <div className="text-base">16:10-16:50 (40분)</div>
                                             <div className="text-base font-semibold">합심기도2</div>
                                         </div>
                                     </div>
@@ -280,11 +280,11 @@ export default function PrayerTitlePage() {
                                     </div>
                                     <div className="w-full divide-y divide-gray-200">
                                         <div className="flex items-center justify-between py-4 pr-4">
-                                            <div className="text-base">15:50-15:55 (5분)</div>
+                                            <div className="text-base">16:50-16:55 (5분)</div>
                                             <div className="text-base font-semibold">찬양</div>
                                         </div>
                                         <div className="flex items-center justify-between py-4 pr-4">
-                                            <div className="text-base">15:55-16:30 (35분)</div>
+                                            <div className="text-base">16:55-17:30 (35분)</div>
                                             <div className="text-base font-semibold">합심기도3</div>
                                         </div>
                                     </div>
