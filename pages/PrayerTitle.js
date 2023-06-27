@@ -24,7 +24,7 @@ export default function PrayerTitlePage() {
     return (
         <>
             <TopBar.PrayerTitle />
-            <div className="pt-2.5 px-5 pb-5 font-normal text-base text-gray-700">[2023년 6월 18일]{' '}
+            <div className="pt-2.5 px-5 pb-5 font-normal text-base text-gray-700">[2023년 6월 26일]{' '}
                 <span className="text-gray-500">업데이트</span></div>
             <div className="h-14 w-full flex items-center text-center">
                 <div onClick={handleTabClick} id="prayer-title"
