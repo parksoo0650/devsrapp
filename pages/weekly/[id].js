@@ -25,7 +25,22 @@ export default function weekly() {
 
   return (
     <div className='sub_container sermon_detail'>
-      <ActionBar center='주보' left={<ClickToMoveBack route='/weekly' />} />
+      {/* 상단 바 */}
+      <section className='fixed w-full z-50 bg-white'>
+        <div className='flex items-center justify-between h-[60px] px-1'>
+          {/* <div className='flex items-center' onClick={() => router.push('/')}>
+            <Icon.Back />
+          </div> */}
+          <h3 className='text-base font-medium text-[#222222]'>
+            {data?.weekly?.titleKR}
+          </h3>
+          <div className='flex items-center'>
+            {/* 검색 기능 숨김 */}
+            {/* <Icon.Search /> */}
+            <div className='h-12 w-12' />
+          </div>
+        </div>
+      </section>
 
       {!data ? (
         <div className='loading_box'>
