@@ -28,7 +28,7 @@ export default function weekly() {
   return (
     <div className="">
       {/* 상단 바 */}
-      <section className="fixed w-full z-50 bg-white px-4 flex items-center">
+      <div className="fixed w-full z-50 bg-white px-4 flex items-center">
         <div className="w-full flex items-center justify-between h-[60px] px-1">
           {/* <div className='flex items-center' onClick={() => router.push('/')}>
             <Icon.Back />
@@ -43,7 +43,7 @@ export default function weekly() {
             <img src="/icons/ico_close.svg" />
           </div>
         </div>
-      </section>
+      </div>
 
       {/* blank */}
       <div className="h-[60px]" />
@@ -107,10 +107,10 @@ export default function weekly() {
                 </h4>
                 <div>
                   <span className="block text-base font-normal text-[#222222]">
-                    1부 | (할렐루야) 성가대 데이터?
+                    1부 | (할렐루야) temp
                   </span>
                   <span className="block text-base font-normal text-[#222222]">
-                    3부 | (시무언) 성가대 데이터?
+                    3부 | (시무언) temp
                   </span>
                 </div>
               </div>
@@ -138,51 +138,56 @@ export default function weekly() {
             </div>
 
             {/* 두번째 박스 */}
-            <div className="bg-white rounded-2xl px-4 py-2.5">
-              <div className="py-6 flex gap-[30px] flex-col divide-y">
-                <h4 className="w-[106px] text-[#005499] font-normal text-base">
+            <div className="bg-white rounded-2xl px-4 py-2.5 flex-col divide-y">
+              <div className="py-6 flex gap-[30px]">
+                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   주일연합예배
                 </h4>
                 <div>
                   <span className="block text-base font-normal text-[#222222]">
-                    1부 | {data?.weekly?.pray1}
+                    말씀 | 김성현 목사
                   </span>
                   <span className="block text-base font-normal text-[#222222]">
-                    3부 | {data?.weekly?.pray2}
+                    찬양 | (뉴헤븐) temp
                   </span>
                 </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[106px] text-[#005499] font-normal text-base">
+                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   수요예배
                 </h4>
+                <div>
+                  <span className="block text-base font-normal text-[#222222]">
+                    말씀 | temp
+                  </span>
+                  <span className="block text-base font-normal text-[#222222]">
+                    기도 | temp
+                  </span>
+                </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[106px] text-[#005499] font-normal text-base">
+                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   금요기도회
                 </h4>
                 <div>
                   <span className="block text-base font-normal text-[#222222]">
-                    1부 | (할렐루야) 성가대 데이터?
-                  </span>
-                  <span className="block text-base font-normal text-[#222222]">
-                    3부 | (시무언) 성가대 데이터?
+                    말씀 | temp
                   </span>
                 </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[106px] text-[#005499] font-normal text-base">
-                  다음주기도
+                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
+                  다음주 기도
                 </h4>
                 <div>
-                  <span className="block font-bold text-base text-[#222222] leading-none">
-                    {data?.weekly?.titleKR}
+                  <span className="block text-base font-normal text-[#222222]">
+                    주일예배 1부 | temp
                   </span>
-                  <span className="block my-[6px] text-[#866842] font-serif text-sm font-normal">
-                    {data?.weekly?.titleEN}
+                  <span className="block text-base font-normal text-[#222222]">
+                    주일예배 3부 | temp
                   </span>
-                  <span className="block text-[#888888] font-normal text-base">
-                    {data?.weekly?.bible}
+                  <span className="block text-base font-normal text-[#222222]">
+                    수요예배 | temp
                   </span>
                 </div>
               </div>
