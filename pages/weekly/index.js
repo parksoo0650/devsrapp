@@ -48,7 +48,7 @@ export default function weeklynews() {
                     <div className="info">
                       {/* <Share title="" thum="" vid="" /> */}
                       <span className="mb-2 inline-flex h-[27px] items-center bg-[#88629B] text-white rounded-[100px] px-2.5 text-sm font-medium">
-                        {data?.weekly[0].publishedAt}
+                        {data?.weekly[0].publishedAt.substring(2)}
                       </span>
                     </div>
                     <div className="">
@@ -86,10 +86,10 @@ export default function weeklynews() {
                         </div>
 
                         <div className="flex flex-col items-center">
-                          <span className="text-base font-normal text-[#222222] text-ellipsis mr-auto">
+                          <span className="text-base font-normal text-[#222222] mr-auto text-start line-clamp-1">
                             {item.titleKR}
                           </span>
-                          <span className="text-sm font-medium text-[#666666] text-ellipsis mr-auto">
+                          <span className="text-sm font-medium text-[#666666] mr-auto text-start line-clamp-1">
                             {item.publishedAt} · 성락교회 SUNGRAK CHURCH
                           </span>
                         </div>
