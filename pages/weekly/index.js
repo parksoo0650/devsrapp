@@ -5,6 +5,48 @@ import Loading from "../../src/components/Loading"
 import ClickToMovePage from "../../src/components/atom/ClickToMovePage"
 import List from "../../src/components/atom/List"
 import Icon from "@/components/Icon"
+import { useState } from "react"
+import Modal from "@/components/base/Modal"
+
+const YearFilterDropdown = () => {
+  const [index, setIndex] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+  const menu = ["2023년~", "2022년 01~12월", "2021년 01~12월"]
+
+  return (
+    <>
+      <div className="px-4 flex items-center" onClick={() => setIsOpen(true)}>
+        <span className="text-[#49454F] text-base font-normal mr-2">
+          {menu[index]}
+        </span>
+        <img src="icons/BibleDropdownArrow.svg" />
+      </div>
+
+      {isOpen && (
+        <Modal setIsOpen={setIsOpen}>
+          <section className="fixed bottom-0 w-screen h-[304px] px-5 pt-[30px] pb-[34px] bg-[#F5F5F5] flex flex-col z-[200]">
+            <div className="flex flex-col gap-5">
+              {menu.map((item, index) => (
+                <button
+                  key={index}
+                  className="h-10 flex items-center text-[#222222] text-lg font-normal"
+                  onClick={() => setIndex(index)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+            <button className="mt-auto" onClick={() => setIsOpen(false)}>
+              <div className="h-[50px] flex items-center justify-center border border-[#EAEAEA] rounded text-[#666666] font-normal text-sm">
+                닫기
+              </div>
+            </button>
+          </section>
+        </Modal>
+      )}
+    </>
+  )
+}
 
 export default function weeklynews() {
   const router = useRouter()
@@ -14,7 +56,7 @@ export default function weeklynews() {
     <>
       <div className="">
         {/* 상단 바 */}
-        <div className="fixed w-full z-50 bg-white">
+        <div className="fixed w-full z-10 bg-white">
           <div className="flex items-center justify-between h-[60px] px-1">
             <div className="flex items-center" onClick={() => router.push("/")}>
               <Icon.Back />
@@ -41,10 +83,10 @@ export default function weeklynews() {
               하나님의 신령한 은혜와 성도의 진정한 믿음의 조화
             </div>
 
-            <div className="pt-[22px] px-5 bg-white">
+            <div className="pt-[22px] px-4 bg-white">
               <Link href={`/weekly/${data?.weekly[0].id}`}>
                 <a>
-                  <div className="w-full rounded-2xl h-[258px] pt-[107px] px-6 pb-[30px] bg-[url('/images/weekly_main_banner.jpeg')] bg-no-repeat bg-center bg-cover">
+                  <div className="w-full rounded-2xl h-[258px] pt-[107px] px-6 pb-[30px] bg-[url('/images/weekly_main_banner.jpeg')] bg-no-repeat bg-center bg-cover flex flex-col justify-end">
                     <div className="info">
                       {/* <Share title="" thum="" vid="" /> */}
                       <span className="mb-2 inline-flex h-[27px] items-center bg-[#88629B] text-white rounded-[100px] px-2.5 text-sm font-medium">
@@ -52,10 +94,10 @@ export default function weeklynews() {
                       </span>
                     </div>
                     <div className="">
-                      <div className="w-1/2 text-white font-bold text-2xl leading-8">
+                      <div className="w-3/4 text-white font-bold text-2xl leading-8 break-keep">
                         {data?.weekly[0].titleKR}
                       </div>
-                      <div className="text-base font-normal text-white mt-auto">
+                      <div className="text-base font-normal text-white mt-1">
                         {data?.weekly[0].bible}
                       </div>
                     </div>
@@ -66,7 +108,10 @@ export default function weeklynews() {
 
             <div className="h-6 bg-white" />
             {/* 구분선 */}
-            <div className="h-3 bg-[#F5F5F5]" />
+            <div className="h-3 bg-[#F5F5F5] mb-6" />
+
+            {/* 주보 연도 선택 드롭다운 */}
+            <YearFilterDropdown />
 
             <List backgroundColor="white">
               {data?.weekly?.map((item, i) => {
