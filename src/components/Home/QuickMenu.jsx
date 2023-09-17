@@ -1,24 +1,42 @@
-import QuickMenuItem from './QuickMenuItem';
+import QuickMenuItem from "./QuickMenuItem"
 
 const QuickMenu = () => {
   return (
-    <div className='bg-[#f8f8f8] pt-[40px] px-[24px] pb-[22px]'>
+    <div className="bg-[#f8f8f8] pt-[40px] px-[24px] pb-[22px]">
       {/* <div className='title'>빠른접근</div> */}
 
       <ul>
-        <QuickMenuItem
+        {/* <QuickMenuItem
           pathname='/sermonmain'
           imgSrc='/icons/ico_sermon_new.svg'
           title='예배'
+        /> */}
+
+        <QuickMenuItem
+          pathname="/praisemain"
+          imgSrc="/icons/ico_quick_praise_new.svg"
+          title="찬양"
         />
 
         <QuickMenuItem
-          pathname='/praisemain'
-          imgSrc='/icons/ico_quick_praise_new.svg'
-          title='찬양'
+          pathname="/offering"
+          imgSrc="/icons/ico_quick_offering.svg"
+          title="헌금안내"
         />
 
         <QuickMenuItem
+          pathname="/weekly"
+          imgSrc="/icons/ico_quick_weekly2.svg"
+          title="주보"
+        />
+
+        <QuickMenuItem
+          pathname="/representative-prayer"
+          imgSrc="/icons/ico_quick_prayer.png"
+          title="대표기도자"
+        />
+
+        {/* <QuickMenuItem
           pathname='/returnMain'
           imgSrc='/icons/ico_return.svg'
           title='환언특강'
@@ -34,27 +52,9 @@ const QuickMenu = () => {
           pathname='/faith'
           imgSrc='/icons/ico_shorts.svg'
           title='1분은혜'
-        />
-
-        <QuickMenuItem
-          pathname='/weekly'
-          imgSrc='/icons/ico_quick_weekly2.svg'
-          title='주보'
-        />
+        /> */}
 
         {/* <QuickMenuItem pathname='/' imgSrc='' title='교회소식' /> */}
-
-        <QuickMenuItem
-          pathname='/offering'
-          imgSrc='/icons/ico_quick_offering.svg'
-          title='헌금안내'
-        />
-
-        <QuickMenuItem
-          pathname='/prayer'
-          imgSrc='/icons/ico_quick_prayer.png'
-          title='기도제목'
-        />
 
         {/* <QuickMenuItem
           pathname='/2022-summer-camp'
@@ -64,7 +64,7 @@ const QuickMenu = () => {
       </ul>
       {/* end of quick_menu */}
     </div>
-  );
-};
+  )
+}
 
-export default QuickMenu;
+export default QuickMenu

@@ -1,12 +1,7 @@
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import Weeklyorder from "../../src/components/Weeklyorder"
-import Weeklysummary from "../../src/components/Weeklysummary"
 import Loading from "../../src/components/Loading"
 import useSWR from "swr"
-import ActionBar from "../../src/components/molecule/ActionBar"
-import ClickToMoveBack from "../../src/components/atom/ClickToMoveBack"
 
 export default function weekly() {
   const router = useRouter()
@@ -115,16 +110,22 @@ export default function weekly() {
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
-                      1부 <strong className="pl-1">할렐루야</strong>
+                    <div className="w-[90px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      1부{" "}
+                      <strong className="pl-1 font-normal text-[#005499]">
+                        할렐루야
+                      </strong>
                     </div>
-                    temp
+                    I AM
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
-                      3부 <strong className="pl-1">시무언</strong>
+                    <div className="w-[80px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      3부{" "}
+                      <strong className="pl-1 font-normal text-[#005499]">
+                        시무언
+                      </strong>
                     </div>
-                    temp
+                    주님은 굳건한 반석
                   </span>
                 </div>
               </div>
@@ -133,7 +134,7 @@ export default function weekly() {
                   <span>설</span>
                   <span>교</span>
                 </h4>
-                <div>
+                <div className="w-[238px]">
                   <span className="block font-bold text-base text-[#222222] leading-none">
                     {data?.weekly?.titleKR}
                   </span>
@@ -159,7 +160,7 @@ export default function weekly() {
                 <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   주일연합예배
                 </h4>
-                <div>
+                <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
                     <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
                       말씀
@@ -167,10 +168,13 @@ export default function weekly() {
                     김성현 목사
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
-                      찬양 <strong className="pl-1">뉴헤븐</strong>
+                    <div className="w-[90px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      찬양{" "}
+                      <strong className="pl-1 font-normal text-[#005499]">
+                        뉴헤븐
+                      </strong>
                     </div>
-                    temp
+                    내가 예수 믿고서
                   </span>
                 </div>
               </div>
@@ -178,12 +182,18 @@ export default function weekly() {
                 <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   수요예배
                 </h4>
-                <div>
-                  <span className="block text-base font-normal text-[#222222]">
-                    말씀 | temp
+                <div className="flex flex-col gap-1">
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      말씀
+                    </div>
+                    정기성 목사
                   </span>
-                  <span className="block text-base font-normal text-[#222222]">
-                    기도 | temp
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      기도
+                    </div>
+                    김정혜 선교사
                   </span>
                 </div>
               </div>
@@ -192,8 +202,11 @@ export default function weekly() {
                   금요기도회
                 </h4>
                 <div>
-                  <span className="block text-base font-normal text-[#222222]">
-                    말씀 | temp
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      말씀
+                    </div>
+                    이형진 목사
                   </span>
                 </div>
               </div>
@@ -201,15 +214,24 @@ export default function weekly() {
                 <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   다음주 기도
                 </h4>
-                <div>
-                  <span className="block text-base font-normal text-[#222222]">
-                    주일예배 1부 | temp
+                <div className="flex flex-col gap-1">
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[95px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      주일예배 1부
+                    </div>
+                    김윤태 안수집사
                   </span>
-                  <span className="block text-base font-normal text-[#222222]">
-                    주일예배 3부 | temp
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[95px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      주일예배 3부
+                    </div>
+                    권태훈 안수집사
                   </span>
-                  <span className="block text-base font-normal text-[#222222]">
-                    수요예배 | temp
+                  <span className="flex text-base font-normal text-[#222222]">
+                    <div className="w-[70px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                      수요예배
+                    </div>
+                    추석축복성회
                   </span>
                 </div>
               </div>
