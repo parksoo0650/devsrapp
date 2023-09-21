@@ -79,18 +79,18 @@ export default function weekly() {
             {/* 첫번째 박스 */}
             <div className="bg-white rounded-2xl px-4 py-2.5 flex flex-col divide-y">
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[58px] text-[#005499] font-normal text-base flex justify-center tracking-wide">
+                <h4 className="text-[#005499] font-normal text-base flex justify-center tracking-wide">
                   대표기도
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex items-center text-base font-normal text-[#222222]">
-                    <div className="w-[36px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
                       1부
                     </div>
                     {data?.weekly?.pray1}
                   </span>
                   <span className="flex items-center text-base font-normal text-[#222222]">
-                    <div className="w-[36px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
                       3부
                     </div>
                     {data?.weekly?.pray2}
@@ -98,44 +98,44 @@ export default function weekly() {
                 </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[57px] text-[#005499] font-normal text-base flex justify-between">
+                <h4 className="w-[57px] min-w-[57px] text-[#005499] font-normal text-base flex justify-between">
                   <span>헌</span>
                   <span>금</span>
                 </h4>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[57px] text-[#005499] font-normal text-base flex justify-between">
+                <h4 className="w-[57px] min-w-[57px] text-[#005499] font-normal text-base flex justify-between">
                   <span>찬</span>
                   <span>양</span>
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[90px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       1부{" "}
                       <strong className="pl-1 font-normal text-[#005499]">
                         할렐루야
                       </strong>
                     </div>
-                    I AM
+                    <span className="line-clamp-1">I AM</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[80px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       3부{" "}
                       <strong className="pl-1 font-normal text-[#005499]">
                         시무언
                       </strong>
                     </div>
-                    주님은 굳건한 반석
+                    <span className="line-clamp-1">주님은 굳건한 반석</span>
                   </span>
                 </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[57px] text-[#005499] font-normal text-base flex justify-between">
+                <h4 className="w-[57px] min-w-[57px] text-[#005499] font-normal text-base flex justify-between">
                   <span>설</span>
                   <span>교</span>
                 </h4>
                 <div className="w-[238px]">
-                  <span className="block font-bold text-base text-[#222222] leading-none">
+                  <span className="block font-bold text-base text-[#222222]">
                     {data?.weekly?.titleKR}
                   </span>
                   <span className="block my-[6px] text-[#866842] font-serif text-sm font-normal">
@@ -147,7 +147,7 @@ export default function weekly() {
                 </div>
               </div>
               <div className="py-6 flex gap-[30px]">
-                <h4 className="w-[57px] text-[#005499] font-normal text-base flex justify-between">
+                <h4 className="w-[57px] min-w-[57px] text-[#005499] font-normal text-base flex justify-between">
                   <span>축</span>
                   <span>도</span>
                 </h4>
@@ -156,82 +156,82 @@ export default function weekly() {
 
             {/* 두번째 박스 */}
             <div className="bg-white rounded-2xl px-4 py-2.5 flex-col divide-y">
-              <div className="py-6 flex gap-[30px]">
-                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
+              <div className="py-6 flex gap-[20px]">
+                <h4 className="block rounded-full py-1 text-center w-[100px] min-w-[100px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   주일연합예배
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
                       말씀
                     </div>
                     김성현 목사
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[90px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       찬양{" "}
                       <strong className="pl-1 font-normal text-[#005499]">
                         뉴헤븐
                       </strong>
                     </div>
-                    내가 예수 믿고서
+                    <span className="line-clamp-1">내가 예수 믿고서</span>
                   </span>
                 </div>
               </div>
-              <div className="py-6 flex gap-[30px]">
-                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
+              <div className="py-6 flex gap-[20px]">
+                <h4 className="block rounded-full py-1 text-center w-[100px] min-w-[100px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   수요예배
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       말씀
                     </div>
-                    정기성 목사
+                    <span className="line-clamp-1">정기성 목사</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       기도
                     </div>
-                    김정혜 선교사
+                    <span className="line-clamp-1">김정혜 선교사</span>
                   </span>
                 </div>
               </div>
-              <div className="py-6 flex gap-[30px]">
-                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
+              <div className="py-6 flex gap-[20px]">
+                <h4 className="block rounded-full py-1 text-center w-[100px] min-w-[100px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   금요기도회
                 </h4>
                 <div>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[41px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       말씀
                     </div>
-                    이형진 목사
+                    <span className="line-clamp-1">이형진 목사</span>
                   </span>
                 </div>
               </div>
-              <div className="py-6 flex gap-[30px]">
-                <h4 className="block rounded-full py-1 text-center w-[106px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
+              <div className="py-6 flex gap-[20px]">
+                <h4 className="block rounded-full py-1 text-center w-[100px] min-w-[100px] h-fit border border-[#005499] text-[#005499] font-normal text-base">
                   다음주 기도
                 </h4>
                 <div className="flex flex-col gap-1">
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[95px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="w-[120px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       주일예배 1부
                     </div>
-                    김윤태 안수집사
+                    <span className="line-clamp-1">김윤태 안수집사</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[95px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="w-[120px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       주일예배 3부
                     </div>
-                    권태훈 안수집사
+                    <span className="line-clamp-1">권태훈 안수집사</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
-                    <div className="w-[70px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal">
+                    <div className="h-[30px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       수요예배
                     </div>
-                    추석축복성회
+                    <span className="line-clamp-1">추석축복성회</span>
                   </span>
                 </div>
               </div>
