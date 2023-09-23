@@ -75,6 +75,18 @@ model Weekly {
   hymn2         Int
   pray1         String
   pray2         String
+  praise1       String?
+  praise2       String?
+  praise3       String?
+  wedMinister   String?
+  wedPray       String?
+  friMinister   String?
+  nextPray1     String?
+  nextPray2     String?
+  nextPray3     String?
+  orderSermon   String?
+  orderSermonEN String?
+  orderBible    String?
 }
 
 model Post {

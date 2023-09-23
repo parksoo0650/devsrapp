@@ -95,10 +95,10 @@ export default function weeklynews() {
                     </div>
                     <div className="">
                       <div className="w-3/4 text-white font-bold text-2xl leading-8 break-keep">
-                        {data?.weekly[0].titleKR}
+                        {data?.weekly[0].orderSermon}
                       </div>
                       <div className="text-base font-normal text-white mt-1">
-                        {data?.weekly[0].bible}
+                        {data?.weekly[0].orderBible}
                       </div>
                     </div>
                   </div>

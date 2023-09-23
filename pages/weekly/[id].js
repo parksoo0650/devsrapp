@@ -29,7 +29,7 @@ export default function weekly() {
             <Icon.Back />
           </div> */}
           <h3 className="text-base font-medium text-[#222222]">
-            {data?.weekly?.titleKR}
+          {data?.weekly?.orderSermon}
           </h3>
           <div
             className="flex items-center ml-auto"
@@ -53,10 +53,10 @@ export default function weekly() {
             {/* 카드 */}
             <div className="h-[152px] px-4 py-6 rounded-2xl bg-[#F5F5F5] flex flex-col">
               <h3 className="text-[20px] font-medium text-[#222222] leading-none">
-                {data?.weekly?.titleKR}
+                {data?.weekly?.orderSermon}
               </h3>
               <h3 className="my-3 font-serif text-[#866842] text-base font-normal">
-                {data?.weekly?.titleEN}
+                {data?.weekly?.orderSermonEN}
               </h3>
               <span className="text-[#666666] text-sm font-normal mt-auto">
                 설교 | 김성현 목사
@@ -116,7 +116,7 @@ export default function weekly() {
                         할렐루야
                       </strong>
                     </div>
-                    <span className="line-clamp-1">I AM</span>
+                    <span className="line-clamp-1">{data?.weekly?.praise1}</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
                     <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
@@ -125,7 +125,7 @@ export default function weekly() {
                         시무언
                       </strong>
                     </div>
-                    <span className="line-clamp-1">주님은 굳건한 반석</span>
+                    <span className="line-clamp-1">{data?.weekly?.praise2}</span>
                   </span>
                 </div>
               </div>
@@ -136,13 +136,13 @@ export default function weekly() {
                 </h4>
                 <div className="w-[238px]">
                   <span className="block font-bold text-base text-[#222222]">
-                    {data?.weekly?.titleKR}
+                  {data?.weekly?.orderSermon}
                   </span>
                   <span className="block my-[6px] text-[#866842] font-serif text-sm font-normal">
-                    {data?.weekly?.titleEN}
+                  {data?.weekly?.orderSermonEN}
                   </span>
                   <span className="block text-[#888888] font-normal text-base">
-                    {data?.weekly?.bible}
+                  {data?.weekly?.orderBible}
                   </span>
                 </div>
               </div>
@@ -174,7 +174,7 @@ export default function weekly() {
                         뉴헤븐
                       </strong>
                     </div>
-                    <span className="line-clamp-1">내가 예수 믿고서</span>
+                    <span className="line-clamp-1">{data?.weekly?.praise3}</span>
                   </span>
                 </div>
               </div>
@@ -187,13 +187,13 @@ export default function weekly() {
                     <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       말씀
                     </div>
-                    <span className="line-clamp-1">정기성 목사</span>
+                    <span className="line-clamp-1">{data?.weekly?.wedMinister}</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
                     <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       기도
                     </div>
-                    <span className="line-clamp-1">김정혜 선교사</span>
+                    <span className="line-clamp-1">{data?.weekly?.wedPray}</span>
                   </span>
                 </div>
               </div>
@@ -206,7 +206,7 @@ export default function weekly() {
                     <div className="h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       말씀
                     </div>
-                    <span className="line-clamp-1">이형진 목사</span>
+                    <span className="line-clamp-1">{data?.weekly?.friMinister}</span>
                   </span>
                 </div>
               </div>
@@ -219,19 +219,19 @@ export default function weekly() {
                     <div className="w-[120px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       주일예배 1부
                     </div>
-                    <span className="line-clamp-1">김윤태 안수집사</span>
+                    <span className="line-clamp-1">{data?.weekly?.nextPray1}</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
                     <div className="w-[120px] h-[27px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       주일예배 3부
                     </div>
-                    <span className="line-clamp-1">권태훈 안수집사</span>
+                    <span className="line-clamp-1">{data?.weekly?.nextPray2}</span>
                   </span>
                   <span className="flex text-base font-normal text-[#222222]">
                     <div className="h-[30px] flex items-center justify-center px-[6px] mr-[6px] rounded-[6px] bg-[#F5F5F5] text-[#666666] text-base font-normal break-keep">
                       수요예배
                     </div>
-                    <span className="line-clamp-1">추석축복성회</span>
+                    <span className="line-clamp-1">{data?.weekly?.nextPray3}</span>
                   </span>
                 </div>
               </div>

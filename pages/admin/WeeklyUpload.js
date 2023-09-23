@@ -116,6 +116,90 @@ const WeeklyUpload = () => {
                     name="pray2"
                     type="text"
                 />
+                <Input
+                    register={register("praise1", { required: true })}
+                    required
+                    label="찬양1부"
+                    name="praise1"
+                    type="text"
+                />
+                <Input
+                    register={register("praise2", { required: true })}
+                    required
+                    label="찬양3부"
+                    name="praise2"
+                    type="text"
+                />
+                <Input
+                    register={register("praise3", { required: true })}
+                    required
+                    label="찬양연합"
+                    name="praise3"
+                    type="text"
+                />
+                <Input
+                    register={register("orderSermon", { required: true })}
+                    required
+                    label="예배순서 설교(한글)"
+                    name="orderSermon"
+                    type="text"
+                />
+                <Input
+                    register={register("orderSermonEN", { required: true })}
+                    required
+                    label="예배순서 설교(영문)"
+                    name="orderSermonEN"
+                    type="text"
+                />
+                <Input
+                    register={register("orderBible", { required: true })}
+                    required
+                    label="예배순서 말씀"
+                    name="orderBible"
+                    type="text"
+                />
+                <Input
+                    register={register("wedMinister", { required: true })}
+                    required
+                    label="수요예배 말씀"
+                    name="wedMinister"
+                    type="text"
+                />
+                <Input
+                    register={register("wedPray", { required: true })}
+                    required
+                    label="수요예배 기도"
+                    name="wedPray"
+                    type="text"
+                />
+                <Input
+                    register={register("friMinister", { required: true })}
+                    required
+                    label="금요기도회"
+                    name="friMinister"
+                    type="text"
+                />
+                <Input
+                    register={register("nextPray1", { required: true })}
+                    required
+                    label="다음주기도 1부"
+                    name="nextPray1"
+                    type="text"
+                />
+                <Input
+                    register={register("nextPray2", { required: true })}
+                    required
+                    label="다음주기도 3부"
+                    name="nextPray2"
+                    type="text"
+                />
+                <Input
+                    register={register("nextPray3", { required: true })}
+                    required
+                    label="다음주기도 수요예배"
+                    name="nextPray3"
+                    type="text"
+                />
                 <Button text={loading ? "Loading..." : "Upload item"} />
             </form>
         </Layout>
