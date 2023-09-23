@@ -64,6 +64,7 @@ export default function weekly() {
             </div>
           </div>
 
+
           {/* 탭 */}
           <ul className="w-full h-[54px] px-4 flex items-center justify-around">
             <li className="text-[#222222] text-base font-medium">
