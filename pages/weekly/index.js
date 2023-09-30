@@ -115,9 +115,6 @@ export default function weeklynews() {
 
             <List backgroundColor="white">
               {data?.weekly?.map((item, i) => {
-                if (i == 0) {
-                  return false
-                }
                 return (
                   <ClickToMovePage
                     route={`/weekly/${item.id}`}
@@ -132,7 +129,7 @@ export default function weeklynews() {
 
                         <div className="flex flex-col items-center">
                           <span className="text-base font-normal text-[#222222] mr-auto text-start line-clamp-1">
-                            {item.titleKR}
+                            {item.orderSermon}
                           </span>
                           <span className="text-sm font-medium text-[#666666] mr-auto text-start line-clamp-1">
                             {item.publishedAt} · 성락교회 SUNGRAK CHURCH
