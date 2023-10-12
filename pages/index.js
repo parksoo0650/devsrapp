@@ -2,6 +2,7 @@ import Jumbotron from '../src/components/Home/Jumbotron'
 import HomeBar from '../src/components/HomeBar'
 import Today from '@/components/today/Today'
 import PrayerTitleButton from '@/components/PrayerTitleButton'
+import QuickMenu from '@/components/home/QuickMenu'
 import { HomeAppBar } from '@/components/base/AppBar'
 
 export default function Home() {
@@ -21,6 +22,9 @@ export default function Home() {
       {/*/>*/}
       <PrayerTitleButton />
 
+      {/* 퀵 메뉴 7개 */}
+      <QuickMenu />
+
       {/* 성락 공지사항 */}
       {/*<Notice />*/}
 
@@ -29,9 +33,6 @@ export default function Home() {
 
       {/* 주중 콘텐츠 */}
       {/*<WeekdayContent />*/}
-
-      {/* 퀵 메뉴 7개 */}
-      {/*<QuickMenu />*/}
 
       {/* 교회 표어 */}
       {/*<div className="mdbanner">*/}

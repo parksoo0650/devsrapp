@@ -5,7 +5,7 @@ const PrayerTitleButton = () => {
   const router = useRouter()
 
   return (
-    <div className="pt-5 px-5" onClick={() => router.push('/PrayerTitle')}>
+    <div className="py-5 px-5" onClick={() => router.push('/PrayerTitle')}>
       <div
         className={`flex items-center justify-center bg-[#EFEAF1] h-[53px] rounded-[5px] gap-1 ${animation.onClick}`}
       >

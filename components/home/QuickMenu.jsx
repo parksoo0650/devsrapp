@@ -1,4 +1,4 @@
-import QuickMenuItem from "./QuickMenuItem"
+import QuickMenuItem from '@/components/Home/QuickMenuItem'
 
 const QuickMenu = () => {
   return (
