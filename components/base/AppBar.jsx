@@ -59,12 +59,12 @@ export const HomeAppBar = () => {
         </div>
       }
       right1={
-        <Button>
+        <Button onClick={() => window.alert('준비 중입니다.')}>
           <AlarmIcon />
         </Button>
       }
       right2={
-        <Button>
+        <Button onClick={() => window.alert('준비 중입니다.')}>
           <SearchIcon />
         </Button>
       }
