@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import Loading from "../../src/components/Loading"
 import useSWR from "swr"
 
-const TabContents1 = (data) => {
+const TabContents1 = ({ data }) => {
   return (
     <main className="bg-[#F5F5F5] pt-6 px-4 pb-10 flex flex-col gap-6">
       {/* 첫번째 박스 */}
@@ -211,7 +211,6 @@ export default function weekly() {
   let kind = ""
   router.query.kind ? (kind = router.query.kind) : (kind = "ord")
   const [tabKind, setTabKind] = useState(kind)
-  const [isLoading, setIsLoading] = useState(true)
 
   /** 주일예배순서, 예배순서, 주중말씀, 교회소식 */
   const [tab, setTab] = useState(0)
@@ -223,8 +222,6 @@ export default function weekly() {
   useEffect(() => {
     setTabKind(kind)
   }, [router])
-
-  console.log(data)
 
   return (
     <div className="">
