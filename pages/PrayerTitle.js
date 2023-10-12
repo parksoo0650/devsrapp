@@ -24,7 +24,7 @@ export default function PrayerTitlePage() {
     <>
       <TopBar.PrayerTitle />
       <div className="pt-2.5 px-5 pb-5 font-normal text-base text-gray-700">
-        [2023년 9월 20일] <span className="text-gray-500">업데이트</span>
+        [2023년 10월 11일] <span className="text-gray-500">업데이트</span>
       </div>
       <div className="h-14 w-full flex items-center text-center">
         <div
@@ -68,179 +68,61 @@ export default function PrayerTitlePage() {
         <section className="pb-10">
           <main className="px-5 bg-[#F5F5F5]">
             <h2 className="pt-10 pb-4 font-bold text-lg text-black">
-              교회와 감독님을 위한 기도제목
+              사무처리회 성공을 위한 기도
             </h2>
             <ol className="pb-10 list-decimal">
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                1. 서울남부지법 1심 재판에서 무죄 판결을 받도록
+                1. 사무처리회를 철저히 준비하고 성공하여 미래를 향해 나아가도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                2. 재판부가 억울한 이단정죄로 고통받고 있는 우리교회를 잘 이해할
-                수 있도록, 살아계신 하나님께서 재판부를 통해 일하시도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                3. 오늘 진행되는 교회측 장로님들의 증인신문 등을 통해
-                거짓주장들이 드러나 바로 잡히도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                4. 교회측 담당 변호사에게 변호의 지혜와 명철이 충만하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                5. 재판부가 억울한 이단정죄로 고통 받고 있는 우리교회를 잘
-                이해할 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                6. 남은 증인심문 준비 및 재판 진행절차가 원활히 진행될 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                7. 법무팀에게 맡은 업무를 감당할 충만한 지혜와 능력을 주시도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                8. 감독님과 가정에 하나님이 주시는 건강과 하나님의 평안이
-                넘치도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                9. 감독님께서 교회와 성도를 이끌어 가시는데 지치지 않고 더
-                담대할 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                10. 감독님이 성도들의 아픔과 고통을 위해 힘쓰신 부분을 재판부가
-                잘 알 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                11. 감독님을 하나님께서 신원하여 주시고 평안과 위로가 넘치시도록
-              </li>
-
-              {/* <li className={STYLE_LIST_ITEM_SPECIAL}>
-                1. 사무처리회를 철저히 준비하여 성공하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                2. 사무처리회 성공을 통하여 미래를 향해 나가도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                3. 사무처리회 성공을 통하여 분열사태가 속히 종식되고 교회가
-                안전하게 회복되도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                4. 사무처리회 성공을 통하여 교회의 재정적인 어려움이 해결되도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                5. 사무처리회 개최일에 성락인 모두 교회를 사랑하는 마음으로
-                참여하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                6. 사무처리회 준비팀, 명부팀. 진행팀에게 지혜와 안목이 넘치도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                7. 사무처리회 준비가운데 하나님의 사랑과 은혜로 하나 된 지체임을
-                깨닫고 겸손히 연합할 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                8. 사무처리회를 위해 사랑과 겸손의 마음으로 간절히 기도하여
-                하나님의 일하심을 보도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                9. 사무처리회를 통해 온 성도가 몸 된 교회를 사랑하고 든든히
-                세워가도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                10. 사무처리회 성공을 위한 목장 및 목양사역이 될 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                11. 사무처리회 성공을 위해 각 가정과 직장 거처에서 기도로
-                동참하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                12. 사무처리회 현장 참석이 불가능한 성도들은 위임장을 반드시
-                작성하여 제출 하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                13. 분열측 성도들이 거짓이 아닌 진실 앞에 결단하여 사무처리회에
-                참석 하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                14. 장로, 안수집사 및 직분자들이 준비 과정에서 적극적으로 교회와
-                함께 하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                15. 모든 목장이 사무처리회 성공을 위한 사역으로 적극 지원하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                16. 사무처리회 참여로 교인으로서의 책임과 의무를 다하도록
-              </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                17. 사무처리회 현장 참여를 위해 성도들을 찾아가 적극 독려할 수
+                2. 사무처리회 회원 명부가 실질 교인으로 작성되고 확정될 수
                 있도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                18. 사무처리회 당일 참여치 못할 갑작스러운 다른 일정이 생기지
-                않도록
+                3. 사무처리회 진행과 명부가 법적으로도 보호받고 하나님이
+                인쳐주시도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                19. 사무처리회 현장 참여를 위한 카플 운영이 잘 이루어지도록
+                4. 사무처리회 법적 소송을 승소하여 준비하는 개최일에 성공적으로
+                개최될 수 있도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                20. 사무처리회를 통해 교회의 승리를 선포하는 기회가 되도록
+                5. 사무처리회 성공을 통해 교회와 감독님의 법적권위가 회복되도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                21. 사무처리회 진행이 법적으로도 보호받을 수 있도록
+                6. 사무처리회를 위해 사랑과 겸손의 마음으로 간절히 기도하여
+                하나님의 일하심을 보도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                22. 당일 사무처리회가 질서있게 진행 되도록
+                7. 사무처리회를 통해서 온 교회가 하나될 수 있도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                23. 사무처리회 성공을 통해 교회와 감독님의 법적권위가 회복되도록
+                8. 사무처리회 성공을 통하여 분열사태가 속히 종식되고 교회가
+                안전하게 회복되도록
               </li>
               <li className={STYLE_LIST_ITEM_SPECIAL}>
-                24. 성락인 모두 하나 되어 교회와 감독님의 든든한 조력자로
-                협력하도록
+                9. 사무처리회를 통해 교회의 승리를 선포하는 기회가 되도록
               </li>
-              <li className={STYLE_LIST_ITEM_SPECIAL}>
-                25. 성락인과 베뢰아인과 미래세대를 감독님께서 온전히
-                이끌어가시도록
-              </li> */}
             </ol>
           </main>
 
           <div className="pt-[30px] px-5">
             <h3 className="pb-2 font-bold text-base leading-5 text-[#D85E55]">
-              I. 사무처리회 성공을 위한 기도
+              I. 교회를 살리자 성락인의 헌신을 위한 기도
             </h3>
             <ol>
               <li className={STYLE_LIST_ITEM}>
-                1. 사무처리회를 철저히 준비하고 성공하여 미래를 향해 나아가도록
+                1. 성락인 모두가 마음이 하나되어 교회를 살리자 성락인의 헌신을
+                성공하도록
               </li>
               <li className={STYLE_LIST_ITEM}>
-                2. 사무처리회 준비팀에게 하나님의 지혜와 총명을 주시도록
+                2. 신실한 믿음과 감사로 헌신하며 기쁨으로 준비하도록
               </li>
               <li className={STYLE_LIST_ITEM}>
-                3. 사무처리회 회원 명부가 실질 교인으로 작성되고 확정될 수
-                있도록
+                3. 마음과 뜻을 다한 헌신으로 하나님의 표적이 나타나도록
               </li>
               <li className={STYLE_LIST_ITEM}>
-                4. 사무처리회 진행과 명부가 법적으로도 보호받고 하나님이
-                인쳐주시도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                5. 사무처리회 법적 소송을 승소하여 준비하는 개최일에 성공적으로
-                개최될 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                6. 사무처리회 성공을 통해 교회와 감독님의 법적권위가 회복되도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                7. 사무처리회를 위해 사랑과 겸손의 마음으로 간절히 기도하여
-                하나님의 일하심을 보도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                8. 사무처리회를 통해서 온 교회가 하나될 수 있도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                9. 사무처리회 성공을 통하여 분열사태가 속히 종식되고 교회가
-                안전하게 회복되도록
-              </li>
-              <li className={STYLE_LIST_ITEM}>
-                10. 사무처리회를 통해 교회의 승리를 선포하는 기회가 되도록
+                4. 믿음의 헌신으로 우리의 소망이 하나님 나라에 있음을 고백하도록
               </li>
             </ol>
           </div>
@@ -260,7 +142,7 @@ export default function PrayerTitlePage() {
               </li>
               <li className={STYLE_LIST_ITEM}>
                 3. 성락인 모두가 힘과 지혜를 하나로 모아 교회재정 위기를 극복할
-                수 있도록
+                수 있도록{" "}
               </li>
               <li className={STYLE_LIST_ITEM}>
                 4. 그리스도와 함께 영광을 얻기 위해 교회재정 극복을 위한 고난도
