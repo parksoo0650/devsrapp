@@ -3,8 +3,10 @@ import Skeleton from '@components/molecule/Skeleton'
 import useSWR from 'swr'
 import ParsingUtil from '@/utils/ParsingUtil'
 import { sermon } from '@/styles/tailwind'
+import { useRouter } from 'next/router'
 
 const SundaySermon = () => {
+  const router = useRouter()
   const { data } = useSWR('/api/contents?kind=sermon')
   const { fullName, publishedAt, videoId, category, title, scripture } =
     ParsingUtil.parseSermonData(data)
