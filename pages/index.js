@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       {/* 앱 상단 바 */}
-      <HomeAppBar />
+      {/* <HomeAppBar /> */}
 
       {/* 대형 슬라이드 (메인 배너) */}
       <Jumbotron />
