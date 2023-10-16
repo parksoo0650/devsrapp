@@ -5,6 +5,7 @@ import useSWRInfinite from 'swr/infinite'
 import useSWR from 'swr'
 import InfiniteScroll from '@/components/InfiniteScroll'
 import useContentsInfinite from '@/hooks/useContentsInfinite'
+import Spinner from '../Spinner'
 
 const Today = () => {
   // const { data } = useSWR('/api/contents?kind=feed');
@@ -45,21 +46,27 @@ const Today = () => {
         description="오늘도 성락교회 콘텐츠와 함께하세요!"
       />
 
+      {/* 부서 선택 탭 */}
       {/* <Select.Department departments={departments} setFilter={setFilter} /> */}
 
-      {/* 부서 선택 탭 */}
-      <InfiniteScroll
-        contents={contents}
-        isEmpty={isEmpty}
-        isFetching={isFetching}
-        lastContentElementRef={lastContentElementRef}
-        mutate={mutate}
-        size={size}
-        setSize={setSize}
-        isLoadingMore={isLoadingMore}
-        isReachingEnd={isReachingEnd}
-        isRefreshing={isRefreshing}
-      />
+      {isLoading ? (
+        <div className="w-full flex justify-center pb-10">
+          <Spinner size={8} />
+        </div>
+      ) : (
+        <InfiniteScroll
+          contents={contents}
+          isEmpty={isEmpty}
+          isFetching={isFetching}
+          lastContentElementRef={lastContentElementRef}
+          mutate={mutate}
+          size={size}
+          setSize={setSize}
+          isLoadingMore={isLoadingMore}
+          isReachingEnd={isReachingEnd}
+          isRefreshing={isRefreshing}
+        />
+      )}
     </>
   )
 }

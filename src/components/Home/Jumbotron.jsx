@@ -65,7 +65,7 @@ export default function Jumbotron() {
       </SwiperSlide>
 
       {/* 화요 찬양 기도회 */}
-      <SwiperSlide key={3}>
+      <SwiperSlide key={2}>
         <img
           className="w-full bg-no-repeat bg-cover bg-center"
           src="images/banner_11.jpg"
@@ -83,7 +83,7 @@ export default function Jumbotron() {
       </SwiperSlide>
 
       {/* 무화과 카페 */}
-      <SwiperSlide key={3}>
+      <SwiperSlide key={4}>
         <img
           className="w-full bg-no-repeat bg-cover bg-center"
           src="images/banner_7.jpg"
@@ -92,7 +92,7 @@ export default function Jumbotron() {
       </SwiperSlide>
 
       {/* 주일 설교 */}
-      <SwiperSlide key={2} className={`h-[${height}px]`}>
+      <SwiperSlide key={5} className={`h-[${height}px]`}>
         <SundaySermon />
       </SwiperSlide>
     </Swiper>

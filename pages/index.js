@@ -46,6 +46,9 @@ export default function Home() {
       {/* 성락교회 미래세대 */}
       {/*<Department />*/}
 
+      {/* blank */}
+      <div className="h-16" />
+
       {/* 하단 메뉴 바 */}
       <HomeBar />
     </>
