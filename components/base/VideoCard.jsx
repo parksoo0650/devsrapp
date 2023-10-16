@@ -7,7 +7,7 @@ const VideoCard = ({ content }) => {
   const URL = `https://youtu.be/${content.videoId}`
 
   return (
-    <section className={`mb-4 ${animation.opacity}`}>
+    <section key={content.id} className={`mb-4 ${animation.opacity}`}>
       <img
         className="w-screen h-56 bg-no-repeat bg-center object-cover"
         src={`https://img.youtube.com/vi/${content.videoId}/mqdefault.jpg`}
