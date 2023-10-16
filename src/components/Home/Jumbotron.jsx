@@ -64,9 +64,22 @@ export default function Jumbotron() {
         />
       </SwiperSlide>
 
-      {/* 주일 설교 */}
-      <SwiperSlide key={2} className={`h-[${height}px]`}>
-        <SundaySermon />
+      {/* 화요 찬양 기도회 */}
+      <SwiperSlide key={3}>
+        <img
+          className="w-full bg-no-repeat bg-cover bg-center"
+          src="images/banner_11.jpg"
+          alt="화요 찬양 기도회"
+        />
+      </SwiperSlide>
+
+      {/* 헌신 1주차: 연합 */}
+      <SwiperSlide key={3}>
+        <img
+          className="w-full bg-no-repeat bg-cover bg-center"
+          src="images/banner_10.jpg"
+          alt="헌신 1주차: 연합"
+        />
       </SwiperSlide>
 
       {/* 무화과 카페 */}
@@ -76,6 +89,11 @@ export default function Jumbotron() {
           src="images/banner_7.jpg"
           alt="무화과 카페"
         />
+      </SwiperSlide>
+
+      {/* 주일 설교 */}
+      <SwiperSlide key={2} className={`h-[${height}px]`}>
+        <SundaySermon />
       </SwiperSlide>
     </Swiper>
   )

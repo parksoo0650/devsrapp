@@ -44,7 +44,9 @@ const Today = () => {
         title="성락교회 투데이"
         description="오늘도 성락교회 콘텐츠와 함께하세요!"
       />
-      <Select.Department departments={departments} setFilter={setFilter} />{' '}
+
+      {/* <Select.Department departments={departments} setFilter={setFilter} /> */}
+
       {/* 부서 선택 탭 */}
       <InfiniteScroll
         contents={contents}

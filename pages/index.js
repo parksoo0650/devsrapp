@@ -1,7 +1,8 @@
 import Jumbotron from '../src/components/Home/Jumbotron'
 import HomeBar from '../src/components/HomeBar'
 import Today from '@/components/today/Today'
-import PrayerTitleButton from '@/components/PrayerTitleButton'
+import ListRow from '@components/molecule/ListRow'
+// import PrayerTitleButton from '@/components/PrayerTitleButton'
 import QuickMenu from '@/components/home/QuickMenu'
 import { HomeAppBar } from '@/components/base/AppBar'
 
@@ -15,12 +16,12 @@ export default function Home() {
       <Jumbotron />
 
       {/* 교회 기도제목 */}
-      {/*<ListRow.V1*/}
-      {/*    title="교회를 위한 기도제목 바로가기"*/}
-      {/*    backgroundColor="#88629B"*/}
-      {/*    route="/PrayerTitle"*/}
-      {/*/>*/}
-      <PrayerTitleButton />
+      <ListRow.V1
+        title="교회를 위한 기도제목 바로가기"
+        backgroundColor="#88629B"
+        route="/PrayerTitle"
+      />
+      {/* <PrayerTitleButton /> */}
 
       {/* 퀵 메뉴 7개 */}
       <QuickMenu />
